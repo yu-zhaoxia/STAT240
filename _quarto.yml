@@ -1,0 +1,20 @@
+project:
+  type: website
+
+website:
+  title: "STAT200C — Theory of Linear Models"
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - href: lectures/index.qmd
+        text: Lecture Notes
+      - href: assignments/index.qmd
+        text: Assignments
+      - href: exams/index.qmd
+        text: Exams
+
+format:
+  html:
+    theme: cosmo
+    toc: true

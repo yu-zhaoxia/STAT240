@@ -1,0 +1,10 @@
+---
+title: "STAT240"
+---
+
+Welcome to the STAT240 course website.
+
+## Course materials
+- [Lecture Notes](lectures/index.qmd)
+- [Assignments](assignments/index.qmd)
+- [Exams](exams/index.qmd)
