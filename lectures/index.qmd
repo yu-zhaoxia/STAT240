@@ -2,4 +2,5 @@
 title: "Lecture Notes"
 ---
 
-- [Introduction](Introduction.qmd)
+- [Lecture 01: Introduction](Introduction.qmd){target="_blank"}
+- [Lecture 02: Matrix Operations](Lecture02_MatrixOperations.qmd){target="_blank"}

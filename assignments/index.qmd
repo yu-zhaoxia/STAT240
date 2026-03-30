@@ -2,4 +2,4 @@
 title: "Assignments"
 ---
 
-- Assignment 01 (coming soon)
+- Assignment 01 can be found at the end of lecture 02 slides. Tentative due date: Monday, April 13th. 

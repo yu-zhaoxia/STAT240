@@ -46,7 +46,7 @@
     "href": "assignments/index.html",
     "title": "Assignments",
     "section": "",
-    "text": "Assignment 01 (coming soon)"
+    "text": "Assignment 01 can be found at the end of lecture 02 slides. Tentative due date: Monday, April 13th."
   },
   {
     "objectID": "exams/index.html",
@@ -60,6 +60,6 @@
     "href": "lectures/index.html",
     "title": "Lecture Notes",
     "section": "",
-    "text": "Introduction"
+    "text": "Lecture 01: Introduction\nLecture 02: Matrix Operations"
   }
 ]
