@@ -14,18 +14,46 @@
     "text": "The Iris Data\nIris data\n\nThree species of iris flowers: setosa, versicolor, and virginica\nFour features: sepal length, sepal width, petal length, and petal width"
   },
   {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#section",
-    "href": "lectures/Lecture02_MatrixOperations.html#section",
+    "objectID": "lectures/Lecture02_MatrixOperations.html#left-multiplication",
+    "href": "lectures/Lecture02_MatrixOperations.html#left-multiplication",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "",
-    "text": "A homework problem:\n\nFind a matrix \\(A\\) such that \\(AY\\) gives the difference of means vectors between iris setosa and iris versicolor\nFind a matrix \\(B\\) such that \\(YB\\) is column-standardized, i.e., the standard deviation of each column/feature is 1.\nCheck the following\n\nLet \\(C=\\mathbf I_{150} - \\frac{1}{150}J\\), where \\(J_{150\\times 150}\\) is an all-ones matrices . Use R to verify that \\(CY\\) centers each column/feature. The R code for \\(C\\) is ”\n\nC=diag(1,150) - \\frac{150}matrix(1, 150, 150)\n\nLet \\(S\\) be the sample covariance matrix. Use R to verify that each column of \\(CYS^{-1/2}\\) has been centered and standardized. Hints:\n\nS=cov(Y)\nTo compute \\(S^{-1/2}\\), you may need a R package, such as “qtl2pleio”."
+    "section": "Left Multiplication",
+    "text": "Left Multiplication\nLeft multiply a matrix to Y: Example 1\n\nConsider \\[A=\\frac{1}{150}\\mathbf{1}_{1\\times 150},\\] i.e., \\[A_{1\\times 150}=(\\frac{1}{150}, \\cdots, \\frac{1}{150})\\]\nWhat is \\(AY\\)?\nIn R, the correct syntax for matrix multiplication is\n\n%*%"
   },
   {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition",
-    "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition",
+    "objectID": "lectures/Lecture02_MatrixOperations.html#right-multiplication",
+    "href": "lectures/Lecture02_MatrixOperations.html#right-multiplication",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "Spectral Decomposition",
-    "text": "Spectral Decomposition\nSpectral Decomposition\n\nGenerate 1000 data points from a multivariation normal with mean \\(\\mathbf 0\\) and covariance matrix \\[\\Sigma=\\begin{pmatrix}0.8125000 & 0.3247595\\\\\n0.3247595 & 0.4375000\\end{pmatrix}\\]\nHow did I obtain this covariance matrix?\n\n\n\ntheta=-pi/6\nR=matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)), 2, 2)\nLambda=diag(c(1,0.25))\nSigma=R%*%Lambda%*%t(R)\nX=mvrnorm(1000, mu=rep(0,2), Sigma=Sigma)"
+    "section": "Right Multiplication",
+    "text": "Right Multiplication\nRight multiply a matrix to Y: convert cm to inch\n\nThe lengths in the iris data were measured using cm\n1cm = 0.393701inch. How to convert data to inch?\nLet \\[C=\\begin{pmatrix}\n0.393701 & 0 & 0 & 0\\\\\n0 & 0.393701 & 0 & 0\\\\\n0 & 0 & 0.393701 & 0\\\\\n0 & 0 & 0 & 0.393701\n\\end{pmatrix}\\]\n\\(Y_{150\\times 4}C_{4\\times 4}\\) is the data in inch."
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#left-vs-right-multiplication-practice",
+    "href": "lectures/Lecture02_MatrixOperations.html#left-vs-right-multiplication-practice",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Left vs Right Multiplication: Practice",
+    "text": "Left vs Right Multiplication: Practice\nA homework problem:\n\nFind a matrix \\(A\\) such that \\(AY\\) gives the difference of means vectors between iris setosa and iris versicolor\nFind a matrix \\(B\\) such that \\(YB\\) is column-standardized, i.e., the standard deviation of each column/feature is 1.\nCheck the following\n\nLet \\(C=\\mathbf I_{150} - \\frac{1}{150}J\\), where \\(J_{150\\times 150}\\) is an all-ones matrices . Use R to verify that \\(CY\\) centers each column/feature. The R code for \\(C\\) is ”\n\nC=diag(1,150) - \\frac{150}matrix(1, 150, 150)\n\nLet \\(S\\) be the sample covariance matrix. Use R to verify that each column of \\(CYS^{-1/2}\\) has been centered and standardized. Hints:\n\nS=cov(Y)\nTo compute \\(S^{-1/2}\\), you may need a R package, such as “qtl2pleio”."
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#generate-data-from-mvn",
+    "href": "lectures/Lecture02_MatrixOperations.html#generate-data-from-mvn",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Generate Data from MVN",
+    "text": "Generate Data from MVN\n\nGenerate 1000 data points from a multivariate normal with mean \\(\\mathbf 0\\) and covariance matrix \\[\\Sigma=\\begin{pmatrix}0.8125000 & 0.3247595\\\\\n0.3247595 & 0.4375000\\end{pmatrix}\\]\nHow did I obtain this covariance matrix?\n\n\n\ntheta=-pi/6\nR=matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)), 2, 2)\nLambda=diag(c(1,0.25))\nSigma=R%*%Lambda%*%t(R)\nX=mvrnorm(1000, mu=rep(0,2), Sigma=Sigma)"
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#mvn-data-visualization",
+    "href": "lectures/Lecture02_MatrixOperations.html#mvn-data-visualization",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "MVN data: Visualization",
+    "text": "MVN data: Visualization\n\nScatter plot of the data \\(X\\)\n\n\n\nplot(X, xlim=c(-3,3), ylim=c(-3,3), xlab=\"\", ylab=\"\", main=\"original\")\nabline(a=0, b=1/2, col=\"red\")"
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
+    "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Spectral Decomposition of Sample Covariance Matrix",
+    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8656741  0.5006080\n[2,] -0.5006080 -0.8656741\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n         [,1]      [,2]\n[1,] 0.992433 0.0000000\n[2,] 0.000000 0.2511064"
   },
   {
     "objectID": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
