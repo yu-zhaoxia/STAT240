@@ -2,7 +2,7 @@ project:
   type: website
 
 website:
-  title: "STAT200C — Theory of Linear Models"
+  title: "STAT240 — Multivariate Analysis: Theory, Methods, and Practice"
   navbar:
     left:
       - href: index.qmd

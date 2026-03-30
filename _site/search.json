@@ -1,0 +1,65 @@
+[
+  {
+    "objectID": "lectures/index.html",
+    "href": "lectures/index.html",
+    "title": "Lecture Notes",
+    "section": "",
+    "text": "Lecture 01 (coming soon)"
+  },
+  {
+    "objectID": "exams/index.html",
+    "href": "exams/index.html",
+    "title": "Exams",
+    "section": "",
+    "text": "Midterm (coming soon)\nFinal (coming soon)"
+  },
+  {
+    "objectID": "assignments/index.html",
+    "href": "assignments/index.html",
+    "title": "Assignments",
+    "section": "",
+    "text": "Assignment 01 (coming soon)"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT240",
+    "section": "",
+    "text": "Welcome to the STAT240 course website."
+  },
+  {
+    "objectID": "index.html#course-materials",
+    "href": "index.html#course-materials",
+    "title": "STAT240",
+    "section": "Course materials",
+    "text": "Course materials\n\nLecture Notes\nAssignments\nExams"
+  },
+  {
+    "objectID": "lectures/Introduction.html#introduction",
+    "href": "lectures/Introduction.html#introduction",
+    "title": "Multivariate Analysis",
+    "section": "Introduction",
+    "text": "Introduction\nCourse Information\n\nPlease use the Canvas website for important updates, and deadlines.\nThe course materials including lecture notes, homework, and projects will be posted here: https://yu-zhaoxia.github.io/STAT240/\nAnnouncements will be sent to the mailing list or posted in Canvas.\nAssignment submission: GradeScope on Canvas."
+  },
+  {
+    "objectID": "lectures/Introduction.html#vectors-we-begin-with-a-little-bit-matrix-algebra",
+    "href": "lectures/Introduction.html#vectors-we-begin-with-a-little-bit-matrix-algebra",
+    "title": "Multivariate Analysis",
+    "section": "Vectors: We begin with a little bit matrix algebra",
+    "text": "Vectors: We begin with a little bit matrix algebra\nVectors in R\n\nThere are many ways to create or define a vector in R\n\n\nx=rep(0.3, 4)\nx\n\n[1] 0.3 0.3 0.3 0.3\n\nx=seq(1, 4, by=0.2)\nx\n\n [1] 1.0 1.2 1.4 1.6 1.8 2.0 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 3.8 4.0\n\nc(\"a1\", \"a2\", \"a3\")\n\n[1] \"a1\" \"a2\" \"a3\""
+  },
+  {
+    "objectID": "lectures/Introduction.html#special-matrices",
+    "href": "lectures/Introduction.html#special-matrices",
+    "title": "Multivariate Analysis",
+    "section": "Special Matrices",
+    "text": "Special Matrices\nRow or Column Vectors\n\nA vector (column vector) is a special matrix consisting of a single column of elements. e.g., \\[a=\\begin{pmatrix}a_1\\\\ a_2 \\\\ a_3\\end{pmatrix}\\]\nA row vector is a special matrix consisting of a single row of elements \\[b=(b_1, b_2, b_3, b_4)\\]"
+  },
+  {
+    "objectID": "lectures/Introduction.html#common-vector-operations",
+    "href": "lectures/Introduction.html#common-vector-operations",
+    "title": "Multivariate Analysis",
+    "section": "Common Vector Operations",
+    "text": "Common Vector Operations\nScalar Multiplication"
+  }
+]

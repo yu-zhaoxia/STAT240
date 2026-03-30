@@ -2,4 +2,4 @@
 title: "Lecture Notes"
 ---
 
-- Lecture 01 (coming soon)
+- [Introduction](lectures/Introduction.qmd)
