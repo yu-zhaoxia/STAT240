@@ -1,40 +1,5 @@
 [
   {
-    "objectID": "lectures/index.html",
-    "href": "lectures/index.html",
-    "title": "Lecture Notes",
-    "section": "",
-    "text": "Lecture 01 (coming soon)"
-  },
-  {
-    "objectID": "exams/index.html",
-    "href": "exams/index.html",
-    "title": "Exams",
-    "section": "",
-    "text": "Midterm (coming soon)\nFinal (coming soon)"
-  },
-  {
-    "objectID": "assignments/index.html",
-    "href": "assignments/index.html",
-    "title": "Assignments",
-    "section": "",
-    "text": "Assignment 01 (coming soon)"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT240",
-    "section": "",
-    "text": "Welcome to the STAT240 course website."
-  },
-  {
-    "objectID": "index.html#course-materials",
-    "href": "index.html#course-materials",
-    "title": "STAT240",
-    "section": "Course materials",
-    "text": "Course materials\n\nLecture Notes\nAssignments\nExams"
-  },
-  {
     "objectID": "lectures/Introduction.html#introduction",
     "href": "lectures/Introduction.html#introduction",
     "title": "Multivariate Analysis",
@@ -61,5 +26,40 @@
     "title": "Multivariate Analysis",
     "section": "Common Vector Operations",
     "text": "Common Vector Operations\nScalar Multiplication"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT240",
+    "section": "",
+    "text": "Welcome to the STAT240 course website."
+  },
+  {
+    "objectID": "index.html#course-materials",
+    "href": "index.html#course-materials",
+    "title": "STAT240",
+    "section": "Course materials",
+    "text": "Course materials\n\nLecture Notes\nAssignments\nExams"
+  },
+  {
+    "objectID": "assignments/index.html",
+    "href": "assignments/index.html",
+    "title": "Assignments",
+    "section": "",
+    "text": "Assignment 01 (coming soon)"
+  },
+  {
+    "objectID": "exams/index.html",
+    "href": "exams/index.html",
+    "title": "Exams",
+    "section": "",
+    "text": "Midterm (coming soon)\nFinal (coming soon)"
+  },
+  {
+    "objectID": "lectures/index.html",
+    "href": "lectures/index.html",
+    "title": "Lecture Notes",
+    "section": "",
+    "text": "Introduction"
   }
 ]
