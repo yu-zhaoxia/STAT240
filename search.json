@@ -14,6 +14,13 @@
     "text": "The Iris Data\nIris data\n\nThree species of iris flowers: setosa, versicolor, and virginica\nFour features: sepal length, sepal width, petal length, and petal width"
   },
   {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#section",
+    "href": "lectures/Lecture02_MatrixOperations.html#section",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "",
+    "text": "A homework problem:\n\nFind a matrix \\(A\\) such that \\(AY\\) gives the difference of means vectors between iris setosa and iris versicolor\nFind a matrix \\(B\\) such that \\(YB\\) is column-standardized, i.e., the standard deviation of each column/feature is 1.\nCheck the following\n\nLet \\(C=\\mathbf I_{150} - \\frac{1}{150}J\\), where \\(J_{150\\times 150}\\) is an all-ones matrices . Use R to verify that \\(CY\\) centers each column/feature. The R code for \\(C\\) is ”\n\nC=diag(1,150) - \\frac{150}matrix(1, 150, 150)\n\nLet \\(S\\) be the sample covariance matrix. Use R to verify that each column of \\(CYS^{-1/2}\\) has been centered and standardized. Hints:\n\nS=cov(Y)\nTo compute \\(S^{-1/2}\\), you may need a R package, such as “qtl2pleio”."
+  },
+  {
     "objectID": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition",
     "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
@@ -42,8 +49,8 @@
     "text": "Futher reading\n\nChronecker product: Gerald S. Rogers. (1984) Kronecker Products in ANOVA-A First Step. The American Statistician, 38: 197-202.\nSVD: Biclustering via Sparse Singular Value Decomposition” https://www.unc.edu/~haipeng/publication/ssvd.pdf"
   },
   {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#homework-1",
-    "href": "lectures/Lecture02_MatrixOperations.html#homework-1",
+    "objectID": "lectures/Lecture02_MatrixOperations.html#homework-1-1",
+    "href": "lectures/Lecture02_MatrixOperations.html#homework-1-1",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
     "section": "Homework 1",
     "text": "Homework 1\nProblem 1\n\nSuppose \\(X_1, X_2, Y_1, Y_2\\) are mutually independent.\n\n\\(X_1\\) and \\(X_2\\) are iid from \\(N(\\mu=0, \\sigma_x^2=2^2)\\)\n\\(Y_1\\) and \\(Y_2\\) are iid from \\(N(\\mu=0, \\sigma_y^2=1^2)\\) Consider the two pairs \\((X_1, X_2)\\) and \\((Y_1, Y_2)\\). Which pair tends to have a larger difference? To answer the question, please calculate and estimate the following two probabilities: \\[P(|X_1-X_2|&gt;4), P(|Y_1-Y_2|&gt;4)\\]\n\nThe hints for calculating/estimating \\(P(|X_1-X_2|&gt;4)\\) can be found in the two slides. Using similar strategies, you can calculate/estimate \\(P(|Y_1-Y_2|&gt;4)\\)"
