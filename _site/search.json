@@ -1,5 +1,229 @@
 [
   {
+    "objectID": "lectures/Lecture03_RandomV.html#random-matrix",
+    "href": "lectures/Lecture03_RandomV.html#random-matrix",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Random Matrix",
+    "text": "Random Matrix\n\\[\\mathbf X =\\begin{pmatrix}\nX_{11} & X_{12} & \\cdots & X_{1j} & \\cdots & X_{1p}\\\\\nX_{21} & X_{22} & \\cdots & X_{2j} & \\cdots & X_{2p}\\\\\n\\cdots & \\cdots & \\cdots & \\cdots & \\cdots & \\cdots\\\\\nX_{i1} & X_{i2} & \\cdots & \\color{red}{X_{ij}} & \\cdots & X_{ip}\\\\\n\\cdots & \\cdots & \\cdots & \\cdots & \\cdots & \\cdots\\\\\nX_{n1} & X_{n2} & \\cdots & X_{nj} & \\cdots & X_{np}\\\\\n\\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#definitions-and-notations",
+    "href": "lectures/Lecture03_RandomV.html#definitions-and-notations",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Definitions and Notations",
+    "text": "Definitions and Notations\n\n\\(X_{ij}\\), e.g. \\(X_{12}\\), is a random variable.\nrandom vectors\n\n\\((X_{i1}, \\cdots, X_{ip})\\) is a random vector (row vector).\n\\((X_{1j}, \\cdots, X_{nj})^T\\) is a random vector (column vector).\n\n\\(\\mathbf{X}\\) is a \\(n\\times p\\) random matrix."
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#assumptions",
+    "href": "lectures/Lecture03_RandomV.html#assumptions",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Assumptions",
+    "text": "Assumptions\n\nA typical scenario for the \\(n\\times p\\) matrix \\(\\mathbf X\\) is that we have \\(n\\) independent and identically distributed (iid) rows\nEach row follows a p-dimensional multivariate distribution (say, multivariate normal). The variables in each row may be correlated and we typically estimate the covariance/correlation matrix to capture the correlation.\nEach column follows a multivariate distribution and the random variables of each columns are independent and identically distributed (iid)."
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#a-univariate-random-sample",
+    "href": "lectures/Lecture03_RandomV.html#a-univariate-random-sample",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "A Univariate Random Sample",
+    "text": "A Univariate Random Sample\n\nLet’s focus on the \\(j\\)th column. \\[\n\\begin{pmatrix}\n\\color{red}{X_{1j}}\\\\\n\\color{red}{X_{2j}}\\\\\n\\color{red}{\\cdots}\\\\\n\\color{red}{X_{ij}}\\\\\n\\color{red}{\\cdots}\\\\\n\\color{red}{X_{nj}}\\\\\n\\end{pmatrix}\n\\]"
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#a-multivariate-random-sample",
+    "href": "lectures/Lecture03_RandomV.html#a-multivariate-random-sample",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "A Multivariate Random Sample",
+    "text": "A Multivariate Random Sample\n\nWe now switch to the rows. Each row is a random vector of dimension \\(p\\) from a multivariate (p-dimensional) distribution.\n\n\\[\\mathbf X =\\begin{pmatrix}\nX_{11} & X_{12} & \\cdots & X_{1j} & \\cdots & X_{1p}\\\\\nX_{21} & X_{22} & \\cdots & X_{2j} & \\cdots & X_{2p}\\\\\n\\cdots & \\cdots & \\cdots & \\cdots & \\cdots & \\cdots\\\\\n\\color{red}{X_{i1}} & \\color{red}{X_{i2}} & \\color{red}{\\cdots} & \\color{red}{X_{ij}} & \\color{red}{\\cdots} & \\color{red}{X_{ip}}\\\\\n\\cdots & \\cdots & \\cdots & \\cdots & \\cdots & \\cdots\\\\\nX_{n1} & X_{n2} & \\cdots & X_{nj} & \\cdots & X_{np}\\\\\n\\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#random-variables",
+    "href": "lectures/Lecture03_RandomV.html#random-variables",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Random Variables",
+    "text": "Random Variables\nWhat Is a Random Variable?\n\nA random variable is a numerical quantity that takes on different values with certain probabilities.\ne.g., a normal distributed random variable takes values between \\(-\\infty\\) to \\(\\infty\\).\nIt represents the outcome of a random event or experiment.\ne.g., the BMI of a randomly chosen adult living in Canada\nRandom variables can be discrete or continuous."
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#a-random-sample-of-random-variables",
+    "href": "lectures/Lecture03_RandomV.html#a-random-sample-of-random-variables",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "A Random Sample of Random Variables",
+    "text": "A Random Sample of Random Variables\nRandom Samples (from Simple Random Sampling)\n\nIn a simple random sample, each member of the population is selected independently and with equal probability.\nObtaining a truly random sample can often be challenging. Reasons:\n\nit may be difficult or impossible to obtain a complete list of all members of the population of interest.\nit may be costly or time-consuming to sample from the entire population.\nthere may be practical constraints on the sampling process, such as geographic distance, language barriers, or legal restrictions.\ncertain subgroups of the population may be underrepresented or difficult to reach, leading to potential biases in the sample.\n\nNevertheless, we assume the samples are simple random samples for theoretical derivations"
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#random-vectors",
+    "href": "lectures/Lecture03_RandomV.html#random-vectors",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Random Vectors",
+    "text": "Random Vectors\nNotations for Random Vectors\n\nA random vector is a vector whose elements are random variables. e.g., \\[\\mathbf{X} = \\begin{pmatrix} X_1\\\\ X_2\\\\ X_3\\end{pmatrix}\\] where each \\(X_i\\) is a random variable"
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#the-expectation-of-a-random-vector",
+    "href": "lectures/Lecture03_RandomV.html#the-expectation-of-a-random-vector",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "The Expectation of A Random Vector",
+    "text": "The Expectation of A Random Vector\n\nLet \\(E(\\mathbf{X})\\) denote the mean vector of \\(\\mathbf{X}_{p\\times 1}\\). We have\n\n\\[\\boldsymbol \\mu=E(\\mathbf{X})\\overset{def}=\\begin{pmatrix}\\mu_1\\\\ \\vdots \\\\\\mu_p \\end{pmatrix}, \\] where \\(\\mu_i=E(X_i), i=1, \\cdots, p\\)."
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#the-variance-covariance-of-a-random-vector",
+    "href": "lectures/Lecture03_RandomV.html#the-variance-covariance-of-a-random-vector",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "The Variance-Covariance of A Random Vector",
+    "text": "The Variance-Covariance of A Random Vector\n\nThe variance-covariance matrix of a random vector X is a square matrix that summarizes the variability and dependence among its components.\nIt is denoted by the symbol \\(Var(\\mathbf X)\\), \\(Cov(\\mathbf X)\\), or \\(\\Sigma\\) and is given by:\n\n\n\\[\\begin{aligned}\n\\Sigma &\\overset{def} = E[(\\mathbf X - \\boldsymbol \\mu)(\\mathbf X - \\boldsymbol \\mu)^T]\\\\\n&=\n\\begin{bmatrix}\nVar(X_1) & Cov(X_1, X_2) & \\cdots & Cov(X_1, X_p) \\\\\nCov(X_2, X_1) & Var(X_2) & \\cdots & Cov(X_2, X_p) \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\nCov(X_p, X_1) & Cov(X_n, X_2) & \\cdots & Var(X_p)\n\\end{bmatrix}\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#correlation-matrix",
+    "href": "lectures/Lecture03_RandomV.html#correlation-matrix",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Correlation Matrix",
+    "text": "Correlation Matrix\n\nA correlation matrix is a table showing correlation coefficients between different variables.\nThe correlation coefficient measures the strength and direction of the linear relationship between two variables.\n\\[\n\\text{Corr}(X_i,X_j)=\\frac{\\text{Cov}(X_i,X_j)}{\\sqrt{Var(X_i)}\\sqrt{Var(X_j)}}=\\frac{\\sigma_{ij}}{\\sigma_i \\sigma_j}\n\\]"
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#covariance-matrix-of-two-random-vectors",
+    "href": "lectures/Lecture03_RandomV.html#covariance-matrix-of-two-random-vectors",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Covariance Matrix of Two Random Vectors",
+    "text": "Covariance Matrix of Two Random Vectors\n\nThe covariance matrix of two random vectors \\(\\mathbf{X}=(X_1,\\dots,X_p)^T\\) and \\(\\mathbf{Y}=(Y_1,\\dots,Y_q)^T\\) is a \\(p\\times q\\) matrix defined as\n\n\\[\n\\begin{aligned}\n\\mathbf{Cov}(\\mathbf{X},\\mathbf{Y}) & \\overset{def}= E[(\\mathbf X-\\boldsymbol \\mu_X)(\\mathbf Y-\\boldsymbol \\mu_Y)^T]\\\\\n&= \\begin{bmatrix} \\text{Cov}(X_1,Y_1) & \\cdots & \\text{Cov}(X_1,Y_q) \\\\ \\vdots & \\ddots & \\vdots \\\\ \\text{Cov}(X_p,Y_1) & \\cdots & \\text{Cov}(X_p,Y_q) \\end{bmatrix}\n\\end{aligned}\\]\n\nEach element of the matrix is the covariance between two corresponding elements of the vectors."
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#covariance-matrix-of-two-random-vectors-1",
+    "href": "lectures/Lecture03_RandomV.html#covariance-matrix-of-two-random-vectors-1",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Covariance Matrix of Two Random Vectors",
+    "text": "Covariance Matrix of Two Random Vectors\n\nE.g.,\n\\[\\mathbf X_{2\\times 1}=\\begin{pmatrix}X_1 & X_2\\end{pmatrix}^T, \\mathbf Y_{3\\times 1}=\\begin{pmatrix}Y_1 & Y_2 & Y_3\\end{pmatrix}^T\\]\n\\[\n\\begin{aligned}\nCov(\\mathbf X,\\mathbf Y)=& E[(X-E(X))(Y-E(Y))^T]\\\\\n=&E[\\begin{pmatrix}X_1 -\\mu_{x1} \\\\ X_2- \\mu_{x2}\\end{pmatrix}\n(Y_1-\\mu_{y1}, Y_2 -\\mu_{y2}, Y_3-\\mu_{y3})]\\\\\n=&\\begin{bmatrix}\nE[(X_1 -\\mu_{x1})(Y_1 -\\mu_{y1})] &E[(X_1 -\\mu_{x1})(Y_2 -\\mu_{y2})]  &E[(X_1 -\\mu_{x1})(Y_3 -\\mu_{y3})] \\\\\nE[(X_2 -\\mu_{x2})(Y_1 -\\mu_{y1})] &E[(X_2 -\\mu_{x2})(Y_2 -\\mu_{y2})]  &E[(X_3 -\\mu_{x3})(Y_3 -\\mu_{y3})]\\end{bmatrix}\\\\\n=&\\begin{bmatrix}\nCov(X_1, Y_1) & Cov(X_1, Y_2) & Cov(X_1, Y_3)\\\\\nCov(X_2, Y_1) & Cov(X_2, Y_2) & Cov(X_2, Y_3)\n\\end{bmatrix}\n\\end{aligned}\\]\nNote: \\(\\mathbf{Cov}(\\mathbf{X},\\mathbf{Y}) = [\\mathbf{Cov}(\\mathbf{Y},\\mathbf{X})]^T\\)"
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#a-random-sample-of-random-vectors",
+    "href": "lectures/Lecture03_RandomV.html#a-random-sample-of-random-vectors",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "A Random Sample of Random Vectors",
+    "text": "A Random Sample of Random Vectors\n\nConsider a random sample from a distribution with mean vector \\(\\boldsymbol \\mu_{p\\times 1}\\) and covariance \\(\\boldsymbol \\Sigma_{p\\times p}\\)\nA random sample of random vectors is a collection of \\(n\\) independent and identically distributed random vectors, denoted as \\(\\mathbf{X}_1, \\mathbf{X}_2, \\dots, \\mathbf{X}_n\\)."
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#sample-mean-vector-barmathbfx_ptimes-1",
+    "href": "lectures/Lecture03_RandomV.html#sample-mean-vector-barmathbfx_ptimes-1",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Sample Mean Vector \\(\\bar{\\mathbf{X}}_{p\\times 1}\\)",
+    "text": "Sample Mean Vector \\(\\bar{\\mathbf{X}}_{p\\times 1}\\)\n\nThe sample mean vector, denoted as \\(\\bar{\\mathbf{X}}\\), is a random vector of dimension \\(p\\), defined as: \\[\n\\bar{\\mathbf{X}} = \\frac{1}{n}\\sum_{i=1}^n \\mathbf{X}_i\n\\]\nIt is unbiased for the population mean vector \\(\\boldsymbol \\mu\\) because\n\n\n\\[\nE[\\bar{\\mathbf{X}}]\n=\nE\\left[\\frac{1}{n}\\sum_{i=1}^n \\mathbf{X}_i\\right]\n=\n\\frac{1}{n}\\sum_{i=1}^n E[\\mathbf{X}_i]\n=\n\\frac{1}{n}\\sum_{i=1}^n \\boldsymbol{\\mu}\n=\n\\boldsymbol{\\mu}\n\\]\n\n\nThe sample mean vector \\(\\bar{\\mathbf{X}}\\) is often used to estimate the population mean vector \\(\\boldsymbol \\mu\\)."
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#the-covariance-of-the-sample-mean-vector",
+    "href": "lectures/Lecture03_RandomV.html#the-covariance-of-the-sample-mean-vector",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "The Covariance of the Sample Mean Vector",
+    "text": "The Covariance of the Sample Mean Vector\n\nThe sample mean vector, denoted as \\(\\bar{\\mathbf{X}}\\), is a random vector of dimension \\(p\\). We can also compute its covariance matrix\nBecause \\((\\mathbf X_1, \\cdots, \\mathbf X_n)\\) are iid ,\n\n\\[Cov(\\bar{\\mathbf{X}}) = Cov(\\frac{1}{n}\\sum_{i=1}^n \\mathbf{X}_i)= \\frac{1}{n^2}\\sum_{i=1}^n Cov(\\mathbf{X}_i)=\\frac{1}{n}\\boldsymbol \\Sigma\\]\n\nSimilar to the population mean vector, the population covariance \\(\\boldsymbol \\Sigma\\) is typically unknown. If we have a random sample, we can estimate it - the sample covariance matrix."
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#sample-covariance-matrix-mathbfs_ptimes-p",
+    "href": "lectures/Lecture03_RandomV.html#sample-covariance-matrix-mathbfs_ptimes-p",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Sample Covariance Matrix \\(\\mathbf{S}_{p\\times p}\\)",
+    "text": "Sample Covariance Matrix \\(\\mathbf{S}_{p\\times p}\\)\n\nThe sample covariance matrix, denoted as \\(\\mathbf{S}\\), is a \\(p \\times p\\) symmetric matrix, defined as:\n\n\\[\n\\mathbf{S} = \\frac{1}{n-1}\\sum_{i=1}^n (\\mathbf{X}_i - \\bar{\\mathbf{X}})(\\mathbf{X}_i - \\bar{\\mathbf{X}})^T\n\\] - Next, we show that the sample covariance matrix \\(\\mathbf{S}\\) is an unbiased estimator of \\(\\boldsymbol{\\Sigma}\\):\n\\[\n\\mathbb{E}[\\mathbf{S}] = \\boldsymbol{\\Sigma}\n\\]"
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#examples-the-iris-setosa-data",
+    "href": "lectures/Lecture03_RandomV.html#examples-the-iris-setosa-data",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Examples: The Iris Setosa Data",
+    "text": "Examples: The Iris Setosa Data\n\nThe iris data consists of three random samples, one for each species. Consider the setosa sample.\nIt is a random sample (let’s assume it) of size 50.\nThe data matrix has \\(n=50\\) rows and \\(p=4\\) columns."
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#definition",
+    "href": "lectures/Lecture03_RandomV.html#definition",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Definition",
+    "text": "Definition\n\nLet \\(\\mathbf{X}\\) be a \\(p\\)-dimensional random vector with mean vector \\(\\boldsymbol{\\mu}\\) and covariance matrix \\(\\boldsymbol{\\Sigma}\\).\nConsider a linear combination of the form: \\[  Y = \\mathbf{a}^T\\mathbf{X}\\]\nwhere \\(\\mathbf{a}\\) is a \\(p\\)-dimensional constant vector.\nE.g., \\(\\mathbf X = (X_1, X_2, X_3)^T\\), \\(a=(1/3, 1/3, 1/3)^T\\). Then \\[Y=a^TX=\\frac{1}{3}(X_1 + X_2 + X_3)\\]"
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#mean",
+    "href": "lectures/Lecture03_RandomV.html#mean",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Mean",
+    "text": "Mean\nMean of \\(Y=a^TX\\)\n\nThe mean of \\(Y\\) can be expressed as: \\[\n\\begin{aligned}\nE(Y) &= E(\\mathbf{a}^T\\mathbf{X}) \\\\\n&= \\mathbf{a}^T E(\\mathbf{X}) \\\\\n&= \\mathbf{a}^T \\boldsymbol{\\mu}\n\\end{aligned}\n\\]\nIntuitively, the mean of \\(Y\\) is a weighted average of the components of \\(\\mathbf{X}\\), with weights given by the corresponding components of \\(\\mathbf{a}\\)."
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#variance",
+    "href": "lectures/Lecture03_RandomV.html#variance",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Variance",
+    "text": "Variance\nVariance of \\(Y\\)\n\nThe variance of \\(Y\\) can be expressed as: \\[\n\\begin{aligned}\n\\text{Var}(Y) &= \\text{Var}(\\mathbf{a}^T\\mathbf{X}) \\\\\n&= E[(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)^2]\\\\\n&=E[(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)^T]\\\\\n&=E[\\mathbf{a}^T(\\mathbf{X}-\\boldsymbol\\mu)(\\mathbf{X}-\\boldsymbol\\mu)^T\\mathbf a]\\\\\n&= \\mathbf{a}^T \\boldsymbol{\\Sigma} \\mathbf{a}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#quadratic-forms",
+    "href": "lectures/Lecture03_RandomV.html#quadratic-forms",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Quadratic Forms",
+    "text": "Quadratic Forms\n\nA quadratic form is a polynomial of degree 2 in the components of a vector, and it can be expressed as: \\[Q(\\mathbf{X}) = \\mathbf{X}^T \\mathbf{A} \\mathbf{X}\\] where \\(\\mathbf{A}\\) is a symmetric matrix.\nWe will discuss distributions of certain quadratics forms later."
+  },
+  {
+    "objectID": "lectures/Lecture03_RandomV.html#example-1",
+    "href": "lectures/Lecture03_RandomV.html#example-1",
+    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
+    "section": "Example",
+    "text": "Example\nLinear Combinations of Iris Setosa Features\n\nRecall that for the iris setosa, \\(\\mathbf X\\) is \\(50\\times 4\\).\nConsider a linear combination of the features \\(Y= \\mathbf Xb\\), where\n\n\\[\n    b=\\begin{pmatrix}\n    1/4 \\\\ 1/4 \\\\ 1/4 \\\\ 1/4\n    \\end{pmatrix}\n\\]\n\n\\(Yb\\) is a \\(50\\times 1\\) vector, with the \\(i\\)th row be the average of the four features of the \\(i\\)th iris setosa flower. To see this"
+  },
+  {
+    "objectID": "lectures/Introduction.html#introduction",
+    "href": "lectures/Introduction.html#introduction",
+    "title": "Multivariate Analysis",
+    "section": "Introduction",
+    "text": "Introduction\nCourse Information\n\nPlease use the Canvas website for important updates, and deadlines.\nThe course materials including lecture notes, homework, and projects will be posted here: https://yu-zhaoxia.github.io/STAT240/\nAnnouncements will be sent to the mailing list or posted in Canvas.\nAssignment submission: GradeScope on Canvas."
+  },
+  {
+    "objectID": "lectures/Introduction.html#vectors-we-begin-with-a-little-bit-matrix-algebra",
+    "href": "lectures/Introduction.html#vectors-we-begin-with-a-little-bit-matrix-algebra",
+    "title": "Multivariate Analysis",
+    "section": "Vectors: We begin with a little bit matrix algebra",
+    "text": "Vectors: We begin with a little bit matrix algebra\nVectors in R\n\nThere are many ways to create or define a vector in R\n\n\nx=rep(0.3, 4)\nx\n\n[1] 0.3 0.3 0.3 0.3\n\nx=seq(1, 4, by=0.2)\nx\n\n [1] 1.0 1.2 1.4 1.6 1.8 2.0 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 3.8 4.0\n\nc(\"a1\", \"a2\", \"a3\")\n\n[1] \"a1\" \"a2\" \"a3\""
+  },
+  {
+    "objectID": "lectures/Introduction.html#special-matrices",
+    "href": "lectures/Introduction.html#special-matrices",
+    "title": "Multivariate Analysis",
+    "section": "Special Matrices",
+    "text": "Special Matrices\nRow or Column Vectors\n\nA vector (column vector) is a special matrix consisting of a single column of elements. e.g., \\[a=\\begin{pmatrix}a_1\\\\ a_2 \\\\ a_3\\end{pmatrix}\\]\nA row vector is a special matrix consisting of a single row of elements \\[b=(b_1, b_2, b_3, b_4)\\]"
+  },
+  {
+    "objectID": "lectures/Introduction.html#common-vector-operations",
+    "href": "lectures/Introduction.html#common-vector-operations",
+    "title": "Multivariate Analysis",
+    "section": "Common Vector Operations",
+    "text": "Common Vector Operations\nScalar Multiplication"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT240",
+    "section": "",
+    "text": "Welcome to the STAT240 course website."
+  },
+  {
+    "objectID": "index.html#course-materials",
+    "href": "index.html#course-materials",
+    "title": "STAT240",
+    "section": "Course materials",
+    "text": "Course materials\n\nLecture Notes\nAssignments\nExams"
+  },
+  {
+    "objectID": "assignments/index.html",
+    "href": "assignments/index.html",
+    "title": "Assignments",
+    "section": "",
+    "text": "Assignment 01 can be found at the end of lecture 02 slides. Tentative due date: Monday, April 13th."
+  },
+  {
+    "objectID": "exams/index.html",
+    "href": "exams/index.html",
+    "title": "Exams",
+    "section": "",
+    "text": "Midterm (coming soon)\nFinal (coming soon)"
+  },
+  {
+    "objectID": "lectures/index.html",
+    "href": "lectures/index.html",
+    "title": "Lecture Notes",
+    "section": "",
+    "text": "Lecture 01: Introduction\nLecture 02: Matrix Operations"
+  },
+  {
     "objectID": "lectures/Lecture02_MatrixOperations.html#matrix-multiplication",
     "href": "lectures/Lecture02_MatrixOperations.html#matrix-multiplication",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
@@ -53,7 +277,7 @@
     "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
     "section": "Spectral Decomposition of Sample Covariance Matrix",
-    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8656741  0.5006080\n[2,] -0.5006080 -0.8656741\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n         [,1]      [,2]\n[1,] 0.992433 0.0000000\n[2,] 0.000000 0.2511064"
+    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8735056  0.4868141\n[2,] -0.4868141 -0.8735056\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n         [,1]      [,2]\n[1,] 1.014169 0.0000000\n[2,] 0.000000 0.2536736"
   },
   {
     "objectID": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
@@ -82,243 +306,5 @@
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
     "section": "Homework 1",
     "text": "Homework 1\nProblem 1\n\nSuppose \\(X_1, X_2, Y_1, Y_2\\) are mutually independent.\n\n\\(X_1\\) and \\(X_2\\) are iid from \\(N(\\mu=0, \\sigma_x^2=2^2)\\)\n\\(Y_1\\) and \\(Y_2\\) are iid from \\(N(\\mu=0, \\sigma_y^2=1^2)\\) Consider the two pairs \\((X_1, X_2)\\) and \\((Y_1, Y_2)\\). Which pair tends to have a larger difference? To answer the question, please calculate and estimate the following two probabilities: \\[P(|X_1-X_2|&gt;4), P(|Y_1-Y_2|&gt;4)\\]\n\nThe hints for calculating/estimating \\(P(|X_1-X_2|&gt;4)\\) can be found in the two slides. Using similar strategies, you can calculate/estimate \\(P(|Y_1-Y_2|&gt;4)\\)"
-  },
-  {
-    "objectID": "lectures/index.html",
-    "href": "lectures/index.html",
-    "title": "Lecture Notes",
-    "section": "",
-    "text": "Lecture 01: Introduction\nLecture 02: Matrix Operations"
-  },
-  {
-    "objectID": "exams/index.html",
-    "href": "exams/index.html",
-    "title": "Exams",
-    "section": "",
-    "text": "Midterm (coming soon)\nFinal (coming soon)"
-  },
-  {
-    "objectID": "assignments/index.html",
-    "href": "assignments/index.html",
-    "title": "Assignments",
-    "section": "",
-    "text": "Assignment 01 can be found at the end of lecture 02 slides. Tentative due date: Monday, April 13th."
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT240",
-    "section": "",
-    "text": "Welcome to the STAT240 course website."
-  },
-  {
-    "objectID": "index.html#course-materials",
-    "href": "index.html#course-materials",
-    "title": "STAT240",
-    "section": "Course materials",
-    "text": "Course materials\n\nLecture Notes\nAssignments\nExams"
-  },
-  {
-    "objectID": "lectures/Introduction.html#introduction",
-    "href": "lectures/Introduction.html#introduction",
-    "title": "Multivariate Analysis",
-    "section": "Introduction",
-    "text": "Introduction\nCourse Information\n\nPlease use the Canvas website for important updates, and deadlines.\nThe course materials including lecture notes, homework, and projects will be posted here: https://yu-zhaoxia.github.io/STAT240/\nAnnouncements will be sent to the mailing list or posted in Canvas.\nAssignment submission: GradeScope on Canvas."
-  },
-  {
-    "objectID": "lectures/Introduction.html#vectors-we-begin-with-a-little-bit-matrix-algebra",
-    "href": "lectures/Introduction.html#vectors-we-begin-with-a-little-bit-matrix-algebra",
-    "title": "Multivariate Analysis",
-    "section": "Vectors: We begin with a little bit matrix algebra",
-    "text": "Vectors: We begin with a little bit matrix algebra\nVectors in R\n\nThere are many ways to create or define a vector in R\n\n\nx=rep(0.3, 4)\nx\n\n[1] 0.3 0.3 0.3 0.3\n\nx=seq(1, 4, by=0.2)\nx\n\n [1] 1.0 1.2 1.4 1.6 1.8 2.0 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 3.8 4.0\n\nc(\"a1\", \"a2\", \"a3\")\n\n[1] \"a1\" \"a2\" \"a3\""
-  },
-  {
-    "objectID": "lectures/Introduction.html#special-matrices",
-    "href": "lectures/Introduction.html#special-matrices",
-    "title": "Multivariate Analysis",
-    "section": "Special Matrices",
-    "text": "Special Matrices\nRow or Column Vectors\n\nA vector (column vector) is a special matrix consisting of a single column of elements. e.g., \\[a=\\begin{pmatrix}a_1\\\\ a_2 \\\\ a_3\\end{pmatrix}\\]\nA row vector is a special matrix consisting of a single row of elements \\[b=(b_1, b_2, b_3, b_4)\\]"
-  },
-  {
-    "objectID": "lectures/Introduction.html#common-vector-operations",
-    "href": "lectures/Introduction.html#common-vector-operations",
-    "title": "Multivariate Analysis",
-    "section": "Common Vector Operations",
-    "text": "Common Vector Operations\nScalar Multiplication"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#random-matrix",
-    "href": "lectures/Lecture03_RandomV.html#random-matrix",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Random Matrix",
-    "text": "Random Matrix\n\\[\\mathbf X =\\begin{pmatrix}\nX_{11} & X_{12} & \\cdots & X_{1j} & \\cdots & X_{1p}\\\\\nX_{21} & X_{22} & \\cdots & X_{2j} & \\cdots & X_{2p}\\\\\n\\cdots & \\cdots & \\cdots & \\cdots & \\cdots & \\cdots\\\\\nX_{i1} & X_{i2} & \\cdots & \\color{red}{X_{ij}} & \\cdots & X_{ip}\\\\\n\\cdots & \\cdots & \\cdots & \\cdots & \\cdots & \\cdots\\\\\nX_{n1} & X_{n2} & \\cdots & X_{nj} & \\cdots & X_{np}\\\\\n\\end{pmatrix}\\]"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#definitions-and-notations",
-    "href": "lectures/Lecture03_RandomV.html#definitions-and-notations",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Definitions and Notations",
-    "text": "Definitions and Notations\n\n\\(X_{ij}\\), e.g. \\(X_{12}\\), is a random variable.\nrandom vectors\n\n\\((X_{i1}, \\cdots, X_{ip})\\) is a random vector (row vector).\n\\((X_{1j}, \\cdots, X_{nj})^T\\) is a random vector (column vector).\n\n\\(\\mathbf{X}\\) is a \\(n\\times p\\) random matrix."
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#assumption",
-    "href": "lectures/Lecture03_RandomV.html#assumption",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Assumption",
-    "text": "Assumption\n\nA typical scenario for the \\(n\\times p\\) matrix \\(\\mathbf X\\) is that we have \\(n\\) independent and identically distributed (iid) rows\nEach row follows a p-dimenstional multivariate distribution (say, multivariate normal)\n\nA Univariate Random Sample\n\nConsider a specific column, say the \\(j\\)th column.\n\n\\[\\mathbf X =\\begin{pmatrix}\nX_{11} & X_{12} & \\cdots & \\color{red}{X_{1j}} & \\cdots & X_{1p}\\\\\nX_{21} & X_{22} & \\cdots & \\color{red}{X_{2j}} & \\cdots & X_{2p}\\\\\n\\cdots & \\cdots & \\cdots & \\color{red}\\cdots & \\cdots & \\cdots\\\\\nX_{i1} & X_{i2} & \\cdots & \\color{red}{X_{ij}} & \\cdots & X_{ip}\\\\\n\\cdots & \\cdots & \\cdots & \\color{red}\\cdots & \\cdots & \\cdots\\\\\nX_{n1} & X_{n2} & \\cdots & \\color{red}{X_{nj}} & \\cdots & X_{np}\\\\\n\\end{pmatrix}\\]"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#random-variables",
-    "href": "lectures/Lecture03_RandomV.html#random-variables",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Random Variables",
-    "text": "Random Variables\nWhat Is a Random Variable?\n\nA random variable is a numerical quantity that takes on different values with certain probabilities.\ne.g., a normal distributed random variable takes values between \\(-\\infty\\) to \\(\\infty\\).\nIt represents the outcome of a random event or experiment.\ne.g., the BMI of a randomly chosen adult living in Canada\nRandom variables can be discrete or continuous."
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#a-random-sample-of-random-variables",
-    "href": "lectures/Lecture03_RandomV.html#a-random-sample-of-random-variables",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "A Random Sample of Random Variables",
-    "text": "A Random Sample of Random Variables\nRandom Samples (from Simple Random Sampling)\n\nIn a simple random sample, each member of the population is selected independently and with equal probability.\nObtaining a truly random sample can often be challenging. Reasons:\n\nit may be difficult or impossible to obtain a complete list of all members of the population of interest.\nit may be costly or time-consuming to sample from the entire population.\nthere may be practical constraints on the sampling process, such as geographic distance, language barriers, or legal restrictions.\ncertain subgroups of the population may be underrepresented or difficult to reach, leading to potential biases in the sample.\n\nNevertheless, we assume the samples are simple random samples for theoretical derivations"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#random-vectors",
-    "href": "lectures/Lecture03_RandomV.html#random-vectors",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Random Vectors",
-    "text": "Random Vectors\nNotations for Random Vectors\n\nA random vector is a vector whose elements are random variables. e.g., \\[\\mathbf{X} = \\begin{pmatrix} X_1\\\\ X_2\\\\ X_3\\end{pmatrix}\\] where each \\(X_i\\) is a random variable"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#a-random-sample-of-random-vectors",
-    "href": "lectures/Lecture03_RandomV.html#a-random-sample-of-random-vectors",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "A Random Sample of Random Vectors",
-    "text": "A Random Sample of Random Vectors\n\nConsider a random sample from a distribution with mean vector \\(\\boldsymbol \\mu_{p\\times 1}\\) and covariance \\(\\boldsymbol \\Sigma_{p\\times p}\\)\nA random sample of random vectors is a collection of \\(n\\) independent and identically distributed random vectors, denoted as \\(\\mathbf{X}_1, \\mathbf{X}_2, \\dots, \\mathbf{X}_n\\)."
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#definition",
-    "href": "lectures/Lecture03_RandomV.html#definition",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Definition",
-    "text": "Definition\n\nLet \\(\\mathbf{X}\\) be a \\(p\\)-dimensional random vector with mean vector \\(\\boldsymbol{\\mu}\\) and covariance matrix \\(\\boldsymbol{\\Sigma}\\).\nConsider a linear combination of the form: \\[  Y = \\mathbf{a}^T\\mathbf{X}\\]\nwhere \\(\\mathbf{a}\\) is a \\(p\\)-dimensional constant vector.\nE.g., \\(\\mathbf X = (X_1, X_2, X_3)^T\\), \\(a=(1/3, 1/3, 1/3)^T\\). Then \\[Y=a^TX=\\frac{1}{3}(X_1 + X_2 + X_3)\\]"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#mean",
-    "href": "lectures/Lecture03_RandomV.html#mean",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Mean",
-    "text": "Mean\nMean of \\(Y=a^TX\\)\n\nThe mean of \\(Y\\) can be expressed as: \\[\n\\begin{aligned}\nE(Y) &= E(\\mathbf{a}^T\\mathbf{X}) \\\\\n&= \\mathbf{a}^T E(\\mathbf{X}) \\\\\n&= \\mathbf{a}^T \\boldsymbol{\\mu}\n\\end{aligned}\n\\]\nIntuitively, the mean of \\(Y\\) is a weighted average of the components of \\(\\mathbf{X}\\), with weights given by the corresponding components of \\(\\mathbf{a}\\)."
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#variance",
-    "href": "lectures/Lecture03_RandomV.html#variance",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Variance",
-    "text": "Variance\nVariance of \\(Y\\)\n\nThe variance of \\(Y\\) can be expressed as: \\[\n\\begin{aligned}\n\\text{Var}(Y) &= \\text{Var}(\\mathbf{a}^T\\mathbf{X}) \\\\\n&= E[(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)^2]\\\\\n&=E[(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)^T]\\\\\n&=E[\\mathbf{a}^T(\\mathbf{X}-\\boldsymbol\\mu)(\\mathbf{X}-\\boldsymbol\\mu)^T\\mathbf a]\\\\\n&= \\mathbf{a}^T \\boldsymbol{\\Sigma} \\mathbf{a}\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#example",
-    "href": "lectures/Lecture03_RandomV.html#example",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Example",
-    "text": "Example\nLinear Combinations of Iris Setosa Features\n\nRecall that for the iris setosa, \\(\\mathbf X\\) is \\(50\\times 4\\).\nConsider a linear combination of the features \\(Y= \\mathbf Xb\\), where \\[\nb=\\begin{pmatrix}\n1/4 \\\\ 1/4 \\\\ 1/4 \\\\ 1/4\n\\end{pmatrix}\\]\n\\(Yb\\) is a \\(50\\times 1\\) vector, with the \\(i\\)th row be the average of the four features of the \\(i\\)th iris setosa flower. To see this"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#assumptions",
-    "href": "lectures/Lecture03_RandomV.html#assumptions",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Assumptions",
-    "text": "Assumptions\n\nA typical scenario for the \\(n\\times p\\) matrix \\(\\mathbf X\\) is that we have \\(n\\) independent and identically distributed (iid) rows\nEach row follows a p-dimensional multivariate distribution (say, multivariate normal). The variables in each row may be correlated and we typically estimate the covariance/correlation matrix to capture the correlation.\nEach column follows a multivariate distribution and the random variables of each columns are independent and identically distributed (iid)."
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#a-univariate-random-sample",
-    "href": "lectures/Lecture03_RandomV.html#a-univariate-random-sample",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "A Univariate Random Sample",
-    "text": "A Univariate Random Sample\n\nLet’s focus on the \\(j\\)th column. \\[\n\\begin{pmatrix}\n\\color{red}{X_{1j}}\\\\\n\\color{red}{X_{2j}}\\\\\n\\color{red}{\\cdots}\\\\\n\\color{red}{X_{ij}}\\\\\n\\color{red}{\\cdots}\\\\\n\\color{red}{X_{nj}}\\\\\n\\end{pmatrix}\n\\]"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#a-multivariate-random-sample",
-    "href": "lectures/Lecture03_RandomV.html#a-multivariate-random-sample",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "A Multivariate Random Sample",
-    "text": "A Multivariate Random Sample\n\nWe now switch to the rows. Each row is a random vector of dimension \\(p\\) from a multivariate (p-dimensional) distribution.\n\n\\[\\mathbf X =\\begin{pmatrix}\nX_{11} & X_{12} & \\cdots & X_{1j} & \\cdots & X_{1p}\\\\\nX_{21} & X_{22} & \\cdots & X_{2j} & \\cdots & X_{2p}\\\\\n\\cdots & \\cdots & \\cdots & \\cdots & \\cdots & \\cdots\\\\\n\\color{red}{X_{i1}} & \\color{red}{X_{i2}} & \\color{red}{\\cdots} & \\color{red}{X_{ij}} & \\color{red}{\\cdots} & \\color{red}{X_{ip}}\\\\\n\\cdots & \\cdots & \\cdots & \\cdots & \\cdots & \\cdots\\\\\nX_{n1} & X_{n2} & \\cdots & X_{nj} & \\cdots & X_{np}\\\\\n\\end{pmatrix}\\]"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#the-expectation-of-a-random-vector",
-    "href": "lectures/Lecture03_RandomV.html#the-expectation-of-a-random-vector",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "The Expectation of A Random Vector",
-    "text": "The Expectation of A Random Vector\n\nLet \\(E(\\mathbf{X})\\) denote the mean vector of \\(\\mathbf{X}_{p\\times 1}\\). We have\n\n\\[\\boldsymbol \\mu=E(\\mathbf{X})\\overset{def}=\\begin{pmatrix}\\mu_1\\\\ \\vdots \\\\\\mu_p \\end{pmatrix}, \\] where \\(\\mu_i=E(X_i), i=1, \\cdots, p\\)."
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#example-1",
-    "href": "lectures/Lecture03_RandomV.html#example-1",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Example",
-    "text": "Example\nLinear Combinations of Iris Setosa Features\n\nRecall that for the iris setosa, \\(\\mathbf X\\) is \\(50\\times 4\\).\nConsider a linear combination of the features \\(Y= \\mathbf Xb\\), where\n\n\\[\n    b=\\begin{pmatrix}\n    1/4 \\\\ 1/4 \\\\ 1/4 \\\\ 1/4\n    \\end{pmatrix}\n\\]\n\n\\(Yb\\) is a \\(50\\times 1\\) vector, with the \\(i\\)th row be the average of the four features of the \\(i\\)th iris setosa flower. To see this"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#the-variance-covariance-of-a-random-vector",
-    "href": "lectures/Lecture03_RandomV.html#the-variance-covariance-of-a-random-vector",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "The Variance-Covariance of A Random Vector",
-    "text": "The Variance-Covariance of A Random Vector\n\nThe variance-covariance matrix of a random vector X is a square matrix that summarizes the variability and dependence among its components.\nIt is denoted by the symbol \\(Var(\\mathbf X)\\), \\(Cov(\\mathbf X)\\), or \\(\\Sigma\\) and is given by:\n\n\n\\[\\begin{aligned}\n\\Sigma &\\overset{def} = E[(\\mathbf X - \\boldsymbol \\mu)(\\mathbf X - \\boldsymbol \\mu)^T]\\\\\n&=\n\\begin{bmatrix}\nVar(X_1) & Cov(X_1, X_2) & \\cdots & Cov(X_1, X_p) \\\\\nCov(X_2, X_1) & Var(X_2) & \\cdots & Cov(X_2, X_p) \\\\\n\\vdots & \\vdots & \\ddots & \\vdots \\\\\nCov(X_p, X_1) & Cov(X_n, X_2) & \\cdots & Var(X_p)\n\\end{bmatrix}\n\\end{aligned}\\]"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#correlation-matrix",
-    "href": "lectures/Lecture03_RandomV.html#correlation-matrix",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Correlation Matrix",
-    "text": "Correlation Matrix\n\nA correlation matrix is a table showing correlation coefficients between different variables.\nThe correlation coefficient measures the strength and direction of the linear relationship between two variables.\n\\[\n\\text{Corr}(X_i,X_j)=\\frac{\\text{Cov}(X_i,X_j)}{\\sqrt{Var(X_i)}\\sqrt{Var(X_j)}}=\\frac{\\sigma_{ij}}{\\sigma_i \\sigma_j}\n\\]"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#covariance-matrix-of-two-random-vectors",
-    "href": "lectures/Lecture03_RandomV.html#covariance-matrix-of-two-random-vectors",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Covariance Matrix of Two Random Vectors",
-    "text": "Covariance Matrix of Two Random Vectors\n\nThe covariance matrix of two random vectors \\(\\mathbf{X}=(X_1,\\dots,X_p)^T\\) and \\(\\mathbf{Y}=(Y_1,\\dots,Y_q)^T\\) is a \\(p\\times q\\) matrix defined as\n\n\\[\n\\begin{aligned}\n\\mathbf{Cov}(\\mathbf{X},\\mathbf{Y}) & \\overset{def}= E[(\\mathbf X-\\boldsymbol \\mu_X)(\\mathbf Y-\\boldsymbol \\mu_Y)^T]\\\\\n&= \\begin{bmatrix} \\text{Cov}(X_1,Y_1) & \\cdots & \\text{Cov}(X_1,Y_q) \\\\ \\vdots & \\ddots & \\vdots \\\\ \\text{Cov}(X_p,Y_1) & \\cdots & \\text{Cov}(X_p,Y_q) \\end{bmatrix}\n\\end{aligned}\\]\n\nEach element of the matrix is the covariance between two corresponding elements of the vectors."
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#covariance-matrix-of-two-random-vectors-1",
-    "href": "lectures/Lecture03_RandomV.html#covariance-matrix-of-two-random-vectors-1",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Covariance Matrix of Two Random Vectors",
-    "text": "Covariance Matrix of Two Random Vectors\n\nE.g.,\n\\[\\mathbf X_{2\\times 1}=\\begin{pmatrix}X_1 & X_2\\end{pmatrix}^T, \\mathbf Y_{3\\times 1}=\\begin{pmatrix}Y_1 & Y_2 & Y_3\\end{pmatrix}^T\\]\n\\[\n\\begin{aligned}\nCov(\\mathbf X,\\mathbf Y)=& E[(X-E(X))(Y-E(Y))^T]\\\\\n=&E[\\begin{pmatrix}X_1 -\\mu_{x1} \\\\ X_2- \\mu_{x2}\\end{pmatrix}\n(Y_1-\\mu_{y1}, Y_2 -\\mu_{y2}, Y_3-\\mu_{y3})]\\\\\n=&\\begin{bmatrix}\nE[(X_1 -\\mu_{x1})(Y_1 -\\mu_{y1})] &E[(X_1 -\\mu_{x1})(Y_2 -\\mu_{y2})]  &E[(X_1 -\\mu_{x1})(Y_3 -\\mu_{y3})] \\\\\nE[(X_2 -\\mu_{x2})(Y_1 -\\mu_{y1})] &E[(X_2 -\\mu_{x2})(Y_2 -\\mu_{y2})]  &E[(X_3 -\\mu_{x3})(Y_3 -\\mu_{y3})]\\end{bmatrix}\\\\\n=&\\begin{bmatrix}\nCov(X_1, Y_1) & Cov(X_1, Y_2) & Cov(X_1, Y_3)\\\\\nCov(X_2, Y_1) & Cov(X_2, Y_2) & Cov(X_2, Y_3)\n\\end{bmatrix}\n\\end{aligned}\\]\nNote: \\(\\mathbf{Cov}(\\mathbf{X},\\mathbf{Y}) = [\\mathbf{Cov}(\\mathbf{Y},\\mathbf{X})]^T\\)"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#examples-the-iris-setosa-data",
-    "href": "lectures/Lecture03_RandomV.html#examples-the-iris-setosa-data",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Examples: The Iris Setosa Data",
-    "text": "Examples: The Iris Setosa Data\n\nThe iris data consists of three random samples, one for each species. Consider the setosa sample.\nIt is a random sample (let’s assume it) of size 50.\nThe data matrix has \\(n=50\\) rows and \\(p=4\\) columns."
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#sample-mean-vector-barmathbfx_ptimes-1",
-    "href": "lectures/Lecture03_RandomV.html#sample-mean-vector-barmathbfx_ptimes-1",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Sample Mean Vector \\(\\bar{\\mathbf{X}}_{p\\times 1}\\)",
-    "text": "Sample Mean Vector \\(\\bar{\\mathbf{X}}_{p\\times 1}\\)\n\nThe sample mean vector, denoted as \\(\\bar{\\mathbf{X}}\\), is a random vector of dimension \\(p\\), defined as: \\[\n\\bar{\\mathbf{X}} = \\frac{1}{n}\\sum_{i=1}^n \\mathbf{X}_i\n\\]\nIt is unbiased for the population mean vector \\(\\boldsymbol \\mu\\) because\n\n\n\\[\nE[\\bar{\\mathbf{X}}]\n=\nE\\left[\\frac{1}{n}\\sum_{i=1}^n \\mathbf{X}_i\\right]\n=\n\\frac{1}{n}\\sum_{i=1}^n E[\\mathbf{X}_i]\n=\n\\frac{1}{n}\\sum_{i=1}^n \\boldsymbol{\\mu}\n=\n\\boldsymbol{\\mu}\n\\]\n\n\nThe sample mean vector \\(\\bar{\\mathbf{X}}\\) is often used to estimate the population mean vector \\(\\boldsymbol \\mu\\)."
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#the-covariance-of-the-sample-mean-vector",
-    "href": "lectures/Lecture03_RandomV.html#the-covariance-of-the-sample-mean-vector",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "The Covariance of the Sample Mean Vector",
-    "text": "The Covariance of the Sample Mean Vector\n\nThe sample mean vector, denoted as \\(\\bar{\\mathbf{X}}\\), is a random vector of dimension \\(p\\). We can also compute its covariance matrix\nBecause \\((\\mathbf X_1, \\cdots, \\mathbf X_n)\\) are iid ,\n\n\\[Cov(\\bar{\\mathbf{X}}) = Cov(\\frac{1}{n}\\sum_{i=1}^n \\mathbf{X}_i)= \\frac{1}{n^2}\\sum_{i=1}^n Cov(\\mathbf{X}_i)=\\frac{1}{n}\\boldsymbol \\Sigma\\]\n\nSimilar to the population mean vector, the population covariance \\(\\boldsymbol \\Sigma\\) is typically unknown. If we have a random sample, we can estimate it - the sample covariance matrix."
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#sample-covariance-matrix-mathbfs_ptimes-p",
-    "href": "lectures/Lecture03_RandomV.html#sample-covariance-matrix-mathbfs_ptimes-p",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Sample Covariance Matrix \\(\\mathbf{S}_{p\\times p}\\)",
-    "text": "Sample Covariance Matrix \\(\\mathbf{S}_{p\\times p}\\)\n\nThe sample covariance matrix, denoted as \\(\\mathbf{S}\\), is a \\(p \\times p\\) symmetric matrix, defined as:\n\n\\[\n\\mathbf{S} = \\frac{1}{n-1}\\sum_{i=1}^n (\\mathbf{X}_i - \\bar{\\mathbf{X}})(\\mathbf{X}_i - \\bar{\\mathbf{X}})^T\n\\] - Next, we show that the sample covariance matrix \\(\\mathbf{S}\\) is an unbiased estimator of \\(\\boldsymbol{\\Sigma}\\):\n\\[\n\\mathbb{E}[\\mathbf{S}] = \\boldsymbol{\\Sigma}\n\\]"
-  },
-  {
-    "objectID": "lectures/Lecture03_RandomV.html#quadratic-forms",
-    "href": "lectures/Lecture03_RandomV.html#quadratic-forms",
-    "title": "Multivariate Analysis Lecture 3: Random Vectors and Random Samples",
-    "section": "Quadratic Forms",
-    "text": "Quadratic Forms\n\nA quadratic form is a polynomial of degree 2 in the components of a vector, and it can be expressed as: \\[Q(\\mathbf{X}) = \\mathbf{X}^T \\mathbf{A} \\mathbf{X}\\] where \\(\\mathbf{A}\\) is a symmetric matrix.\nWe will discuss distributions of certain quadratics forms later."
   }
 ]
