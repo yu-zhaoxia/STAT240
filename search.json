@@ -221,7 +221,7 @@
     "href": "lectures/index.html",
     "title": "Lecture Notes",
     "section": "",
-    "text": "Lecture 01: Introduction\nLecture 02: Matrix Operations"
+    "text": "Lecture 01: Introduction\nLecture 02: Matrix Operations\nLecture 03: Matrix Operations"
   },
   {
     "objectID": "lectures/Lecture02_MatrixOperations.html#matrix-multiplication",
@@ -277,7 +277,7 @@
     "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
     "section": "Spectral Decomposition of Sample Covariance Matrix",
-    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8735056  0.4868141\n[2,] -0.4868141 -0.8735056\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n         [,1]      [,2]\n[1,] 1.014169 0.0000000\n[2,] 0.000000 0.2536736"
+    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8712073  0.4909153\n[2,] -0.4909153 -0.8712073\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n          [,1]      [,2]\n[1,] 0.9682703 0.0000000\n[2,] 0.0000000 0.2454384"
   },
   {
     "objectID": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
