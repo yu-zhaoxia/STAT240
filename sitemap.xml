@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture02_MatrixOperations.html</loc>
-    <lastmod>2026-03-30T15:14:29.801Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture03_RandomV.html</loc>
+    <lastmod>2026-04-06T07:11:30.335Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/index.html</loc>
-    <lastmod>2026-03-30T04:13:33.290Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Introduction.html</loc>
+    <lastmod>2026-03-30T05:00:03.918Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/exams/index.html</loc>
+    <loc>https://yu-zhaoxia.github.io/STAT240/index.html</loc>
     <lastmod>2026-03-30T00:04:05.260Z</lastmod>
   </url>
   <url>
@@ -17,11 +17,15 @@
     <lastmod>2026-03-30T04:54:14.214Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/index.html</loc>
+    <loc>https://yu-zhaoxia.github.io/STAT240/exams/index.html</loc>
     <lastmod>2026-03-30T00:04:05.260Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Introduction.html</loc>
-    <lastmod>2026-03-30T05:00:03.918Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/index.html</loc>
+    <lastmod>2026-03-30T04:13:33.290Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture02_MatrixOperations.html</loc>
+    <lastmod>2026-03-30T15:14:29.801Z</lastmod>
   </url>
 </urlset>
