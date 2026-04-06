@@ -1,8 +1,16 @@
 ---
-title: "Lecture 02: Matrix Operations"
+title: "Multivariate Analysis Lecture 02: Matrix Operations"
+author:
+  - name: "Zhaoxia Yu"
+    affiliation: "Professor, Department of Statistics"
+date: today
 format:
   revealjs:
+    theme: default
+    scrollable: true
     slide-number: true
+    controls: false
+    progress: true
     embed-resources: true
 execute:
   echo: true
@@ -20,7 +28,7 @@ knitr::knit_hooks$set(chunk = function(x, options) {
 ```
 
 
-
+# Multiplication
 ## Matrix Multiplication
 
 ### Definition of Matrix Multiplication
@@ -30,16 +38,21 @@ knitr::knit_hooks$set(chunk = function(x, options) {
 - What is the value in the $i$th row and $j$th column of $AB$? We often denote it as the $(i,j)$th element/entry of $AB$:
 $$\left(AB\right)_{i,j}=\sum_{k=1}^n a_{ik}b_{kj}$$
 
+---
 
 ### Definition of Matrix Multiplication
 ```{r echo=FALSE, out.width="90%", fig.align='center'}
 knitr::include_graphics("img/MatrixMultiplicationWiki.png")
 ```
 
+---
+
 ### Matrix Multiplication
 ```{r echo=FALSE, out.width="50%", fig.align='center'}
 knitr::include_graphics("img/MatrixMultiplication.png")
 ```
+
+---
 
 ### Conformable Matrices 
 - Conformability refers to whether two matrices can be multiplied.  
@@ -48,6 +61,7 @@ knitr::include_graphics("img/MatrixMultiplication.png")
 - Note: If $A$ and $B$ is conformable for calculating $AB$, it doesn't guarantee that they are also conformable for calculating $BA$. 
 - conformable for multiplication, then the operation is not defined. 
 
+# Iris
 
 ## The Iris Data
 
@@ -57,6 +71,8 @@ knitr::include_graphics("img/MatrixMultiplication.png")
 ```{r echo=FALSE, out.width="60%", fig.align='center'}
 knitr::include_graphics("img/iris.png")
 ```
+
+---
 
 ### Introduction
 * The iris dataset is a widely used dataset to illustrate various methods, algorithms, and problems. 
@@ -68,16 +84,22 @@ knitr::include_graphics("img/iris.png")
 * Its simplicity and easy availability have made it a widely used dataset for educational and research purposes.
 
 
+---
+
 ### History
 * The iris dataset has a rich history and has been used in many different areas of research
 * It was first introduced by Ronald Fisher in 1936. 
 * The dataset contains measurements of four features of three species of iris flowers. 
 * Fisher used the iris dataset as an example of discriminant analysis
 
+---
+
 ### Iris data
 ```{r echo=FALSE, out.width="70%", fig.align='center'}
 knitr::include_graphics("img/iris.png")
 ```
+
+---
 
 ### Iris data in R
 * The iris data is stored in two different formats: 
@@ -91,11 +113,15 @@ dim(iris)
 ```
 
 
+---
+
 ### Iris data in R
 ```{r}
 dimnames(iris3)
 names(iris)
 ```
+
+---
 
 ### Iris data in R
 ```{r}
@@ -103,11 +129,15 @@ names(iris)
 attributes(iris3)
 ```
 
+---
+
 ### Iris data in R
 ```{r}
 #the attributes is a useful function to understand data
 attributes(iris)
 ```
+
+---
 
 ### Heatmap of the Iris Data
 ```{r, out.height="90%",eval=FALSE, fig.align='center'}
@@ -117,6 +147,8 @@ colnames(Y)=c("SepL", "SepW", "PetL", "PetW")
 heatmap(Y[150:1, ],col=rainbow(12),Rowv=NA, Colv=NA)
 ```
 
+---
+
 ### Heatmap of the Iris Data
 ```{r, out.height="90%",echo=FALSE, fig.align='center'}
 Y=as.matrix(iris[, 1:4])
@@ -124,6 +156,11 @@ rownames(Y)=iris[,5]
 colnames(Y)=c("SepL", "SepW", "PetL", "PetW")
 heatmap(Y[150:1, ],col=rainbow(12),Rowv=NA, Colv=NA)
 ```
+
+
+# Left vs Right Multiplication
+
+## Left Multiplication
 
 ### Left multiply a matrix to Y: Example 1
 * Consider 
@@ -137,6 +174,8 @@ $$A_{1\times 150}=(\frac{1}{150}, \cdots, \frac{1}{150})$$
 %*%
 ```
 
+---
+
 ### Left multiply a matrix to Y: Example 1
 ```{r}
 A=matrix(1/150, 1, 150)
@@ -144,12 +183,16 @@ A%*%Y
 dim(A%*%Y)
 ```
 
+---
+
 ### Left multiply a matrix to Y: Example 1
 * Let's check the results
 ```{r}
 A%*%Y
 colMeans(Y)
 ```
+
+---
 
 ### Left multiply a matrix to Y: Example 2
 * Let 
@@ -173,6 +216,8 @@ $$B_{3\times 150}=\begin{pmatrix}
 
 * What does $BY$ give us?
 
+---
+
 ### Left multiply a matrix to Y: example2
 * $B_{3\times 150}Y_{150\times 4}$ gives the pairwise difference in group means for each feature
 ```{r}
@@ -183,6 +228,8 @@ B=1/50*rbind(
 B%*%Y
 ```
 
+---
+
 ### Left multiply a matrix to Y: example2
 * Let's check results
 ```{r,  out.width="60%"}
@@ -191,6 +238,9 @@ colMeans(Y[1:50,])
 colMeans(Y[51:100,])
 colMeans(Y[100:150,])
 ```
+
+
+## Right Multiplication
 
 ### Right multiply a matrix to Y: convert cm to inch
 * The lengths in the iris data were measured using cm
@@ -204,12 +254,15 @@ $$C=\begin{pmatrix}
 \end{pmatrix}$$
 * $Y_{150\times 4}C_{4\times 4}$ is the data in inch. 
 
+---
+
 ### Right multiply a matrix to Y: convert cm to inch
 ```{r}
 C=diag(0.393701, 4, 4)
 Y%*%C
 ```
 
+## Left vs Right Multiplication: Practice
 ### A homework problem: 
 * Find a matrix $A$ such that $AY$ gives the difference of means vectors between iris setosa and iris versicolor
 * Find a matrix $B$ such that $YB$ is column-standardized, i.e., the standard deviation of each column/feature is 1. 
@@ -225,10 +278,10 @@ C=diag(1,150) - \frac{150}matrix(1, 150, 150)
 To compute $S^{-1/2}$, you may need a R package, such as "qtl2pleio".
 
 
-## Spectral Decomposition
+# Spectral Decomposition
 
-### Spectral Decomposition
-* Generate 1000 data points from a multivariation normal with mean $\mathbf 0$ and covariance matrix 
+## Generate Data from MVN
+* Generate 1000 data points from a multivariate normal with mean $\mathbf 0$ and covariance matrix 
 $$\Sigma=\begin{pmatrix}0.8125000 & 0.3247595\\
 0.3247595 & 0.4375000\end{pmatrix}$$
 
@@ -242,7 +295,8 @@ Sigma=R%*%Lambda%*%t(R)
 X=mvrnorm(1000, mu=rep(0,2), Sigma=Sigma)
 ```
 
-### Spectral Decomposition
+
+## MVN data: Visualization
 * Scatter plot of the data $X$
 ```{r, fig.align='center',  out.width='60%'}
 plot(X, xlim=c(-3,3), ylim=c(-3,3), xlab="", ylab="", main="original")
@@ -250,7 +304,8 @@ abline(a=0, b=1/2, col="red")
 ```
 
 
-### Spectral Decomposition
+
+## Spectral Decomposition of Sample Covariance Matrix
 * Conduct spectral decomposition of $cov(X)$.
 ```{r}
 R.obs=eigen(cov(X))$vectors
@@ -259,6 +314,8 @@ Lambda.obs=diag(eigen(cov(X))$values)
 print(Lambda.obs)
 ```
 
+---
+
 ### Spectral Decomposition
 
 * Verify the spectral decomposition of $cov(X)$.
@@ -266,6 +323,8 @@ print(Lambda.obs)
 print(cov(X))
 print(R.obs%*% Lambda.obs %*% t(R.obs))
 ```
+
+---
 
 ### Spectral Decomposition
 * standardizing X is equivalent to two steps:
@@ -281,6 +340,8 @@ Z=Y%*%diag(1/sqrt(diag(Lambda.obs)))
 #yi=R.obs^T xi
 ```
 
+---
+
 ### Spectral Decomposition
 ```{r, fig.align='center',  out.width='60%'}
 par(mfrow=c(2,2))
@@ -289,6 +350,8 @@ abline(a=0, b=1/2, col="red")
 plot(Y, xlim=c(-3,3), ylim=c(-3,3), xlab="", ylab="", main="rotated")
 plot(Z, xlim=c(-3,3), ylim=c(-3,3), xlab="", ylab="", main="rorated+rescaled")
 ```
+
+---
 
 ### Spectral Decomposition
 
@@ -303,6 +366,8 @@ Y=Z%*%sqrt(Lambda.obs)
 X.recovered=Y%*%t(R.obs)
 ```
 
+---
+
 ### Spectral Decomposition
 ```{r, fig.align='center',  out.width='60%'}
 par(mfrow=c(2,2))
@@ -314,12 +379,10 @@ plot(X.recovered, xlim=c(-3,3), ylim=c(-3,3), xlab="", ylab="", main="recovered"
 ```
 
 
-### 
-```{r}
-#SVD of a matrix X is given by X=UDV^T
-#where U cand V
-```
+---
 
+
+# SVD
 
 ## Singular Value Decomposition (SVD)
 
@@ -333,6 +396,8 @@ plot(X.recovered, xlim=c(-3,3), ylim=c(-3,3), xlab="", ylab="", main="recovered"
   
   + Gene H. Golub and Charles F. Van Loan (1965): American mathematicians, are credited with the development of the modern and widely used algorithm for computing the singular value decomposition, known as the Golub-Reinsch algorithm.
 
+---
+
 ### What is SVD?
 * SVD is a useful factorization of a rectangular matrix A into three matrices
 * If $A$ is an $n\times p$ matrix of rank $r$,then A can be written as 
@@ -344,10 +409,14 @@ where
   + V^T is right singular vectors matrix, contains the eigenvectors of $A^TA$ (p x p matrix)
   + $D$ is diagonal matrix of singular values, contains the square root of the eigenvalues of $AA^T$ and $A^TA$
 
+---
+
 ### Intuition behind SVD
 * SVD helps us understand the linear transformation of a matrix in terms of its components: rotation, scaling, and reflection.
 * $U$ and $V^T$ represent rotations in the input and output spaces respectively, while $D$ represents scaling along the axes.
 * SVD allows us to find a lower-dimensional representation of the data by capturing the most important singular values and their corresponding singular vectors.
+
+---
 
 ### Applications of SVD
 * SVD can be used for various applications such as image compression, recommendation systems, and data analysis.
@@ -355,10 +424,14 @@ where
   + Recommendation Systems: SVD can be used to make personalized recommendations in recommendation systems by factorizing user-item interaction matrices.
   + Data Analysis: SVD can be used for dimension reduction, noise reduction, and feature extraction in data analysis tasks such as clustering, classification, and regression.
   
+---
+
 ### SVD for image compression 
 ```{r echo=FALSE, out.width="60%", fig.align='center'}
 knitr::include_graphics("img/SVD_Approx.png")
 ```
+
+---
 
 ### SVD: Example 1
 
@@ -376,6 +449,8 @@ knitr::include_graphics("img/240svd_Approx.png")
 ```
 -->
 
+---
+
 ### SVD: Example 1
 ```{r, fig.align='center'}
 #install and load "jpeg"
@@ -387,6 +462,8 @@ obj=svd(mydata)
 #obj$d: a vector of 131 nonnegative values
 #obj$v: a 131-by-131 matrix
 ```
+
+---
 
 ### SVD Example 1: R 
 ```{r, eval=FALSE, fig.align='center', out.width="80%"}
@@ -407,6 +484,8 @@ mydata.approx=obj$u[,1:n]%*% diag(obj$d[1:n]) %*% t(obj$v[,1:n])
 image(t(mydata.approx)[, nrow(mydata.approx):1], main="rank 10", col=gray(c(0:10)/10))
 ```
 
+---
+
 ### SVD Example 1: R 
 ```{r, echo=FALSE, fig.align='center', out.width="80%"}
 par(mfrow=c(2,2))
@@ -425,6 +504,8 @@ n=10
 mydata.approx=obj$u[,1:n]%*% diag(obj$d[1:n]) %*% t(obj$v[,1:n])
 image(t(mydata.approx)[, nrow(mydata.approx):1], main="rank 10", col=gray(c(0:10)/10))
 ```
+
+---
 
 ### SVD: Example 2
 ```{r, eval=FALSE, fig.align='center', out.width="80%"}
@@ -448,6 +529,8 @@ BikeMan.approx=obj.bm$u[,1:n]%*% diag(obj.bm$d[1:n]) %*% t(obj.bm$v[,1:n])
 image(BikeMan.approx, main="rank 30", col=gray(c(0:10)/10))
 ```
 
+---
+
 ### SVD: Example 2
 ```{r, echo=FALSE, fig.align='center', out.width="80%"}
 BikeMan=readJPEG("img/BikeMan.jpg", native = FALSE)
@@ -470,7 +553,10 @@ BikeMan.approx=obj.bm$u[,1:n]%*% diag(obj.bm$d[1:n]) %*% t(obj.bm$v[,1:n])
 image(BikeMan.approx, main="rank 30", col=gray(c(0:10)/10))
 ```
 
+# Kronecker
+
 ## Another Matrix Operation: Kronecker Product
+
 ### Definition
 * The Kronecker product, denoted by $\bigotimes$ is a mathematical operation that combines two matrices to create a larger matrix.
 
@@ -479,6 +565,8 @@ image(BikeMan.approx, main="rank 30", col=gray(c(0:10)/10))
 * According to wikipedia, "The Kronecker product is named after the German mathematician Leopold Kronecker (1823–1891), even though there is little evidence that he was the first to define and use it. "
 * Why is it useful? It provide compact Representation. Kronecker product allows for compact representation of large matrices by expressing them as a combination of smaller matrices.
 
+
+---
 
 ### Definition
 Let 
@@ -500,6 +588,8 @@ a_{11} * B & a_{12} * B & ... & a_{1n} * B \\
 a_{m1} * B & a_{m2} * B & ... & a_{mn} * B 
 \end{pmatrix}$$
 
+---
+
 ### Definition
 ```{r echo=FALSE, out.width="80%", fig.align='center'}
 knitr::include_graphics("img/kronecker_prod.png")
@@ -510,6 +600,7 @@ knitr::include_graphics("img/kronecker_prod.png")
 * SVD: Biclustering via Sparse Singular Value Decomposition”
 https://www.unc.edu/~haipeng/publication/ssvd.pdf
 
+# Homework 1
 ## Homework 1 
 ### Problem 1
 * Suppose $X_1, X_2, Y_1, Y_2$ are mutually independent.
@@ -519,6 +610,8 @@ Consider the two pairs $(X_1, X_2)$ and $(Y_1, Y_2)$. Which pair tends to have a
 $$P(|X_1-X_2|>4), P(|Y_1-Y_2|>4)$$
 * The hints for calculating/estimating $P(|X_1-X_2|>4)$ can be found in the two slides. Using similar strategies, you can calculate/estimate $P(|Y_1-Y_2|>4)$
 
+---
+
 ### Calculate $P(|X_1-X_2|>4)$
 * Hints for calculating $P(|X_1-X_2|>4)$. 
     + First find the distribution of $X_1-X_2$. Then standard it to have mean 0 and SD 1. 
@@ -526,10 +619,14 @@ $$P(|X_1-X_2|>4), P(|Y_1-Y_2|>4)$$
     + Next, expression the probability in terms of $\Phi(\cdot)$, the CDF of the standard normal distribution. 
     + Last, use the "pnorm" function in R to find the numerical value. 
 
+---
+
 ### Estimate $P(|X_1-X_2|>4)$
 * The probability can be estimated by doing simulations/sampling. 
 * If you sample many (say 10,000) pairs of $X_1$ and $X_2$, count how many pairs satisfying $|X_1-X_2|>4$. The probability can be used to estimate $P(|X_1-X_2|>4)$
 
+
+---
 
 ### Problem 2
 * Find a matrix $A$ such that $AY$ gives the difference of mean vectors between iris setosa and iris versicolor
@@ -545,6 +642,8 @@ C=diag(1,150) - \frac{1}{150}matrix(1, 150, 150)
   S=cov(Y)
   ```
 To compute $S^{-1/2}$, you may need an R package, such as "qtl2pleio".
+
+---
 
 ### Problem 3
 * Choose a picture you like and conduct approximations using singular value decomposition (SVD). 
