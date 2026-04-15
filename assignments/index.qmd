@@ -4,4 +4,4 @@ title: "Assignments"
 
 - Assignment 01 can be found at the end of lecture 02 slides. Tentative due date: Monday, April 13th. 
 
-- [Assignment 02](stat240_assignment_02.qmd) is due on Monday, April 27th.
+- [Assignment 02](stat240_assignment2.qmd) is due on Monday, April 27th.
