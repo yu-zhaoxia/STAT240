@@ -442,7 +442,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Zhaoxia Yu">
-  <meta name="dcterms.date" content="2026-04-07">
+  <meta name="dcterms.date" content="2026-04-13">
   <title>STAT240 — Multivariate Analysis: Theory, Methods, and Practice – Lecture 5: Normal and Multivariate Normal Distributions</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1065,7 +1065,7 @@ Zhaoxia Yu
     </div>
 </div>
 
-  <p class="date">2026-04-07</p>
+  <p class="date">2026-04-13</p>
 </section>
 <section class="slide level2">
 
@@ -1195,8 +1195,22 @@ Zhaoxia Yu
 <li>Like a PDF/PMF or CDF, a MGF uniquely determines/identifies a distribution</li>
 </ul>
 </section>
-<section id="mgf-of-a-random-variable-1" class="slide level2">
-<h2>MGF of a Random Variable</h2>
+<section class="slide level2">
+
+<h3 id="moment-generating-function-univariate">Moment Generating Function: Univariate</h3>
+<ul>
+<li><p>Where does the name of MGF come from? <span class="math display">\[
+\begin{aligned}
+M_X(t) &amp;= \mathbb{E}[e^{tX}] = \int_{-\infty}^{\infty} e^{tx} f(x) dx\\
+&amp;=\int_{-\infty}^{\infty} [1 + tx + \frac{(tx)^2}{2!} + \frac{(tx)^3}{3!} + \cdots] f(x) dx\\
+&amp;= 1+ t\mathbb{E}[X] + \frac{t^2}{2!}\mathbb{E}[X^2] + \cdots
+\end{aligned}
+\]</span></p></li>
+<li><p><span class="math inline">\(M^{(k)}_X(0)=E[X^K]\)</span>, where <span class="math inline">\(M^{(k)}_X(t)\)</span> is the <span class="math inline">\(k\)</span>th derivative of <span class="math inline">\(M_X(t)\)</span>.</p></li>
+</ul>
+</section>
+<section id="mgf-of-a-random-vector" class="slide level2">
+<h2>MGF of a Random Vector</h2>
 <ul>
 <li><p>The definition can be extended to random vectors and random matrices</p>
 <ul>
@@ -1208,6 +1222,472 @@ Zhaoxia Yu
 </ul>
 <p><span class="math display">\[M_{\mathbf X}= \mathbb E [e^{trace(t^T\mathbf X)}]\]</span></p></li>
 </ul>
+</section></section>
+<section>
+<section id="mgf-of-normal-univariate" class="title-slide slide level1 center">
+<h1>MGF of Normal (univariate)</h1>
+
+</section>
+<section id="mgf-of-normal" class="slide level2">
+<h2>MGF of Normal</h2>
+<ul>
+<li><p>Recall that the MGF of a random variable X is defined as: <span class="math inline">\(M_X(t) = \mathbb{E}[e^{tX}]\)</span>.</p></li>
+<li><p>For the normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>, the MGF is given by: <span class="math display">\[
+M_X(t) = e^{\mu t + \frac{1}{2}\sigma^2t^2}
+\]</span></p></li>
+<li><p>The mean is <span class="math inline">\(\mathbb{E}[X] = M_X&#39;(0) = \mu\)</span>.</p></li>
+<li><p>The variance is <span class="math display">\[
+\begin{aligned}
+\text{Var}(X) &amp;= E[(X-\mu)^2] = ... =E[X^2] - (E[X])^2\\
+&amp;= M_X&#39;&#39;(0) - M_X&#39;(0)^2 = \sigma^2
+\end{aligned}
+\]</span></p></li>
+</ul>
+</section>
+<section id="examples" class="slide level2 scrollable">
+<h2>Examples</h2>
+<ul>
+<li>Recall that <span class="math inline">\(M_X(t)=exp\{\mu t + \frac{1}{2}{\sigma^2}t^2\}\)</span> for <span class="math inline">\(X\sim N(\mu, \sigma^2)\)</span>.</li>
+</ul>
+<p>What is the distribution corresponding to each of the following MGFs?</p>
+<ol type="1">
+<li><p><span class="math display">\[
+   M_X(t) = \exp\left(\frac{1}{2}t^2\right)
+   \]</span></p></li>
+<li><p><span class="math display">\[
+   M_X(t) = \exp\left(2t + \frac{9}{2}t^2\right)
+   \]</span></p></li>
+<li><p><span class="math display">\[
+   M_X(t) = \exp\left(-t + \frac{1}{8}t^2\right)
+   \]</span></p></li>
+</ol>
+</section>
+<section id="examples-continued" class="slide level2 scrollable">
+<h2>Examples (continued)</h2>
+<ol type="1">
+<li><p>Standard normal distribution, i.e., <span class="math inline">\(\mu=0, \sigma^2=1\)</span>: <span class="math display">\[
+M_X(t) = \exp\left(\frac{1}{2}t^2\right)
+\]</span></p></li>
+<li><p>Normal distribution with mean <span class="math inline">\(\mu=2\)</span> and standard deviation <span class="math inline">\(\sigma=3\)</span>: <span class="math display">\[
+M_X(t) = \exp\left(2t + \frac{9}{2}t^2\right)
+\]</span></p></li>
+<li><p>Normal distribution with mean <span class="math inline">\(\mu=-1\)</span> and standard deviation <span class="math inline">\(\sigma=0.5\)</span>: <span class="math display">\[
+M_X(t) = \exp\left(-t + \frac{1}{8}t^2\right)
+\]</span></p></li>
+</ol>
+</section>
+<section id="a-linear-function" class="slide level2">
+<h2>A Linear Function</h2>
+<ul>
+<li><p>Let <span class="math inline">\(X\sim N(\mu, \sigma^2)\)</span>. We know that <span class="math inline">\(M_X(t) = \exp\left(\mu t + \frac{1}{2}\sigma^2 t^2\right)\)</span></p></li>
+<li><p>Let <span class="math inline">\(Y = aX + b\)</span>, where <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> are constants.</p></li>
+<li><p>We now find <span class="math inline">\(M_Y(t)\)</span>: <span class="math display">\[
+M_Y(t) = \mathbb{E}[e^{tY}] = \mathbb{E}[e^{t(aX + b)}] = e^{bt} \mathbb{E}[e^{(at)X}]
+\]</span></p></li>
+</ul>
+<p>Since <span class="math inline">\(at\)</span> is just another constant, we can treat it as a new variable, say <span class="math inline">\(s = at\)</span>. Then: <span class="math display">\[
+\begin{aligned}
+M_Y(t) &amp;= e^{bt} M_X(s) = e^{bt} \exp\{\mu s + \frac{1}{2}\sigma^2 s^2\} \\
+&amp;= \exp\{b t + a\mu t + \frac{1}{2}\sigma^2 a^2 t^2\}
+= \exp\{(a\mu + b)t + \frac{1}{2}(a\sigma)^2 t^2\}
+\end{aligned}
+\]</span></p>
+<ul>
+<li><span class="math inline">\(M_Y(t)\)</span> has the form of the MGF of a normal distribution: <span class="math inline">\(Y = aX + b\sim N(a\mu+b, a^2\sigma^2)\)</span>.</li>
+</ul>
+</section>
+<section id="sum-of-two-independent-normal-random-varaibles" class="slide level2">
+<h2>Sum of Two Independent Normal Random Varaibles</h2>
+<ul>
+<li><p>Let <span class="math inline">\(X\)</span> and <span class="math inline">\(Y\)</span> be two independent and <span class="math inline">\(X\sim N(\mu_X, \sigma_X^2)\)</span> and <span class="math inline">\(Y\sim N(\mu_Y, \sigma_Y^2)\)</span>. <span class="math display">\[M_X(t) = \exp\{\mu_X t + \frac{1}{2}\sigma_X^2 t^2\},
+M_Y(t) = \exp\{\mu_Y t + \frac{1}{2}\sigma_Y^2 t^2\}\]</span></p></li>
+<li><p>Let <span class="math inline">\(Z = X + Y\)</span>. <span class="math display">\[
+\begin{aligned}
+M_Z(t) &amp;\overset{X\perp Y}= M_X(t) M_Y(t) = \exp\{\mu_X t + \frac{1}{2}\sigma_X^2 t^2\} \exp\{\mu_Y t + \frac{1}{2}\sigma_Y^2 t^2\}\\
+&amp;=\exp\{(\mu_X+\mu_Y) t + \frac{1}{2}(\sigma_X^2+\sigma_Y^2) t^2\}
+\end{aligned}
+\]</span> Which indicates that <span class="math inline">\(Z\sim N(\mu_X+\mu_Y, \sigma_X^2+\sigma_Y^2)\)</span></p></li>
+</ul>
+</section>
+<section id="sample-mean-from-normal" class="slide level2">
+<h2>Sample Mean from Normal</h2>
+<ul>
+<li>If <span class="math inline">\(X_1, \cdots, X_n \overset{iid}\sim  N(\mu, \sigma^2)\)</span>.</li>
+<li>We have showed that <span class="math inline">\(E[\bar X]=\mu\)</span> and <span class="math inline">\(Var[\bar X]=\sigma^2/n\)</span>.</li>
+<li>How to prove <span class="math inline">\(\bar X\)</span> follows a normal distribution?</li>
+<li>A compact proof: <span class="math display">\[
+M_{\bar{X}}(t) = \prod_{i=1}^{n} M_{X_i}(\frac{t}{n})= \left(\exp\{\mu\frac{t}{n} + \frac{1}{2}\sigma^2 \frac{t^2}{n^2}\}\right)^n
+=\exp\{\mu t + \frac{1}{2}\frac{\sigma^2}{n}t^2 \}
+\]</span> Based on the <span class="math inline">\(M_{\bar X}(t)\)</span>, <span class="math inline">\(\bar X\sim N(\mu, \frac{\sigma^2}{n})\)</span>.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="sample-mean-from-normal-1">Sample Mean from Normal</h3>
+<ul>
+<li>A proof with more details explained <span class="math display">\[
+\begin{aligned}
+M_{\bar X}(t)&amp;=E[e^{t\bar X}]= E[e^{\frac{t}{n} \sum_{i=1}^n X_i}]=E[e^{\frac{t}{n} X_1 + \frac{t}{n} X_2 + \cdots + \frac{t}{n} X_n}]\\
+&amp;\overset{iid}=E[e^{\frac{t}{n} X_1}]\cdots E[e^{\frac{t}{n} X_n}]=M_{X_1}(\frac{t}{n}) \cdots M_{X_n}(\frac{t}{n})\\
+&amp;= \exp\{\mu\frac{t}{n}+\frac{1}{2}\sigma^2 (\frac{t}{n})^2\}\cdots \exp\{\mu\frac{t}{n}+\frac{1}{2}\sigma^2 (\frac{t}{n})^2\}\\
+&amp;= \exp\{\mu t + \frac{1}{2}\frac{\sigma^2}{n}t^2\}
+\end{aligned}
+\]</span> Based on the <span class="math inline">\(M_{\bar X}(t)\)</span>, <span class="math inline">\(\bar X\sim N(\mu, \frac{\sigma^2}{n})\)</span>.</li>
+</ul>
+</section></section>
+<section>
+<section id="mgf-of-mvn" class="title-slide slide level1 center">
+<h1>MGF of MVN</h1>
+
+</section>
+<section id="mgf-of-multivariate-normal" class="slide level2">
+<h2>MGF of Multivariate Normal</h2>
+<ul>
+<li><p>The moment generating function (MGF) of a random vector <span class="math inline">\(\mathbf{X}_{p\times 1}\)</span> is defined as: <span class="math inline">\(M_{\mathbf{X}}(\mathbf{t}) = \mathbb{E}[e^{\mathbf{t}^T\mathbf{X}}]\)</span>.</p></li>
+<li><p>Here <span class="math inline">\(t\)</span> is a <span class="math inline">\(p\times 1\)</span> vector.</p></li>
+<li><p>For the multivariate normal distribution with mean vector <span class="math inline">\(\boldsymbol{\mu}\)</span> and covariance matrix <span class="math inline">\(\boldsymbol{\Sigma}\)</span>, the MGF is given by:</p></li>
+</ul>
+<p><span class="math display">\[
+M_{\mathbf{X}}(\mathbf{t}) = \exp\left( \boldsymbol{\mu}^T \mathbf{t} + \frac{1}{2} \mathbf{t}^T \boldsymbol{\Sigma} \mathbf{t} \right)
+\]</span></p>
+</section>
+<section id="examples-1" class="slide level2 scrollable">
+<h2>Examples</h2>
+<ol type="1">
+<li>Bivariate standard normal distribution:</li>
+</ol>
+<p><span class="math display">\[\boldsymbol{\mu}=\begin{pmatrix}0 \\ 0\end{pmatrix}, \boldsymbol{\Sigma}=\begin{pmatrix}1 &amp; 0 \\ 0 &amp; 1\end{pmatrix}, M_{\mathbf{X}}(\mathbf{t}) = \exp\left(\frac{1}{2} \mathbf{t}^T \boldsymbol{\Sigma} \mathbf{t}\right)\]</span></p>
+<ol start="2" type="1">
+<li>Bivariate normal distribution with specific mean vector and covariance matrix:</li>
+</ol>
+<p><span class="math display">\[\boldsymbol{\mu}=\begin{pmatrix}1 \\ 2\end{pmatrix},
+\boldsymbol{\Sigma}=\begin{pmatrix}4 &amp; 1 \\ 1 &amp; 9\end{pmatrix},    M_{\mathbf{X}}(\mathbf{t}) = \exp\left(\boldsymbol{\mu}^T \mathbf{t} + \frac{1}{2} \mathbf{t}^T \boldsymbol{\Sigma} \mathbf{t}\right)\]</span></p>
+</section>
+<section id="a-linear-combination" class="slide level2">
+<h2>A Linear Combination</h2>
+<ul>
+<li><p>Let <span class="math inline">\(\mathbf{X}_{p\times 1}\sim N(\boldsymbol \mu, \boldsymbol \Sigma)\)</span>.</p></li>
+<li><p>We want to show that the linear combinations <span class="math inline">\(\mathbf{Y} = \mathbf{A}_{q\times p}\mathbf{X}\)</span> also follows a multivariate normal distribution.</p></li>
+<li><p>The MGF of <span class="math inline">\(\mathbf X\)</span> is <span class="math display">\[
+M_{\mathbf{X}}(\mathbf{t}) = E[e^{t^T\mathbf X}]=\exp\left(\boldsymbol{\mu}^T \mathbf{t} + \frac{1}{2} \mathbf{t}^T \boldsymbol{\Sigma} \mathbf{t}\right)
+\]</span></p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li><p>To find the distribution of <span class="math inline">\(Y\)</span>, we derive the MGF of <span class="math inline">\(Y\)</span>. <span class="math display">\[
+\begin{aligned}
+M_{\mathbf{Y}}(\mathbf{t}) &amp;= E[e^{t^TAX}]=M_{\mathbf{X}}(\mathbf{A}^T \mathbf{t}) = \exp\left(\boldsymbol{\mu}^T \mathbf{A}^T \mathbf{t} + \frac{1}{2} \mathbf{t}^T \mathbf{A} \boldsymbol{\Sigma} \mathbf{A}^T \mathbf{t}\right)\\
+&amp;=\exp\left((\mathbf{A}\boldsymbol{\mu})^T \mathbf{t} + \frac{1}{2} \mathbf{t}^T (\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^T) \mathbf{t}\right),
+\end{aligned}
+\]</span></p></li>
+<li><p><span class="math inline">\(M_{\mathbf{Y}}(\mathbf{t})\)</span> has the form of the MGF of a multivariate normal distribution with mean vector <span class="math inline">\(\mathbf{A}\boldsymbol{\mu}\)</span> and covariance matrix <span class="math inline">\(\mathbf{A}\boldsymbol{\Sigma}\mathbf{A}^T\)</span>.</p></li>
+<li><p>As a result, the linear combination <span class="math display">\[\mathbf Y =A \mathbf X \sim N(A \boldsymbol \mu, \boldsymbol A \boldsymbol \Sigma A^T)\]</span></p></li>
+</ul>
+</section>
+<section id="the-sample-mean-vector" class="slide level2">
+<h2>The Sample Mean Vector</h2>
+<ul>
+<li>Let <span class="math inline">\(\mathbf X_1, \cdots \mathbf X_n\)</span> be a random sample from <span class="math inline">\(N(\boldsymbol \mu, \boldsymbol \Sigma)\)</span>.</li>
+<li>We have defined then the sample mean vector <span class="math inline">\(\bar{\mathbf{X}}\)</span></li>
+<li>We have shown that
+<ul>
+<li><span class="math inline">\(\mathbb E[\bar{\mathbf{X}}]=\boldsymbol \mu\)</span></li>
+<li><span class="math inline">\(Cov[\bar{\mathbf{X}}]=\frac{\boldsymbol \Sigma}{n}\)</span></li>
+</ul></li>
+<li>Next, we will show that it follows a multivariate normal distribution.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p><span class="math display">\[\begin{aligned}
+M_{\bar{\mathbf{X}}}(\mathbf{t}) &amp;= E[e^{\mathbf{t}^T \bar {\mathbf{X}}}] = E[e^{\mathbf{t}^T(\frac{X_1}{n} + \cdots + \frac{X_1}{n})}]
+= E[e^{\frac{\mathbf{t}^T}{n} X_1 + \cdots + \frac{\mathbf{t}^T}{n} X_n}]\\
+&amp;\overset{iid}= E[e^{\frac{\mathbf{t}^T}{n} X_1}] \cdots E[e^{\frac{\mathbf{t}^T}{n} X_n}]
+= M_{X_1}(\frac{\mathbf{t}}{n}) \cdots M_{X_n}(\frac{\mathbf{t}}{n})\\
+&amp;= \prod_{i=1}^n M_{\mathbf{X}_i}(\frac{\mathbf{t}}{n}) = \left(\exp\left(\boldsymbol{\mu}^T \frac{\mathbf{t}}{n} + \frac{1}{2} \left(\frac{\mathbf{t}}{n}\right)^T \boldsymbol{\Sigma} \left(\frac{\mathbf{t}}{n}\right)\right)\right)^n\\
+&amp;= \exp\left(n\left(\boldsymbol{\mu}^T \frac{\mathbf{t}}{n} + \frac{1}{2n^2} \mathbf{t}^T \boldsymbol{\Sigma} \mathbf{t}\right)\right) \\
+&amp;= \exp\left(\boldsymbol{\mu}^T \mathbf{t} + \frac{1}{2} \mathbf{t}^T \frac{\boldsymbol{\Sigma}}{n} \mathbf{t}\right)
+\end{aligned}\]</span></p>
+<ul>
+<li><span class="math inline">\(M_{\bar{\mathbf{X}}}(\mathbf{t})\)</span> has the form of the MGF of a multivariate normal distribution with mean vector <span class="math inline">\(\boldsymbol{\mu}\)</span> and covariance matrix <span class="math inline">\(\frac{\boldsymbol{\Sigma}}{n}\)</span>, i.e, <span class="math inline">\(\bar{\mathbf{X}}\sim N(\boldsymbol \mu , \frac{\boldsymbol \Sigma}{n})\)</span></li>
+</ul>
+</section></section>
+<section>
+<section id="zero-covariance" class="title-slide slide level1 center">
+<h1>Zero-Covariance</h1>
+
+</section>
+<section id="independence-under-jointly-normal" class="slide level2">
+<h2>Independence Under Jointly Normal</h2>
+<ul>
+<li><p>In general, zero-correlation does not guarantee independence</p></li>
+<li><p>Independence of normals under jointly normal: If the joint distribution of <span class="math inline">\(\mathbf X_1\)</span> (a <span class="math inline">\(p\times 1\)</span> random vector) and <span class="math inline">\(\mathbf X_2\)</span> is jointly/multivariate normal, i.e., <span class="math display">\[
+\begin{pmatrix}\mathbf X_1 \\ \mathbf X_2
+\end{pmatrix} \sim N(
+\begin{pmatrix}\boldsymbol \mu_1\\\boldsymbol \mu_2\end{pmatrix},
+\begin{pmatrix}\boldsymbol \Sigma_{11} &amp; \boldsymbol \Sigma_{12}\\ \boldsymbol \Sigma_{21} &amp; \boldsymbol \Sigma_{22}\end{pmatrix}),
+\]</span> then <span class="math inline">\(\mathbf X_1 \perp \mathbf X_2 \Leftrightarrow  \boldsymbol \Sigma_{12}=0\)</span></p></li>
+<li><p>Proof: omitted. A result about MGF can be used to prove independence.</p></li>
+</ul>
+</section>
+<section id="the-joint-distribution-of-two-linear-functions" class="slide level2">
+<h2>The Joint Distribution of Two Linear Functions</h2>
+<ul>
+<li><p>Let <span class="math inline">\(\mathbf{X}_{p\times 1}\sim N(\boldsymbol \mu, \boldsymbol \Sigma)\)</span>. Let <span class="math inline">\(\mathbf Y=A \mathbf X\)</span> and <span class="math inline">\(\mathbf Z=B \mathbf X\)</span>.</p></li>
+<li><p>What is the joint distribution of <span class="math inline">\(Y\)</span> and <span class="math inline">\(Z\)</span>?</p></li>
+<li><p>Note that <span class="math display">\[\begin{pmatrix}
+\mathbf Y\\ \mathbf Z
+\end{pmatrix}=\begin{pmatrix}A \\ B\end{pmatrix}\mathbf X\]</span></p></li>
+<li><p>A linear combination of MVN random vector also follows a MVN <span class="math display">\[\begin{aligned}
+\begin{pmatrix}\mathbf Y\\ \mathbf Z\end{pmatrix}
+&amp; \sim N(\begin{pmatrix}A \\ B\end{pmatrix}\boldsymbol \mu, \begin{pmatrix}A \\ B\end{pmatrix}\boldsymbol \Sigma \begin{pmatrix}A^T &amp; B^T\end{pmatrix})\\
+&amp;\sim N(\begin{pmatrix}A \boldsymbol \mu \\ B\boldsymbol \mu \end{pmatrix}, \begin{pmatrix}A \boldsymbol \Sigma A^T &amp; A \boldsymbol \Sigma B^T\\ B \boldsymbol \Sigma A^T &amp; B \boldsymbol \Sigma B^T \end{pmatrix}\boldsymbol)
+\end{aligned}\]</span></p></li>
+</ul>
+<p>We have <span class="math display">\[\mathbf Y \perp \mathbf Z \Leftrightarrow A\Sigma B^T=0\]</span></p>
+</section></section>
+<section>
+<section id="a-simulation-question" class="title-slide slide level1 center">
+<h1>A Simulation Question</h1>
+<ul>
+<li>Suppose we have a random sample from a normal distribution.</li>
+<li>How to use a simulation to show that sample mean and sample variance are uncorrelated (in fact they are also independent)?</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<div class="cell" data-layout-align="center">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>X<span class="ot">=</span><span class="fu">matrix</span>(<span class="fu">rnorm</span>(<span class="dv">1000</span><span class="sc">*</span><span class="dv">100</span>, <span class="dv">0</span>, <span class="dv">1</span>), <span class="dv">1000</span>, <span class="dv">100</span>)</span>
+<span id="cb2-2"><a></a>means<span class="ot">=</span><span class="fu">rowMeans</span>(X)</span>
+<span id="cb2-3"><a></a>vars<span class="ot">=</span><span class="fu">apply</span>(X, <span class="dv">1</span>, var)</span>
+<span id="cb2-4"><a></a><span class="fu">plot</span>(means, vars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="a-simulation-question-1" class="slide level2">
+<h2>A Simulation Question</h2>
+
+<img role="img" data-src="data:image/png;base64,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" class="quarto-figure quarto-figure-center r-stretch" style="width:50.0%"></section>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="indepdence-between-sample-mean-vector-and-sample-variance-covariance-matrix" class="title-slide slide level1 center">
+<h1>Indepdence between sample mean (vector) and sample variance (covariance matrix)</h1>
+
+</section>
+<section id="univariate-sample-mean-and-sample-variance" class="slide level2">
+<h2>Univariate: Sample Mean and Sample Variance</h2>
+<h3 id="the-independence-between-sample-mean-and-sample-variance">The Independence Between Sample Mean and Sample Variance</h3>
+<ul>
+<li><p>For a random sample from a normal distribution, the sample mean and sample variance are independent.</p></li>
+<li><p>Let <span class="math inline">\(\mathbf X =(X_1, X_2, ..., X_n)^T\)</span> be a random sample from a normal distribution with mean <span class="math inline">\(\mu\)</span> and variance <span class="math inline">\(\sigma^2\)</span>.</p></li>
+<li><p>The sample mean and sample variance are defined as:</p>
+<ul>
+<li><p>Sample mean: <span class="math inline">\(\bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_i\)</span></p></li>
+<li><p>Sample variance: <span class="math inline">\(s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2\)</span></p></li>
+</ul></li>
+<li><p>We want to show that <span class="math inline">\(\bar{X}\)</span> and <span class="math inline">\(s^2\)</span> are independent.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="proof">Proof</h3>
+<ul>
+<li><p>We first rewrite the sample mean: <span class="math display">\[\bar{X} = \frac{1}{n} \sum_{i=1}^{n} X_i =\frac{1}{n}\mathbf 1^T \mathbf X \]</span></p></li>
+<li><p>We have shown that <span class="math inline">\(s^2 = \frac{1}{n-1} \sum_{i=1}^{n} (X_i - \bar{X})^2=\frac{1}{n-1}X^T\mathbb CX\)</span>, where <span class="math inline">\(\mathbb C=\mathbf I - \frac{1}{n}\mathbf 1 \mathbf 1^T\)</span>. In addition, it is easy to verify that <span class="math inline">\(\mathbb C=\mathbb C^T, \mathbb C^2=\mathbb C\)</span>.</p></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<p>Thus, the distribution of <span class="math inline">\(s^2\)</span> can be rewritten to <span class="math display">\[s^2=\frac{1}{n-1} (\mathbb C\mathbf X)^T (\mathbb C\mathbf X),\]</span> which indicates that the distribution <span class="math inline">\(s^2\)</span> is determined by the distribution of <span class="math inline">\(\mathbb C X\)</span>.</p>
+</section>
+<section class="slide level2">
+
+<h3 id="proof-continued">Proof (continued)</h3>
+<ul>
+<li>Clearly <span class="math inline">\(\bar {\mathbf X}\)</span> and <span class="math inline">\(\mathbb C \mathbf X\)</span> are linear combinations of <span class="math inline">\(\mathbf X\)</span>, which follows a multivariate normal with covariance <span class="math inline">\(\boldsymbol\Sigma= \mathbf I\)</span>. Thus, <span class="math display">\[cov(\bar {\mathbf X}, \mathbb C \mathbf X) = \frac{1}{n}\mathbf 1^T \Sigma \mathbb C= \frac{1}{n}\mathbf 1^T \mathbb C=0\]</span> Please verify that last step.</li>
+</ul>
+<p>By Theorem on “Independence of Normals Under Jointly Normal”, we can conclude the <span class="math inline">\(\bar {\mathbf X}\)</span> and <span class="math inline">\(s^2\)</span> are independent.</p>
+</section>
+<section id="multivariate-sample-mean-vector-and-sample-covariance-matrix" class="slide level2">
+<h2>Multivariate: sample mean vector and sample covariance matrix</h2>
+<h3 id="the-independence">The Independence</h3>
+<ul>
+<li><p>How to prove that the sample mean vector and the sample covariance matrix are independent</p></li>
+<li><p>Messier way: vectorize the <span class="math inline">\(n\times p\)</span> matrix <span class="math inline">\(\mathbf X\)</span> to a <span class="math inline">\((np)\times 1\)</span> vector and then apply the condition for independent linear combinations under MVN</p></li>
+<li><p>Neater way: use properties of Matrix Normal Distribution</p></li>
+</ul>
+</section>
+<section class="slide level2 scrollable">
+
+<h3 id="sample-mean-vector-and-sample-covariance-matrix">Sample Mean Vector and Sample Covariance Matrix</h3>
+<ul>
+<li><p>If we have a random sample from MVN, we will show that <span class="math inline">\(\bar{\mathbf X}\)</span> and <span class="math inline">\(S\)</span> are independent</p></li>
+<li><p>Proof outline</p></li>
+</ul>
+<div style="font-size: 70%;">
+<ol type="1">
+<li>Vectorize <span class="math inline">\(\mathbf X_{n\times p}\)</span> to a vector <span class="math inline">\(\tilde {\mathbf X}_{(np)\times 1}\)</span>, which follows a MVN</li>
+<li>Show that the distribution of <span class="math inline">\(\bar{\mathbf X}\)</span> is determined by a linear function of <span class="math inline">\(\tilde {\mathbf X}_{(np)\times 1}\)</span></li>
+<li>Show that the distribution of <span class="math inline">\(S\)</span> is determined by a linear function of <span class="math inline">\(\tilde {\mathbf X}_{(np)\times 1}\)</span></li>
+<li>Find the covariance of the two linear functions</li>
+<li>Conclude that the two linear functions are independent, which indicates that the sample mean vector and the sample covariance matrix are independent</li>
+</ol>
+</div>
+</section>
+<section class="slide level2">
+
+<h3 id="step-1a-vectorize">Step 1a: Vectorize</h3>
+<ul>
+<li>We vectorize <span class="math inline">\(\mathbf X_{n\times p}\)</span> such that
+<ul>
+<li>the first <span class="math inline">\(n\)</span> random variables are for the first feature</li>
+<li>the last <span class="math inline">\(n\)</span> random variables are for the last feature</li>
+</ul></li>
+</ul>
+<p><span class="math display">\[\tilde {\mathbf X}_{(np)\times 1}=
+\begin{pmatrix}
+\mathbf X_{(1)}\\ \vdots \\ \mathbf X_{(p)} \end{pmatrix}\]</span></p>
+<ul>
+<li>What is the distribution of <span class="math inline">\(\mathbf X_{(1)}\)</span>?</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>The distribution of <span class="math inline">\(\mathbf X_{(1)}\)</span>?
+<span class="math display">\[\begin{aligned}
+\mathbf X_{(1)} &amp;\sim N(
+\begin{pmatrix}
+\mu_1 \\ \vdots \\ \mu_1
+\end{pmatrix},
+\begin{pmatrix}
+\sigma_{11}^2 &amp;  0 &amp; \cdots&amp; 0\\
+0 &amp; \sigma_{11}^2 &amp; \cdots &amp; 0\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+0 &amp; 0 &amp; \cdots &amp; \sigma_{11}^2
+\end{pmatrix}
+)\\
+&amp;\sim N(\mu_1 \mathbf 1_n, \sigma_{11}^2 \mathbf I)
+\end{aligned}\]</span></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="step-1b-the-distribution-of-mathbf-x_ntimes-p">Step 1b: The distribution of <span class="math inline">\(\mathbf x_{n\times p}\)</span></h3>
+<p><span class="math display">\[
+\begin{aligned}
+\tilde {\mathbf X}_{(np)\times 1} &amp;=
+\begin{pmatrix}
+\mathbf X_{(1)}\\ \vdots \\ \mathbf X_{(p)} \end{pmatrix}
+\sim N(\boldsymbol \mu \otimes\mathbf 1_n,
+\boldsymbol \Sigma \otimes \mathbf I_n)\\
+&amp;\sim
+N (
+\begin{pmatrix}\mu_1 \mathbf 1_n \\ \vdots \\\mu_p \mathbf 1_n\end{pmatrix},  
+\begin{pmatrix}
+\sigma_{11}\mathbf I_n &amp; \cdots &amp; \sigma_{1p}\mathbf I_n\\
+\cdots &amp; \cdots &amp; \cdots \\
+\sigma_{p1}\mathbf I_n &amp; \cdots &amp; \sigma_{pp}\mathbf I_n
+\end{pmatrix})
+\end{aligned}
+\]</span></p>
+</section>
+<section class="slide level2">
+
+<h3 id="step-2-the-sample-mean-vector">Step 2: The sample mean vector</h3>
+<ul>
+<li>The sample mean vector can be written as linear functions of <span class="math inline">\(\tilde {\mathbf X}\)</span>: <span class="math display">\[\bar{\mathbf X}=\frac{1}{n} \begin{pmatrix} \mathbf 1_n^T &amp; \mathbf 0_n^T &amp; \cdots &amp;\mathbf 0_n^T \\
+\mathbf 0_n^T &amp; \mathbf 1_n^T &amp; \cdots &amp;\mathbf 0_n^T \\
+\cdots &amp; \cdots &amp; \cdots &amp; \cdots \\
+\mathbf 0_n^T &amp; \mathbf 0_n^T &amp; \cdots &amp;\mathbf 1_n^T
+\end{pmatrix} \tilde {\mathbf X}\]</span></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="step-3-the-sample-covariance-matrix">Step 3: The sample covariance matrix</h3>
+<ul>
+<li>Recall that we have shown the following result <span class="math display">\[S=\frac{1}{n-1} \mathbf X^T \mathbb C \mathbf X= \frac{1}{n-1} (\mathbb C \mathbf X)^T \mathbb C \mathbf X\]</span></li>
+<li>So we only need to focus on <span class="math inline">\(\mathbb C \mathbf X\)</span>, the centered random matrix.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>The vectorized version of the centered random matrix is <span class="math display">\[vec(\mathbb C \mathbf X) =
+\begin{pmatrix}
+\mathbb C &amp; \mathbf 0 &amp; \cdots &amp; \mathbf 0\\
+\mathbf 0 &amp; \mathbb C &amp; \cdots &amp; \mathbf 0\\
+\cdots &amp; \cdots &amp; \cdots &amp; \cdots\\
+\mathbf 0 &amp; \mathbf 0 &amp; \cdots &amp; \mathbb C
+\end{pmatrix}_{(np)\times (np)} \tilde {\mathbf X}
+\]</span></li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="step-4-the-covariance-of-the-two-linear-functions">Step 4: The covariance of the two linear functions</h3>
+<p>So we have the following results</p>
+<span class="math display">\[\begin{aligned}
+\tilde {\mathbf X}_{(np)\times 1}
+&amp; \sim N(\boldsymbol \mu \otimes\mathbf 1_n,
+\boldsymbol \Sigma \otimes \mathbf I_n)\\
+&amp; \sim
+N (
+\begin{pmatrix}\mu_1 \mathbf 1_n \\ \vdots \\\mu_p \mathbf 1_n\end{pmatrix},  
+\begin{pmatrix}
+\sigma_{11}\mathbf I_n &amp; \cdots &amp; \sigma_{1p}\mathbf I_n\\
+\cdots &amp; \cdots &amp; \cdots \\
+\sigma_{p1}\mathbf I_n &amp; \cdots &amp; \sigma_{pp}\mathbf I_n
+\end{pmatrix})
+\end{aligned}\]</span>
+</section>
+<section class="slide level2">
+
+<p>The distribution of <span class="math inline">\(\bar{\mathbf X}\)</span> and <span class="math inline">\(S\)</span> depend on</p>
+<span class="math display">\[\begin{aligned}
+\bar{\mathbf X}&amp;=\frac{1}{n} \begin{pmatrix}
+\mathbf 1_n^T &amp; \mathbf 0_n^T &amp; \cdots &amp;\mathbf 0_n^T \\
+\mathbf 0_n^T &amp; \mathbf 1_n^T &amp; \cdots &amp;\mathbf 0_n^T \\
+\cdots &amp; \cdots &amp; \cdots &amp; \cdots \\
+\mathbf 0_n^T &amp; \mathbf 0_n^T &amp; \cdots &amp;\mathbf 1_n^T
+\end{pmatrix} \tilde {\mathbf X}, \\
+vec(\mathbb C \mathbf X) &amp;=
+\begin{pmatrix}
+\mathbb C &amp; \mathbf 0 &amp; \cdots &amp; \mathbf 0\\
+\mathbf 0 &amp; \mathbb C &amp; \cdots &amp; \mathbf 0\\
+\cdots &amp; \cdots &amp; \cdots &amp; \cdots\\
+\mathbf 0 &amp; \mathbf 0 &amp; \cdots &amp; \mathbb C
+\end{pmatrix} \tilde {\mathbf X}
+\end{aligned}\]</span>
+</section>
+<section class="slide level2">
+
+<ul>
+<li>Let <span class="math inline">\(\tilde {\boldsymbol \Sigma}\)</span> denote the covariance matrix of <span class="math inline">\(\tilde {\mathbf x}\)</span></li>
+<li>Let <span class="math inline">\(\mathbb A\)</span> denote the matrix such that <span class="math inline">\(\bar{\mathbf X}=\mathbb A \tilde {\mathbf x}\)</span></li>
+<li>Let <span class="math inline">\(\mathbb B\)</span> denote the matrix such that <span class="math inline">\(vec(\mathbb C\mathbf X)=\mathbb B \tilde {\mathbf X}\)</span></li>
+<li>It can be verified that <span class="math inline">\(\mathbb A \tilde {\boldsymbol \Sigma} \mathbb B^T=\mathbf 0\)</span>.</li>
+</ul>
+</section>
+<section class="slide level2">
+
+<h3 id="step-5-the-independnece-of-the-two-linear-functions">Step 5: The independnece of the two linear functions</h3>
+<div style="font-size: 70%;">
+<ul>
+<li>Both <span class="math inline">\(\bar{\mathbf X}\)</span> and <span class="math inline">\(vec(\mathbb C\mathbf X)\)</span> are linear function of the same MVN-distributed random vector <span class="math inline">\(\tilde {\mathbf X}\)</span></li>
+<li>Their covariance matrix is zero, which indicates that they are independent by Theorem on “Independence of Normals Under Jointly Normal”.</li>
+<li>The sample covariance matrix only depends on the centered data,<span class="math inline">\(vec(\mathbb C\mathbf X)\)</span> (the vector form) up to a constant</li>
+<li>Therefor, if we have a random sample from a , the sample mean vector and the sample covariance matrix are independent</li>
+<li>The proof is lengthy. It can be more compact if we introduce matrix normal distribution.</li>
+</ul>
+</div>
 
 
 </section></section>
@@ -2536,7 +3016,7 @@ window.QuartoSupport = function () {
       }
         var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
         var mailtoRegex = new RegExp(/^mailto:/);
-          var filterRegex = new RegExp("https:\/\/yu-zhaoxia\.github\.io\/STAT240\/");
+          var filterRegex = new RegExp('/' + window.location.host + '/');
         var isInternal = (href) => {
             return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
         }

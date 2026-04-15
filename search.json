@@ -1,59 +1,143 @@
 [
   {
-    "objectID": "lectures/Lecture05_NormalAndMVN.html#the-big-picture-univariate-vs-multivariate",
-    "href": "lectures/Lecture05_NormalAndMVN.html#the-big-picture-univariate-vs-multivariate",
-    "title": "Lecture 5: Normal and Multivariate Normal Distributions",
-    "section": "The Big Picture: Univariate vs Multivariate",
-    "text": "The Big Picture: Univariate vs Multivariate\n\nReview: A random sample, denoted by \\(X_1, \\cdots, X_n\\), from a (univariate) normal distribution \\(N(\\mu, \\sigma^2)\\)\n\nWhat are the distributions of \\(\\bar X,  s^2\\)? What useful statistics can be constructed?\n\nNew material: A random sample, denoted by \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\), from a multivariate normal distribution \\(N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\)\n\nWhat are the distributions of \\(\\bar{\\mathbf X},  \\mathbf S\\)? What useful statistics can be constructed?"
+    "objectID": "lectures/Lecture06_Wishart.html#univariate-vs-multivariate",
+    "href": "lectures/Lecture06_Wishart.html#univariate-vs-multivariate",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Univariate vs Multivariate",
+    "text": "Univariate vs Multivariate\n\nReview: A random sample, denoted by \\(X_1, \\cdots, X_n\\), from a (univariate) normal distribution \\(N(\\mu, \\sigma^2)\\)\n\nWhat are the distributions of \\(\\bar X,  s^2\\)? What useful statistics can be constructed?\n\nNew material: A random sample, denoted by \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\), from a multivariate normal distribution \\(N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\)\n\nWhat are the distributions of \\(\\bar{\\mathbf X},  \\mathbf S\\)? What useful statistics can be constructed?"
   },
   {
-    "objectID": "lectures/Lecture05_NormalAndMVN.html#the-big-picture-univariate",
-    "href": "lectures/Lecture05_NormalAndMVN.html#the-big-picture-univariate",
-    "title": "Lecture 5: Normal and Multivariate Normal Distributions",
-    "section": "The Big Picture: Univariate",
-    "text": "The Big Picture: Univariate\n\n\nA random sample, denoted by \\(X_1, \\cdots, X_n\\), from a (univariate) normal distribution \\(N(\\mu, \\sigma^2)\\)\nLet \\(\\mathbf X_{n\\times 1}=(X_1, \\cdots, X_n)^T\\). It is random vector with a multivarite normal distribution, i.e., \\[\\mathbf X_{n\\times 1}=(X_1, \\cdots, X_n)^T \\sim \\mathbf N(\\mu\\mathbf 1, \\sigma^2\\mathbf I)\\]\n\n\n\\(\\bar X \\sim N(\\mu, \\sigma^2/n)\\)\n\\(\\frac{(n-1)s^2}{\\sigma^2} \\sim \\chi_{n-1}^2\\)\nIndependence between \\(\\bar X\\) and \\(s^2\\).\na t-statistic is \\[\\frac{\\frac{\\bar X-\\mu}{\\sqrt{\\sigma^2/n}}}{\\sqrt{\\frac{(n-1)s^2/\\sigma^2}{n-1}}}=\\frac{\\sqrt{n}(\\bar X-\\mu)}{s}\\] It follows the t-distribution with n-1 degrees of freedom, denoted by \\(t_{n-1}\\)."
+    "objectID": "lectures/Lecture06_Wishart.html#univariate",
+    "href": "lectures/Lecture06_Wishart.html#univariate",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Univariate",
+    "text": "Univariate\n\n\nA random sample, denoted by \\(X_1, \\cdots, X_n\\), from a normal distribution \\(N(\\mu, \\sigma^2)\\)\nLet \\(\\mathbf X_{n\\times 1}=(X_1, \\cdots, X_n)^T\\). It is random vector with a MVN, i.e., \\[\\mathbf X_{n\\times 1}=(X_1, \\cdots, X_n)^T \\sim \\mathbf N(\\mu\\mathbf 1, \\sigma^2\\mathbf I)\\]\n\n\n\\(\\bar X \\sim N(\\mu, \\sigma^2/n)\\)\n\\(\\frac{(n-1)s^2}{\\sigma^2} \\sim \\chi_{n-1}^2\\)\nIndependence between \\(\\bar X\\) and \\(s^2\\).\nT-statistic:\n\n\\[\\frac{\\frac{\\bar X-\\mu}{\\sqrt{\\sigma^2/n}}}{\\sqrt{\\frac{(n-1)s^2/\\sigma^2}{n-1}}}=\\frac{\\sqrt{n}(\\bar X-\\mu)}{s}\\sim t_{n-1}.\\]"
   },
   {
-    "objectID": "lectures/Lecture05_NormalAndMVN.html#the-big-picture-multivariate",
-    "href": "lectures/Lecture05_NormalAndMVN.html#the-big-picture-multivariate",
-    "title": "Lecture 5: Normal and Multivariate Normal Distributions",
-    "section": "The Big Picture: Multivariate",
-    "text": "The Big Picture: Multivariate\n\n\nA random sample \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\) from a multivariate normal distribution \\(\\mathbf N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\).\nLet \\[\\mathbf X_{n\\times p}=\\begin{pmatrix}\n\\mathbf X_1^T \\\\ \\vdots \\\\\\mathbf X_n^T\n\\end{pmatrix}\\] \\(\\mathbf X\\) follows a matrix normal distribution.\n\n\nSample mean vector follows a multivariate normal, i.e., \\(\\bar{\\mathbf X} \\sim \\mathbf N(\\boldsymbol \\mu, \\boldsymbol \\Sigma/n)\\)\nSample covariance matrix \\((n-1)\\mathbf S\\) follows a Wishart distribution, i.e., \\((n-1)\\mathbf S \\sim Wishart_p (n-1, \\Sigma)\\)\nIndependence between \\(\\bar {\\mathbf X}\\) and \\(S\\).\nHoetelling’s \\(T^2\\): \\(T^2 = (\\bar{\\mathbf X} - \\boldsymbol \\mu)^T\\left(\\frac{\\mathbf S}{n}\\right)^{-1} (\\bar{\\mathbf X} - \\boldsymbol \\mu)\\)"
+    "objectID": "lectures/Lecture06_Wishart.html#multivariate",
+    "href": "lectures/Lecture06_Wishart.html#multivariate",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Multivariate",
+    "text": "Multivariate\n\n\nA random sample \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\) from a MVN \\(\\mathbf N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\).\nLet \\[\\mathbf X_{n\\times p}=\\begin{pmatrix}\n\\mathbf X_1^T \\\\ \\vdots \\\\\\mathbf X_n^T\n\\end{pmatrix}\\] \\(\\mathbf X\\) follows a matrix normal distribution.\n\n\nSample mean vector follows a multivariate normal, i.e., \\(\\bar{\\mathbf X} \\sim \\mathbf N(\\boldsymbol \\mu, \\boldsymbol \\Sigma/n)\\)\nSample covariance matrix \\((n-1)\\mathbf S\\) follows a Wishart distribution, i.e., \\((n-1)\\mathbf S \\sim Wishart_p (n-1, \\Sigma)\\)\nIndependence between \\(\\bar {\\mathbf X}\\) and \\(S\\).\nHoetelling’s \\(T^2\\): \\(T^2 = (\\bar{\\mathbf X} - \\boldsymbol \\mu)^T\\left(\\frac{\\mathbf S}{n}\\right)^{-1} (\\bar{\\mathbf X} - \\boldsymbol \\mu)\\)"
   },
   {
-    "objectID": "lectures/Lecture05_NormalAndMVN.html#pdf-of-normal-and-bivariate-normal",
-    "href": "lectures/Lecture05_NormalAndMVN.html#pdf-of-normal-and-bivariate-normal",
-    "title": "Lecture 5: Normal and Multivariate Normal Distributions",
-    "section": "PDF of Normal and Bivariate Normal",
-    "text": "PDF of Normal and Bivariate Normal\n\nUnivariate normal distribution: \\[\n  f(x) = \\frac{1}{\\sqrt{2\\pi\\sigma^2}} e^{ -\\frac{(x - \\mu)^2}{2\\sigma^2} }\n  \\]\nBivariate normal distribution: \\[\\begin{align*}\n  f(x, y) &= \\frac{1}{2\\pi\\sigma_1\\sigma_2\\sqrt{1-\\rho^2}}\\\\ & e^{ -\\frac{1}{2(1-\\rho^2)} \\left(\\frac{(x - \\mu_1)^2}{\\sigma_1^2} + \\frac{(y - \\mu_2)^2}{\\sigma_2^2} - 2\\rho\\frac{(x - \\mu_1)(y - \\mu_2)}{\\sigma_1\\sigma_2} \\right)}\n\\end{align*}\\]"
+    "objectID": "lectures/Lecture06_Wishart.html#outline",
+    "href": "lectures/Lecture06_Wishart.html#outline",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Outline",
+    "text": "Outline\n\nSample variance and chi-squared distribution\nSample covariance matrix and Wishart distribution\nHotelling’s \\(T^2\\)\nMaximum likelihood estimate"
   },
   {
-    "objectID": "lectures/Lecture05_NormalAndMVN.html#pdf-of-mvn",
-    "href": "lectures/Lecture05_NormalAndMVN.html#pdf-of-mvn",
-    "title": "Lecture 5: Normal and Multivariate Normal Distributions",
-    "section": "PDF of MVN",
-    "text": "PDF of MVN\nThe formula for a \\(p\\ge 3\\)-dimensional multivariate normal distribution is much messier, so we use a compact way:\n\nMultivariate normal distribution: \\[\n  f(\\mathbf{x}) = \\frac{1}{\\sqrt{(2\\pi)^p|\\boldsymbol\\Sigma|}} e^{ -\\frac{1}{2} (\\mathbf{x} - \\boldsymbol\\mu)^T \\boldsymbol\\Sigma^{-1} (\\mathbf{x} - \\boldsymbol\\mu)}\n  \\]"
+    "objectID": "lectures/Lecture06_Wishart.html#sample-variance-and-chi-squared-distribution",
+    "href": "lectures/Lecture06_Wishart.html#sample-variance-and-chi-squared-distribution",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Sample Variance and Chi-squared Distribution",
+    "text": "Sample Variance and Chi-squared Distribution\n\nLet \\(\\mathbf X=(X_1, \\cdots, X_n)\\) denote a random sample from \\(N(\\mu, \\sigma^2)\\).\nEquivalently, \\(\\mathbf X \\sim N(\\mu \\mathbf 1, \\sigma^2 \\mathbf I)\\).\nLet \\(s^2=\\frac{1}{n-1}\\sum_{i=1}^n (X_i-\\bar X)^2\\) denote the sample variance.\nWe would like to show that \\[\\frac{(n-1)s^2}{\\sigma^2}\\sim \\chi_{n-1}^2\\]"
   },
   {
-    "objectID": "lectures/Lecture05_NormalAndMVN.html#tools-to-characterize-a-distribution",
-    "href": "lectures/Lecture05_NormalAndMVN.html#tools-to-characterize-a-distribution",
-    "title": "Lecture 5: Normal and Multivariate Normal Distributions",
-    "section": "Tools to Characterize a Distribution",
-    "text": "Tools to Characterize a Distribution\n\nProbability density function (PDF) or probability mass function (PMF)\nCumulative distribution (CDF)\nCharacteristic function (CF)\nMoment generating function (MGF)\n… …"
+    "objectID": "lectures/Lecture06_Wishart.html#projection-matrices",
+    "href": "lectures/Lecture06_Wishart.html#projection-matrices",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Projection Matrices",
+    "text": "Projection Matrices\n\nA projection matrix is a square matrix that is both idempotent and symmetric\n\n\\[\\mathbf{P}^2 = \\mathbf{P} \\mbox{, }\\mathbf{P}=\\mathbf{P}^T \\]\n\nSuppose \\(\\mathbf P\\) is a projection matrix. We have\n\nThe eigenvalues of \\(\\mathbf{P}\\) has eigenvalues are either 0 or 1, and the number of 1’s is the same as the rank of the projection matrix.\n\\(tr(\\mathbf P) = rank(\\mathbf P)\\)"
   },
   {
-    "objectID": "lectures/Lecture05_NormalAndMVN.html#mgf-of-a-random-variable",
-    "href": "lectures/Lecture05_NormalAndMVN.html#mgf-of-a-random-variable",
-    "title": "Lecture 5: Normal and Multivariate Normal Distributions",
-    "section": "MGF of a Random Variable",
-    "text": "MGF of a Random Variable\n\nThe moment generating function of random variable \\(X\\) is defined \\[M_X(t)=\\mathbb{E}[e^{tX}]\\]\nLike a PDF/PMF or CDF, a MGF uniquely determines/identifies a distribution"
+    "objectID": "lectures/Lecture06_Wishart.html#example-project-onto-a-plane-in-mathbbr3",
+    "href": "lectures/Lecture06_Wishart.html#example-project-onto-a-plane-in-mathbbr3",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Example: Project onto a Plane in \\(\\mathbb{R}^3\\)",
+    "text": "Example: Project onto a Plane in \\(\\mathbb{R}^3\\)\n\nThe goal is to find the projection matrix that projects any vector in \\(\\mathbb{R}^3\\) onto the plane defined by \\(x + y + z = 0\\).\nSteps:\n\nStep 1: Define the subspace (the plane) and find a basis for it.\nStep 2: Compute the projection matrix using the basis.\nStep 3: Use the projection matrix to project a vector onto the plane and verify the result."
   },
   {
-    "objectID": "lectures/Lecture05_NormalAndMVN.html#mgf-of-a-random-variable-1",
-    "href": "lectures/Lecture05_NormalAndMVN.html#mgf-of-a-random-variable-1",
-    "title": "Lecture 5: Normal and Multivariate Normal Distributions",
-    "section": "MGF of a Random Variable",
-    "text": "MGF of a Random Variable\n\nThe definition can be extended to random vectors and random matrices\n\nConsider a random vector \\(\\mathbf X_{p\\times 1}\\). Let \\(t\\) be a \\(p\\times 1\\) vector.\n\n\\[M_{\\mathbf X}= \\mathbb E [e^{t^T\\mathbf X}]\\]\n\nConsider a random matrix \\(\\mathbf X_{n\\times p}\\). Let \\(t\\) be a \\(n\\times p\\) matrix.\n\n\\[M_{\\mathbf X}= \\mathbb E [e^{trace(t^T\\mathbf X)}]\\]"
+    "objectID": "lectures/Lecture06_Wishart.html#example-the-centering-matrix",
+    "href": "lectures/Lecture06_Wishart.html#example-the-centering-matrix",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Example: the Centering Matrix",
+    "text": "Example: the Centering Matrix\n\nThe centering matrix: \\(\\mathbb C=\\mathbf I - \\frac{1}{n} \\mathbf 1\\mathbf 1^T\\).\nIt is a projection matrix:\n\n\\(\\mathbb C^T=\\mathbb C\\) (symmetric)\n\\(\\mathbb C^2= \\mathbb C\\) (idempotent)\n\nOne important result about a projection matrix is that its eigenvalues are either zero or one.\nBy properties of projection matrices, we have\n\n\\(rank(\\mathbb C) = tr(\\mathbb C)=n-1\\)\n\\(\\mathbb C = \\sum_{j=1}^{n-1}\\gamma_j\\gamma_j^T\\)"
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#definition",
+    "href": "lectures/Lecture06_Wishart.html#definition",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Definition",
+    "text": "Definition\nDefinition. Let \\(Z_1, ..., Z_k \\overset{iid}\\sim N(0,1)\\). Then, the sum of squares \\(Q = Z_1^2 + ... + Z_k^2\\) has a chi-squared distribution with \\(k\\) degrees of freedom, denoted by \\(\\chi_k^2\\).\n\nAlternatively, let \\(\\mathbf Z_{k\\times 1} \\sim N(\\mathbf 0, \\mathbf I)\\). We say \\(||\\mathbf Z||^2=\\mathbf Z^T \\mathbf Z\\) follows \\(\\chi_k^2\\).\n\\(Z_1^2, \\cdots, Z_k^2 \\overset{iid}\\sim \\chi_1^2\\).\nThe sum of independent chi-squared random variables is also chi-squared. Specifically, if \\(Q_1\\sim \\chi_{k_1}^2\\) and \\(Q_2\\sim \\chi_{k_2}^2\\) are independent, then \\(Q_1+Q_2\\sim \\chi_{k_1+k_2}^2\\)."
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#chi-squared-vs-gamma",
+    "href": "lectures/Lecture06_Wishart.html#chi-squared-vs-gamma",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Chi-squared vs Gamma",
+    "text": "Chi-squared vs Gamma\n\nThe PDF of a chi-squared random variable with \\(k\\) degrees of freedom is given by:\n\n\\[\nf(x) = \\frac{1}{2^{k/2}\\Gamma(k/2)} x^{k/2-1} e^{-x/2} \\mbox{,  } x&gt;0\n\\]\nwhere \\(\\Gamma(\\cdot)\\) is the gamma function.\n\nRemark: \\(\\chi_k^2\\) = Gamma(shape=\\(k/2\\), rate=1/2)."
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#construct-chi-squared-r.v.s-from-projection-matrices-and-independent-normal-r.v.s",
+    "href": "lectures/Lecture06_Wishart.html#construct-chi-squared-r.v.s-from-projection-matrices-and-independent-normal-r.v.s",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Construct Chi-squared R.V.s from Projection Matrices and Independent Normal R.V.s",
+    "text": "Construct Chi-squared R.V.s from Projection Matrices and Independent Normal R.V.s\n\nLet \\(\\mathbf P_{n\\times n}\\) be a projection matrix with rank \\(r\\) and let \\(\\mathbf Z_{n\\times 1}\\sim N(\\mathbf 0, \\mathbf I)\\).\nClaim: \\(\\mathbf Z^T \\mathbf P \\mathbf Z\\sim \\chi_r^2\\).\nProof: By the spectral decomposition of \\(\\mathbf P\\), we have\n\n\\[P= \\sum_{i=1}^r \\gamma_i \\gamma_i^T,\\] where \\(\\gamma_1, \\cdots, \\gamma_r\\) are orthogonal vectors of norm 1, i.e., \\(\\gamma_i^T \\gamma_j = 0\\) for \\(i\\not=j\\) and \\(\\gamma_i^T \\gamma_i=1\\) for \\(i=1, \\cdots, r\\)."
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#the-sample-variance",
+    "href": "lectures/Lecture06_Wishart.html#the-sample-variance",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "The Sample Variance",
+    "text": "The Sample Variance\n\nLet \\(\\mathbb C=\\mathbf I - \\frac{1}{n} \\mathbf 1\\mathbf 1^T\\) be the centering matrix.\nWe have shown that \\(\\mathbb C\\) is a projection matrix with rank \\(n-1\\):\n\n\\(\\mathbb C^T=\\mathbb C\\), \\(\\mathbb C^2=\\mathbb C\\).\n\\(\\mathbb C = \\sum_{j=1}^{n-1}\\gamma_i\\gamma_i^T\\).\n\n\\((n-1)s^2=\\mathbf X^T\\mathbb C \\mathbf X\\) because\n\\[\\begin{aligned}\n(n-1)s^2&=\\sum_{i=1}^n (X_i-\\bar X)^2 = (\\mathbb C \\mathbf X)^T (\\mathbb C \\mathbf X) = \\mathbf X^T \\mathbb C \\mathbf X.\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#the-sample-covriance-from-a-mvn-random-sample",
+    "href": "lectures/Lecture06_Wishart.html#the-sample-covriance-from-a-mvn-random-sample",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "The Sample Covriance from A MVN Random Sample",
+    "text": "The Sample Covriance from A MVN Random Sample\n\nLet \\(\\mathbf X_1, \\cdots,\\mathbf X_n \\overset{iid} \\sim N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\).\nRecall that the sample covariance matrix is defined as \\[\\mathbf S =\\frac{1}{n-1} \\sum_{i=1}^n (\\mathbf X_i - \\bar{\\mathbf X})(\\mathbf X_i - \\bar{\\mathbf X})^T\\]\nWe have shown that \\[(n-1)\\mathbf S = \\mathbf X ^T \\mathbb C \\mathbf X\\] where \\(\\mathbf X\\) is the \\(n\\times p\\) random matrix."
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#the-distribution-of-sample-covriance",
+    "href": "lectures/Lecture06_Wishart.html#the-distribution-of-sample-covriance",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "The Distribution of Sample Covriance",
+    "text": "The Distribution of Sample Covriance\n\nThe goal is to show that \\((n-1)\\mathbf S\\) follows a Wishart distribution. More specifically, we would like to show that \\[(n-1)\\mathbf S \\sim Wishart_p(n-1, \\Sigma)\\]\nOutline of proof\n\nRewrite \\((n-1)\\mathbf S\\)\nApply properties of a projection matrix\nUse the definition of Wishart distribution"
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#wishart-distribution",
+    "href": "lectures/Lecture06_Wishart.html#wishart-distribution",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Wishart Distribution",
+    "text": "Wishart Distribution\n\nThe Wishart distribution is named after the British statistician John Wishart, who introduced it in his 1928 paper published in Biometrika.\nWishart was interested in the problem of estimating the covariance matrix of a multivariate normal distribution.\nWishart showed that the sample covariance matrix follows a particular probability distribution that we now call the Wishart distribution.\nThe Wishart distribution has become a fundamental tool in multivariate statistical analysis"
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#definition-1",
+    "href": "lectures/Lecture06_Wishart.html#definition-1",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Definition",
+    "text": "Definition\n\nA Wishart distribution can be defined in the following way\nLet \\(\\mathbf W\\) be a \\(p\\times p\\) random matrix.\nWe say \\(\\mathbf W\\) follows \\(Wishart_{p}(k, \\boldsymbol \\Sigma)\\) if \\(\\mathbf W\\) can be written as \\(\\mathbf W=\\mathbf X^T \\mathbf X\\) where \\(\\mathbf X\\) denotes the random matrix formed by a random sample of size \\(k\\) from MVN \\(N(\\mathbf 0, \\boldsymbol \\Sigma)\\).\nRemark:\\(E[\\mathbf W]=k\\Sigma\\)."
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#wishart-vs-chi-squared",
+    "href": "lectures/Lecture06_Wishart.html#wishart-vs-chi-squared",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Wishart vs Chi-squared",
+    "text": "Wishart vs Chi-squared\n\n\nWishart: If \\(\\mathbf X_1, \\cdots \\mathbf X_k \\overset{iid}\\sim N(\\mathbf 0, \\boldsymbol \\Sigma)\\), then \\[\\mathbf X^T \\mathbf X =\\sum_{i=1}^k \\mathbf X_i\\mathbf X_i^T \\sim Wishart_p(k, \\boldsymbol \\Sigma) \\mbox{, where } \\mathbf X_{k\\times p}=\\begin{pmatrix}\nX_1^T\\\\ \\vdots\\\\ X_k^T\n\\end{pmatrix}\n\\]\nChi-squared: If \\(X_1, \\cdots, X_k \\overset{iid}\\sim N(0,1)\\), then\n\\[\\mathbf X^T\\mathbf X=\\sum_{i=1}^k X_i^2\\sim \\chi_k^2 \\mbox{, where } \\mathbf X_{k\\times 1}=\n\\begin{pmatrix}\nX_1 \\\\ \\vdots \\\\ X_k\n\\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#sample-covariance-1",
+    "href": "lectures/Lecture06_Wishart.html#sample-covariance-1",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Sample Covariance",
+    "text": "Sample Covariance\n\nThe sample covariance \\((n-1)\\mathbf S=\\mathbf X^T \\mathbb C \\mathbf X\\).. The definition of Wishart distribution is not applicable immediately.\nRewrite \\((n-1)\\mathbf S\\):\n\n\n\\[\n\\begin{aligned}\n(n-1)\\mathbf S&=\\mathbf X^T \\mathbb C^T\\mathbb C\\mathbb C \\mathbf X=(\\mathbb C \\mathbf X)^T(\\mathbb C \\mathbf X)\\\\\n&=(\\mathbb C \\mathbf X)^T\\mathbb C(\\mathbb C \\mathbf X)\\\\\n&=(\\mathbb C \\mathbf X)^T\\sum_{j=1}^{n-1}\\gamma_i \\gamma_i^T (\\mathbb C \\mathbf X)\\\\\n&=\\sum_{j=1}^{n-1} (\\gamma_i^T \\mathbb C \\mathbf X)^T (\\gamma_i^T \\mathbb C \\mathbf X)\n\\end{aligned}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#matrix-normal-distribution",
+    "href": "lectures/Lecture06_Wishart.html#matrix-normal-distribution",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Matrix Normal Distribution",
+    "text": "Matrix Normal Distribution\n\nLet \\(\\mathbf X_1, \\cdots \\mathbf X_n\\) be a random sample (therefore iid) from \\(N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\).\nIf we stack \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\) into a \\(n\\times p\\) random matrix \\(\\mathbf X\\), we say follows a matrix normal distribution: \\[\\mathbf X \\sim N(\\mathbf 1_n \\boldsymbol \\mu^T, \\boldsymbol \\Sigma, \\mathbf I_n)\\]\nConsider the linear function \\(\\mathbf X^T \\mathbb a\\). It can be shown that \\[\\mathbf X^T \\mathbb a \\sim N((\\mathbf 1_n \\boldsymbol \\mu^T)^T \\mathbb a, \\mathbb a^T  \\mathbb a \\boldsymbol \\Sigma)\\sim N(\\boldsymbol \\mu \\mathbf 1_n \\mathbb a, \\mathbb a^T  \\mathbb a \\boldsymbol \\Sigma)\\]\nThus, \\(Y_i \\sim N(\\mathbf 0, \\boldsymbol \\Sigma)\\)."
+  },
+  {
+    "objectID": "lectures/Lecture06_Wishart.html#some-interesting-results",
+    "href": "lectures/Lecture06_Wishart.html#some-interesting-results",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Some Interesting Results",
+    "text": "Some Interesting Results\n\nConsider a random sample from MVN \\(N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\). Let \\(\\mathbf S\\) denote the sample covariance matrix.\nWe have already shown that \\((n-1)\\mathbf S \\sim Wishart_p(n-1, \\boldsymbol \\Sigma)\\)\nWhat is the distribution of a diagonal element of \\((n-1)\\mathbf S\\)?\nWhat is the distribution of the sum of elements of \\((n-1)\\mathbf S\\)? Note, this is a special case of next question with \\(\\mathbf B=(1, \\cdots, 1)\\).\nWhat is the distribution of \\((n-1)\\mathbf B \\mathbf S \\mathbf B^T\\) where \\(B\\) is a fixed \\(q\\times p\\) matrix?\nIf time permits, we will run some simulations"
   },
   {
     "objectID": "lectures/Lecture03_RandomV.html#random-matrix",
@@ -259,11 +343,18 @@
     "text": "Course materials\n\nLecture Notes\nAssignments\nExams"
   },
   {
+    "objectID": "assignments/stat240_assignment2.html",
+    "href": "assignments/stat240_assignment2.html",
+    "title": "STAT200C Assignment 2",
+    "section": "",
+    "text": "Problem 1. The purpose of this problem is to explore the distribution of the trace of sample covariance. Suppose \\(Y\\sim Wishart(n-1, \\Sigma)\\), what is the distribution of \\(\\operatorname{tr}(Y)\\)?\n\nSet up:\n\nChoose the sample size \\(n\\) to be 50 or 100.\nSet the number of simulations to \\(B=1000\\).\nHint: Use the function mvnnorm from the R MASS library to generate multivariate normal data.\nHint: Ensure your covariance matrix \\(\\Sigma\\) is positive definite. You can check this by computing the eigenvalues using the eigen function in R and confirming that all eigenvalues are positive.\n\n1.1 The case of the identity covariance matrix \\(\\Sigma = I_3\\).\n\nGenerate \\(B=1000\\) datasets, each with \\(n\\) observations from \\(N(\\mathbf 0, \\mathbf I_3)\\).\nFor each dataset, calcualte the sample covariance matrix \\(\\mathbf S\\) and record \\((n-1)\\operatorname{tr}(\\mathbf S)\\).\nGuess: Based on the properties of the Wishart distribution, what is the exact distribution of \\((n-1) \\operatorname{tr}(S)\\) when \\(\\Sigma=\\mathbf I_3\\)?\nCheck: Plot a histogram of your 1,000 recorded \\((n-1) \\operatorname{tr}(S)\\). Overlay the theoretical function from your guess in previous step. Does the empirical distribution match your guess?\n\n2.2: The general case.\n\nChoose a \\(3-by-3\\) covariance matrix with non-zero covariances (the off-diagonal elements should not be 0).\nMake sure that your \\(\\Sigma\\) is valid (positive definite) and use \\(pairs()\\) to show the scatter plots of one simulated dataset to visualize the correlations.\nGenerate \\(B=1000\\) datasets using this \\(\\Sigma\\) and record the trace of each sample covariance matrix \\(\\mathbf S\\). Summarize the traces.\nIn the general case, \\((n-1)\\operatorname{tr}(S)\\) does not follow a simple Chi-squared distribution but is instead a weighted sum (mixture) of independent Chi-squared variables. Calculate the average of your 1,000 simulated traces. Compare this average to \\(tr(\\Sigma)\\).\n\n\nProblem 2. Find a good data example to conduct a two-sample Hotelling’s \\(T^2\\) test. Do not use the data example discussed in this course. Please (1) include visualizations as exploratory methods and (2) make conclusion in the context of the data example."
+  },
+  {
     "objectID": "assignments/index.html",
     "href": "assignments/index.html",
     "title": "Assignments",
     "section": "",
-    "text": "Assignment 01 can be found at the end of lecture 02 slides. Tentative due date: Monday, April 13th."
+    "text": "Assignment 01 can be found at the end of lecture 02 slides. Tentative due date: Monday, April 13th.\nAssignment 02 is due on Monday, April 27th."
   },
   {
     "objectID": "exams/index.html",
@@ -277,7 +368,7 @@
     "href": "lectures/index.html",
     "title": "Lecture Notes",
     "section": "",
-    "text": "Lecture 01: Introduction\nLecture 02: Matrix Operations\nLecture 03: Random Vectors/Matrices\nLecture 04: A Random Sample from a Multivariate Normal"
+    "text": "Lecture 01: Introduction\nLecture 02: Matrix Operations\nLecture 03: Random Vectors/Matrices\nLecture 04: A Random Sample from a Multivariate Normal\nLecture 05: Multivariate Normal Distribution\nLecture 06: The Sample Covariance Matrix and Wishart Distribution"
   },
   {
     "objectID": "lectures/Lecture02_MatrixOperations.html#matrix-multiplication",
@@ -333,7 +424,7 @@
     "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
     "section": "Spectral Decomposition of Sample Covariance Matrix",
-    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8639716  0.5035405\n[2,] -0.5035405 -0.8639716\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n          [,1]      [,2]\n[1,] 0.9480082 0.0000000\n[2,] 0.0000000 0.2655374"
+    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8862615  0.4631852\n[2,] -0.4631852 -0.8862615\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n         [,1]      [,2]\n[1,] 1.007629 0.0000000\n[2,] 0.000000 0.2435646"
   },
   {
     "objectID": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",

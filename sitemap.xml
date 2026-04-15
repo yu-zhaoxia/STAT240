@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture05_NormalAndMVN.html</loc>
-    <lastmod>2026-04-08T00:20:12.833Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture06_Wishart.html</loc>
+    <lastmod>2026-04-14T22:21:13.416Z</lastmod>
   </url>
   <url>
     <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture03_RandomV.html</loc>
@@ -17,8 +17,12 @@
     <lastmod>2026-03-30T00:04:05.260Z</lastmod>
   </url>
   <url>
+    <loc>https://yu-zhaoxia.github.io/STAT240/assignments/stat240_assignment2.html</loc>
+    <lastmod>2026-04-15T00:09:14.797Z</lastmod>
+  </url>
+  <url>
     <loc>https://yu-zhaoxia.github.io/STAT240/assignments/index.html</loc>
-    <lastmod>2026-03-30T04:54:14.214Z</lastmod>
+    <lastmod>2026-04-15T00:11:29.822Z</lastmod>
   </url>
   <url>
     <loc>https://yu-zhaoxia.github.io/STAT240/exams/index.html</loc>
@@ -26,7 +30,7 @@
   </url>
   <url>
     <loc>https://yu-zhaoxia.github.io/STAT240/lectures/index.html</loc>
-    <lastmod>2026-04-07T22:02:59.384Z</lastmod>
+    <lastmod>2026-04-15T00:12:55.639Z</lastmod>
   </url>
   <url>
     <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture02_MatrixOperations.html</loc>
