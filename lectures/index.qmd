@@ -6,4 +6,6 @@ title: "Lecture Notes"
 - [Lecture 02: Matrix Operations](Lecture02_MatrixOperations.qmd){target="_blank"}
 - [Lecture 03: Random Vectors/Matrices](Lecture03_RandomV.qmd){target="_blank"}
 - [Lecture 04: A Random Sample from a Multivariate Normal](Lecture04_ARandomSampleFromMultivariate.qmd){target="_blank"}
-- [Lecture 05: Multivariate Normal Distributoin](Lecture05_NormalAndMVN.pdf){target="_blank"}
+- [Lecture 05: Multivariate Normal Distribution](Lecture05_NormalAndMVN.pdf){target="_blank"}
+- [Lecture 06: The Sample Covariance Matrix and Wishart Distribution](Lecture06_Wishart.qmd){target="_blank"}
+- [Lecture 07: Inference of Mean Vectors: Hotelling's T^2](Lecture07_Hotelling.qmd){target="_blank"}
