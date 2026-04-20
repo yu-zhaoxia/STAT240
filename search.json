@@ -1,143 +1,528 @@
 [
   {
-    "objectID": "lectures/Lecture06_Wishart.html#univariate-vs-multivariate",
-    "href": "lectures/Lecture06_Wishart.html#univariate-vs-multivariate",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Univariate vs Multivariate",
-    "text": "Univariate vs Multivariate\n\nReview: A random sample, denoted by \\(X_1, \\cdots, X_n\\), from a (univariate) normal distribution \\(N(\\mu, \\sigma^2)\\)\n\nWhat are the distributions of \\(\\bar X,  s^2\\)? What useful statistics can be constructed?\n\nNew material: A random sample, denoted by \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\), from a multivariate normal distribution \\(N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\)\n\nWhat are the distributions of \\(\\bar{\\mathbf X},  \\mathbf S\\)? What useful statistics can be constructed?"
+    "objectID": "lectures/Lecture07_Hotelling.html#definition-of-wishart-distribution",
+    "href": "lectures/Lecture07_Hotelling.html#definition-of-wishart-distribution",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Definition of Wishart Distribution",
+    "text": "Definition of Wishart Distribution\n\nA Wishart distribution can be defined in the following way\nLet \\(\\mathbf W\\) be a \\(p\\times p\\) random matrix.\nWe say \\(\\mathbf W\\) follows \\(Wishart_{p}(k, \\boldsymbol \\Sigma)\\) if \\(\\mathbf W\\) can be written as \\(\\mathbf W=\\mathbf X^T \\mathbf X\\) where \\(\\mathbf X\\) denotes the random matrix formed by a random sample of size \\(k\\) from MVN \\(N(\\mathbf 0, \\boldsymbol \\Sigma)\\).\nRemark:\\(E[\\mathbf W]=k\\Sigma\\)."
   },
   {
-    "objectID": "lectures/Lecture06_Wishart.html#univariate",
-    "href": "lectures/Lecture06_Wishart.html#univariate",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Univariate",
-    "text": "Univariate\n\n\nA random sample, denoted by \\(X_1, \\cdots, X_n\\), from a normal distribution \\(N(\\mu, \\sigma^2)\\)\nLet \\(\\mathbf X_{n\\times 1}=(X_1, \\cdots, X_n)^T\\). It is random vector with a MVN, i.e., \\[\\mathbf X_{n\\times 1}=(X_1, \\cdots, X_n)^T \\sim \\mathbf N(\\mu\\mathbf 1, \\sigma^2\\mathbf I)\\]\n\n\n\\(\\bar X \\sim N(\\mu, \\sigma^2/n)\\)\n\\(\\frac{(n-1)s^2}{\\sigma^2} \\sim \\chi_{n-1}^2\\)\nIndependence between \\(\\bar X\\) and \\(s^2\\).\nT-statistic:\n\n\\[\\frac{\\frac{\\bar X-\\mu}{\\sqrt{\\sigma^2/n}}}{\\sqrt{\\frac{(n-1)s^2/\\sigma^2}{n-1}}}=\\frac{\\sqrt{n}(\\bar X-\\mu)}{s}\\sim t_{n-1}.\\]"
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#multivariate",
-    "href": "lectures/Lecture06_Wishart.html#multivariate",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Multivariate",
-    "text": "Multivariate\n\n\nA random sample \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\) from a MVN \\(\\mathbf N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\).\nLet \\[\\mathbf X_{n\\times p}=\\begin{pmatrix}\n\\mathbf X_1^T \\\\ \\vdots \\\\\\mathbf X_n^T\n\\end{pmatrix}\\] \\(\\mathbf X\\) follows a matrix normal distribution.\n\n\nSample mean vector follows a multivariate normal, i.e., \\(\\bar{\\mathbf X} \\sim \\mathbf N(\\boldsymbol \\mu, \\boldsymbol \\Sigma/n)\\)\nSample covariance matrix \\((n-1)\\mathbf S\\) follows a Wishart distribution, i.e., \\((n-1)\\mathbf S \\sim Wishart_p (n-1, \\Sigma)\\)\nIndependence between \\(\\bar {\\mathbf X}\\) and \\(S\\).\nHoetelling’s \\(T^2\\): \\(T^2 = (\\bar{\\mathbf X} - \\boldsymbol \\mu)^T\\left(\\frac{\\mathbf S}{n}\\right)^{-1} (\\bar{\\mathbf X} - \\boldsymbol \\mu)\\)"
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#outline",
-    "href": "lectures/Lecture06_Wishart.html#outline",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Outline",
-    "text": "Outline\n\nSample variance and chi-squared distribution\nSample covariance matrix and Wishart distribution\nHotelling’s \\(T^2\\)\nMaximum likelihood estimate"
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#sample-variance-and-chi-squared-distribution",
-    "href": "lectures/Lecture06_Wishart.html#sample-variance-and-chi-squared-distribution",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Sample Variance and Chi-squared Distribution",
-    "text": "Sample Variance and Chi-squared Distribution\n\nLet \\(\\mathbf X=(X_1, \\cdots, X_n)\\) denote a random sample from \\(N(\\mu, \\sigma^2)\\).\nEquivalently, \\(\\mathbf X \\sim N(\\mu \\mathbf 1, \\sigma^2 \\mathbf I)\\).\nLet \\(s^2=\\frac{1}{n-1}\\sum_{i=1}^n (X_i-\\bar X)^2\\) denote the sample variance.\nWe would like to show that \\[\\frac{(n-1)s^2}{\\sigma^2}\\sim \\chi_{n-1}^2\\]"
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#projection-matrices",
-    "href": "lectures/Lecture06_Wishart.html#projection-matrices",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Projection Matrices",
-    "text": "Projection Matrices\n\nA projection matrix is a square matrix that is both idempotent and symmetric\n\n\\[\\mathbf{P}^2 = \\mathbf{P} \\mbox{, }\\mathbf{P}=\\mathbf{P}^T \\]\n\nSuppose \\(\\mathbf P\\) is a projection matrix. We have\n\nThe eigenvalues of \\(\\mathbf{P}\\) has eigenvalues are either 0 or 1, and the number of 1’s is the same as the rank of the projection matrix.\n\\(tr(\\mathbf P) = rank(\\mathbf P)\\)"
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#example-project-onto-a-plane-in-mathbbr3",
-    "href": "lectures/Lecture06_Wishart.html#example-project-onto-a-plane-in-mathbbr3",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Example: Project onto a Plane in \\(\\mathbb{R}^3\\)",
-    "text": "Example: Project onto a Plane in \\(\\mathbb{R}^3\\)\n\nThe goal is to find the projection matrix that projects any vector in \\(\\mathbb{R}^3\\) onto the plane defined by \\(x + y + z = 0\\).\nSteps:\n\nStep 1: Define the subspace (the plane) and find a basis for it.\nStep 2: Compute the projection matrix using the basis.\nStep 3: Use the projection matrix to project a vector onto the plane and verify the result."
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#example-the-centering-matrix",
-    "href": "lectures/Lecture06_Wishart.html#example-the-centering-matrix",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Example: the Centering Matrix",
-    "text": "Example: the Centering Matrix\n\nThe centering matrix: \\(\\mathbb C=\\mathbf I - \\frac{1}{n} \\mathbf 1\\mathbf 1^T\\).\nIt is a projection matrix:\n\n\\(\\mathbb C^T=\\mathbb C\\) (symmetric)\n\\(\\mathbb C^2= \\mathbb C\\) (idempotent)\n\nOne important result about a projection matrix is that its eigenvalues are either zero or one.\nBy properties of projection matrices, we have\n\n\\(rank(\\mathbb C) = tr(\\mathbb C)=n-1\\)\n\\(\\mathbb C = \\sum_{j=1}^{n-1}\\gamma_j\\gamma_j^T\\)"
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#definition",
-    "href": "lectures/Lecture06_Wishart.html#definition",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Definition",
-    "text": "Definition\nDefinition. Let \\(Z_1, ..., Z_k \\overset{iid}\\sim N(0,1)\\). Then, the sum of squares \\(Q = Z_1^2 + ... + Z_k^2\\) has a chi-squared distribution with \\(k\\) degrees of freedom, denoted by \\(\\chi_k^2\\).\n\nAlternatively, let \\(\\mathbf Z_{k\\times 1} \\sim N(\\mathbf 0, \\mathbf I)\\). We say \\(||\\mathbf Z||^2=\\mathbf Z^T \\mathbf Z\\) follows \\(\\chi_k^2\\).\n\\(Z_1^2, \\cdots, Z_k^2 \\overset{iid}\\sim \\chi_1^2\\).\nThe sum of independent chi-squared random variables is also chi-squared. Specifically, if \\(Q_1\\sim \\chi_{k_1}^2\\) and \\(Q_2\\sim \\chi_{k_2}^2\\) are independent, then \\(Q_1+Q_2\\sim \\chi_{k_1+k_2}^2\\)."
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#chi-squared-vs-gamma",
-    "href": "lectures/Lecture06_Wishart.html#chi-squared-vs-gamma",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Chi-squared vs Gamma",
-    "text": "Chi-squared vs Gamma\n\nThe PDF of a chi-squared random variable with \\(k\\) degrees of freedom is given by:\n\n\\[\nf(x) = \\frac{1}{2^{k/2}\\Gamma(k/2)} x^{k/2-1} e^{-x/2} \\mbox{,  } x&gt;0\n\\]\nwhere \\(\\Gamma(\\cdot)\\) is the gamma function.\n\nRemark: \\(\\chi_k^2\\) = Gamma(shape=\\(k/2\\), rate=1/2)."
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#construct-chi-squared-r.v.s-from-projection-matrices-and-independent-normal-r.v.s",
-    "href": "lectures/Lecture06_Wishart.html#construct-chi-squared-r.v.s-from-projection-matrices-and-independent-normal-r.v.s",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Construct Chi-squared R.V.s from Projection Matrices and Independent Normal R.V.s",
-    "text": "Construct Chi-squared R.V.s from Projection Matrices and Independent Normal R.V.s\n\nLet \\(\\mathbf P_{n\\times n}\\) be a projection matrix with rank \\(r\\) and let \\(\\mathbf Z_{n\\times 1}\\sim N(\\mathbf 0, \\mathbf I)\\).\nClaim: \\(\\mathbf Z^T \\mathbf P \\mathbf Z\\sim \\chi_r^2\\).\nProof: By the spectral decomposition of \\(\\mathbf P\\), we have\n\n\\[P= \\sum_{i=1}^r \\gamma_i \\gamma_i^T,\\] where \\(\\gamma_1, \\cdots, \\gamma_r\\) are orthogonal vectors of norm 1, i.e., \\(\\gamma_i^T \\gamma_j = 0\\) for \\(i\\not=j\\) and \\(\\gamma_i^T \\gamma_i=1\\) for \\(i=1, \\cdots, r\\)."
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#the-sample-variance",
-    "href": "lectures/Lecture06_Wishart.html#the-sample-variance",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "The Sample Variance",
-    "text": "The Sample Variance\n\nLet \\(\\mathbb C=\\mathbf I - \\frac{1}{n} \\mathbf 1\\mathbf 1^T\\) be the centering matrix.\nWe have shown that \\(\\mathbb C\\) is a projection matrix with rank \\(n-1\\):\n\n\\(\\mathbb C^T=\\mathbb C\\), \\(\\mathbb C^2=\\mathbb C\\).\n\\(\\mathbb C = \\sum_{j=1}^{n-1}\\gamma_i\\gamma_i^T\\).\n\n\\((n-1)s^2=\\mathbf X^T\\mathbb C \\mathbf X\\) because\n\\[\\begin{aligned}\n(n-1)s^2&=\\sum_{i=1}^n (X_i-\\bar X)^2 = (\\mathbb C \\mathbf X)^T (\\mathbb C \\mathbf X) = \\mathbf X^T \\mathbb C \\mathbf X.\n\\end{aligned}\\]"
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#the-sample-covriance-from-a-mvn-random-sample",
-    "href": "lectures/Lecture06_Wishart.html#the-sample-covriance-from-a-mvn-random-sample",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "The Sample Covriance from A MVN Random Sample",
-    "text": "The Sample Covriance from A MVN Random Sample\n\nLet \\(\\mathbf X_1, \\cdots,\\mathbf X_n \\overset{iid} \\sim N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\).\nRecall that the sample covariance matrix is defined as \\[\\mathbf S =\\frac{1}{n-1} \\sum_{i=1}^n (\\mathbf X_i - \\bar{\\mathbf X})(\\mathbf X_i - \\bar{\\mathbf X})^T\\]\nWe have shown that \\[(n-1)\\mathbf S = \\mathbf X ^T \\mathbb C \\mathbf X\\] where \\(\\mathbf X\\) is the \\(n\\times p\\) random matrix."
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#the-distribution-of-sample-covriance",
-    "href": "lectures/Lecture06_Wishart.html#the-distribution-of-sample-covriance",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "The Distribution of Sample Covriance",
-    "text": "The Distribution of Sample Covriance\n\nThe goal is to show that \\((n-1)\\mathbf S\\) follows a Wishart distribution. More specifically, we would like to show that \\[(n-1)\\mathbf S \\sim Wishart_p(n-1, \\Sigma)\\]\nOutline of proof\n\nRewrite \\((n-1)\\mathbf S\\)\nApply properties of a projection matrix\nUse the definition of Wishart distribution"
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#wishart-distribution",
-    "href": "lectures/Lecture06_Wishart.html#wishart-distribution",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Wishart Distribution",
-    "text": "Wishart Distribution\n\nThe Wishart distribution is named after the British statistician John Wishart, who introduced it in his 1928 paper published in Biometrika.\nWishart was interested in the problem of estimating the covariance matrix of a multivariate normal distribution.\nWishart showed that the sample covariance matrix follows a particular probability distribution that we now call the Wishart distribution.\nThe Wishart distribution has become a fundamental tool in multivariate statistical analysis"
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#definition-1",
-    "href": "lectures/Lecture06_Wishart.html#definition-1",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Definition",
-    "text": "Definition\n\nA Wishart distribution can be defined in the following way\nLet \\(\\mathbf W\\) be a \\(p\\times p\\) random matrix.\nWe say \\(\\mathbf W\\) follows \\(Wishart_{p}(k, \\boldsymbol \\Sigma)\\) if \\(\\mathbf W\\) can be written as \\(\\mathbf W=\\mathbf X^T \\mathbf X\\) where \\(\\mathbf X\\) denotes the random matrix formed by a random sample of size \\(k\\) from MVN \\(N(\\mathbf 0, \\boldsymbol \\Sigma)\\).\nRemark:\\(E[\\mathbf W]=k\\Sigma\\)."
-  },
-  {
-    "objectID": "lectures/Lecture06_Wishart.html#wishart-vs-chi-squared",
-    "href": "lectures/Lecture06_Wishart.html#wishart-vs-chi-squared",
-    "title": "Lecture 6: Wishart Distribution",
+    "objectID": "lectures/Lecture07_Hotelling.html#wishart-vs-chi-squared",
+    "href": "lectures/Lecture07_Hotelling.html#wishart-vs-chi-squared",
+    "title": "Lecture 6: Hotelling’s T2",
     "section": "Wishart vs Chi-squared",
     "text": "Wishart vs Chi-squared\n\n\nWishart: If \\(\\mathbf X_1, \\cdots \\mathbf X_k \\overset{iid}\\sim N(\\mathbf 0, \\boldsymbol \\Sigma)\\), then \\[\\mathbf X^T \\mathbf X =\\sum_{i=1}^k \\mathbf X_i\\mathbf X_i^T \\sim Wishart_p(k, \\boldsymbol \\Sigma) \\mbox{, where } \\mathbf X_{k\\times p}=\\begin{pmatrix}\nX_1^T\\\\ \\vdots\\\\ X_k^T\n\\end{pmatrix}\n\\]\nChi-squared: If \\(X_1, \\cdots, X_k \\overset{iid}\\sim N(0,1)\\), then\n\\[\\mathbf X^T\\mathbf X=\\sum_{i=1}^k X_i^2\\sim \\chi_k^2 \\mbox{, where } \\mathbf X_{k\\times 1}=\n\\begin{pmatrix}\nX_1 \\\\ \\vdots \\\\ X_k\n\\end{pmatrix}\\]"
   },
   {
-    "objectID": "lectures/Lecture06_Wishart.html#sample-covariance-1",
-    "href": "lectures/Lecture06_Wishart.html#sample-covariance-1",
-    "title": "Lecture 6: Wishart Distribution",
+    "objectID": "lectures/Lecture07_Hotelling.html#sample-covariance",
+    "href": "lectures/Lecture07_Hotelling.html#sample-covariance",
+    "title": "Lecture 6: Hotelling’s T2",
     "section": "Sample Covariance",
-    "text": "Sample Covariance\n\nThe sample covariance \\((n-1)\\mathbf S=\\mathbf X^T \\mathbb C \\mathbf X\\).. The definition of Wishart distribution is not applicable immediately.\nRewrite \\((n-1)\\mathbf S\\):\n\n\n\\[\n\\begin{aligned}\n(n-1)\\mathbf S&=\\mathbf X^T \\mathbb C^T\\mathbb C\\mathbb C \\mathbf X=(\\mathbb C \\mathbf X)^T(\\mathbb C \\mathbf X)\\\\\n&=(\\mathbb C \\mathbf X)^T\\mathbb C(\\mathbb C \\mathbf X)\\\\\n&=(\\mathbb C \\mathbf X)^T\\sum_{j=1}^{n-1}\\gamma_i \\gamma_i^T (\\mathbb C \\mathbf X)\\\\\n&=\\sum_{j=1}^{n-1} (\\gamma_i^T \\mathbb C \\mathbf X)^T (\\gamma_i^T \\mathbb C \\mathbf X)\n\\end{aligned}\\]"
+    "text": "Sample Covariance\n\nLet \\(\\mathbf X_1, \\cdots \\mathbf X_n\\) be a random sample from \\(N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\).\nWe have shown that\n\n\\[(n-1)\\mathbf S \\sim Wishart_p(n-1, \\boldsymbol\\Sigma)\\]\n\nIt is critical to rewrite \\((n-1)\\mathbf S\\) in the following way."
   },
   {
-    "objectID": "lectures/Lecture06_Wishart.html#matrix-normal-distribution",
-    "href": "lectures/Lecture06_Wishart.html#matrix-normal-distribution",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Matrix Normal Distribution",
-    "text": "Matrix Normal Distribution\n\nLet \\(\\mathbf X_1, \\cdots \\mathbf X_n\\) be a random sample (therefore iid) from \\(N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\).\nIf we stack \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\) into a \\(n\\times p\\) random matrix \\(\\mathbf X\\), we say follows a matrix normal distribution: \\[\\mathbf X \\sim N(\\mathbf 1_n \\boldsymbol \\mu^T, \\boldsymbol \\Sigma, \\mathbf I_n)\\]\nConsider the linear function \\(\\mathbf X^T \\mathbb a\\). It can be shown that \\[\\mathbf X^T \\mathbb a \\sim N((\\mathbf 1_n \\boldsymbol \\mu^T)^T \\mathbb a, \\mathbb a^T  \\mathbb a \\boldsymbol \\Sigma)\\sim N(\\boldsymbol \\mu \\mathbf 1_n \\mathbb a, \\mathbb a^T  \\mathbb a \\boldsymbol \\Sigma)\\]\nThus, \\(Y_i \\sim N(\\mathbf 0, \\boldsymbol \\Sigma)\\)."
+    "objectID": "lectures/Lecture07_Hotelling.html#a-simulation-study-to-understand-the-wishart-distribution",
+    "href": "lectures/Lecture07_Hotelling.html#a-simulation-study-to-understand-the-wishart-distribution",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "A Simulation Study to Understand the Wishart Distribution",
+    "text": "A Simulation Study to Understand the Wishart Distribution\n\nRecall that if \\(W\\sim Wishart_p(k, \\boldsymbol \\Sigma)\\), then \\(E[\\mathbf W]=k\\Sigma\\).\n\n\n\nCode\nlibrary(MASS)\np=2; n=5; B=1000; rho=0.7\nSigma=diag(1+rho, p, p) - matrix(rho, p, p)\nwmat.array=array(0, c(B, p, p)) #wishart-distributed\nfor(b in 1:B){\n  X=mvrnorm(n, rep(0,p), Sigma)\n  wmat.array[b,,]=(n-1)*cov(X)}\napply(wmat.array, c(2,3), mean)\n\n\n          [,1]      [,2]\n[1,]  3.953025 -2.747483\n[2,] -2.747483  3.862495\n\n\nCode\nSigma*(n-1)\n\n\n     [,1] [,2]\n[1,]  4.0 -2.8\n[2,] -2.8  4.0"
   },
   {
-    "objectID": "lectures/Lecture06_Wishart.html#some-interesting-results",
-    "href": "lectures/Lecture06_Wishart.html#some-interesting-results",
-    "title": "Lecture 6: Wishart Distribution",
-    "section": "Some Interesting Results",
-    "text": "Some Interesting Results\n\nConsider a random sample from MVN \\(N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\). Let \\(\\mathbf S\\) denote the sample covariance matrix.\nWe have already shown that \\((n-1)\\mathbf S \\sim Wishart_p(n-1, \\boldsymbol \\Sigma)\\)\nWhat is the distribution of a diagonal element of \\((n-1)\\mathbf S\\)?\nWhat is the distribution of the sum of elements of \\((n-1)\\mathbf S\\)? Note, this is a special case of next question with \\(\\mathbf B=(1, \\cdots, 1)\\).\nWhat is the distribution of \\((n-1)\\mathbf B \\mathbf S \\mathbf B^T\\) where \\(B\\) is a fixed \\(q\\times p\\) matrix?\nIf time permits, we will run some simulations"
+    "objectID": "lectures/Lecture07_Hotelling.html#definition-of-hotellings-t2",
+    "href": "lectures/Lecture07_Hotelling.html#definition-of-hotellings-t2",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Definition of Hotelling’s \\(T^2\\)",
+    "text": "Definition of Hotelling’s \\(T^2\\)\n\nHotelling generalized the student’s t, which is for univarite, to Hotelling’s \\(T^2\\), which is the multivariate version\nDefinition. We say a random variable follows Hotelling’s \\(T_{p,\\nu}^2\\) if the random variable can be written as \\(\\mathbf Z^T\\left(\\frac{W}{\\nu}\\right)^{-1}\\mathbf Z\\) where\n\n\\(\\mathbf Z\\sim N(\\mathbf 0, \\boldsymbol\\Sigma)\\)\n\\(\\mathbf W \\sim W_p(\\nu, \\boldsymbol\\Sigma)\\)\n\\(\\mathbf Z \\perp \\mathbf W\\)"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#one-sample-hotelling-t2-1",
+    "href": "lectures/Lecture07_Hotelling.html#one-sample-hotelling-t2-1",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "One-Sample Hotelling \\(T^2\\)",
+    "text": "One-Sample Hotelling \\(T^2\\)\n\nLet \\(\\boldsymbol{X}_1, \\boldsymbol{X}_2, ..., \\boldsymbol{X}_n\\) be a random sample from a multivariate normal distribution with mean vector \\(\\boldsymbol{\\mu}\\) and covariance matrix \\(\\boldsymbol{\\Sigma}\\).\nThe sample mean vector and sample covariance matrix are denoted by \\(\\bar{\\mathbf X}\\) and \\(\\mathbf S\\), respectively.\nThe null hypothesis of interest \\(H_0: \\boldsymbol \\mu = \\boldsymbol \\mu_0\\)\nThe one-sample Hotelling \\(T^2\\) is defined as \\[T^2=(\\hat{\\mathbf \\mu} - \\mathbf \\mu_0)^T \\left(Cov(\\hat{\\mathbf \\mu})\\right)^{-1}(\\hat{\\mathbf \\mu} - \\mathbf \\mu_0)\\]\nWe have shown that \\(T^2\\sim T_{p, n-1}^2\\) when \\(H_0: \\boldsymbol \\mu=\\boldsymbol \\mu_0\\)."
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#hotellings-t2-distribution-vs-f-distribution",
+    "href": "lectures/Lecture07_Hotelling.html#hotellings-t2-distribution-vs-f-distribution",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Hotelling’s \\(T^2\\) Distribution vs \\(F\\) Distribution",
+    "text": "Hotelling’s \\(T^2\\) Distribution vs \\(F\\) Distribution"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#write-an-r-function-to-conduct-hotellings-t2",
+    "href": "lectures/Lecture07_Hotelling.html#write-an-r-function-to-conduct-hotellings-t2",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Write an R function to conduct Hotelling’s \\(T^2\\)",
+    "text": "Write an R function to conduct Hotelling’s \\(T^2\\)\n\nThere is no R base function for conducting Hotelling’s \\(T^2\\) test\nWe will write an R function\n\n\n\nCode\n#Hotelling's T^2 for testing H0: mu=mu0 vs mu != mu0\nHotelling.T2.1sample=function(X, mu0)\n{\n  n=dim(X)[1]\n  p=dim(X)[2]\n  X.bar=colMeans(X)\n  X.S=cov(X)\n  T2=n*t(X.bar-mu0)%*%solve(X.S)%*%(X.bar-mu0)\n  p.value=1-pf(T2/((n-1)*p/(n-p)),p,n-p)\n  return(list(X.bar=X.bar, X.cov=X.S, T2=T2, p.value=p.value))\n}"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#example-protein-intake",
+    "href": "lectures/Lecture07_Hotelling.html#example-protein-intake",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Example: Protein Intake",
+    "text": "Example: Protein Intake\n\nFor the protein intake data, it might be more interesting to estimate the means than conducting hypothesis testing\nSuppose we are interested in estimating the means of the daily protein intake from different sources\n\n\n\nCode\nlibrary(MASS)#the library \"MASS\" is required\nmy.cov=4*(diag(4) + 0.3* rep(1,4)%o%rep(1,4))\nn=60;p=4\nmy.mean=8*c(3,2,1,1)\neigen(my.cov)#to check whether the cov matrix is p.d.\n\n\neigen() decomposition\n$values\n[1] 8.8 4.0 4.0 4.0\n\n$vectors\n     [,1]       [,2]       [,3]       [,4]\n[1,] -0.5  0.8660254  0.0000000  0.0000000\n[2,] -0.5 -0.2886751 -0.5773503 -0.5773503\n[3,] -0.5 -0.2886751 -0.2113249  0.7886751\n[4,] -0.5 -0.2886751  0.7886751 -0.2113249"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#confidence-region-vs-interval",
+    "href": "lectures/Lecture07_Hotelling.html#confidence-region-vs-interval",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Confidence Region vs Interval",
+    "text": "Confidence Region vs Interval\n\nThe confidence region has exactly \\((1-\\alpha)100\\%\\) confidence; however\nIn many situations, we would like to construct confidence intervals, which are in the form of \\[\\mbox{estimate}\\pm \\mbox{critical value} \\times \\mbox{standard error}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#ci-for-one-parameter",
+    "href": "lectures/Lecture07_Hotelling.html#ci-for-one-parameter",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "CI for One Parameter",
+    "text": "CI for One Parameter\n\nIf there is only one parameter of interest, we can construct a C.I. using t-distribution, just as in univariate analysis\nExample. What is the mean protein intake from source \\(j\\)?\n\nLecture 04: we constructed a large-sample C.I. by using 1.96 as the critical value. (See the protein intake example)\n\nThis lecture: we construct a C.I. for \\(\\mu_j\\) by using \\(t_{n-1, 1-\\frac{\\alpha}{2}}\\) as the critical value\n\\[\\bar{X}_{(j)} \\pm t_{n-1, 1- \\frac{\\alpha}{2}}\\sqrt{\\frac{s^2_{X_{(j)}}}{n}} \\]\nWhat if we are interested in several simultaneously? We will discuss simultaneous confidence intervals in the next few slides."
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#simultaneous-c.i.s",
+    "href": "lectures/Lecture07_Hotelling.html#simultaneous-c.i.s",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Simultaneous C.I.s",
+    "text": "Simultaneous C.I.s"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#coverage",
+    "href": "lectures/Lecture07_Hotelling.html#coverage",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Coverage",
+    "text": "Coverage\n\nLet \\(A_j=\\{\\mu_j\\mbox{ is in the constructed C.I. }\\}\\). The C.I. in the previous slide has \\((1-\\alpha)100\\%\\) coverage for a specific \\(\\mu_j\\), i.e., \\[Pr(A_j)=1-\\alpha\\]\nIf we are interested in all the parameters, which are \\(\\mu_1, \\mu_2, \\mu_3, \\mu_4\\) in the protein intake example. The coverage for the mean vector is \\[Pr(A_1\\cap A_2 \\cap A_3 \\cap A_4)\\]"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#methods-for-simultaneous-confidence-intervals",
+    "href": "lectures/Lecture07_Hotelling.html#methods-for-simultaneous-confidence-intervals",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Methods for Simultaneous Confidence Intervals",
+    "text": "Methods for Simultaneous Confidence Intervals\n\n\nMethod 1 for simultaneous C.I. \\(T^2\\). Some linear algebra result ensures that the following method gives \\((1-\\alpha)100\\%\\) confidence to cover all linear combinations of the parameters (in the form of \\(a^T\\boldsymbol \\mu\\)) simultaneously \\[a^T\\bar{\\mathbf X}\\pm \\sqrt{\\frac{(n-1)p}{n-p}F_{p, n-p, 1-\\alpha}} se(a^T\\bar{\\mathbf X}) \\]\nMethod 2 Bonferroni’s correction: simply replace \\(\\alpha\\) with \\(\\alpha/k\\) where \\(k\\) is the total number of linear functions of the mean parameters: \\(t_{n-1, 1-\\alpha/(2k)}\\), where \\(k\\) is the number of parameters of interest."
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#simultaneous-c.i.s-using-t2-protein-intake",
+    "href": "lectures/Lecture07_Hotelling.html#simultaneous-c.i.s-using-t2-protein-intake",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Simultaneous C.I.s using \\(T^2\\): Protein Intake",
+    "text": "Simultaneous C.I.s using \\(T^2\\): Protein Intake\n\n\nCode\n#sample means\nprint(\"sample means\")\n\n\n[1] \"sample means\"\n\n\nCode\ncolMeans(protein)\n\n\n     meat     dairy       veg     other \n24.034032 15.928361  7.660490  7.738634 \n\n\nCode\n#standard errors\nprint(\"standard errors\")\n\n\n[1] \"standard errors\"\n\n\nCode\nsqrt(diag(cov(protein)/n))\n\n\n     meat     dairy       veg     other \n0.2675706 0.2709643 0.2935580 0.2747341 \n\n\nCode\n#critical value based on T2\nprint(\"critical values based on T2\")\n\n\n[1] \"critical values based on T2\"\n\n\nCode\ncv=sqrt((n-1)*p/(n-p)*qf(0.95, p, n-p))\n#lower bounds\nlow.bound=colMeans(protein) - cv *sqrt(diag(cov(protein)/n))\n#upper bounds\nup.bound=colMeans(protein) + cv *sqrt(diag(cov(protein)/n))"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#simultaneous-c.i.s-using-t2-protein-intake-1",
+    "href": "lectures/Lecture07_Hotelling.html#simultaneous-c.i.s-using-t2-protein-intake-1",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Simultaneous C.I.s using \\(T^2\\): Protein Intake",
+    "text": "Simultaneous C.I.s using \\(T^2\\): Protein Intake\n\nPut everything nicely into a data frame\n\n\n\nCode\n#put everything into a table\ndata.frame(lower=low.bound, mean=colMeans(protein), \n           upper=up.bound)\n\n\n          lower      mean     upper\nmeat  23.159200 24.034032 24.908864\ndairy 15.042433 15.928361 16.814289\nveg    6.700691  7.660490  8.620288\nother  6.840381  7.738634  8.636887"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#simultaneous-c.i.s-using-bonferroni-protein-intake",
+    "href": "lectures/Lecture07_Hotelling.html#simultaneous-c.i.s-using-bonferroni-protein-intake",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Simultaneous C.I.s using Bonferroni: Protein Intake",
+    "text": "Simultaneous C.I.s using Bonferroni: Protein Intake\n\n\nCode\n#critical value based on Bonferroni\nprint(\"calculate critical value based on Bonferroni\")\n\n\n[1] \"calculate critical value based on Bonferroni\"\n\n\nCode\ncv=qt(1-0.05/p/2, n-1)\n#lower bounds\nprint(\"lower bounds\")\n\n\n[1] \"lower bounds\"\n\n\nCode\nlow.bound=colMeans(protein) - cv *sqrt(diag(cov(protein)/n))\n#upper bounds\nprint(\"upper bounds\")\n\n\n[1] \"upper bounds\"\n\n\nCode\nup.bound=colMeans(protein) + cv *sqrt(diag(cov(protein)/n))"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#comparison-of-different-critical-values",
+    "href": "lectures/Lecture07_Hotelling.html#comparison-of-different-critical-values",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Comparison of Different Critical Values",
+    "text": "Comparison of Different Critical Values\n\nThree choices of critical values\n\nunadjusted: \\(t_{n-1, 1-\\alpha/2}\\). Should be used if multiple linear functions need to be estimated\n\\(T^2\\): \\(\\sqrt{\\frac{(n-1)p}{n-p}F_{p, n-p, 1-\\alpha}}\\)\nBonferroni’s correction: simply replace \\(\\alpha\\) with \\(\\alpha/k\\) where \\(k\\) is the total number of linear functions of the mean parameters: \\(t_{n-1, 1-\\alpha/(2k)}\\)"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#one-sample-vs-two-sample",
+    "href": "lectures/Lecture07_Hotelling.html#one-sample-vs-two-sample",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "One-Sample vs Two-Sample",
+    "text": "One-Sample vs Two-Sample\n\nIn the one-sample problem, the goal is to make inference of\n\nunivariate: a population mean (one-sample t-test problem) or\nmultivariate: a population mean vector (one-sample Hotelling \\(T^2\\) problem)\n\nIn the two-sample problem\n\nunivariate: compare two population means\nmultivariate: compare two population mean vectors"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#univariate-two-sample-problems",
+    "href": "lectures/Lecture07_Hotelling.html#univariate-two-sample-problems",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Univariate Two-Sample Problems",
+    "text": "Univariate Two-Sample Problems\n\nTwo independent samples\n\nSample 1 is from population 1:\n\n\\[X_{11}, \\cdots, X_{1,n_1}\\overset{iid} \\sim N(\\mu_1,\\sigma^2)\\]\n\nSample 2 is from population 2:\n\n\\[X_{21}, \\cdots, X_{2,n_2}\\overset{iid} \\sim N(\\mu_2,\\sigma^2)\\]\nNull hypothesis: \\(H_0: \\mu_1=\\mu_2\\)"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#multivariate-two-sample-problems",
+    "href": "lectures/Lecture07_Hotelling.html#multivariate-two-sample-problems",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Multivariate Two-Sample Problems",
+    "text": "Multivariate Two-Sample Problems\n\nTwo independent samples\n\nSample 1 is from population 1:\n\n\\[\\mathbf X_{11}, \\cdots,\\mathbf  X_{1,n_1}\\overset{iid} \\sim N(\\boldsymbol \\mu_1, \\boldsymbol \\Sigma)\\]\n\nSample 2 is from population 2:\n\n\\[\\mathbf X_{21}, \\cdots,\\mathbf  X_{2,n_2}\\overset{iid} \\sim N(\\boldsymbol \\mu_2, \\boldsymbol \\Sigma)\\]\nNull and alternative hypotheses: \\(H_0: \\boldsymbol \\mu_1=\\boldsymbol \\mu_2\\) vs \\(H_1: \\boldsymbol \\mu_1\\not=\\boldsymbol \\mu_2\\)"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#multivariate-two-sample-problems-write-an-r-function",
+    "href": "lectures/Lecture07_Hotelling.html#multivariate-two-sample-problems-write-an-r-function",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Multivariate Two-Sample Problems: Write an R Function",
+    "text": "Multivariate Two-Sample Problems: Write an R Function\n\nNo existing base function in R.\n\n\n\nCode\nHotelling.T2.2sample=function(X, Y){\n  n=dim(X)[1]; m=dim(Y)[1]; p=dim(X)[2]\n  if(p!= dim(Y)[2]) return(\"Error: the dimensions of X and Y are not the same\")\n  X.bar=colMeans(X); Y.bar=colMeans(Y)\n  X.S=cov(X); Y.S=cov(Y)\n  pooled.S=((n-1)*X.S+(m-1)*Y.S)/(m+n-2)\n  T2=t(X.bar-Y.bar)%*%solve((1/n+1/m)*pooled.S)%*%(X.bar-Y.bar)\n  p.value=1-pf(T2/((n+m-2)*p/(n+m-1-p)),p,n+m-1-p)\n  return(list(X.bar=X.bar, Y.bar=Y.bar, T2=T2, p.value=p.value))}"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#multivariate-two-sample-problems-write-an-r-function-1",
+    "href": "lectures/Lecture07_Hotelling.html#multivariate-two-sample-problems-write-an-r-function-1",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Multivariate Two-Sample Problems: Write an R Function",
+    "text": "Multivariate Two-Sample Problems: Write an R Function\n\nThe built-in function “t.test” serves a dual-purpose (one-sample or two-sample) function for univariate analyis\nWe will write a dual-purpose function Hotelling.T2\n\n\n\nCode\nHotelling.T2=function(X, Y=NULL, mu0=NULL)\n{\n if(is.null(Y) && is.null(mu0) ) \n   return(\"Error: mu0 is not specified\")\n if(!is.null(X) && !is.null(mu0)) \n   obj=Hotelling.T2.1sample(X, mu0) \n if(!is.null(X) && !is.null(Y)) \n   obj=Hotelling.T2.2sample(X,Y)\n return(obj)\n}"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#multivariate-two-sample-problems-iris-setosa-vs-versicolor",
+    "href": "lectures/Lecture07_Hotelling.html#multivariate-two-sample-problems-iris-setosa-vs-versicolor",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Multivariate Two-Sample Problems: Iris setosa vs versicolor",
+    "text": "Multivariate Two-Sample Problems: Iris setosa vs versicolor\n\nApply the function Hotelling.T2.2sample to compare the mean vectors of iris setosa and versicolor\n\n\n\nCode\nHotelling.T2.2sample(iris[1:50,1:4], iris[51:100,1:4])\n\n\n$X.bar\nSepal.Length  Sepal.Width Petal.Length  Petal.Width \n       5.006        3.428        1.462        0.246 \n\n$Y.bar\nSepal.Length  Sepal.Width Petal.Length  Petal.Width \n       5.936        2.770        4.260        1.326 \n\n$T2\n         [,1]\n[1,] 2580.839\n\n$p.value\n     [,1]\n[1,]    0"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#multivariate-two-sample-problems-example",
+    "href": "lectures/Lecture07_Hotelling.html#multivariate-two-sample-problems-example",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Multivariate Two-Sample Problems: Example",
+    "text": "Multivariate Two-Sample Problems: Example\n\nApplying the dual purpose function Hotelling.T2 to compare the mean vectors of iris setosa and versicolor\n\n\n\nCode\nHotelling.T2(iris[1:50,1:4], iris[51:100,1:4])\n\n\n$X.bar\nSepal.Length  Sepal.Width Petal.Length  Petal.Width \n       5.006        3.428        1.462        0.246 \n\n$Y.bar\nSepal.Length  Sepal.Width Petal.Length  Petal.Width \n       5.936        2.770        4.260        1.326 \n\n$T2\n         [,1]\n[1,] 2580.839\n\n$p.value\n     [,1]\n[1,]    0"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#two-sample-multivariate-simultaneous-c.i.s",
+    "href": "lectures/Lecture07_Hotelling.html#two-sample-multivariate-simultaneous-c.i.s",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Two-Sample Multivariate: Simultaneous C.I.s",
+    "text": "Two-Sample Multivariate: Simultaneous C.I.s\n\nWe might be interested in the difference between iris setosa and versicolor in the four features\nBecause we are interested all the four features, we do need to construct simultaneous C.I.s for the four features. Two methods to find critical values with adjustment for multiple C.I.s:\n\nMethod 1 - \\(T^2\\):\n\n\\[\\sqrt{\\frac{(n_1+n_2-2)p}{n_1+n_2-p-1}F_{p, n_1+n_2-p-1, 1-\\alpha}}\\]\n\nMethod 2- Bonferroni’s correction by replacing \\(\\alpha\\) with \\(\\alpha/k\\), i.e., use the following critical value \\[t_{n_1+n_2-2, 1-\\alpha/(2k)}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#the-assumption-of-mvn",
+    "href": "lectures/Lecture07_Hotelling.html#the-assumption-of-mvn",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "The assumption of MVN",
+    "text": "The assumption of MVN\n\nWe assume each observation \\(\\mathbf X_i\\) follows a MVN\nAssessing the assumption of multivariate normality is more difficult than assessing the assumption of normality (univariate)\nThis is because univariate normality does not guarantee multivariate normality. Typically, we look at the following two items:\nIt is difficult to examine joint normality in more than 2d. In practice, we do 1d and 2d\n\nMarginal normality\nAre pairs of variables show elliptical contours?\n\nAre there outliers in the data?"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#assess-marignal-normality",
+    "href": "lectures/Lecture07_Hotelling.html#assess-marignal-normality",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Assess Marignal Normality",
+    "text": "Assess Marignal Normality\n\nUseful visual tools:\n\nhistogram\nQQ plot\nscatter plot\n\nLess useful tools (formal tests)\n\nKolmogorov-Smironov test\nShapiro-Wilk test (correlation coefficient between data and normal scores)"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#histograms",
+    "href": "lectures/Lecture07_Hotelling.html#histograms",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Histograms",
+    "text": "Histograms"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#qq-plots",
+    "href": "lectures/Lecture07_Hotelling.html#qq-plots",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "QQ plots",
+    "text": "QQ plots"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#bivariate-scatter-plots",
+    "href": "lectures/Lecture07_Hotelling.html#bivariate-scatter-plots",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Bivariate Scatter Plots",
+    "text": "Bivariate Scatter Plots"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#large-sample-results",
+    "href": "lectures/Lecture07_Hotelling.html#large-sample-results",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Large-Sample Results",
+    "text": "Large-Sample Results\n\nMultivariate CLT\n\n\\[\\begin{aligned}\n& & \\sqrt{n} (\\bar{\\mathbf X} -\\boldsymbol \\mu ) \\overset{\\mathbf D} \\rightarrow N(\\mathbf 0, \\boldsymbol \\Sigma)\\\\\n& \\Rightarrow & n(\\bar{\\mathbf X}-\\boldsymbol \\mu)^T \\mathbf S^{-1}(\\bar{\\mathbf X}-\\boldsymbol \\mu) \\rightarrow \\chi_p^2\n\\end{aligned}\n\\]\n\nWhen \\(n-p\\) is large, we replace \\(\\frac{(n-1)p}{n-p}F_{p, n-p}\\) with \\(\\chi_{p}^2\\)\nWhen \\(n_1-p\\) and \\(n_2-p\\) are large, we replace \\(\\frac{(n_1+n_2-2)p}{n_1+n_2-p-1}F_{p, n_1+n_2-p-1}\\) with \\(\\chi_{p}^2\\)"
+  },
+  {
+    "objectID": "lectures/Lecture07_Hotelling.html#assignment-2",
+    "href": "lectures/Lecture07_Hotelling.html#assignment-2",
+    "title": "Lecture 6: Hotelling’s T2",
+    "section": "Assignment 2",
+    "text": "Assignment 2"
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#definition",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#definition",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Definition",
+    "text": "Definition\nRandom Vector\n\nLet \\(\\mathbf X_{p\\times 1}=(X_1, \\cdots, X_p)^T\\) be a \\(p\\)-dimensional random vector. Its mean vector and covariance are defined as follows:\n\n\\[\\begin{align*}\n\\boldsymbol \\mu & =E[\\mathbf X]=\\begin{pmatrix}\n  E[X_1]\\\\ \\vdots \\\\ E[X_p]\n  \\end{pmatrix}\\\\\n\\boldsymbol \\Sigma_{p\\times p}  &= Cov(\\mathbf X) = E[(\\mathbf X -\\boldsymbol \\mu)(\\mathbf X - \\boldsymbol \\mu)^T]  \n\\end{align*}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#mean",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#mean",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Mean",
+    "text": "Mean\nMean of \\(Y=a^TX\\)\n\nThe mean of \\(Y\\) can be expressed as: \\[\n\\begin{aligned}\nE(Y) &= E(\\mathbf{a}^T\\mathbf{X}) \\\\\n&= \\mathbf{a}^T E(\\mathbf{X}) \\\\\n&= \\mathbf{a}^T \\boldsymbol{\\mu}\n\\end{aligned}\n\\]\nIntuitively, the mean of \\(Y\\) is a weighted average of the components of \\(\\mathbf{X}\\), with weights given by the corresponding components of \\(\\mathbf{a}\\)."
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#variance",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#variance",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Variance",
+    "text": "Variance\nVariance of \\(Y\\)\n\nThe variance of \\(Y\\) can be expressed as: \\[\n\\begin{aligned}\n\\text{Var}(Y) &= \\text{Var}(\\mathbf{a}^T\\mathbf{X}) \\\\\n&= E[(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)^2]\\\\\n&=E[(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)^T]\\\\\n&=E[\\mathbf{a}^T(\\mathbf{X}-\\boldsymbol\\mu)(\\mathbf{X}-\\boldsymbol\\mu)^T\\mathbf a]\\\\\n&= \\mathbf{a}^T \\boldsymbol{\\Sigma} \\mathbf{a}\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#quadratic-forms",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#quadratic-forms",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Quadratic Forms",
+    "text": "Quadratic Forms\n\nA quadratic form is a polynomial of degree 2 in the components of a vector, and it can be expressed as: \\[Q(\\mathbf{X}) = \\mathbf{X}^T \\mathbf{A} \\mathbf{X}\\] where \\(\\mathbf{A}\\) is a symmetric matrix.\nWe will discuss distributions of certain quadratics forms later."
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#summary-mean-and-var-of-ymathbf-at-mathbf-x",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#summary-mean-and-var-of-ymathbf-at-mathbf-x",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Summary: Mean and Var of \\(Y=\\mathbf a^T \\mathbf X\\)",
+    "text": "Summary: Mean and Var of \\(Y=\\mathbf a^T \\mathbf X\\)\n\nIf \\(\\mathbf X\\sim (\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\), then \\(Y=\\mathbf a^T\\mathbf X\\sim (\\mathbf a^T\\boldsymbol \\mu, \\mathbf a^T\\boldsymbol \\Sigma \\mathbf a)\\).\n\\(\\mathbf a^T \\boldsymbol \\mu\\) is the inner product between \\(\\mathbf a\\) and \\(\\boldsymbol \\mu\\), \\[\\sum_{i=1}^p a_i \\mu_i.\\]\n\\(\\mathbf a^T \\boldsymbol \\Sigma \\mathbf a\\) is a quadratic form: \\[\\mathbf a^T \\boldsymbol \\Sigma \\mathbf a=\\sum_{i=1}^p\\sum_{j=1}^p a_i a_j \\sigma_{ij},\\] where \\(\\sigma_{ij}\\) is the \\((i,j)\\)th element of \\(\\boldsymbol \\Sigma\\)."
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#estimation-of-mean-and-variance-of-y",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#estimation-of-mean-and-variance-of-y",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Estimation of Mean and Variance of \\(Y\\)",
+    "text": "Estimation of Mean and Variance of \\(Y\\)\n\nRecall that if \\(X_1, \\cdots, X_n\\overset{iid}\\sim (\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\), then\n\n\\(\\bar{X}\\sim (\\boldsymbol \\mu, \\frac{1}{n}\\boldsymbol \\Sigma)\\)\n\\(E[\\mathbf S]=\\boldsymbol \\Sigma\\) where \\[\\mathbf S=\\frac{1}{n-1}\\sum_{i=1}^n(X_i-\\bar{X})(X_i-\\bar{X})^T.\\]\n\nWe can estimate its mean \\(\\mathbf a^T \\boldsymbol \\mu\\) by \\(\\mathbf a^T \\bar{\\mathbf X}\\), which is a linear combination of the sample mean vector.\nWe can estimate its variance, which is \\(\\mathbf a^T \\boldsymbol \\Sigma \\mathbf a\\), by \\(\\mathbf a^T \\mathbf S \\mathbf a\\), which is a quadratic form of the sample covariance matrix."
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-1",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-1",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Example 1",
+    "text": "Example 1\n\n\\(\\mathbf X = (X_1, X_2)^T\\), \\(a=(1/2, 1/2)^T\\).\n\nThen \\[Y=a^TX=\\frac{1}{2}(X_1 + X_2)\\]\n\n\\(E(Y)=\\frac{1}{2}(\\mu_1 + \\mu_2)\\).\n\\(Var(Y) = \\frac{1}{4} (\\sigma_1^2 + \\sigma_2^2 + 2\\sigma_{12})= \\sum_{i=1}^2 \\sum_{j=1}^2 a_i a_j \\sigma_{ij}\\). Note that \\(\\sigma_{12}=\\sigma_{21}\\)."
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-2",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-2",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Example 2",
+    "text": "Example 2\n\nAssume we have a random sample from a distribution with mean \\(\\mu\\) and variance \\(\\sigma^2\\), i.e., \\(X_1, \\cdots, X_n\\overset{iid}\\sim (\\mu, \\sigma^2)\\).\nWe often stack the random variables vertically: \\[\\mathbf X_{n\\times 1}=\\begin{pmatrix}\nX_1 \\\\ \\vdots \\\\ X_n\\end{pmatrix}.\\]\nAn equivalent expression, \\(\\mathbf X=(X_1, \\cdots, X_n)^T\\)."
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-3",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-3",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Example 3",
+    "text": "Example 3\nLinear Combinations of Iris Setosa Features\n\nRecall that for the iris setosa, \\(\\mathbf X\\) is \\(50\\times 4\\).\nConsider a linear combination of the features \\(Y= \\mathbf Xb\\), where\n\n\\[\n    b=\\begin{pmatrix}\n    1/4 \\\\ 1/4 \\\\ 1/4 \\\\ 1/4\n    \\end{pmatrix}\n\\]\n\n\\(Yb\\) is a \\(50\\times 1\\) vector, with the \\(i\\)th row be the average of the four features of the \\(i\\)th iris setosa flower. To see this"
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#the-mean-of-a-univariate-distribution",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#the-mean-of-a-univariate-distribution",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "The Mean of a Univariate Distribution",
+    "text": "The Mean of a Univariate Distribution\n\nA random sample \\(X_1, \\cdots, X_n\\) from a univariate distribution with mean \\(\\mu\\) and variance \\(\\sigma^2\\).\nWe are interested in making inference about the population mean \\(\\mu\\).\nThe sample mean \\(\\bar X\\) is an unbiased estimator of \\(\\mu\\), i.e., \\(E[\\bar X]=\\mu\\). We often use \\(\\hat\\mu=\\bar X\\) to estimate \\(\\mu\\).\nHow to quantify the uncertainty of \\(\\hat\\mu\\)? Recall that \\(Var(\\bar X)=\\frac{\\sigma^2}{n}\\).."
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-combinations-of-means",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-combinations-of-means",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Linear Combinations of Means",
+    "text": "Linear Combinations of Means\n\nIn many situations, the parameter of interest is a function of the means.\nFor example, we may be interested in the mean of a linear combination of the means, i.e., \\(\\mathbf a^T \\boldsymbol \\mu = \\sum_{i=1}^p a_i \\mu_i\\), where \\(\\mathbf a=(a_1, \\cdots, a_p)^T\\) is a \\(p\\times 1\\) vector.\nIn the following simulated study, we will show how to construct a large-sample confidence interval for \\(\\mathbf a^T \\boldsymbol \\mu\\)."
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#a-random-sample-from-a-multivariate-distribution",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#a-random-sample-from-a-multivariate-distribution",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "A Random Sample From a Multivariate Distribution",
+    "text": "A Random Sample From a Multivariate Distribution\n\nConsider a random sample \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\) from a multivariate distribution with mean vector \\(\\boldsymbol \\mu_{p\\times 1}\\) and covariance matrix \\(\\boldsymbol \\Sigma_{p\\times p}\\).\nWe often stack the random vectors to form an \\(n\\times p\\) matrix: \\[\\mathbf X_{n\\times p}=\\begin{pmatrix}\\mathbf X_1^T \\\\ \\vdots \\\\ \\mathbf X_n^T\\end{pmatrix}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#inference-of-mathbf-at-boldsymbol-mu",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#inference-of-mathbf-at-boldsymbol-mu",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Inference of \\(\\mathbf a^T \\boldsymbol \\mu\\)",
+    "text": "Inference of \\(\\mathbf a^T \\boldsymbol \\mu\\)\n\nTwo basic questions:\n\nHow to estimate it?\nWhat is the standard error of the estimator?\n\nWe have shown that \\(\\bar{\\mathbf X}\\sim (\\boldsymbol \\mu, \\frac{1}{n}\\boldsymbol \\Sigma)\\), which implies that \\[\\mathbf a^T \\bar{\\mathbf X} \\sim (\\mathbf a^T \\boldsymbol \\mu, \\mathbf a^T \\frac{1}{n}\\boldsymbol \\Sigma \\mathbf a)\\]\nAn unbiased estimator of \\(\\mathbf a^T \\boldsymbol \\mu\\) is \\(\\mathbf a^T \\bar{\\mathbf X}\\), which is a linear combination of the sample mean vector."
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#description-and-parameters",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#description-and-parameters",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Description and Parameters",
+    "text": "Description and Parameters\n\nThis is a simulated data set\nFor adults, the recommended range of daily protein intake is between 0.8 g/kg and 1.8 g/kg of body weight\n60 observations\n4 sources of proteins\n\nmeat\ndairy\nvegetables / nuts / tofu\nother"
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#generate-a-random-sample-from-the-multivariate-distribution",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#generate-a-random-sample-from-the-multivariate-distribution",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Generate a random sample from the multivariate distribution",
+    "text": "Generate a random sample from the multivariate distribution\nSimulate A Random Sample\n\n\nCode\nset.seed(1)\nx=mvrnorm(n, mu=my.mean, Sigma=my.cov)\ndim(x)\n\n\n[1] 60  4\n\n\nCode\nprotein=as.matrix(data.frame(meat=x[,1],dairy=x[,2], \n                             veg=x[,3], other=x[,4]))"
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#sample-mean-and-sample-covariance",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#sample-mean-and-sample-covariance",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Sample Mean and Sample Covariance",
+    "text": "Sample Mean and Sample Covariance\n\n\nCode\nxbar=matrix(colMeans(protein), 4, 1)\nt(xbar)\n\n\n         [,1]     [,2]    [,3]     [,4]\n[1,] 24.03403 15.92836 7.66049 7.738634\n\n\nCode\nS=cov(protein)\nS\n\n\n           meat     dairy       veg     other\nmeat  4.2956426 0.8150757 1.1294478 0.5532420\ndairy 0.8150757 4.4052993 0.3497889 0.2337300\nveg   1.1294478 0.3497889 5.1705794 0.5897121\nother 0.5532420 0.2337300 0.5897121 4.5287293"
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-1",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-1",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Linear Functions/Combinations: Question 1",
+    "text": "Linear Functions/Combinations: Question 1\n\nQ1: Construct a large-sample (approximate) C.I. for protein from meat. In other words, the parameter of interest is \\(\\mu_1\\).\nEstimate \\(\\bar X_{(1)}=24.0\\).\nWe need compute the standard error (s.e.) of \\(\\bar X_1\\), which is defined as \\(se(\\bar X_{(1)})=\\sqrt{\\hat{var}(\\bar X_{(1)})}\\)\nTwo ways to compute the s.e.,\n\n\\(se(\\bar X_{(1)})=\\sqrt{4.2956/60}=0.27\\)\nThe calculation can also be done by noticing that \\(\\bar X_1\\) is a linear combination of \\(\\bar{\\mathbf X}\\): \\(\\bar X_{(1)} =\\mathbf a^T  \\bar{\\mathbf X}\\), where \\(\\mathbf a^T=(1, 0, 0, 0)\\). Thus,\n\n\n\\[\\hat{Var}(\\bar X_{(1)})=\\mathbf a^T \\frac{\\mathbf S}{60} \\mathbf a\\]"
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-2",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-2",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Linear Functions/Combinations: Question 2",
+    "text": "Linear Functions/Combinations: Question 2\n\nQ2: Construct a large-sample C.I. for the total protein intake.\nThe parameter of interest is \\(\\mu_1+\\mu_2+\\mu_3+\\mu_4=\\mathbf a^T \\boldsymbol \\mu\\), where \\(\\mathbf a=(1,1,1,1)^T\\).\nEstimate: \\(\\mathbf a^T \\bar{\\mathbf X}\\)\nStandard error: \\[\\sqrt{\\mathbf a^T\\frac{\\mathbf S}{n} \\mathbf a}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-3",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-3",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "Linear Functions/Combinations: Question 3",
+    "text": "Linear Functions/Combinations: Question 3\n\nQ3: Construct a large-sample C.I. for the difference of protein intake between from meat and from vegetable\nThe parameter of interest is \\(\\mu_1 - \\mu_3=\\mathbf a^T \\boldsymbol \\mu\\), where \\(\\mathbf a=(1, 0, -1, 0)^T\\).\nEstimate: \\(\\mathbf a^T \\bar{\\mathbf X}\\)\nStandard error: \\(\\sqrt{\\mathbf a^T\\frac{\\mathbf S}{n} \\mathbf a}\\)"
+  },
+  {
+    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#r-code",
+    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#r-code",
+    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "section": "R Code",
+    "text": "R Code\nQuestion 1\n\nR code to compute using the above two ways\n\n\n\nCode\nsqrt(S[1,1]/60) # Method 1\n\n\n[1] 0.2675706\n\n\nCode\n# Method 2\na=matrix(c(1,0,0,0),4,1)\nsqrt(t(a)%*%S%*%a/60)\n\n\n          [,1]\n[1,] 0.2675706\n\n\n\nBoth methods give \\(s.e.(\\bar X_{(1)})=0.27\\)\nAn approximate 95% C.I. for \\(\\mu_1\\) is \\(24.0 \\pm 1.96*0.27\\)"
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#matrix-multiplication",
+    "href": "lectures/Lecture02_MatrixOperations.html#matrix-multiplication",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Matrix Multiplication",
+    "text": "Matrix Multiplication\nDefinition of Matrix Multiplication\n\nConsider matrix \\(A_{m\\times n}\\) and matrix \\(B_{n\\times p}\\).\nHow does \\(AB\\) look like?\n\\(AB\\) has \\(m\\) rows and \\(p\\) columns\nWhat is the value in the \\(i\\)th row and \\(j\\)th column of \\(AB\\)? We often denote it as the \\((i,j)\\)th element/entry of \\(AB\\): \\[\\left(AB\\right)_{i,j}=\\sum_{k=1}^n a_{ik}b_{kj}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#the-iris-data",
+    "href": "lectures/Lecture02_MatrixOperations.html#the-iris-data",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "The Iris Data",
+    "text": "The Iris Data\nIris data\n\nThree species of iris flowers: setosa, versicolor, and virginica\nFour features: sepal length, sepal width, petal length, and petal width"
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#left-multiplication",
+    "href": "lectures/Lecture02_MatrixOperations.html#left-multiplication",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Left Multiplication",
+    "text": "Left Multiplication\nLeft multiply a matrix to Y: Example 1\n\nConsider \\[A=\\frac{1}{150}\\mathbf{1}_{1\\times 150},\\] i.e., \\[A_{1\\times 150}=(\\frac{1}{150}, \\cdots, \\frac{1}{150})\\]\nWhat is \\(AY\\)?\nIn R, the correct syntax for matrix multiplication is\n\n%*%"
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#right-multiplication",
+    "href": "lectures/Lecture02_MatrixOperations.html#right-multiplication",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Right Multiplication",
+    "text": "Right Multiplication\nRight multiply a matrix to Y: convert cm to inch\n\nThe lengths in the iris data were measured using cm\n1cm = 0.393701inch. How to convert data to inch?\nLet \\[C=\\begin{pmatrix}\n0.393701 & 0 & 0 & 0\\\\\n0 & 0.393701 & 0 & 0\\\\\n0 & 0 & 0.393701 & 0\\\\\n0 & 0 & 0 & 0.393701\n\\end{pmatrix}\\]\n\\(Y_{150\\times 4}C_{4\\times 4}\\) is the data in inch."
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#left-vs-right-multiplication-practice",
+    "href": "lectures/Lecture02_MatrixOperations.html#left-vs-right-multiplication-practice",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Left vs Right Multiplication: Practice",
+    "text": "Left vs Right Multiplication: Practice\nA homework problem:\n\nFind a matrix \\(A\\) such that \\(AY\\) gives the difference of means vectors between iris setosa and iris versicolor\nFind a matrix \\(B\\) such that \\(YB\\) is column-standardized, i.e., the standard deviation of each column/feature is 1.\nCheck the following\n\nLet \\(C=\\mathbf I_{150} - \\frac{1}{150}J\\), where \\(J_{150\\times 150}\\) is an all-ones matrices . Use R to verify that \\(CY\\) centers each column/feature. The R code for \\(C\\) is ”\n\nC=diag(1,150) - \\frac{150}matrix(1, 150, 150)\n\nLet \\(S\\) be the sample covariance matrix. Use R to verify that each column of \\(CYS^{-1/2}\\) has been centered and standardized. Hints:\n\nS=cov(Y)\nTo compute \\(S^{-1/2}\\), you may need a R package, such as “qtl2pleio”."
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#generate-data-from-mvn",
+    "href": "lectures/Lecture02_MatrixOperations.html#generate-data-from-mvn",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Generate Data from MVN",
+    "text": "Generate Data from MVN\n\nGenerate 1000 data points from a multivariate normal with mean \\(\\mathbf 0\\) and covariance matrix \\[\\Sigma=\\begin{pmatrix}0.8125000 & 0.3247595\\\\\n0.3247595 & 0.4375000\\end{pmatrix}\\]\nHow did I obtain this covariance matrix?\n\n\n\ntheta=-pi/6\nR=matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)), 2, 2)\nLambda=diag(c(1,0.25))\nSigma=R%*%Lambda%*%t(R)\nX=mvrnorm(1000, mu=rep(0,2), Sigma=Sigma)"
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#mvn-data-visualization",
+    "href": "lectures/Lecture02_MatrixOperations.html#mvn-data-visualization",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "MVN data: Visualization",
+    "text": "MVN data: Visualization\n\nScatter plot of the data \\(X\\)\n\n\n\nplot(X, xlim=c(-3,3), ylim=c(-3,3), xlab=\"\", ylab=\"\", main=\"original\")\nabline(a=0, b=1/2, col=\"red\")"
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
+    "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Spectral Decomposition of Sample Covariance Matrix",
+    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8556731  0.5175167\n[2,] -0.5175167 -0.8556731\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n         [,1]      [,2]\n[1,] 1.021585 0.0000000\n[2,] 0.000000 0.2661893"
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
+    "href": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Singular Value Decomposition (SVD)",
+    "text": "Singular Value Decomposition (SVD)\nIntroduction to SVD\n\nSVD was developed by a number of researchers independently over time. Key contributors\n\nEugenio Beltrami (1873): an Italian mathematician, first introduced the concept of singular value decomposition in his work on mathematical physics, although the modern formulation of SVD was not fully realized at that time.\nCamille Jordan (1874), a French mathematician, independently discovered it.\n… Many other contributors …\nGene H. Golub and Charles F. Van Loan (1965): American mathematicians, are credited with the development of the modern and widely used algorithm for computing the singular value decomposition, known as the Golub-Reinsch algorithm."
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#another-matrix-operation-kronecker-product",
+    "href": "lectures/Lecture02_MatrixOperations.html#another-matrix-operation-kronecker-product",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Another Matrix Operation: Kronecker Product",
+    "text": "Another Matrix Operation: Kronecker Product\nDefinition\n\nThe Kronecker product, denoted by \\(\\bigotimes\\) is a mathematical operation that combines two matrices to create a larger matrix.\n\n\n\nAccording to wikipedia, “The Kronecker product is named after the German mathematician Leopold Kronecker (1823–1891), even though there is little evidence that he was the first to define and use it.”\nWhy is it useful? It provide compact Representation. Kronecker product allows for compact representation of large matrices by expressing them as a combination of smaller matrices."
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#futher-reading",
+    "href": "lectures/Lecture02_MatrixOperations.html#futher-reading",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Futher reading",
+    "text": "Futher reading\n\nChronecker product: Gerald S. Rogers. (1984) Kronecker Products in ANOVA-A First Step. The American Statistician, 38: 197-202.\nSVD: Biclustering via Sparse Singular Value Decomposition” https://www.unc.edu/~haipeng/publication/ssvd.pdf"
+  },
+  {
+    "objectID": "lectures/Lecture02_MatrixOperations.html#homework-1-1",
+    "href": "lectures/Lecture02_MatrixOperations.html#homework-1-1",
+    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
+    "section": "Homework 1",
+    "text": "Homework 1\nProblem 1\n\nSuppose \\(X_1, X_2, Y_1, Y_2\\) are mutually independent.\n\n\\(X_1\\) and \\(X_2\\) are iid from \\(N(\\mu=0, \\sigma_x^2=2^2)\\)\n\\(Y_1\\) and \\(Y_2\\) are iid from \\(N(\\mu=0, \\sigma_y^2=1^2)\\) Consider the two pairs \\((X_1, X_2)\\) and \\((Y_1, Y_2)\\). Which pair tends to have a larger difference? To answer the question, please calculate and estimate the following two probabilities: \\[P(|X_1-X_2|&gt;4), P(|Y_1-Y_2|&gt;4)\\]\n\nThe hints for calculating/estimating \\(P(|X_1-X_2|&gt;4)\\) can be found in the two slides. Using similar strategies, you can calculate/estimate \\(P(|Y_1-Y_2|&gt;4)\\)"
+  },
+  {
+    "objectID": "lectures/index.html",
+    "href": "lectures/index.html",
+    "title": "Lecture Notes",
+    "section": "",
+    "text": "Lecture 01: Introduction\nLecture 02: Matrix Operations\nLecture 03: Random Vectors/Matrices\nLecture 04: A Random Sample from a Multivariate Normal\nLecture 05: Multivariate Normal Distribution\nLecture 06: The Sample Covariance Matrix and Wishart Distribution\nLecture 07: Inference of Mean Vectors: Hotelling’s T^2"
+  },
+  {
+    "objectID": "exams/index.html",
+    "href": "exams/index.html",
+    "title": "Exams",
+    "section": "",
+    "text": "Midterm (coming soon)\nFinal (coming soon)"
+  },
+  {
+    "objectID": "assignments/index.html",
+    "href": "assignments/index.html",
+    "title": "Assignments",
+    "section": "",
+    "text": "Assignment 01 can be found at the end of lecture 02 slides. Tentative due date: Monday, April 13th.\nAssignment 02 is due on Monday, April 27th."
+  },
+  {
+    "objectID": "assignments/stat240_assignment2.html",
+    "href": "assignments/stat240_assignment2.html",
+    "title": "STAT200C Assignment 2",
+    "section": "",
+    "text": "Problem 1. The purpose of this problem is to explore the distribution of the trace of sample covariance. Suppose \\(Y\\sim Wishart(n-1, \\Sigma)\\), what is the distribution of \\(\\operatorname{tr}(Y)\\)?\n\nSet up:\n\nChoose the sample size \\(n\\) to be 50 or 100.\nSet the number of simulations to \\(B=1000\\).\nHint: Use the function mvnnorm from the R MASS library to generate multivariate normal data.\nHint: Ensure your covariance matrix \\(\\Sigma\\) is positive definite. You can check this by computing the eigenvalues using the eigen function in R and confirming that all eigenvalues are positive.\n\n1.1 The case of the identity covariance matrix \\(\\Sigma = I_3\\).\n\nGenerate \\(B=1000\\) datasets, each with \\(n\\) observations from \\(N(\\mathbf 0, \\mathbf I_3)\\).\nFor each dataset, calcualte the sample covariance matrix \\(\\mathbf S\\) and record \\((n-1)\\operatorname{tr}(\\mathbf S)\\).\nGuess: Based on the properties of the Wishart distribution, what is the exact distribution of \\((n-1) \\operatorname{tr}(S)\\) when \\(\\Sigma=\\mathbf I_3\\)?\nCheck: Plot a histogram of your 1,000 recorded \\((n-1) \\operatorname{tr}(S)\\). Overlay the theoretical function from your guess in previous step. Does the empirical distribution match your guess?\n\n2.2: The general case.\n\nChoose a \\(3-by-3\\) covariance matrix with non-zero covariances (the off-diagonal elements should not be 0).\nMake sure that your \\(\\Sigma\\) is valid (positive definite) and use \\(pairs()\\) to show the scatter plots of one simulated dataset to visualize the correlations.\nGenerate \\(B=1000\\) datasets using this \\(\\Sigma\\) and record the trace of each sample covariance matrix \\(\\mathbf S\\). Summarize the traces.\nIn the general case, \\((n-1)\\operatorname{tr}(S)\\) does not follow a simple Chi-squared distribution but is instead a weighted sum (mixture) of independent Chi-squared variables. Calculate the average of your 1,000 simulated traces. Compare this average to \\(tr(\\Sigma)\\).\n\n\nProblem 2. Find a good data example to conduct a two-sample Hotelling’s \\(T^2\\) test. Do not use the data example discussed in this course. Please (1) include visualizations as exploratory methods and (2) make conclusion in the context of the data example."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "STAT240",
+    "section": "",
+    "text": "Welcome to the STAT240 course website."
+  },
+  {
+    "objectID": "index.html#course-materials",
+    "href": "index.html#course-materials",
+    "title": "STAT240",
+    "section": "Course materials",
+    "text": "Course materials\n\nLecture Notes\nAssignments\nExams"
+  },
+  {
+    "objectID": "lectures/Introduction.html#introduction",
+    "href": "lectures/Introduction.html#introduction",
+    "title": "Multivariate Analysis",
+    "section": "Introduction",
+    "text": "Introduction\nCourse Information\n\nPlease use the Canvas website for important updates, and deadlines.\nThe course materials including lecture notes, homework, and projects will be posted here: https://yu-zhaoxia.github.io/STAT240/\nAnnouncements will be sent to the mailing list or posted in Canvas.\nAssignment submission: GradeScope on Canvas."
+  },
+  {
+    "objectID": "lectures/Introduction.html#vectors-we-begin-with-a-little-bit-matrix-algebra",
+    "href": "lectures/Introduction.html#vectors-we-begin-with-a-little-bit-matrix-algebra",
+    "title": "Multivariate Analysis",
+    "section": "Vectors: We begin with a little bit matrix algebra",
+    "text": "Vectors: We begin with a little bit matrix algebra\nVectors in R\n\nThere are many ways to create or define a vector in R\n\n\nx=rep(0.3, 4)\nx\n\n[1] 0.3 0.3 0.3 0.3\n\nx=seq(1, 4, by=0.2)\nx\n\n [1] 1.0 1.2 1.4 1.6 1.8 2.0 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 3.8 4.0\n\nc(\"a1\", \"a2\", \"a3\")\n\n[1] \"a1\" \"a2\" \"a3\""
+  },
+  {
+    "objectID": "lectures/Introduction.html#special-matrices",
+    "href": "lectures/Introduction.html#special-matrices",
+    "title": "Multivariate Analysis",
+    "section": "Special Matrices",
+    "text": "Special Matrices\nRow or Column Vectors\n\nA vector (column vector) is a special matrix consisting of a single column of elements. e.g., \\[a=\\begin{pmatrix}a_1\\\\ a_2 \\\\ a_3\\end{pmatrix}\\]\nA row vector is a special matrix consisting of a single row of elements \\[b=(b_1, b_2, b_3, b_4)\\]"
+  },
+  {
+    "objectID": "lectures/Introduction.html#common-vector-operations",
+    "href": "lectures/Introduction.html#common-vector-operations",
+    "title": "Multivariate Analysis",
+    "section": "Common Vector Operations",
+    "text": "Common Vector Operations\nScalar Multiplication"
   },
   {
     "objectID": "lectures/Lecture03_RandomV.html#random-matrix",
@@ -301,297 +686,143 @@
     "text": "Example\nLinear Combinations of Iris Setosa Features\n\nRecall that for the iris setosa, \\(\\mathbf X\\) is \\(50\\times 4\\).\nConsider a linear combination of the features \\(Y= \\mathbf Xb\\), where\n\n\\[\n    b=\\begin{pmatrix}\n    1/4 \\\\ 1/4 \\\\ 1/4 \\\\ 1/4\n    \\end{pmatrix}\n\\]\n\n\\(Yb\\) is a \\(50\\times 1\\) vector, with the \\(i\\)th row be the average of the four features of the \\(i\\)th iris setosa flower. To see this"
   },
   {
-    "objectID": "lectures/Introduction.html#introduction",
-    "href": "lectures/Introduction.html#introduction",
-    "title": "Multivariate Analysis",
-    "section": "Introduction",
-    "text": "Introduction\nCourse Information\n\nPlease use the Canvas website for important updates, and deadlines.\nThe course materials including lecture notes, homework, and projects will be posted here: https://yu-zhaoxia.github.io/STAT240/\nAnnouncements will be sent to the mailing list or posted in Canvas.\nAssignment submission: GradeScope on Canvas."
+    "objectID": "lectures/Lecture06_Wishart.html#univariate-vs-multivariate",
+    "href": "lectures/Lecture06_Wishart.html#univariate-vs-multivariate",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Univariate vs Multivariate",
+    "text": "Univariate vs Multivariate\n\nReview: A random sample, denoted by \\(X_1, \\cdots, X_n\\), from a (univariate) normal distribution \\(N(\\mu, \\sigma^2)\\)\n\nWhat are the distributions of \\(\\bar X,  s^2\\)? What useful statistics can be constructed?\n\nNew material: A random sample, denoted by \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\), from a multivariate normal distribution \\(N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\)\n\nWhat are the distributions of \\(\\bar{\\mathbf X},  \\mathbf S\\)? What useful statistics can be constructed?"
   },
   {
-    "objectID": "lectures/Introduction.html#vectors-we-begin-with-a-little-bit-matrix-algebra",
-    "href": "lectures/Introduction.html#vectors-we-begin-with-a-little-bit-matrix-algebra",
-    "title": "Multivariate Analysis",
-    "section": "Vectors: We begin with a little bit matrix algebra",
-    "text": "Vectors: We begin with a little bit matrix algebra\nVectors in R\n\nThere are many ways to create or define a vector in R\n\n\nx=rep(0.3, 4)\nx\n\n[1] 0.3 0.3 0.3 0.3\n\nx=seq(1, 4, by=0.2)\nx\n\n [1] 1.0 1.2 1.4 1.6 1.8 2.0 2.2 2.4 2.6 2.8 3.0 3.2 3.4 3.6 3.8 4.0\n\nc(\"a1\", \"a2\", \"a3\")\n\n[1] \"a1\" \"a2\" \"a3\""
+    "objectID": "lectures/Lecture06_Wishart.html#univariate",
+    "href": "lectures/Lecture06_Wishart.html#univariate",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Univariate",
+    "text": "Univariate\n\n\nA random sample, denoted by \\(X_1, \\cdots, X_n\\), from a normal distribution \\(N(\\mu, \\sigma^2)\\)\nLet \\(\\mathbf X_{n\\times 1}=(X_1, \\cdots, X_n)^T\\). It is random vector with a MVN, i.e., \\[\\mathbf X_{n\\times 1}=(X_1, \\cdots, X_n)^T \\sim \\mathbf N(\\mu\\mathbf 1, \\sigma^2\\mathbf I)\\]\n\n\n\\(\\bar X \\sim N(\\mu, \\sigma^2/n)\\)\n\\(\\frac{(n-1)s^2}{\\sigma^2} \\sim \\chi_{n-1}^2\\)\nIndependence between \\(\\bar X\\) and \\(s^2\\).\nT-statistic:\n\n\\[\\frac{\\frac{\\bar X-\\mu}{\\sqrt{\\sigma^2/n}}}{\\sqrt{\\frac{(n-1)s^2/\\sigma^2}{n-1}}}=\\frac{\\sqrt{n}(\\bar X-\\mu)}{s}\\sim t_{n-1}.\\]"
   },
   {
-    "objectID": "lectures/Introduction.html#special-matrices",
-    "href": "lectures/Introduction.html#special-matrices",
-    "title": "Multivariate Analysis",
-    "section": "Special Matrices",
-    "text": "Special Matrices\nRow or Column Vectors\n\nA vector (column vector) is a special matrix consisting of a single column of elements. e.g., \\[a=\\begin{pmatrix}a_1\\\\ a_2 \\\\ a_3\\end{pmatrix}\\]\nA row vector is a special matrix consisting of a single row of elements \\[b=(b_1, b_2, b_3, b_4)\\]"
+    "objectID": "lectures/Lecture06_Wishart.html#multivariate",
+    "href": "lectures/Lecture06_Wishart.html#multivariate",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Multivariate",
+    "text": "Multivariate\n\n\nA random sample \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\) from a MVN \\(\\mathbf N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\).\nLet \\[\\mathbf X_{n\\times p}=\\begin{pmatrix}\n\\mathbf X_1^T \\\\ \\vdots \\\\\\mathbf X_n^T\n\\end{pmatrix}\\] \\(\\mathbf X\\) follows a matrix normal distribution.\n\n\nSample mean vector follows a multivariate normal, i.e., \\(\\bar{\\mathbf X} \\sim \\mathbf N(\\boldsymbol \\mu, \\boldsymbol \\Sigma/n)\\)\nSample covariance matrix \\((n-1)\\mathbf S\\) follows a Wishart distribution, i.e., \\((n-1)\\mathbf S \\sim Wishart_p (n-1, \\Sigma)\\)\nIndependence between \\(\\bar {\\mathbf X}\\) and \\(S\\).\nHoetelling’s \\(T^2\\): \\(T^2 = (\\bar{\\mathbf X} - \\boldsymbol \\mu)^T\\left(\\frac{\\mathbf S}{n}\\right)^{-1} (\\bar{\\mathbf X} - \\boldsymbol \\mu)\\)"
   },
   {
-    "objectID": "lectures/Introduction.html#common-vector-operations",
-    "href": "lectures/Introduction.html#common-vector-operations",
-    "title": "Multivariate Analysis",
-    "section": "Common Vector Operations",
-    "text": "Common Vector Operations\nScalar Multiplication"
+    "objectID": "lectures/Lecture06_Wishart.html#outline",
+    "href": "lectures/Lecture06_Wishart.html#outline",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Outline",
+    "text": "Outline\n\nSample variance and chi-squared distribution\nSample covariance matrix and Wishart distribution\nHotelling’s \\(T^2\\)\nMaximum likelihood estimate"
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "STAT240",
-    "section": "",
-    "text": "Welcome to the STAT240 course website."
+    "objectID": "lectures/Lecture06_Wishart.html#sample-variance-and-chi-squared-distribution",
+    "href": "lectures/Lecture06_Wishart.html#sample-variance-and-chi-squared-distribution",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Sample Variance and Chi-squared Distribution",
+    "text": "Sample Variance and Chi-squared Distribution\n\nLet \\(\\mathbf X=(X_1, \\cdots, X_n)\\) denote a random sample from \\(N(\\mu, \\sigma^2)\\).\nEquivalently, \\(\\mathbf X \\sim N(\\mu \\mathbf 1, \\sigma^2 \\mathbf I)\\).\nLet \\(s^2=\\frac{1}{n-1}\\sum_{i=1}^n (X_i-\\bar X)^2\\) denote the sample variance.\nWe would like to show that \\[\\frac{(n-1)s^2}{\\sigma^2}\\sim \\chi_{n-1}^2\\]"
   },
   {
-    "objectID": "index.html#course-materials",
-    "href": "index.html#course-materials",
-    "title": "STAT240",
-    "section": "Course materials",
-    "text": "Course materials\n\nLecture Notes\nAssignments\nExams"
+    "objectID": "lectures/Lecture06_Wishart.html#projection-matrices",
+    "href": "lectures/Lecture06_Wishart.html#projection-matrices",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Projection Matrices",
+    "text": "Projection Matrices\n\nA projection matrix is a square matrix that is both idempotent and symmetric\n\n\\[\\mathbf{P}^2 = \\mathbf{P} \\mbox{, }\\mathbf{P}=\\mathbf{P}^T \\]\n\nSuppose \\(\\mathbf P\\) is a projection matrix. We have\n\nThe eigenvalues of \\(\\mathbf{P}\\) has eigenvalues are either 0 or 1, and the number of 1’s is the same as the rank of the projection matrix.\n\\(tr(\\mathbf P) = rank(\\mathbf P)\\)"
   },
   {
-    "objectID": "assignments/stat240_assignment2.html",
-    "href": "assignments/stat240_assignment2.html",
-    "title": "STAT200C Assignment 2",
-    "section": "",
-    "text": "Problem 1. The purpose of this problem is to explore the distribution of the trace of sample covariance. Suppose \\(Y\\sim Wishart(n-1, \\Sigma)\\), what is the distribution of \\(\\operatorname{tr}(Y)\\)?\n\nSet up:\n\nChoose the sample size \\(n\\) to be 50 or 100.\nSet the number of simulations to \\(B=1000\\).\nHint: Use the function mvnnorm from the R MASS library to generate multivariate normal data.\nHint: Ensure your covariance matrix \\(\\Sigma\\) is positive definite. You can check this by computing the eigenvalues using the eigen function in R and confirming that all eigenvalues are positive.\n\n1.1 The case of the identity covariance matrix \\(\\Sigma = I_3\\).\n\nGenerate \\(B=1000\\) datasets, each with \\(n\\) observations from \\(N(\\mathbf 0, \\mathbf I_3)\\).\nFor each dataset, calcualte the sample covariance matrix \\(\\mathbf S\\) and record \\((n-1)\\operatorname{tr}(\\mathbf S)\\).\nGuess: Based on the properties of the Wishart distribution, what is the exact distribution of \\((n-1) \\operatorname{tr}(S)\\) when \\(\\Sigma=\\mathbf I_3\\)?\nCheck: Plot a histogram of your 1,000 recorded \\((n-1) \\operatorname{tr}(S)\\). Overlay the theoretical function from your guess in previous step. Does the empirical distribution match your guess?\n\n2.2: The general case.\n\nChoose a \\(3-by-3\\) covariance matrix with non-zero covariances (the off-diagonal elements should not be 0).\nMake sure that your \\(\\Sigma\\) is valid (positive definite) and use \\(pairs()\\) to show the scatter plots of one simulated dataset to visualize the correlations.\nGenerate \\(B=1000\\) datasets using this \\(\\Sigma\\) and record the trace of each sample covariance matrix \\(\\mathbf S\\). Summarize the traces.\nIn the general case, \\((n-1)\\operatorname{tr}(S)\\) does not follow a simple Chi-squared distribution but is instead a weighted sum (mixture) of independent Chi-squared variables. Calculate the average of your 1,000 simulated traces. Compare this average to \\(tr(\\Sigma)\\).\n\n\nProblem 2. Find a good data example to conduct a two-sample Hotelling’s \\(T^2\\) test. Do not use the data example discussed in this course. Please (1) include visualizations as exploratory methods and (2) make conclusion in the context of the data example."
+    "objectID": "lectures/Lecture06_Wishart.html#example-project-onto-a-plane-in-mathbbr3",
+    "href": "lectures/Lecture06_Wishart.html#example-project-onto-a-plane-in-mathbbr3",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Example: Project onto a Plane in \\(\\mathbb{R}^3\\)",
+    "text": "Example: Project onto a Plane in \\(\\mathbb{R}^3\\)\n\nThe goal is to find the projection matrix that projects any vector in \\(\\mathbb{R}^3\\) onto the plane defined by \\(x + y + z = 0\\).\nSteps:\n\nStep 1: Define the subspace (the plane) and find a basis for it.\nStep 2: Compute the projection matrix using the basis.\nStep 3: Use the projection matrix to project a vector onto the plane and verify the result."
   },
   {
-    "objectID": "assignments/index.html",
-    "href": "assignments/index.html",
-    "title": "Assignments",
-    "section": "",
-    "text": "Assignment 01 can be found at the end of lecture 02 slides. Tentative due date: Monday, April 13th.\nAssignment 02 is due on Monday, April 27th."
+    "objectID": "lectures/Lecture06_Wishart.html#example-the-centering-matrix",
+    "href": "lectures/Lecture06_Wishart.html#example-the-centering-matrix",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Example: the Centering Matrix",
+    "text": "Example: the Centering Matrix\n\nThe centering matrix: \\(\\mathbb C=\\mathbf I - \\frac{1}{n} \\mathbf 1\\mathbf 1^T\\).\nIt is a projection matrix:\n\n\\(\\mathbb C^T=\\mathbb C\\) (symmetric)\n\\(\\mathbb C^2= \\mathbb C\\) (idempotent)\n\nOne important result about a projection matrix is that its eigenvalues are either zero or one.\nBy properties of projection matrices, we have\n\n\\(rank(\\mathbb C) = tr(\\mathbb C)=n-1\\)\n\\(\\mathbb C = \\sum_{j=1}^{n-1}\\gamma_j\\gamma_j^T\\)"
   },
   {
-    "objectID": "exams/index.html",
-    "href": "exams/index.html",
-    "title": "Exams",
-    "section": "",
-    "text": "Midterm (coming soon)\nFinal (coming soon)"
-  },
-  {
-    "objectID": "lectures/index.html",
-    "href": "lectures/index.html",
-    "title": "Lecture Notes",
-    "section": "",
-    "text": "Lecture 01: Introduction\nLecture 02: Matrix Operations\nLecture 03: Random Vectors/Matrices\nLecture 04: A Random Sample from a Multivariate Normal\nLecture 05: Multivariate Normal Distribution\nLecture 06: The Sample Covariance Matrix and Wishart Distribution"
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#matrix-multiplication",
-    "href": "lectures/Lecture02_MatrixOperations.html#matrix-multiplication",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "Matrix Multiplication",
-    "text": "Matrix Multiplication\nDefinition of Matrix Multiplication\n\nConsider matrix \\(A_{m\\times n}\\) and matrix \\(B_{n\\times p}\\).\nHow does \\(AB\\) look like?\n\\(AB\\) has \\(m\\) rows and \\(p\\) columns\nWhat is the value in the \\(i\\)th row and \\(j\\)th column of \\(AB\\)? We often denote it as the \\((i,j)\\)th element/entry of \\(AB\\): \\[\\left(AB\\right)_{i,j}=\\sum_{k=1}^n a_{ik}b_{kj}\\]"
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#the-iris-data",
-    "href": "lectures/Lecture02_MatrixOperations.html#the-iris-data",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "The Iris Data",
-    "text": "The Iris Data\nIris data\n\nThree species of iris flowers: setosa, versicolor, and virginica\nFour features: sepal length, sepal width, petal length, and petal width"
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#left-multiplication",
-    "href": "lectures/Lecture02_MatrixOperations.html#left-multiplication",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "Left Multiplication",
-    "text": "Left Multiplication\nLeft multiply a matrix to Y: Example 1\n\nConsider \\[A=\\frac{1}{150}\\mathbf{1}_{1\\times 150},\\] i.e., \\[A_{1\\times 150}=(\\frac{1}{150}, \\cdots, \\frac{1}{150})\\]\nWhat is \\(AY\\)?\nIn R, the correct syntax for matrix multiplication is\n\n%*%"
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#right-multiplication",
-    "href": "lectures/Lecture02_MatrixOperations.html#right-multiplication",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "Right Multiplication",
-    "text": "Right Multiplication\nRight multiply a matrix to Y: convert cm to inch\n\nThe lengths in the iris data were measured using cm\n1cm = 0.393701inch. How to convert data to inch?\nLet \\[C=\\begin{pmatrix}\n0.393701 & 0 & 0 & 0\\\\\n0 & 0.393701 & 0 & 0\\\\\n0 & 0 & 0.393701 & 0\\\\\n0 & 0 & 0 & 0.393701\n\\end{pmatrix}\\]\n\\(Y_{150\\times 4}C_{4\\times 4}\\) is the data in inch."
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#left-vs-right-multiplication-practice",
-    "href": "lectures/Lecture02_MatrixOperations.html#left-vs-right-multiplication-practice",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "Left vs Right Multiplication: Practice",
-    "text": "Left vs Right Multiplication: Practice\nA homework problem:\n\nFind a matrix \\(A\\) such that \\(AY\\) gives the difference of means vectors between iris setosa and iris versicolor\nFind a matrix \\(B\\) such that \\(YB\\) is column-standardized, i.e., the standard deviation of each column/feature is 1.\nCheck the following\n\nLet \\(C=\\mathbf I_{150} - \\frac{1}{150}J\\), where \\(J_{150\\times 150}\\) is an all-ones matrices . Use R to verify that \\(CY\\) centers each column/feature. The R code for \\(C\\) is ”\n\nC=diag(1,150) - \\frac{150}matrix(1, 150, 150)\n\nLet \\(S\\) be the sample covariance matrix. Use R to verify that each column of \\(CYS^{-1/2}\\) has been centered and standardized. Hints:\n\nS=cov(Y)\nTo compute \\(S^{-1/2}\\), you may need a R package, such as “qtl2pleio”."
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#generate-data-from-mvn",
-    "href": "lectures/Lecture02_MatrixOperations.html#generate-data-from-mvn",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "Generate Data from MVN",
-    "text": "Generate Data from MVN\n\nGenerate 1000 data points from a multivariate normal with mean \\(\\mathbf 0\\) and covariance matrix \\[\\Sigma=\\begin{pmatrix}0.8125000 & 0.3247595\\\\\n0.3247595 & 0.4375000\\end{pmatrix}\\]\nHow did I obtain this covariance matrix?\n\n\n\ntheta=-pi/6\nR=matrix(c(cos(theta), -sin(theta), sin(theta), cos(theta)), 2, 2)\nLambda=diag(c(1,0.25))\nSigma=R%*%Lambda%*%t(R)\nX=mvrnorm(1000, mu=rep(0,2), Sigma=Sigma)"
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#mvn-data-visualization",
-    "href": "lectures/Lecture02_MatrixOperations.html#mvn-data-visualization",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "MVN data: Visualization",
-    "text": "MVN data: Visualization\n\nScatter plot of the data \\(X\\)\n\n\n\nplot(X, xlim=c(-3,3), ylim=c(-3,3), xlab=\"\", ylab=\"\", main=\"original\")\nabline(a=0, b=1/2, col=\"red\")"
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
-    "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "Spectral Decomposition of Sample Covariance Matrix",
-    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8804432  0.4741517\n[2,] -0.4741517 -0.8804432\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n         [,1]      [,2]\n[1,] 1.006874 0.0000000\n[2,] 0.000000 0.2495414"
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
-    "href": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "Singular Value Decomposition (SVD)",
-    "text": "Singular Value Decomposition (SVD)\nIntroduction to SVD\n\nSVD was developed by a number of researchers independently over time. Key contributors\n\nEugenio Beltrami (1873): an Italian mathematician, first introduced the concept of singular value decomposition in his work on mathematical physics, although the modern formulation of SVD was not fully realized at that time.\nCamille Jordan (1874), a French mathematician, independently discovered it.\n… Many other contributors …\nGene H. Golub and Charles F. Van Loan (1965): American mathematicians, are credited with the development of the modern and widely used algorithm for computing the singular value decomposition, known as the Golub-Reinsch algorithm."
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#another-matrix-operation-kronecker-product",
-    "href": "lectures/Lecture02_MatrixOperations.html#another-matrix-operation-kronecker-product",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "Another Matrix Operation: Kronecker Product",
-    "text": "Another Matrix Operation: Kronecker Product\nDefinition\n\nThe Kronecker product, denoted by \\(\\bigotimes\\) is a mathematical operation that combines two matrices to create a larger matrix.\n\n\n\nAccording to wikipedia, “The Kronecker product is named after the German mathematician Leopold Kronecker (1823–1891), even though there is little evidence that he was the first to define and use it.”\nWhy is it useful? It provide compact Representation. Kronecker product allows for compact representation of large matrices by expressing them as a combination of smaller matrices."
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#futher-reading",
-    "href": "lectures/Lecture02_MatrixOperations.html#futher-reading",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "Futher reading",
-    "text": "Futher reading\n\nChronecker product: Gerald S. Rogers. (1984) Kronecker Products in ANOVA-A First Step. The American Statistician, 38: 197-202.\nSVD: Biclustering via Sparse Singular Value Decomposition” https://www.unc.edu/~haipeng/publication/ssvd.pdf"
-  },
-  {
-    "objectID": "lectures/Lecture02_MatrixOperations.html#homework-1-1",
-    "href": "lectures/Lecture02_MatrixOperations.html#homework-1-1",
-    "title": "Multivariate Analysis Lecture 02: Matrix Operations",
-    "section": "Homework 1",
-    "text": "Homework 1\nProblem 1\n\nSuppose \\(X_1, X_2, Y_1, Y_2\\) are mutually independent.\n\n\\(X_1\\) and \\(X_2\\) are iid from \\(N(\\mu=0, \\sigma_x^2=2^2)\\)\n\\(Y_1\\) and \\(Y_2\\) are iid from \\(N(\\mu=0, \\sigma_y^2=1^2)\\) Consider the two pairs \\((X_1, X_2)\\) and \\((Y_1, Y_2)\\). Which pair tends to have a larger difference? To answer the question, please calculate and estimate the following two probabilities: \\[P(|X_1-X_2|&gt;4), P(|Y_1-Y_2|&gt;4)\\]\n\nThe hints for calculating/estimating \\(P(|X_1-X_2|&gt;4)\\) can be found in the two slides. Using similar strategies, you can calculate/estimate \\(P(|Y_1-Y_2|&gt;4)\\)"
-  },
-  {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#definition",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#definition",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
+    "objectID": "lectures/Lecture06_Wishart.html#definition",
+    "href": "lectures/Lecture06_Wishart.html#definition",
+    "title": "Lecture 6: Wishart Distribution",
     "section": "Definition",
-    "text": "Definition\nRandom Vector\n\nLet \\(\\mathbf X_{p\\times 1}=(X_1, \\cdots, X_p)^T\\) be a \\(p\\)-dimensional random vector. Its mean vector and covariance are defined as follows:\n\n\\[\\begin{align*}\n\\boldsymbol \\mu & =E[\\mathbf X]=\\begin{pmatrix}\n  E[X_1]\\\\ \\vdots \\\\ E[X_p]\n  \\end{pmatrix}\\\\\n\\boldsymbol \\Sigma_{p\\times p}  &= Cov(\\mathbf X) = E[(\\mathbf X -\\boldsymbol \\mu)(\\mathbf X - \\boldsymbol \\mu)^T]  \n\\end{align*}\\]"
+    "text": "Definition\nDefinition. Let \\(Z_1, ..., Z_k \\overset{iid}\\sim N(0,1)\\). Then, the sum of squares \\(Q = Z_1^2 + ... + Z_k^2\\) has a chi-squared distribution with \\(k\\) degrees of freedom, denoted by \\(\\chi_k^2\\).\n\nAlternatively, let \\(\\mathbf Z_{k\\times 1} \\sim N(\\mathbf 0, \\mathbf I)\\). We say \\(||\\mathbf Z||^2=\\mathbf Z^T \\mathbf Z\\) follows \\(\\chi_k^2\\).\n\\(Z_1^2, \\cdots, Z_k^2 \\overset{iid}\\sim \\chi_1^2\\).\nThe sum of independent chi-squared random variables is also chi-squared. Specifically, if \\(Q_1\\sim \\chi_{k_1}^2\\) and \\(Q_2\\sim \\chi_{k_2}^2\\) are independent, then \\(Q_1+Q_2\\sim \\chi_{k_1+k_2}^2\\)."
   },
   {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#mean",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#mean",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Mean",
-    "text": "Mean\nMean of \\(Y=a^TX\\)\n\nThe mean of \\(Y\\) can be expressed as: \\[\n\\begin{aligned}\nE(Y) &= E(\\mathbf{a}^T\\mathbf{X}) \\\\\n&= \\mathbf{a}^T E(\\mathbf{X}) \\\\\n&= \\mathbf{a}^T \\boldsymbol{\\mu}\n\\end{aligned}\n\\]\nIntuitively, the mean of \\(Y\\) is a weighted average of the components of \\(\\mathbf{X}\\), with weights given by the corresponding components of \\(\\mathbf{a}\\)."
+    "objectID": "lectures/Lecture06_Wishart.html#chi-squared-vs-gamma",
+    "href": "lectures/Lecture06_Wishart.html#chi-squared-vs-gamma",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Chi-squared vs Gamma",
+    "text": "Chi-squared vs Gamma\n\nThe PDF of a chi-squared random variable with \\(k\\) degrees of freedom is given by:\n\n\\[\nf(x) = \\frac{1}{2^{k/2}\\Gamma(k/2)} x^{k/2-1} e^{-x/2} \\mbox{,  } x&gt;0\n\\]\nwhere \\(\\Gamma(\\cdot)\\) is the gamma function.\n\nRemark: \\(\\chi_k^2\\) = Gamma(shape=\\(k/2\\), rate=1/2)."
   },
   {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#variance",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#variance",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Variance",
-    "text": "Variance\nVariance of \\(Y\\)\n\nThe variance of \\(Y\\) can be expressed as: \\[\n\\begin{aligned}\n\\text{Var}(Y) &= \\text{Var}(\\mathbf{a}^T\\mathbf{X}) \\\\\n&= E[(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)^2]\\\\\n&=E[(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)(\\mathbf{a}^T\\mathbf{X}-\\mathbf{a}^T\\boldsymbol\\mu)^T]\\\\\n&=E[\\mathbf{a}^T(\\mathbf{X}-\\boldsymbol\\mu)(\\mathbf{X}-\\boldsymbol\\mu)^T\\mathbf a]\\\\\n&= \\mathbf{a}^T \\boldsymbol{\\Sigma} \\mathbf{a}\n\\end{aligned}\n\\]"
+    "objectID": "lectures/Lecture06_Wishart.html#construct-chi-squared-r.v.s-from-projection-matrices-and-independent-normal-r.v.s",
+    "href": "lectures/Lecture06_Wishart.html#construct-chi-squared-r.v.s-from-projection-matrices-and-independent-normal-r.v.s",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Construct Chi-squared R.V.s from Projection Matrices and Independent Normal R.V.s",
+    "text": "Construct Chi-squared R.V.s from Projection Matrices and Independent Normal R.V.s\n\nLet \\(\\mathbf P_{n\\times n}\\) be a projection matrix with rank \\(r\\) and let \\(\\mathbf Z_{n\\times 1}\\sim N(\\mathbf 0, \\mathbf I)\\).\nClaim: \\(\\mathbf Z^T \\mathbf P \\mathbf Z\\sim \\chi_r^2\\).\nProof: By the spectral decomposition of \\(\\mathbf P\\), we have\n\n\\[P= \\sum_{i=1}^r \\gamma_i \\gamma_i^T,\\] where \\(\\gamma_1, \\cdots, \\gamma_r\\) are orthogonal vectors of norm 1, i.e., \\(\\gamma_i^T \\gamma_j = 0\\) for \\(i\\not=j\\) and \\(\\gamma_i^T \\gamma_i=1\\) for \\(i=1, \\cdots, r\\)."
   },
   {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#quadratic-forms",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#quadratic-forms",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Quadratic Forms",
-    "text": "Quadratic Forms\n\nA quadratic form is a polynomial of degree 2 in the components of a vector, and it can be expressed as: \\[Q(\\mathbf{X}) = \\mathbf{X}^T \\mathbf{A} \\mathbf{X}\\] where \\(\\mathbf{A}\\) is a symmetric matrix.\nWe will discuss distributions of certain quadratics forms later."
+    "objectID": "lectures/Lecture06_Wishart.html#the-sample-variance",
+    "href": "lectures/Lecture06_Wishart.html#the-sample-variance",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "The Sample Variance",
+    "text": "The Sample Variance\n\nLet \\(\\mathbb C=\\mathbf I - \\frac{1}{n} \\mathbf 1\\mathbf 1^T\\) be the centering matrix.\nWe have shown that \\(\\mathbb C\\) is a projection matrix with rank \\(n-1\\):\n\n\\(\\mathbb C^T=\\mathbb C\\), \\(\\mathbb C^2=\\mathbb C\\).\n\\(\\mathbb C = \\sum_{j=1}^{n-1}\\gamma_i\\gamma_i^T\\).\n\n\\((n-1)s^2=\\mathbf X^T\\mathbb C \\mathbf X\\) because\n\\[\\begin{aligned}\n(n-1)s^2&=\\sum_{i=1}^n (X_i-\\bar X)^2 = (\\mathbb C \\mathbf X)^T (\\mathbb C \\mathbf X) = \\mathbf X^T \\mathbb C \\mathbf X.\n\\end{aligned}\\]"
   },
   {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#summary-mean-and-var-of-ymathbf-at-mathbf-x",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#summary-mean-and-var-of-ymathbf-at-mathbf-x",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Summary: Mean and Var of \\(Y=\\mathbf a^T \\mathbf X\\)",
-    "text": "Summary: Mean and Var of \\(Y=\\mathbf a^T \\mathbf X\\)\n\nIf \\(\\mathbf X\\sim (\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\), then \\(Y=\\mathbf a^T\\mathbf X\\sim (\\mathbf a^T\\boldsymbol \\mu, \\mathbf a^T\\boldsymbol \\Sigma \\mathbf a)\\).\n\\(\\mathbf a^T \\boldsymbol \\mu\\) is the inner product between \\(\\mathbf a\\) and \\(\\boldsymbol \\mu\\), \\[\\sum_{i=1}^p a_i \\mu_i.\\]\n\\(\\mathbf a^T \\boldsymbol \\Sigma \\mathbf a\\) is a quadratic form: \\[\\mathbf a^T \\boldsymbol \\Sigma \\mathbf a=\\sum_{i=1}^p\\sum_{j=1}^p a_i a_j \\sigma_{ij},\\] where \\(\\sigma_{ij}\\) is the \\((i,j)\\)th element of \\(\\boldsymbol \\Sigma\\)."
+    "objectID": "lectures/Lecture06_Wishart.html#the-sample-covriance-from-a-mvn-random-sample",
+    "href": "lectures/Lecture06_Wishart.html#the-sample-covriance-from-a-mvn-random-sample",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "The Sample Covriance from A MVN Random Sample",
+    "text": "The Sample Covriance from A MVN Random Sample\n\nLet \\(\\mathbf X_1, \\cdots,\\mathbf X_n \\overset{iid} \\sim N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\).\nRecall that the sample covariance matrix is defined as \\[\\mathbf S =\\frac{1}{n-1} \\sum_{i=1}^n (\\mathbf X_i - \\bar{\\mathbf X})(\\mathbf X_i - \\bar{\\mathbf X})^T\\]\nWe have shown that \\[(n-1)\\mathbf S = \\mathbf X ^T \\mathbb C \\mathbf X\\] where \\(\\mathbf X\\) is the \\(n\\times p\\) random matrix."
   },
   {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#estimation-of-mean-and-variance-of-y",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#estimation-of-mean-and-variance-of-y",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Estimation of Mean and Variance of \\(Y\\)",
-    "text": "Estimation of Mean and Variance of \\(Y\\)\n\nRecall that if \\(X_1, \\cdots, X_n\\overset{iid}\\sim (\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\), then\n\n\\(\\bar{X}\\sim (\\boldsymbol \\mu, \\frac{1}{n}\\boldsymbol \\Sigma)\\)\n\\(E[\\mathbf S]=\\boldsymbol \\Sigma\\) where \\[\\mathbf S=\\frac{1}{n-1}\\sum_{i=1}^n(X_i-\\bar{X})(X_i-\\bar{X})^T.\\]\n\nWe can estimate its mean \\(\\mathbf a^T \\boldsymbol \\mu\\) by \\(\\mathbf a^T \\bar{\\mathbf X}\\), which is a linear combination of the sample mean vector.\nWe can estimate its variance, which is \\(\\mathbf a^T \\boldsymbol \\Sigma \\mathbf a\\), by \\(\\mathbf a^T \\mathbf S \\mathbf a\\), which is a quadratic form of the sample covariance matrix."
+    "objectID": "lectures/Lecture06_Wishart.html#the-distribution-of-sample-covriance",
+    "href": "lectures/Lecture06_Wishart.html#the-distribution-of-sample-covriance",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "The Distribution of Sample Covriance",
+    "text": "The Distribution of Sample Covriance\n\nThe goal is to show that \\((n-1)\\mathbf S\\) follows a Wishart distribution. More specifically, we would like to show that \\[(n-1)\\mathbf S \\sim Wishart_p(n-1, \\Sigma)\\]\nOutline of proof\n\nRewrite \\((n-1)\\mathbf S\\)\nApply properties of a projection matrix\nUse the definition of Wishart distribution"
   },
   {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-1",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-1",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Example 1",
-    "text": "Example 1\n\n\\(\\mathbf X = (X_1, X_2)^T\\), \\(a=(1/2, 1/2)^T\\).\n\nThen \\[Y=a^TX=\\frac{1}{2}(X_1 + X_2)\\]\n\n\\(E(Y)=\\frac{1}{2}(\\mu_1 + \\mu_2)\\).\n\\(Var(Y) = \\frac{1}{4} (\\sigma_1^2 + \\sigma_2^2 + 2\\sigma_{12})= \\sum_{i=1}^2 \\sum_{j=1}^2 a_i a_j \\sigma_{ij}\\). Note that \\(\\sigma_{12}=\\sigma_{21}\\)."
+    "objectID": "lectures/Lecture06_Wishart.html#wishart-distribution",
+    "href": "lectures/Lecture06_Wishart.html#wishart-distribution",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Wishart Distribution",
+    "text": "Wishart Distribution\n\nThe Wishart distribution is named after the British statistician John Wishart, who introduced it in his 1928 paper published in Biometrika.\nWishart was interested in the problem of estimating the covariance matrix of a multivariate normal distribution.\nWishart showed that the sample covariance matrix follows a particular probability distribution that we now call the Wishart distribution.\nThe Wishart distribution has become a fundamental tool in multivariate statistical analysis"
   },
   {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-2",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-2",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Example 2",
-    "text": "Example 2\n\nAssume we have a random sample from a distribution with mean \\(\\mu\\) and variance \\(\\sigma^2\\), i.e., \\(X_1, \\cdots, X_n\\overset{iid}\\sim (\\mu, \\sigma^2)\\).\nWe often stack the random variables vertically: \\[\\mathbf X_{n\\times 1}=\\begin{pmatrix}\nX_1 \\\\ \\vdots \\\\ X_n\\end{pmatrix}.\\]\nAn equivalent expression, \\(\\mathbf X=(X_1, \\cdots, X_n)^T\\)."
+    "objectID": "lectures/Lecture06_Wishart.html#definition-1",
+    "href": "lectures/Lecture06_Wishart.html#definition-1",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Definition",
+    "text": "Definition\n\nA Wishart distribution can be defined in the following way\nLet \\(\\mathbf W\\) be a \\(p\\times p\\) random matrix.\nWe say \\(\\mathbf W\\) follows \\(Wishart_{p}(k, \\boldsymbol \\Sigma)\\) if \\(\\mathbf W\\) can be written as \\(\\mathbf W=\\mathbf X^T \\mathbf X\\) where \\(\\mathbf X\\) denotes the random matrix formed by a random sample of size \\(k\\) from MVN \\(N(\\mathbf 0, \\boldsymbol \\Sigma)\\).\nRemark:\\(E[\\mathbf W]=k\\Sigma\\)."
   },
   {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-3",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#example-3",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Example 3",
-    "text": "Example 3\nLinear Combinations of Iris Setosa Features\n\nRecall that for the iris setosa, \\(\\mathbf X\\) is \\(50\\times 4\\).\nConsider a linear combination of the features \\(Y= \\mathbf Xb\\), where\n\n\\[\n    b=\\begin{pmatrix}\n    1/4 \\\\ 1/4 \\\\ 1/4 \\\\ 1/4\n    \\end{pmatrix}\n\\]\n\n\\(Yb\\) is a \\(50\\times 1\\) vector, with the \\(i\\)th row be the average of the four features of the \\(i\\)th iris setosa flower. To see this"
+    "objectID": "lectures/Lecture06_Wishart.html#wishart-vs-chi-squared",
+    "href": "lectures/Lecture06_Wishart.html#wishart-vs-chi-squared",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Wishart vs Chi-squared",
+    "text": "Wishart vs Chi-squared\n\n\nWishart: If \\(\\mathbf X_1, \\cdots \\mathbf X_k \\overset{iid}\\sim N(\\mathbf 0, \\boldsymbol \\Sigma)\\), then \\[\\mathbf X^T \\mathbf X =\\sum_{i=1}^k \\mathbf X_i\\mathbf X_i^T \\sim Wishart_p(k, \\boldsymbol \\Sigma) \\mbox{, where } \\mathbf X_{k\\times p}=\\begin{pmatrix}\nX_1^T\\\\ \\vdots\\\\ X_k^T\n\\end{pmatrix}\n\\]\nChi-squared: If \\(X_1, \\cdots, X_k \\overset{iid}\\sim N(0,1)\\), then\n\\[\\mathbf X^T\\mathbf X=\\sum_{i=1}^k X_i^2\\sim \\chi_k^2 \\mbox{, where } \\mathbf X_{k\\times 1}=\n\\begin{pmatrix}\nX_1 \\\\ \\vdots \\\\ X_k\n\\end{pmatrix}\\]"
   },
   {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#the-mean-of-a-univariate-distribution",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#the-mean-of-a-univariate-distribution",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "The Mean of a Univariate Distribution",
-    "text": "The Mean of a Univariate Distribution\n\nA random sample \\(X_1, \\cdots, X_n\\) from a univariate distribution with mean \\(\\mu\\) and variance \\(\\sigma^2\\).\nWe are interested in making inference about the population mean \\(\\mu\\).\nThe sample mean \\(\\bar X\\) is an unbiased estimator of \\(\\mu\\), i.e., \\(E[\\bar X]=\\mu\\). We often use \\(\\hat\\mu=\\bar X\\) to estimate \\(\\mu\\).\nHow to quantify the uncertainty of \\(\\hat\\mu\\)? Recall that \\(Var(\\bar X)=\\frac{\\sigma^2}{n}\\).."
+    "objectID": "lectures/Lecture06_Wishart.html#sample-covariance-1",
+    "href": "lectures/Lecture06_Wishart.html#sample-covariance-1",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Sample Covariance",
+    "text": "Sample Covariance\n\nThe sample covariance \\((n-1)\\mathbf S=\\mathbf X^T \\mathbb C \\mathbf X\\).. The definition of Wishart distribution is not applicable immediately.\nRewrite \\((n-1)\\mathbf S\\):\n\n\n\\[\n\\begin{aligned}\n(n-1)\\mathbf S&=\\mathbf X^T \\mathbb C^T\\mathbb C\\mathbb C \\mathbf X=(\\mathbb C \\mathbf X)^T(\\mathbb C \\mathbf X)\\\\\n&=(\\mathbb C \\mathbf X)^T\\mathbb C(\\mathbb C \\mathbf X)\\\\\n&=(\\mathbb C \\mathbf X)^T\\sum_{j=1}^{n-1}\\gamma_i \\gamma_i^T (\\mathbb C \\mathbf X)\\\\\n&=\\sum_{j=1}^{n-1} (\\gamma_i^T \\mathbb C \\mathbf X)^T (\\gamma_i^T \\mathbb C \\mathbf X)\n\\end{aligned}\\]"
   },
   {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-combinations-of-means",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-combinations-of-means",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Linear Combinations of Means",
-    "text": "Linear Combinations of Means\n\nIn many situations, the parameter of interest is a function of the means.\nFor example, we may be interested in the mean of a linear combination of the means, i.e., \\(\\mathbf a^T \\boldsymbol \\mu = \\sum_{i=1}^p a_i \\mu_i\\), where \\(\\mathbf a=(a_1, \\cdots, a_p)^T\\) is a \\(p\\times 1\\) vector.\nIn the following simulated study, we will show how to construct a large-sample confidence interval for \\(\\mathbf a^T \\boldsymbol \\mu\\)."
+    "objectID": "lectures/Lecture06_Wishart.html#matrix-normal-distribution",
+    "href": "lectures/Lecture06_Wishart.html#matrix-normal-distribution",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Matrix Normal Distribution",
+    "text": "Matrix Normal Distribution\n\nLet \\(\\mathbf X_1, \\cdots \\mathbf X_n\\) be a random sample (therefore iid) from \\(N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\).\nIf we stack \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\) into a \\(n\\times p\\) random matrix \\(\\mathbf X\\), we say follows a matrix normal distribution: \\[\\mathbf X \\sim N(\\mathbf 1_n \\boldsymbol \\mu^T, \\boldsymbol \\Sigma, \\mathbf I_n)\\]\nConsider the linear function \\(\\mathbf X^T \\mathbb a\\). It can be shown that \\[\\mathbf X^T \\mathbb a \\sim N((\\mathbf 1_n \\boldsymbol \\mu^T)^T \\mathbb a, \\mathbb a^T  \\mathbb a \\boldsymbol \\Sigma)\\sim N(\\boldsymbol \\mu \\mathbf 1_n \\mathbb a, \\mathbb a^T  \\mathbb a \\boldsymbol \\Sigma)\\]\nThus, \\(Y_i \\sim N(\\mathbf 0, \\boldsymbol \\Sigma)\\)."
   },
   {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#a-random-sample-from-a-multivariate-distribution",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#a-random-sample-from-a-multivariate-distribution",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "A Random Sample From a Multivariate Distribution",
-    "text": "A Random Sample From a Multivariate Distribution\n\nConsider a random sample \\(\\mathbf X_1, \\cdots, \\mathbf X_n\\) from a multivariate distribution with mean vector \\(\\boldsymbol \\mu_{p\\times 1}\\) and covariance matrix \\(\\boldsymbol \\Sigma_{p\\times p}\\).\nWe often stack the random vectors to form an \\(n\\times p\\) matrix: \\[\\mathbf X_{n\\times p}=\\begin{pmatrix}\\mathbf X_1^T \\\\ \\vdots \\\\ \\mathbf X_n^T\\end{pmatrix}\\]"
-  },
-  {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#inference-of-mathbf-at-boldsymbol-mu",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#inference-of-mathbf-at-boldsymbol-mu",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Inference of \\(\\mathbf a^T \\boldsymbol \\mu\\)",
-    "text": "Inference of \\(\\mathbf a^T \\boldsymbol \\mu\\)\n\nTwo basic questions:\n\nHow to estimate it?\nWhat is the standard error of the estimator?\n\nWe have shown that \\(\\bar{\\mathbf X}\\sim (\\boldsymbol \\mu, \\frac{1}{n}\\boldsymbol \\Sigma)\\), which implies that \\[\\mathbf a^T \\bar{\\mathbf X} \\sim (\\mathbf a^T \\boldsymbol \\mu, \\mathbf a^T \\frac{1}{n}\\boldsymbol \\Sigma \\mathbf a)\\]\nAn unbiased estimator of \\(\\mathbf a^T \\boldsymbol \\mu\\) is \\(\\mathbf a^T \\bar{\\mathbf X}\\), which is a linear combination of the sample mean vector."
-  },
-  {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#description-and-parameters",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#description-and-parameters",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Description and Parameters",
-    "text": "Description and Parameters\n\nThis is a simulated data set\nFor adults, the recommended range of daily protein intake is between 0.8 g/kg and 1.8 g/kg of body weight\n60 observations\n4 sources of proteins\n\nmeat\ndairy\nvegetables / nuts / tofu\nother"
-  },
-  {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#generate-a-random-sample-from-the-multivariate-distribution",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#generate-a-random-sample-from-the-multivariate-distribution",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Generate a random sample from the multivariate distribution",
-    "text": "Generate a random sample from the multivariate distribution\nSimulate A Random Sample\n\n\nCode\nset.seed(1)\nx=mvrnorm(n, mu=my.mean, Sigma=my.cov)\ndim(x)\n\n\n[1] 60  4\n\n\nCode\nprotein=as.matrix(data.frame(meat=x[,1],dairy=x[,2], \n                             veg=x[,3], other=x[,4]))"
-  },
-  {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#sample-mean-and-sample-covariance",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#sample-mean-and-sample-covariance",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Sample Mean and Sample Covariance",
-    "text": "Sample Mean and Sample Covariance\n\n\nCode\nxbar=matrix(colMeans(protein), 4, 1)\nt(xbar)\n\n\n         [,1]     [,2]    [,3]     [,4]\n[1,] 24.03403 15.92836 7.66049 7.738634\n\n\nCode\nS=cov(protein)\nS\n\n\n           meat     dairy       veg     other\nmeat  4.2956426 0.8150757 1.1294478 0.5532420\ndairy 0.8150757 4.4052993 0.3497889 0.2337300\nveg   1.1294478 0.3497889 5.1705794 0.5897121\nother 0.5532420 0.2337300 0.5897121 4.5287293"
-  },
-  {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-1",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-1",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Linear Functions/Combinations: Question 1",
-    "text": "Linear Functions/Combinations: Question 1\n\nQ1: Construct a large-sample (approximate) C.I. for protein from meat. In other words, the parameter of interest is \\(\\mu_1\\).\nEstimate \\(\\bar X_{(1)}=24.0\\).\nWe need compute the standard error (s.e.) of \\(\\bar X_1\\), which is defined as \\(se(\\bar X_{(1)})=\\sqrt{\\hat{var}(\\bar X_{(1)})}\\)\nTwo ways to compute the s.e.,\n\n\\(se(\\bar X_{(1)})=\\sqrt{4.2956/60}=0.27\\)\nThe calculation can also be done by noticing that \\(\\bar X_1\\) is a linear combination of \\(\\bar{\\mathbf X}\\): \\(\\bar X_{(1)} =\\mathbf a^T  \\bar{\\mathbf X}\\), where \\(\\mathbf a^T=(1, 0, 0, 0)\\). Thus,\n\n\n\\[\\hat{Var}(\\bar X_{(1)})=\\mathbf a^T \\frac{\\mathbf S}{60} \\mathbf a\\]"
-  },
-  {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-2",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-2",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Linear Functions/Combinations: Question 2",
-    "text": "Linear Functions/Combinations: Question 2\n\nQ2: Construct a large-sample C.I. for the total protein intake.\nThe parameter of interest is \\(\\mu_1+\\mu_2+\\mu_3+\\mu_4=\\mathbf a^T \\boldsymbol \\mu\\), where \\(\\mathbf a=(1,1,1,1)^T\\).\nEstimate: \\(\\mathbf a^T \\bar{\\mathbf X}\\)\nStandard error: \\[\\sqrt{\\mathbf a^T\\frac{\\mathbf S}{n} \\mathbf a}\\]"
-  },
-  {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-3",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#linear-functionscombinations-question-3",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "Linear Functions/Combinations: Question 3",
-    "text": "Linear Functions/Combinations: Question 3\n\nQ3: Construct a large-sample C.I. for the difference of protein intake between from meat and from vegetable\nThe parameter of interest is \\(\\mu_1 - \\mu_3=\\mathbf a^T \\boldsymbol \\mu\\), where \\(\\mathbf a=(1, 0, -1, 0)^T\\).\nEstimate: \\(\\mathbf a^T \\bar{\\mathbf X}\\)\nStandard error: \\(\\sqrt{\\mathbf a^T\\frac{\\mathbf S}{n} \\mathbf a}\\)"
-  },
-  {
-    "objectID": "lectures/Lecture04_ARandomSampleFromMultivariate.html#r-code",
-    "href": "lectures/Lecture04_ARandomSampleFromMultivariate.html#r-code",
-    "title": "Lecture 4: A Random Sample from A Multivariate Distribution",
-    "section": "R Code",
-    "text": "R Code\nQuestion 1\n\nR code to compute using the above two ways\n\n\n\nCode\nsqrt(S[1,1]/60) # Method 1\n\n\n[1] 0.2675706\n\n\nCode\n# Method 2\na=matrix(c(1,0,0,0),4,1)\nsqrt(t(a)%*%S%*%a/60)\n\n\n          [,1]\n[1,] 0.2675706\n\n\n\nBoth methods give \\(s.e.(\\bar X_{(1)})=0.27\\)\nAn approximate 95% C.I. for \\(\\mu_1\\) is \\(24.0 \\pm 1.96*0.27\\)"
+    "objectID": "lectures/Lecture06_Wishart.html#some-interesting-results",
+    "href": "lectures/Lecture06_Wishart.html#some-interesting-results",
+    "title": "Lecture 6: Wishart Distribution",
+    "section": "Some Interesting Results",
+    "text": "Some Interesting Results\n\nConsider a random sample from MVN \\(N(\\boldsymbol \\mu, \\boldsymbol \\Sigma)\\). Let \\(\\mathbf S\\) denote the sample covariance matrix.\nWe have already shown that \\((n-1)\\mathbf S \\sim Wishart_p(n-1, \\boldsymbol \\Sigma)\\)\nWhat is the distribution of a diagonal element of \\((n-1)\\mathbf S\\)?\nWhat is the distribution of the sum of elements of \\((n-1)\\mathbf S\\)? Note, this is a special case of next question with \\(\\mathbf B=(1, \\cdots, 1)\\).\nWhat is the distribution of \\((n-1)\\mathbf B \\mathbf S \\mathbf B^T\\) where \\(B\\) is a fixed \\(q\\times p\\) matrix?\nIf time permits, we will run some simulations"
   }
 ]
