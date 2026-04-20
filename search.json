@@ -25,7 +25,7 @@
     "href": "lectures/Lecture07_Hotelling.html#a-simulation-study-to-understand-the-wishart-distribution",
     "title": "Lecture 7: Hotelling’s T2",
     "section": "A Simulation Study to Understand the Wishart Distribution",
-    "text": "A Simulation Study to Understand the Wishart Distribution\n\nRecall that if \\(W\\sim Wishart_p(k, \\boldsymbol \\Sigma)\\), then \\(E[\\mathbf W]=k\\Sigma\\).\n\n\n\nCode\nlibrary(MASS)\np=2; n=5; B=1000; rho=0.7\nSigma=diag(1+rho, p, p) - matrix(rho, p, p)\nwmat.array=array(0, c(B, p, p)) #wishart-distributed\nfor(b in 1:B){\n  X=mvrnorm(n, rep(0,p), Sigma)\n  wmat.array[b,,]=(n-1)*cov(X)}\napply(wmat.array, c(2,3), mean)\n\n\n          [,1]      [,2]\n[1,]  3.919208 -2.779392\n[2,] -2.779392  4.003093\n\n\nCode\nSigma*(n-1)\n\n\n     [,1] [,2]\n[1,]  4.0 -2.8\n[2,] -2.8  4.0"
+    "text": "A Simulation Study to Understand the Wishart Distribution\n\nRecall that if \\(W\\sim Wishart_p(k, \\boldsymbol \\Sigma)\\), then \\(E[\\mathbf W]=k\\Sigma\\).\n\n\n\nCode\nlibrary(MASS)\np=2; n=5; B=1000; rho=0.7\nSigma=diag(1+rho, p, p) - matrix(rho, p, p)\nwmat.array=array(0, c(B, p, p)) #wishart-distributed\nfor(b in 1:B){\n  X=mvrnorm(n, rep(0,p), Sigma)\n  wmat.array[b,,]=(n-1)*cov(X)}\napply(wmat.array, c(2,3), mean)\n\n\n          [,1]      [,2]\n[1,]  3.881745 -2.753616\n[2,] -2.753616  3.975251\n\n\nCode\nSigma*(n-1)\n\n\n     [,1] [,2]\n[1,]  4.0 -2.8\n[2,] -2.8  4.0"
   },
   {
     "objectID": "lectures/Lecture07_Hotelling.html#definition-of-hotellings-t2",
@@ -39,7 +39,7 @@
     "href": "lectures/Lecture07_Hotelling.html#one-sample-hotelling-t2-1",
     "title": "Lecture 7: Hotelling’s T2",
     "section": "One-Sample Hotelling \\(T^2\\)",
-    "text": "One-Sample Hotelling \\(T^2\\)\n\nLet \\(\\boldsymbol{X}_1, \\boldsymbol{X}_2, ..., \\boldsymbol{X}_n\\) be a random sample from a multivariate normal distribution with mean vector \\(\\boldsymbol{\\mu}\\) and covariance matrix \\(\\boldsymbol{\\Sigma}\\).\nThe sample mean vector and sample covariance matrix are denoted by \\(\\bar{\\mathbf X}\\) and \\(\\mathbf S\\), respectively.\nThe null hypothesis of interest \\(H_0: \\boldsymbol \\mu = \\boldsymbol \\mu_0\\)\nThe one-sample Hotelling \\(T^2\\) is defined as \\[T^2=(\\hat{\\mathbf \\mu} - \\mathbf \\mu_0)^T \\left(Cov(\\hat{\\mathbf \\mu})\\right)^{-1}(\\hat{\\mathbf \\mu} - \\mathbf \\mu_0)\\]\nWe have shown that \\(T^2\\sim T_{p, n-1}^2\\) when \\(H_0: \\boldsymbol \\mu=\\boldsymbol \\mu_0\\)."
+    "text": "One-Sample Hotelling \\(T^2\\)\n\n\nLet \\(\\boldsymbol{X}_1, \\boldsymbol{X}_2, ..., \\boldsymbol{X}_n\\) be a random sample from a multivariate normal distribution with mean vector \\(\\boldsymbol{\\mu}\\) and covariance matrix \\(\\boldsymbol{\\Sigma}\\).\nThe sample mean vector and sample covariance matrix are denoted by \\(\\bar{\\mathbf X}\\) and \\(\\mathbf S\\), respectively.\nThe null hypothesis of interest \\(H_0: \\boldsymbol \\mu = \\boldsymbol \\mu_0\\)\nThe one-sample Hotelling \\(T^2\\) is defined as \\[T^2=(\\hat{\\mathbf \\mu} - \\mathbf \\mu_0)^T \\left(Cov(\\hat{\\mathbf \\mu})\\right)^{-1}(\\hat{\\mathbf \\mu} - \\mathbf \\mu_0)\\]\nWe have shown that \\(T^2\\sim T_{p, n-1}^2\\) when \\(H_0: \\boldsymbol \\mu=\\boldsymbol \\mu_0\\)."
   },
   {
     "objectID": "lectures/Lecture07_Hotelling.html#hotellings-t2-distribution-vs-f-distribution",
@@ -74,7 +74,7 @@
     "href": "lectures/Lecture07_Hotelling.html#ci-for-one-parameter",
     "title": "Lecture 7: Hotelling’s T2",
     "section": "CI for One Parameter",
-    "text": "CI for One Parameter\n\nIf there is only one parameter of interest, we can construct a C.I. using t-distribution, just as in univariate analysis\nExample. What is the mean protein intake from source \\(j\\)?\n\nLecture 04: we constructed a large-sample C.I. by using 1.96 as the critical value. (See the protein intake example)\n\nThis lecture: we construct a C.I. for \\(\\mu_j\\) by using \\(t_{n-1, 1-\\frac{\\alpha}{2}}\\) as the critical value\n\\[\\bar{X}_{(j)} \\pm t_{n-1, 1- \\frac{\\alpha}{2}}\\sqrt{\\frac{s^2_{X_{(j)}}}{n}} \\]\nWhat if we are interested in several simultaneously? We will discuss simultaneous confidence intervals in the next few slides."
+    "text": "CI for One Parameter\n\n\nIf there is only one parameter of interest, we can construct a C.I. using t-distribution, just as in univariate analysis\nExample. What is the mean protein intake from source \\(j\\)?\n\nLecture 04: we constructed a large-sample C.I. by using 1.96 as the critical value. (See the protein intake example)\n\nThis lecture: we construct a C.I. for \\(\\mu_j\\) by using \\(t_{n-1, 1-\\frac{\\alpha}{2}}\\) as the critical value\n\\[\\bar{X}_{(j)} \\pm t_{n-1, 1- \\frac{\\alpha}{2}}\\sqrt{\\frac{s^2_{X_{(j)}}}{n}} \\]\nWhat if we are interested in several simultaneously? We will discuss simultaneous confidence intervals in the next few slides."
   },
   {
     "objectID": "lectures/Lecture07_Hotelling.html#simultaneous-c.i.s",
@@ -179,14 +179,14 @@
     "href": "lectures/Lecture07_Hotelling.html#two-sample-multivariate-simultaneous-c.i.s",
     "title": "Lecture 7: Hotelling’s T2",
     "section": "Two-Sample Multivariate: Simultaneous C.I.s",
-    "text": "Two-Sample Multivariate: Simultaneous C.I.s\n\nWe might be interested in the difference between iris setosa and versicolor in the four features\nBecause we are interested all the four features, we do need to construct simultaneous C.I.s for the four features. Two methods to find critical values with adjustment for multiple C.I.s:\n\nMethod 1 - \\(T^2\\):\n\n\\[\\sqrt{\\frac{(n_1+n_2-2)p}{n_1+n_2-p-1}F_{p, n_1+n_2-p-1, 1-\\alpha}}\\]\n\nMethod 2- Bonferroni’s correction by replacing \\(\\alpha\\) with \\(\\alpha/k\\), i.e., use the following critical value \\[t_{n_1+n_2-2, 1-\\alpha/(2k)}\\]"
+    "text": "Two-Sample Multivariate: Simultaneous C.I.s\n\n\nWe might be interested in the difference between iris setosa and versicolor in the four features\nBecause we are interested all the four features, we do need to construct simultaneous C.I.s for the four features. Two methods to find critical values with adjustment for multiple C.I.s:\n\nMethod 1 - \\(T^2\\):\n\n\\[\\sqrt{\\frac{(n_1+n_2-2)p}{n_1+n_2-p-1}F_{p, n_1+n_2-p-1, 1-\\alpha}}\\]\n\nMethod 2- Bonferroni’s correction by replacing \\(\\alpha\\) with \\(\\alpha/k\\), i.e., use the following critical value \\[t_{n_1+n_2-2, 1-\\alpha/(2k)}\\]"
   },
   {
     "objectID": "lectures/Lecture07_Hotelling.html#the-assumption-of-mvn",
     "href": "lectures/Lecture07_Hotelling.html#the-assumption-of-mvn",
     "title": "Lecture 7: Hotelling’s T2",
     "section": "The assumption of MVN",
-    "text": "The assumption of MVN\n\nWe assume each observation \\(\\mathbf X_i\\) follows a MVN\nAssessing the assumption of multivariate normality is more difficult than assessing the assumption of normality (univariate)\nThis is because univariate normality does not guarantee multivariate normality. Typically, we look at the following two items:\nIt is difficult to examine joint normality in more than 2d. In practice, we do 1d and 2d\n\nMarginal normality\nAre pairs of variables show elliptical contours?\n\nAre there outliers in the data?"
+    "text": "The assumption of MVN\n\n\nWe assume each observation \\(\\mathbf X_i\\) follows a MVN\nAssessing the assumption of multivariate normality is more difficult than assessing the assumption of normality (univariate)\nThis is because univariate normality does not guarantee multivariate normality. Typically, we look at the following two items:\nIt is difficult to examine joint normality in more than 2d. In practice, we do 1d and 2d\n\nMarginal normality\nAre pairs of variables show elliptical contours?\n\nAre there outliers in the data?"
   },
   {
     "objectID": "lectures/Lecture07_Hotelling.html#assess-marignal-normality",
@@ -424,7 +424,7 @@
     "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
     "section": "Spectral Decomposition of Sample Covariance Matrix",
-    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8668495  0.4985698\n[2,] -0.4985698 -0.8668495\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n         [,1]     [,2]\n[1,] 1.003899 0.000000\n[2,] 0.000000 0.278778"
+    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8788272  0.4771401\n[2,] -0.4771401 -0.8788272\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n          [,1]      [,2]\n[1,] 0.9906014 0.0000000\n[2,] 0.0000000 0.2268228"
   },
   {
     "objectID": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
