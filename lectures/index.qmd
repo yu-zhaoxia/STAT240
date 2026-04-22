@@ -9,3 +9,5 @@ title: "Lecture Notes"
 - [Lecture 05: Multivariate Normal Distribution](Lecture05_NormalAndMVN.pdf){target="_blank"}
 - [Lecture 06: The Sample Covariance Matrix and Wishart Distribution](Lecture06_Wishart.qmd){target="_blank"}
 - [Lecture 07: Inference of Mean Vectors: Hotelling's T^2](Lecture07_Hotelling.qmd){target="_blank"}
+- [Lecture 08: Multivariate Analysis of Variance](Lecture08_MANOVA.qmd){target="_blank"}
+
