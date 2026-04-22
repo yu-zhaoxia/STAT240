@@ -442,7 +442,7 @@
   <meta name="generator" content="quarto-1.6.42">
 
   <meta name="author" content="Zhaoxia Yu">
-  <meta name="dcterms.date" content="2026-04-20">
+  <meta name="dcterms.date" content="2026-04-21">
   <title>STAT240 — Multivariate Analysis: Theory, Methods, and Practice – Lecture 7: Hotelling’s T2</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -1065,7 +1065,7 @@ Zhaoxia Yu
     </div>
 </div>
 
-  <p class="date">2026-04-20</p>
+  <p class="date">2026-04-21</p>
 </section>
 <section class="slide level2">
 
@@ -1186,8 +1186,8 @@ X_1 \\ \vdots \\ X_k
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>          [,1]      [,2]
-[1,]  3.881745 -2.753616
-[2,] -2.753616  3.975251</code></pre>
+[1,]  4.098712 -2.869488
+[2,] -2.869488  4.037065</code></pre>
 </div>
 <details class="code-fold">
 <summary>Code</summary>
@@ -1791,15 +1791,15 @@ $p.value
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb54"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a></a>cv<span class="ot">=</span><span class="fu">sqrt</span>((n1<span class="sc">+</span>n2<span class="dv">-2</span>)<span class="sc">*</span>p<span class="sc">/</span>(n1<span class="sc">+</span>n2<span class="sc">-</span>p<span class="dv">-1</span>)<span class="sc">*</span><span class="fu">qf</span>(<span class="dv">1</span><span class="fl">-0.05</span>, p, n1<span class="sc">+</span>n2<span class="sc">-</span>p<span class="dv">-1</span> ))</span>
 <span id="cb54-2"><a></a><span class="fu">round</span>(<span class="fu">data.frame</span>(<span class="at">diff=</span>mean.diff, <span class="at">se=</span><span class="fu">sqrt</span>(<span class="fu">diag</span>((<span class="dv">1</span><span class="sc">/</span>n1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>Sp) ),</span>
-<span id="cb54-3"><a></a><span class="at">CI.lower=</span>mean1<span class="sc">-</span>mean2<span class="sc">-</span><span class="fu">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>p), n1<span class="sc">+</span>n2<span class="dv">-2</span>)<span class="sc">*</span><span class="fu">sqrt</span>(<span class="fu">diag</span>((<span class="dv">1</span><span class="sc">/</span>n1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>Sp) ),</span>
-<span id="cb54-4"><a></a><span class="at">CI.upper=</span>mean1<span class="sc">-</span>mean2<span class="sc">+</span><span class="fu">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>p), n1<span class="sc">+</span>n2<span class="dv">-2</span>)<span class="sc">*</span><span class="fu">sqrt</span>(<span class="fu">diag</span>((<span class="dv">1</span><span class="sc">/</span>n1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>Sp) ) ), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb54-3"><a></a><span class="at">CI.lower=</span>mean1<span class="sc">-</span>mean2<span class="sc">-</span>cv<span class="sc">*</span><span class="fu">sqrt</span>(<span class="fu">diag</span>((<span class="dv">1</span><span class="sc">/</span>n1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>Sp) ),</span>
+<span id="cb54-4"><a></a><span class="at">CI.upper=</span>mean1<span class="sc">-</span>mean2<span class="sc">+</span>cv<span class="sc">*</span><span class="fu">sqrt</span>(<span class="fu">diag</span>((<span class="dv">1</span><span class="sc">/</span>n1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>Sp) ) ), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>               diff    se CI.lower CI.upper
-Sepal.Length -0.930 0.088   -1.155   -0.705
-Sepal.Width   0.658 0.070    0.481    0.835
-Petal.Length -2.798 0.071   -2.978   -2.618
-Petal.Width  -1.080 0.032   -1.161   -0.999</code></pre>
+Sepal.Length -0.930 0.088   -1.212   -0.648
+Sepal.Width   0.658 0.070    0.436    0.880
+Petal.Length -2.798 0.071   -3.024   -2.572
+Petal.Width  -1.080 0.032   -1.181   -0.979</code></pre>
 </div>
 </div>
 </section>
@@ -1813,8 +1813,8 @@ Petal.Width  -1.080 0.032   -1.161   -0.999</code></pre>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb56"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a></a>cv<span class="ot">=</span><span class="fu">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span>p<span class="sc">/</span><span class="dv">2</span>, n1<span class="sc">+</span>n2<span class="dv">-2</span>)</span>
 <span id="cb56-2"><a></a><span class="fu">round</span>(<span class="fu">data.frame</span>(<span class="at">diff=</span>mean.diff, <span class="at">se=</span><span class="fu">sqrt</span>(<span class="fu">diag</span>((<span class="dv">1</span><span class="sc">/</span>n1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>Sp) ),</span>
-<span id="cb56-3"><a></a><span class="at">CI.lower=</span>mean1<span class="sc">-</span>mean2<span class="sc">-</span><span class="fu">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>p), n1<span class="sc">+</span>n2<span class="dv">-2</span>)<span class="sc">*</span><span class="fu">sqrt</span>(<span class="fu">diag</span>((<span class="dv">1</span><span class="sc">/</span>n1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>Sp) ),</span>
-<span id="cb56-4"><a></a><span class="at">CI.upper=</span>mean1<span class="sc">-</span>mean2<span class="sc">+</span><span class="fu">qt</span>(<span class="dv">1</span><span class="fl">-0.05</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>p), n1<span class="sc">+</span>n2<span class="dv">-2</span>)<span class="sc">*</span><span class="fu">sqrt</span>(<span class="fu">diag</span>((<span class="dv">1</span><span class="sc">/</span>n1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>Sp) ) ), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb56-3"><a></a><span class="at">CI.lower=</span>mean1<span class="sc">-</span>mean2<span class="sc">-</span>cv<span class="sc">*</span><span class="fu">sqrt</span>(<span class="fu">diag</span>((<span class="dv">1</span><span class="sc">/</span>n1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>Sp) ),</span>
+<span id="cb56-4"><a></a><span class="at">CI.upper=</span>mean1<span class="sc">-</span>mean2<span class="sc">+</span>cv<span class="sc">*</span><span class="fu">sqrt</span>(<span class="fu">diag</span>((<span class="dv">1</span><span class="sc">/</span>n1<span class="sc">+</span><span class="dv">1</span><span class="sc">/</span>n2)<span class="sc">*</span>Sp) ) ), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>               diff    se CI.lower CI.upper
