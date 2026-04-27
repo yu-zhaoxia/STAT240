@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture08_MANOVA.html</loc>
-    <lastmod>2026-04-22T06:10:20.442Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture09_Simulations.html</loc>
+    <lastmod>2026-04-27T02:43:57.487Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture06_Wishart.html</loc>
-    <lastmod>2026-04-14T22:21:13.416Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture07_Hotelling.html</loc>
+    <lastmod>2026-04-20T22:06:12.891Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture03_RandomV.html</loc>
-    <lastmod>2026-04-07T16:41:03.615Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture04_ARandomSampleFromMultivariate.html</loc>
+    <lastmod>2026-04-08T05:43:44.715Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Introduction.html</loc>
-    <lastmod>2026-03-30T05:00:03.918Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture02_MatrixOperations.html</loc>
+    <lastmod>2026-03-30T15:14:29.801Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/index.html</loc>
-    <lastmod>2026-03-30T00:04:05.260Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/index.html</loc>
+    <lastmod>2026-04-22T06:16:57.013Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yu-zhaoxia.github.io/STAT240/exams/stat240_midterm_project.html</loc>
+    <lastmod>2026-04-27T03:32:22.838Z</lastmod>
   </url>
   <url>
     <loc>https://yu-zhaoxia.github.io/STAT240/assignments/stat240_assignment2.html</loc>
@@ -30,22 +34,26 @@
   </url>
   <url>
     <loc>https://yu-zhaoxia.github.io/STAT240/exams/index.html</loc>
+    <lastmod>2026-04-27T03:35:09.304Z</lastmod>
+  </url>
+  <url>
+    <loc>https://yu-zhaoxia.github.io/STAT240/index.html</loc>
     <lastmod>2026-03-30T00:04:05.260Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/index.html</loc>
-    <lastmod>2026-04-22T06:16:57.013Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Introduction.html</loc>
+    <lastmod>2026-03-30T05:00:03.918Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture02_MatrixOperations.html</loc>
-    <lastmod>2026-03-30T15:14:29.801Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture03_RandomV.html</loc>
+    <lastmod>2026-04-07T16:41:03.615Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture04_ARandomSampleFromMultivariate.html</loc>
-    <lastmod>2026-04-08T05:43:44.715Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture06_Wishart.html</loc>
+    <lastmod>2026-04-14T22:21:13.416Z</lastmod>
   </url>
   <url>
-    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture07_Hotelling.html</loc>
-    <lastmod>2026-04-20T22:06:12.891Z</lastmod>
+    <loc>https://yu-zhaoxia.github.io/STAT240/lectures/Lecture08_MANOVA.html</loc>
+    <lastmod>2026-04-22T06:10:20.442Z</lastmod>
   </url>
 </urlset>
