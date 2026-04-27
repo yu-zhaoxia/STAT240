@@ -2,5 +2,4 @@
 title: "Exams"
 ---
 
-- Midterm (coming soon)
-- Final (coming soon)
+- [Midterm Project, Due on Maonday, May 11th](stat240_midterm_project.qmd){target="_blank"}
