@@ -1,290 +1,171 @@
 [
   {
-    "objectID": "lectures/Lecture09_Simulations.html#introduction-to-manova",
-    "href": "lectures/Lecture09_Simulations.html#introduction-to-manova",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Introduction to MANOVA",
-    "text": "Introduction to MANOVA\n\nSo far we have learned\n\nOne-sample Hotelling’s \\(T^2\\)\nTwo-sample Hotelling’s \\(T^2\\)\n\nThe next logical extension is to multiple samples, i.e., the multivariate version anova, or MANOVA\nBefore that, we will review ANOVA for univariate data, and then we will see how to extend it to multivariate data"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#too-many-choices",
+    "href": "lectures/Lecture09_SimulationStudies.html#too-many-choices",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Too many choices?",
+    "text": "Too many choices?\n\nDue to the nature of multivariate analysis, we have see many choices for conducting one-way MANOVA.\nDo they work equally well?\nDoes their performance depend on the true distribution?\nYou will be asked to compare the methods in your midterm project"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#notations-and-assumptions",
-    "href": "lectures/Lecture09_Simulations.html#notations-and-assumptions",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Notations and Assumptions",
-    "text": "Notations and Assumptions\n\n\\(g\\) independent samples\n\n\\(Y_{11}, \\cdots Y_{1,n_1}\\overset{iid}\\sim N(\\mu_1, \\sigma^2)\\)\n\\(Y_{21}, \\cdots Y_{2,n_2}\\overset{iid}\\sim N(\\mu_2, \\sigma^2)\\)\n\\(\\cdots \\cdots\\)\n\\(Y_{g1}, \\cdots Y_{g,n_g}\\overset{iid}\\sim N(\\mu_g, \\sigma^2)\\)\n\nTotal sample size \\(n=n_1+\\cdots + n_g=\\sum_{i=1}^g n_i\\)\nGroup means: \\(\\bar{ Y}_{i.}\\) for \\(i=1,\\cdots, g\\)\nGrand/overall mean: \\(\\bar{Y}_{..}\\)"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#midterm-project-1",
+    "href": "lectures/Lecture09_SimulationStudies.html#midterm-project-1",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Midterm Project",
+    "text": "Midterm Project\n\nGoal: conduct a simulation study to compare four MANOVA tests"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#partition-the-sum-of-squares-of-total",
-    "href": "lectures/Lecture09_Simulations.html#partition-the-sum-of-squares-of-total",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Partition the Sum of Squares of Total:",
-    "text": "Partition the Sum of Squares of Total:\n\n\\[\\begin{array}{lll} SSTO & = & \\sum_{i=1}^{g}\\sum_{j=1}^{n_i}\\left(Y_{ij}-\\bar{Y}_{..}\\right)^2  =  \\sum_{i=1}^{g}\\sum_{j=1}^{n_i}[(Y_{ij}-\\bar{Y}_{i.})+(\\bar{Y}_{i.}-\\bar{Y}_{..})]^2 \\\\ & = &\\sum_{i=1}^{g}\\sum_{j=1}^{n_i}(Y_{ij}-\\bar{Y}_{i.})^2+\\sum_{i=1}^{g}n_i(\\bar{Y}_{i.}-\\bar{Y}_{..})^2 + \\\\\n&&2 \\sum_{i=1}^{g}\\sum_{j=1}^{n_i}[(Y_{ij}-\\bar{Y}_{i.})(\\bar{Y}_{i.}-\\bar{Y}_{..})]\\\\\n&=&\\sum_{i=1}^{g}\\sum_{j=1}^{n_i}(Y_{ij}-\\bar{Y}_{i.})^2+\\sum_{i=1}^{g}n_i(\\bar{Y}_{i.}-\\bar{Y}_{..})^2 + \\\\\n&&2 \\sum_{i=1}^{g}[(\\bar{Y}_{i.}-\\bar{Y}_{..})\\sum_{j=1}^{n_i}(Y_{ij}-\\bar{Y}_{i.})]\\\\\n&=&\\sum_{i=1}^{g}\\sum_{j=1}^{n_i}(Y_{ij}-\\bar{Y}_{i.})^2+\\sum_{i=1}^{g}n_i(\\bar{Y}_{i.}-\\bar{Y}_{..})^2 + 2 \\sum_{i=1}^{g}[(\\bar{Y}_{i.}-\\bar{Y}_{..})\\cdot 0]\\\\\n&=&\\underset{SSE}{\\underbrace{\\sum_{i=1}^{g}\\sum_{j=1}^{n_i}[(Y_{ij}-\\bar{Y}_{i.})^2}}+\\underset{SSTR}{\\underbrace{\\sum_{i=1}^{g}n_i(\\bar{Y}_{i.}-\\bar{Y}_{..})^2}}  \n\\end{array}\n\\]"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate",
+    "href": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Type I Error Rate",
+    "text": "Type I Error Rate\n\nThe type I error rate of a test is the probability of rejecting the null hypothesis when it is actually true.\nIn many research contexts, the acceptable type I error rate is set at 0.05, meaning that there is a 5% chance of falsely rejecting the null hypothesis.\nA simulation study can help assess whether a statistical test maintains the desired type I error rate under various conditions."
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#sse-also-known-as-ssw",
-    "href": "lectures/Lecture09_Simulations.html#sse-also-known-as-ssw",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "SSE (also known as SSW)",
-    "text": "SSE (also known as SSW)\n\n\n\\(SSTO=SSE+SSTR=SSW+SSB\\):\n\\(SSE\\) (i.e, \\(SSW\\) ): sum of squares of error, also known as sum of squares within (within groups). \\[SSE=\\sum_{i=1}^{g}\\sum_{j=1}^{n_i}(Y_{ij}-\\bar{Y}_{i.})^2=\\sum_{i=1}^g (n_i-1)s_i^2\\] where \\(s_i^2\\) is the sample variance for the \\(i\\)th group.\nRecall that \\(E[s_i^2]=\\sigma^2\\). Therefore, \\[E[SSE]=\\sum_{i=1}^g (n_i-1)\\sigma^2=(n-g)\\sigma^2\\]"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#power",
+    "href": "lectures/Lecture09_SimulationStudies.html#power",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Power",
+    "text": "Power\n\nThe power of a statistical test is the probability of correctly rejecting a null hypothesis when it is false.\nIn other words, power is the ability of a test to detect a true effect or relationship between variables.\nPower is affected by several factors, including sample size, effect size, and significance level.\nFor simple tests, analytical formulas for calculation power might exist. For complicated tests, simulations can be used to evaluate power"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#sstr-also-known-as-ssb",
-    "href": "lectures/Lecture09_Simulations.html#sstr-also-known-as-ssb",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "SSTR (also known as SSB)",
-    "text": "SSTR (also known as SSB)\n\n\\(SSTR\\) is also known as \\(SSB\\)\n\nB stands for between groups, or sum of squares treatment\n\nThe calculation of \\(E(SSTR)\\) requires the following results\n\n\n\\[\\begin{array}{lll}\nE[\\bar{Y}_{i.}^2]&=& Var[\\bar{Y}_{i.}] + \\mu_i^2=\\frac{\\sigma^2}{n_i} +\\mu_i^2 \\\\\nE[\\bar{Y}_{..}^2]&=& Var[\\bar{Y}_{..}] + \\mu_{..}^2=\\frac{\\sigma^2}{n} +\\mu_{..}^2\\\\\nE[\\bar{Y}_{i.}\\bar{Y}_{..}] &=&\\frac{1}{n}E[\\bar{Y}_{i.}\\sum_{j=1}^g n_j \\bar Y_{j.}]= \\frac{1}{n}E[\\bar{Y}_{i.}(n_i\\bar{Y}_{i.} + \\sum_{j\\ne i}^g n_j \\bar Y_{j.})]\\\\\n&=& \\frac{n_i}{n}E[\\bar{Y}_{i.}^2] + \\mu_i \\sum_{j\\ne i} \\frac{n_j}{n}\\mu_j= \\frac{1}{n}\\sigma^2 + \\frac{n_i}{n}\\mu_i^2 + \\mu_i \\sum_{j\\ne i} \\frac{n_j}{n}\\mu_j\\\\\n&=& \\frac{1}{n}\\sigma^2+ \\mu_i \\bar \\mu_{..}\n\\end{array}\n\\]"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#rationale-for-simulation-studies",
+    "href": "lectures/Lecture09_SimulationStudies.html#rationale-for-simulation-studies",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Rationale for Simulation Studies",
+    "text": "Rationale for Simulation Studies\n\nSimulation studies allow researchers to evaluate and compare the performance of statistical tests under controlled conditions.\nThey can help determine which test is most appropriate for a specific situation.\nBy simulating data with known properties, researchers can assess the type I error rate, power, and other performance metrics of each test."
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#degrees-of-freedom-df",
-    "href": "lectures/Lecture09_Simulations.html#degrees-of-freedom-df",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Degrees of Freedom (DF)",
-    "text": "Degrees of Freedom (DF)\n\n\\(SSE\\) has \\(n-g\\) degrees of freedom, because we have \\(n\\) observations and we have estimated \\(g\\) group means.\n\\(SSTR\\) has \\(g-1\\) degrees of freedom, because we have \\(g\\) group means and we have estimated the overall mean \\(\\bar Y_{..}\\), which is a linear combination of the group means.\n\\(SSTO\\) has \\(n-1\\) degrees of freedom, because we have \\(n\\) observations and we have estimated the overall mean \\(\\bar Y_{..}\\).\nNote that \\(n-1=(n-g)+(g-1)\\), which is consistent with the partition of the sum of squares."
+    "objectID": "lectures/Lecture09_SimulationStudies.html#designing-a-simulation-study",
+    "href": "lectures/Lecture09_SimulationStudies.html#designing-a-simulation-study",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Designing a Simulation Study",
+    "text": "Designing a Simulation Study\n\nChoose the statistical methods to compare. Select candidate methods you want to evaluate and ensure they are applicable to your research question. Examples\n\nStatistical tests for hypothesis testing.\nEstimation methods for parameter estimation.\nModel selection criteria for choosing between competing models.\nPredictive modeling methods for classification or regression tasks."
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#mean-of-sum-of-squares-mse",
-    "href": "lectures/Lecture09_Simulations.html#mean-of-sum-of-squares-mse",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Mean of Sum of Squares (MSE)",
-    "text": "Mean of Sum of Squares (MSE)\n\n\n\\(MSE=\\frac{1}{n-g}SSE\\), \\(E(MSE)=\\sigma^2\\)\n\\(MSTR=\\frac{1}{g-1}SSTR\\), \\(E(MSTR)=\\sigma^2 + \\frac{1}{g-1}\\sum_{i=1}^g n_i (\\mu_i - \\bar u_{..})^2\\)\n\n\n\nWhat is the ratio of the two expected mean sum of squares?\n\n\n\\[\\frac{E(MSTR)}{E(MSE)}=\\frac{\\sigma^2 + \\frac{1}{g-1}\\sum_{i=1}^g n_i (\\mu_i - \\bar u_{..})^2}{\\sigma^2} = 1 + \\frac{\\frac{1}{g-1}\\sum_{i=1}^g n_i (\\mu_i - \\bar u_{..})^2}{\\sigma^2}\\]\n\n\nThe ratio is a function of the between-group variability \\(\\sum_{i=1}^g n_i (\\mu_i - \\bar u_{..})^2\\) and the within-group variability \\(\\sigma^2\\). Large ratio suggests different means."
+    "objectID": "lectures/Lecture09_SimulationStudies.html#a-practical-guide-based-on-the-paper-by-morris-et-al.-2021",
+    "href": "lectures/Lecture09_SimulationStudies.html#a-practical-guide-based-on-the-paper-by-morris-et-al.-2021",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "A Practical Guide Based on the Paper by Morris et al. (2021)",
+    "text": "A Practical Guide Based on the Paper by Morris et al. (2021)\n\nPaper reference: Morris, T. P., White, I. R., & Crowther, M. J. (2021). Using simulation studies to evaluate statistical methods. Statistics in Medicine, 40(8), 2073-2102."
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#f-statistic",
-    "href": "lectures/Lecture09_Simulations.html#f-statistic",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "F-statistic",
-    "text": "F-statistic\n\nThe F-statistic is defined as\n\n\\[F=\\frac{MSTR}{MSE}\\]\n\nThe null distribution\n\n\\[F=\\frac{\\frac{SSTR}{\\sigma^2}/(g-1)}{\\frac{SSE}{\\sigma^2}/(n-g)}\\overset{H_0}\\sim F_{g-1, n-g}\\]"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#objectives-of-simulation-studies",
+    "href": "lectures/Lecture09_SimulationStudies.html#objectives-of-simulation-studies",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Objectives of Simulation Studies",
+    "text": "Objectives of Simulation Studies\n\nEvaluate performance of statistical methods\nCompare competing methods\nAssess sensitivity of methods to different data structures\nInvestigate robustness of methods to model assumptions"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#anova-table-and-distributions",
-    "href": "lectures/Lecture09_Simulations.html#anova-table-and-distributions",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "ANOVA Table and Distributions",
-    "text": "ANOVA Table and Distributions\n\n\n\n\n\n\n\n\n\n\n\nSource\nSS\nMS\nDF\nF\n\n\n\n\nTr\n\\(SSTR=\\sum_{i=1}^g n_i (\\bar Y_{i.}-\\bar Y_{..})^2\\)\n\\(MSTR=\\frac{SSTR}{g-1}\\)\n\\(g-1\\)\n\\(F=\\frac{MSTR}{MSE}\\)\n\n\nError\n\\(SSE=\\sum_{i=1}^g\\sum_{j=1}^{n_i} (Y_{ij}-\\bar Y_{i.})^2\\)\n\\(MSE=\\frac{SSE}{n-g}\\)\n\\(n-g\\)\n\n\n\nTotal\n\\(SSTO=\\sum_{i=1}^g\\sum_{j=1}^{n_i} (Y_{ij}-\\bar Y_{..})^2\\)\n\n\\(n-1\\)"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#key-components-of-a-simulation-study",
+    "href": "lectures/Lecture09_SimulationStudies.html#key-components-of-a-simulation-study",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Key Components of a Simulation Study",
+    "text": "Key Components of a Simulation Study\n\nData Generating Process (DGP)\nMethod Implementation\nPerformance Measures\nSimulation Parameters\nAnalysis and Interpretation"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#methods-for-manova",
-    "href": "lectures/Lecture09_Simulations.html#methods-for-manova",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Methods for MANOVA",
-    "text": "Methods for MANOVA\n\nCompared to one-sample or two-sample multivariate analysis, there are many choices for comparing multiple samples for multivariate data\nWe will cover the following methods:\n\nWilks’ Lambda\nPillai’s Trace\nHotelling-Lawley Trace\nRoy’s Largest Root"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#data-generating-process-dgp",
+    "href": "lectures/Lecture09_SimulationStudies.html#data-generating-process-dgp",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Data Generating Process (DGP)",
+    "text": "Data Generating Process (DGP)\n\nDefine the true model and relationships\nConsider the distribution of the data\nIncorporate relevant covariates and confounders\nGenerate data samples based on the defined model"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#notations-and-assumptions-1",
-    "href": "lectures/Lecture09_Simulations.html#notations-and-assumptions-1",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Notations and Assumptions",
-    "text": "Notations and Assumptions\n\n\\(g\\) independent random samples\n\n\\(\\mathbf Y_{11}, \\cdots \\mathbf Y_{1,n_1}\\overset{iid}\\sim N(\\boldsymbol \\mu_1, \\boldsymbol\\Sigma)\\)\n\\(\\mathbf Y_{21}, \\cdots \\mathbf Y_{2,n_2}\\overset{iid}\\sim N(\\boldsymbol \\mu_2, \\boldsymbol\\Sigma)\\)\n\\(\\cdots \\cdots\\)\n\\(\\mathbf Y_{g1}, \\cdots \\mathbf Y_{g,n_g}\\overset{iid}\\sim N(\\boldsymbol \\mu_g, \\boldsymbol\\Sigma)\\)\n\n\\(n_i\\): the number of observations in group \\(i\\)\nThe \\(i\\)th random sample is from \\(N(\\boldsymbol \\mu_i, \\boldsymbol\\Sigma)\\)"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#method-implementation-and-performance-measures",
+    "href": "lectures/Lecture09_SimulationStudies.html#method-implementation-and-performance-measures",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Method Implementation and Performance Measures",
+    "text": "Method Implementation and Performance Measures\n\nImplement the statistical method(s) being evaluated\nApply the method(s) to the generated data samples\nRecord results and performance metrics for each simulation run\nSelect appropriate performance measures to evaluate the method(s)\nExamples: bias, mean squared error (MSE), coverage, power, type I error rate, etc."
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#the-total-covariance-matrix",
-    "href": "lectures/Lecture09_Simulations.html#the-total-covariance-matrix",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "The Total Covariance Matrix",
-    "text": "The Total Covariance Matrix\n\nThe total covariance matrix is the covariance matrix if the group information is ignored. If we pool all the \\(n=n_1+\\cdots+n_g=\\sum_{i=1}^g n_g\\) observations together, what is the covariance matrix?\n\n\n\\[\\begin{array}{lll}\n\\mathbf{T}\n& = & \\sum_{i=1}^{g}\\sum_{j=1}^{n_i}(\\mathbf Y_{ij}- \\bar {\\mathbf Y}_{..})(\\mathbf Y_{ij}-\\bar {\\mathbf Y}_{..})' \\\\\n& = & \\sum_{i=1}^{g}\\sum_{j=1}^{n_i}\\{(\\mathbf Y_{ij}-\\bar {\\mathbf{ Y}}_i)+(\\bar{ \\mathbf Y}_i-\\bar{\\mathbf Y}_{..})\\}\\{(\\mathbf Y_{ij}-\\bar{\\mathbf Y}_i)+(\\bar{\\mathbf Y}_i-\\bar{\\mathbf Y}_{..})\\}'\n\\\\ & = & \\underset{W}{\\underbrace{\\sum_{i=1}^{g}\\sum_{j=1}^{n_i}(\\mathbf Y_{ij}-\\bar{\\mathbf  Y}_{i.})(\\mathbf Y_{ij}-\\bar{ \\mathbf Y}_{i.})'}}+\\underset{B}{\\underbrace{\\sum_{i=1}^{g}n_i(\\bar{ \\mathbf Y}_{i.}-\\bar{\\mathbf Y}_{..})(\\bar{\\mathbf Y}_{i.}-\\bar{\\mathbf Y}_{..})'}} + 0\n\\end{array}\\]"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#simulation-parameters",
+    "href": "lectures/Lecture09_SimulationStudies.html#simulation-parameters",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Simulation Parameters",
+    "text": "Simulation Parameters\n\nDetermine sample size(s) and number of simulation runs\nConsider variations in the DGP or model assumptions\nEnsure adequate coverage of the parameter space\n“Trial and Error” method to choose parameters/effect sizes to obtain reasonable power\n\nwhen the effect size / treatment effect is too small, all methods have low power\nwhen the effect size / treatment effect is large, all methods have power close to 100%"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#the-within-group-sample-covariance-matrix",
-    "href": "lectures/Lecture09_Simulations.html#the-within-group-sample-covariance-matrix",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "The Within-Group Sample Covariance Matrix",
-    "text": "The Within-Group Sample Covariance Matrix\n\nIn the definition of the total covariance matrix, we compare each observation to the grand mean vector\nIn within-group covariance matrix, we compare each observation to its group mean \\[\\mathbf W=\\sum_{i=1}^{g}\\sum_{j=1}^{n_i}(\\mathbf Y_{ij}-\\bar{\\mathbf Y}_{i.})(\\mathbf Y_{ij}-\\bar{\\mathbf Y}_{i.})'\\]"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#analysis-and-interpretation",
+    "href": "lectures/Lecture09_SimulationStudies.html#analysis-and-interpretation",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Analysis and Interpretation",
+    "text": "Analysis and Interpretation\n\nSummarize results across simulation runs\nUse graphical and numerical summaries\nCompare methods and assess performance\nDraw conclusions and provide recommendations"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#the-between-group-sample-covariance-matrix",
-    "href": "lectures/Lecture09_Simulations.html#the-between-group-sample-covariance-matrix",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "The Between-Group Sample Covariance Matrix",
-    "text": "The Between-Group Sample Covariance Matrix\n\n\\(\\mathbf B\\) captures the difference in mean vectors between groups\n\n\\[\\mathbf B=\\sum_{i=1}^{g}n_i(\\bar{\\mathbf Y}_{i.}-\\bar{\\mathbf Y}_{..})(\\bar{\\mathbf Y}_{i.}-\\bar{\\mathbf Y}_{..})'\\]\n\nWhen the null hypothesis is true, \\(\\mathbf B\\) follows a Wishart distribution \\[\\mathbf B\\overset{H_0}\\sim Wishart_p(g-1, \\boldsymbol \\Sigma)\\]"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#reporting-simulation-studies",
+    "href": "lectures/Lecture09_SimulationStudies.html#reporting-simulation-studies",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Reporting Simulation Studies",
+    "text": "Reporting Simulation Studies\n\nClearly describe the DGP, method implementation, and performance measures\nPresent results in a transparent and reproducible manner\nDiscuss limitations and potential biases\nProvide guidance for future research and applications"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#outline-of-proof",
-    "href": "lectures/Lecture09_Simulations.html#outline-of-proof",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Outline of Proof",
-    "text": "Outline of Proof\n\nLet \\(\\mathbf Y_{n\\times p}\\) denote the data matrix\nLet \\(\\mathbf X_{n\\times g}\\) denote the design matrix, which consists of dummy variables of the group membership. We also define \\(\\mathbf {P_{n\\times n}=X(X^TX)^{-1}X^T}\\). Then\n\n\n\\[\\mathbf X=\n\\begin{pmatrix}\n\\mathbf 1_{n_1} & \\mathbf 0_{n_1} & \\cdots & \\mathbf 0_{n_1}\\\\\n\\mathbf 0_{n_2} & \\mathbf 1_{n_2} & \\cdots & \\mathbf 0_{n_2}\\\\\n\\cdots & \\cdots & \\cdots & \\cdots \\\\\n\\mathbf 0_{n_g} & \\mathbf 0_{n_g} & \\cdots & \\mathbf 1_{n_g}\n\\end{pmatrix},\n\\mathbf P=\n\\begin{pmatrix}\n\\frac{1}{n_1}\\mathbf 1_{n_1}\\mathbf 1_{n_1}^T & \\mathbf 0 & \\cdots & \\mathbf 0\\\\\n\\mathbf 0 & \\frac{1}{n_2}\\mathbf 1_{n_2}\\mathbf 1_{n_2}^T& \\cdots & \\mathbf 0\\\\\n\\cdots & \\cdots & \\cdots & \\cdots \\\\\n\\mathbf 0 & \\mathbf 0 & \\cdots &  \\frac{1}{n_g}\\mathbf 1_{n_g}\\mathbf 1_{n_g}^T\n\\end{pmatrix}\n\\] It can be shown that \\[\\mathbf W = \\mathbf Y^T (\\mathbf I - \\mathbf P)\\mathbf Y \\mbox{ , }\n\\mathbf B = \\mathbf Y^T (\\mathbf P-\\frac{1}{n}\\mathbf 1_n \\mathbf 1_n^T)\\mathbf Y\n\\]"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#analyzing-and-interpreting-the-results",
+    "href": "lectures/Lecture09_SimulationStudies.html#analyzing-and-interpreting-the-results",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Analyzing and Interpreting the Results",
+    "text": "Analyzing and Interpreting the Results\n\nCompare the type I error rates and power of the tests.\nDetermine which test performs best for your specific situation.\nConsider other factors such as assumptions, sample size, and computational efficiency.\nUse the results to inform your choice of statistical test in your research."
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#manova-table",
-    "href": "lectures/Lecture09_Simulations.html#manova-table",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "MANOVA Table",
-    "text": "MANOVA Table\n\nWe can also construct a table\n\n\n\n\n\nTable 1: MANOVA Summary Table\n\n\n\n\n\n\n\n\n\n\nSource\nSample Cov\nDF\n\n\n\n\nTreatment\n\\(\\mathbf{B}=\\sum_{i=1}^{g}n_i(\\bar{\\mathbf{Y}}_{i.}-\\bar{\\mathbf{Y}}_{..})(\\bar{\\mathbf{Y}}_{i.}-\\bar{\\mathbf{Y}}_{..})'\\)\n\\(g-1\\)\n\n\nError\n\\(\\mathbf{W}=\\sum_{i=1}^{g}\\sum_{j=1}^{n_i}(\\mathbf{Y}_{ij}-\\bar{\\mathbf{Y}}_{i.})(\\mathbf{Y}_{ij}-\\bar{\\mathbf{Y}}_{i.})'\\)\n\\(n-g\\)\n\n\nTotal\n\\(\\mathbf{T}=\\sum_{i=1}^{g}\\sum_{j=1}^{n_i}(\\mathbf{Y}_{ij}- \\bar{\\mathbf{Y}}_{..})(\\mathbf{Y}_{ij}-\\bar{\\mathbf{Y}}_{..})'\\)"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#compare-two-sample-t-test-and-mann-whitney-wilcoxon-test-in-the-presence-of-outliers",
+    "href": "lectures/Lecture09_SimulationStudies.html#compare-two-sample-t-test-and-mann-whitney-wilcoxon-test-in-the-presence-of-outliers",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Compare two-sample t-test and Mann-Whitney-Wilcoxon test in the presence of outliers",
+    "text": "Compare two-sample t-test and Mann-Whitney-Wilcoxon test in the presence of outliers\n\nThe two-sample t-test is a widely used test\nMann-Whitney-Wilcoxon is often used as a nonparametric alternative when distributional assumptions are suspected\nIt has been frequently reported that the two-sample t-test is still a good choice as long as the sample size is large enough, even for data from a skewed distribution\nThe purpose of this simulation study is to compare their performances in the presence of outliers"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#iris-data-b-and-w",
-    "href": "lectures/Lecture09_Simulations.html#iris-data-b-and-w",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Iris Data: \\(B\\) and \\(W\\)",
-    "text": "Iris Data: \\(B\\) and \\(W\\)\n\n\nCode\n#rearrange the data such as the response matrix is \n#an n-by-p matrix\nY=cbind(SepalL=c(iris3[,1,1],iris3[,1,2],iris3[,1,3]), \nSepalW=c(iris3[,2,1],iris3[,2,2],iris3[,2,3]), \nPetalL=c(iris3[,3,1],iris3[,3,2],iris3[,3,3]), \nPetalW=c(iris3[,4,1],iris3[,4,2],iris3[,4,3]))\n#for unknown reasons, data.frame won't work but cbind works\n#alternatively, we can use the following way to define y\n#Y=aperm(iris3,c(1,3,2));dim(y)=c(150,4)\n\n#define the covariate variable X, which is vector of labels\niris.type=rep(c(\"Setosa\",\"Versicolor\",\"Virginica\"),each=50)\nT=(150-1)*cov(Y)\nW=(50-1)*cov(iris3[,,1]) +(50-1)*cov(iris3[,,2])+(50-1)*cov(iris3[,,3])\nB=T-W"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#design-of-simulation-study",
+    "href": "lectures/Lecture09_SimulationStudies.html#design-of-simulation-study",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Design of Simulation Study",
+    "text": "Design of Simulation Study\n\nVerify that indeed that t-test is more powerful when normality assumptions are met\n\nEqual variance: \\(t_E\\)\nUnequal variance: \\(t\\)\n\nCompare the performance of the two-tests when there are outliers"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#iris-data-b-and-w-1",
-    "href": "lectures/Lecture09_Simulations.html#iris-data-b-and-w-1",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Iris Data: \\(B\\) and \\(W\\)",
-    "text": "Iris Data: \\(B\\) and \\(W\\)\n\n\nCode\nB\n\n\n          SepalL    SepalW   PetalL    PetalW\nSepalL  63.21213 -19.95267 165.2484  71.27933\nSepalW -19.95267  11.34493 -57.2396 -22.93267\nPetalL 165.24840 -57.23960 437.1028 186.77400\nPetalW  71.27933 -22.93267 186.7740  80.41333\n\n\nCode\nW\n\n\n         Sepal L. Sepal W. Petal L. Petal W.\nSepal L.  38.9562  13.6300  24.6246   5.6450\nSepal W.  13.6300  16.9620   8.1208   4.8084\nPetal L.  24.6246   8.1208  27.2226   6.2718\nPetal W.   5.6450   4.8084   6.2718   6.1566\n\n\nCode\nB+W\n\n\n           SepalL     SepalW   PetalL    PetalW\nSepalL 102.168333  -6.322667 189.8730  76.92433\nSepalW  -6.322667  28.306933 -49.1188 -18.12427\nPetalL 189.873000 -49.118800 464.3254 193.04580\nPetalW  76.924333 -18.124267 193.0458  86.56993"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#functions-1",
+    "href": "lectures/Lecture09_SimulationStudies.html#functions-1",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Functions 1",
+    "text": "Functions 1\n\n\n\nCode\ngenerate_data &lt;- function(n, mu, sd) {\n  rnorm(n, mean = mu, sd = sd)}\n\ngenerate_data_out &lt;- function(n, mu, sd, sd_out, p) {\n  n1=round(n*(1-p)); n2=n-n1\n  c(rnorm(n1, mean = mu, sd = sd), rnorm(n2, mean=mu, sd=sd_out))\n  }\n\nrun_tests &lt;- function(data1, data2) {\n  t_test &lt;- t.test(data1, data2)$p.value\n  t_e_test &lt;- t.test(data1, data2, var.equal=TRUE)$p.value\n  wilcox_test &lt;- wilcox.test(data1, data2)$p.value\n  c(t = t_test, t_e_test=t_e_test, wilcox_test = wilcox_test)}"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#test-statistics",
-    "href": "lectures/Lecture09_Simulations.html#test-statistics",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Test Statistics",
-    "text": "Test Statistics\n\nIn one-way ANOVA, we understand that \\(SSB\\) should be large relative to \\(SSW\\) when the null hypothesis is not true\nIn the multivariate version, we also expect that \\(\\mathbf B\\) should be large relative to \\(\\mathbf W\\) when the null hypothesis is not true\nHowever, \\(\\mathbf B\\) and \\(\\mathbf W\\) are matrices. How to define “large”?"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#functions-2",
+    "href": "lectures/Lecture09_SimulationStudies.html#functions-2",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Functions 2",
+    "text": "Functions 2\n\n\n\nCode\n#without outliers\npvalues &lt;- function(n, mu1, mu2,sd, n_rep=1000){\n  results=matrix(0, n_rep, 3)\n  for(b in 1:n_rep){\n    data1 &lt;- generate_data(n, mu1, sd)\n    data2 &lt;- generate_data(n, mu2, sd)\n    results[b, ]=run_tests(data1, data2) \n  }\n  return(colMeans(results&lt;0.05))}\n\n#with outliers\npvalues_out &lt;- function(n, mu1, mu2, sd, sd_out, p, n_rep=1000){\n  results=matrix(0, n_rep, 3)\n  for(b in 1:n_rep){\n    data1 &lt;- generate_data_out(n, mu1, sd, sd_out, p)\n    data2 &lt;- generate_data_out(n, mu2, sd, sd_out, p)\n    results[b, ]=run_tests(data1, data2) \n  }\n  return(colMeans(results&lt;0.05))}"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#manova-in-r",
-    "href": "lectures/Lecture09_Simulations.html#manova-in-r",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "MANOVA in R",
-    "text": "MANOVA in R\nsummary.manova {stats}  R Documentation\nSummary Method for Multivariate Analysis of Variance\nDescription\nA summary method for class \"manova\".\n\nUsage\n## S3 method for class 'manova'\nsummary(object,\n        test = c(\"Pillai\", \"Wilks\", \"Hotelling-Lawley\", \"Roy\"),\n        intercept = FALSE, tol = 1e-7, ...)"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#power-no-outlier",
+    "href": "lectures/Lecture09_SimulationStudies.html#power-no-outlier",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Power: No Outlier",
+    "text": "Power: No Outlier\n\n\n\nCode\npower_n5=rbind(pvalues(n=5, mu1=0, mu2=0.2, sd=1, n_rep=1000),\n  pvalues(n=5, mu1=0, mu2=0.5, sd=1,n_rep=1000),\n  pvalues(n=5, mu1=0, mu2=1, sd=1, n_rep=1000))\n\npower_n10=rbind(pvalues(n=10, mu1=0, mu2=0.2, sd=1, n_rep=1000),\n  pvalues(n=10, mu1=0, mu2=0.5, sd=1, n_rep=1000),\n  pvalues(n=10, mu1=0, mu2=1, sd=1, n_rep=1000))\n\npower_n50=rbind(pvalues(n=50, mu1=0, mu2=0.2, sd=1, n_rep=1000),\n  pvalues(n=50, mu1=0, mu2=0.5, sd=1, n_rep=1000),\n  pvalues(n=50, mu1=0, mu2=1, sd=1, n_rep=1000))\n\ncolnames(power_n5)=c(\"t\", \"t_e\", \"r\")\ncolnames(power_n10)=c(\"t\", \"t_e\", \"r\")\ncolnames(power_n50)=c(\"t\", \"t_e\", \"r\")\npower_normal_wide=data.frame(cbind(rbind(power_n5, power_n10, power_n50), \n                                   diff=rep(c(0.2, 0.5, 1.0),3), \n                                   n=rep(c(5, 10, 50), each=3)))\npower_normal=gather(power_normal_wide, test, power, 1:3, factor_key=TRUE)\n\nggplot(power_normal, aes(x=diff, y=power, \n                         group=interaction(test, n), color=factor(n), shape=test)) +\n  geom_point(size=3) +geom_line() +  ggtitle(\"Power: no outlier\")"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#method-1-pallai-trace",
-    "href": "lectures/Lecture09_Simulations.html#method-1-pallai-trace",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Method 1: Pallai Trace",
-    "text": "Method 1: Pallai Trace\n\\[V = trace(\\mathbf{\\mathbf B(\\mathbf B+\\mathbf W)^{-1}})=trace(\\mathbf B \\mathbf T^{-1})\\]"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-no-outlier",
+    "href": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-no-outlier",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Type I Error Rate: No Outlier",
+    "text": "Type I Error Rate: No Outlier\n\n\n\nCode\ntype1=rbind(\n  pvalues(n=5, mu1=0, mu2=0, sd=1, n_rep=1000),\n  pvalues(n=10, mu1=0, mu2=0, sd=1, n_rep=1000),\n  pvalues(n=50, mu1=0, mu2=0, sd=1, n_rep=1000))\ncolnames(type1)=c(\"t\", \"t_e\", \"r\")\ntype1_wide=data.frame(type1, n=c(5,10,50))\ntype1=gather(type1_wide, test, power, 1:3, factor_key=TRUE)\nggplot(type1, aes(x=n, y=power, group=test, shape=test, color=test))+\n  geom_point(size=3) + geom_line()+\n  geom_hline(yintercept=0.05, linetype=\"dashed\", color = \"red\") +\n  ggtitle(\"Type I Error: no outlier\")"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#method-2-wilks-lambda",
-    "href": "lectures/Lecture09_Simulations.html#method-2-wilks-lambda",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Method 2: Wilk’s Lambda",
-    "text": "Method 2: Wilk’s Lambda\n\n\nWilk’s Lambda distribution Let \\(\\mathbf A\\sim Wishart_p(m_1, \\mathbf I)\\) and \\(\\mathbf B\\sim Wishart_p(m_2, \\mathbf I)\\) be independent with \\(m_1&gt;p\\). We say \\[\\Lambda=\\dfrac{|\\mathbf{A}|}{|\\mathbf{A+B}|}\\sim \\Lambda (p, m_1, m_2)\\]\nTest Statistic \\[\\Lambda^* = \\dfrac{|\\mathbf{W}|}{|\\mathbf{B+W}|}=\\dfrac{|\\mathbf{W}|}{|\\mathbf{T}|}=\\dfrac{|\\mathbf{\\boldsymbol \\Sigma^{-1/2} W\\boldsymbol \\Sigma^{-1/2} }|}{|\\mathbf{\\boldsymbol \\Sigma^{-1/2} (B+W)\\boldsymbol \\Sigma^{-1/2} }|}\\]\nBy the definition of Wilk’s Lambda distribution, \\[\\Lambda^* \\overset{H_0}\\sim \\Lambda (p, n-g, g-1)\\]"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-1-outliers",
+    "href": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-1-outliers",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Type I Error Rate: \\(1\\%\\) Outliers",
+    "text": "Type I Error Rate: \\(1\\%\\) Outliers\n\n\n\nCode\n#1% outliers\ntype1_out_mat=rbind(\n  pvalues_out(n=5, mu1=0, mu2=0, sd=1, sd_out=5, p=0.01, n_rep=1000),\n  pvalues_out(n=10, mu1=0, mu2=0, sd=1, sd_out=5, p=0.01, n_rep=1000),\n  pvalues_out(n=20, mu1=0, mu2=0, sd=1, sd_out=5, p=0.01, n_rep=1000),\n  pvalues_out(n=50, mu1=0, mu2=0, sd=1, sd_out=5, p=0.01, n_rep=1000))\ncolnames(type1_out_mat)=c(\"t\", \"t_e\", \"r\")\ntype1_wide_out=data.frame(type1_out_mat, n=c(5,10,20,50))\ntype1_out=gather(type1_wide_out, test, power, 1:3, factor_key=TRUE)\nggplot(type1_out, aes(x=n, y=power, group=test, shape=test, color=test))+\n  geom_point(size=3) +\n  geom_line()+\n  geom_hline(yintercept=0.05, linetype=\"dashed\", color = \"red\")+\n  ggtitle(\"Type I Error: 1% outliers\")"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#method-3-lawley-hotelling-trace",
-    "href": "lectures/Lecture09_Simulations.html#method-3-lawley-hotelling-trace",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Method 3: Lawley-Hotelling Trace",
-    "text": "Method 3: Lawley-Hotelling Trace\n\\[T^2 = trace(\\mathbf{BW}^{-1})\\]"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-5-outliers",
+    "href": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-5-outliers",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Type I error rate: \\(5\\%\\) Outliers",
+    "text": "Type I error rate: \\(5\\%\\) Outliers\n\n\n\nCode\n#5% outliers\ntype1_out_mat=rbind(\n  pvalues_out(n=5, mu1=0, mu2=0, sd=1, sd_out=5, p=0.05, n_rep=1000),\n  pvalues_out(n=10, mu1=0, mu2=0, sd=1, sd_out=5, p=0.05, n_rep=1000),\n  pvalues_out(n=20, mu1=0, mu2=0, sd=1, sd_out=5, p=0.05, n_rep=1000),\n  pvalues_out(n=50, mu1=0, mu2=0, sd=1, sd_out=5, p=0.05, n_rep=1000))\ncolnames(type1_out_mat)=c(\"t\", \"t_e\", \"r\")\ntype1_wide_out=data.frame(type1_out_mat, n=c(5,10,20,50))\ntype1_out=gather(type1_wide_out, test, power, 1:3, factor_key=TRUE)\nggplot(type1_out, aes(x=n, y=power, group=test, shape=test, color=test))+\n  geom_point(size=3) +\n  geom_line()+\n  geom_hline(yintercept=0.05, linetype=\"dashed\", color = \"red\")+\n  ggtitle(\"Type I Error: 5% outliers\")"
   },
   {
-    "objectID": "lectures/Lecture09_Simulations.html#method-4-roys-largest-root",
-    "href": "lectures/Lecture09_Simulations.html#method-4-roys-largest-root",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Method 4: Roy’s Largest Root",
-    "text": "Method 4: Roy’s Largest Root\n\nTwo equivalent test statistics have been used \\[\n\\begin{aligned}\n\\lambda_{max}(\\mathbf B\\mathbf W^{-1})\\\\\n\\lambda_{max}(\\mathbf B\\mathbf {(B+W)}^{-1})\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#test-statistics-and-the-eigenvalues",
-    "href": "lectures/Lecture09_Simulations.html#test-statistics-and-the-eigenvalues",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Test Statistics and the Eigenvalues",
-    "text": "Test Statistics and the Eigenvalues\n\n\nOne interesting observation is that all the test statistics can be expressed in terms of eigenvalues of \\(\\mathbf B \\mathbf W^{-1}\\). Let \\(\\lambda_1, \\cdots, \\lambda_p\\) denote the eigenvalues, from the largest to the smallest. We have\nPillai trace \\[tr(\\mathbf B (\\mathbf B + \\mathbf W)^{-1})=\\sum_{i=1}^{min(p, g-1)}\\frac{\\lambda_i}{1+\\lambda_i}\\]\nWilk’s Lambda \\[\\Lambda^*= \\prod_{i=1}^{min(p, g-1)}\\frac{1}{1+\\lambda_i}\\]"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#test-statistics-and-the-eigenvalues-of-mathbf-b-mathbf-w-1",
-    "href": "lectures/Lecture09_Simulations.html#test-statistics-and-the-eigenvalues-of-mathbf-b-mathbf-w-1",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Test Statistics and the Eigenvalues of \\(\\mathbf B \\mathbf W^{-1}\\)",
-    "text": "Test Statistics and the Eigenvalues of \\(\\mathbf B \\mathbf W^{-1}\\)\n\n\nLawley-Hotelling trace \\[trace(\\mathbf B \\mathbf W^{-1}) = \\sum_{i=1}^{min(p, g-1)}\\lambda_i\\]\nRoy’s largest root \\[\n\\begin{aligned}\n\\lambda_{max}(\\mathbf B\\mathbf W^{-1}) = \\lambda_1\\\\\n\\lambda_{max}(\\mathbf B\\mathbf {(B+W)}^{-1})= \\frac{\\lambda_1}{1+\\lambda_1}\n\\end{aligned}\n\\]"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#proof",
-    "href": "lectures/Lecture09_Simulations.html#proof",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Proof",
-    "text": "Proof\n\n\nIf you are curious about how to prove these results, I provide an example. \\[\n\\begin{aligned}\n(\\Lambda ^{*})^{-1} &= \\dfrac{|\\mathbf{B+W}|}{|\\mathbf{W}|} = |\\mathbf{I +W^{-1} B}|\\\\\n&= \\prod_{i=1}^p [\\mbox{the ith eigenvalue of } \\mathbf{I +W^{-1} B}]\\\\\n&= \\prod_{i=1}^p [1 + \\mbox{the ith eigenvalue of } \\mathbf{W^{-1} B}]\\\\\n&= \\prod_{i=1}^p (1 + \\lambda_i)\\overset{1}=\\prod_{i=1}^{min(p,g-1)} (1 + \\lambda_i)\n\\end{aligned}\n\\] As a result, \\(\\Lambda ^{*}=\\prod_{i=1}^p \\frac{1}{1 + \\lambda_i}\\)"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#proof-continued",
-    "href": "lectures/Lecture09_Simulations.html#proof-continued",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Proof (continued)",
-    "text": "Proof (continued)\n\n\nThe last step implies that \\(rank(\\mathbf W^{-1}\\mathbf B)=min(p, g-1)\\)\nWhy is it true?\n\nFirst, \\(rank(\\mathbf W^{-1}\\mathbf B)=rank(\\mathbf B)\\)\nSecond, because \\(\\mathbf B\\overset{H_0}\\sim Wishart_p(g-1, \\boldsymbol \\Sigma)\\), there exists \\(\\mathbf Y_{(g-1)\\times p}\\) such that \\[\\mathbf B = \\mathbf Y^T \\mathbf Y \\mbox{ , }\\] and \\(\\mathbf Y\\) is a random sample of size \\(g-1\\) from \\(N(\\mathbf 0, \\boldsymbol \\Sigma)\\). The rank of \\(\\mathbf Y\\) is \\(rank(\\mathbf Y)=min(p, g-1)\\).\nThird, \\(rank(\\mathbf B)= rank(\\mathbf Y^T\\mathbf Y)=rank(\\mathbf Y)=min(p, g-1)\\)."
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#example---iris-data",
-    "href": "lectures/Lecture09_Simulations.html#example---iris-data",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Example - Iris Data",
-    "text": "Example - Iris Data\n\n\nCode\nmycolors=rainbow(12)[9:1]\nimage(t(iris[150:1, 1:4]),col = mycolors, xaxt=\"n\", yaxt=\"n\")"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#iris-data-univariate-one-way-anova-data-formatting",
-    "href": "lectures/Lecture09_Simulations.html#iris-data-univariate-one-way-anova-data-formatting",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Iris Data: Univariate One-way ANOVA: Data Formatting",
-    "text": "Iris Data: Univariate One-way ANOVA: Data Formatting\n\n\nCode\n#rearrange the data in the (X,Y) format\ny=c(iris3[,1,1], iris3[,1,2], iris3[,1,3])\n#alternatively, you may use: \n#y=aperm(iris3[,1,], c(1,2)); dim(y)=c(150,1)\n\n#define the covariate variable X, \n#which is vector of labels\niris.type=rep(c(\"Setosa\",\"Versicolor\",\"Virginica\"),each=50)"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#iris-data-univariate-one-way-anova-exploratory",
-    "href": "lectures/Lecture09_Simulations.html#iris-data-univariate-one-way-anova-exploratory",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Iris Data: Univariate One-way ANOVA: Exploratory",
-    "text": "Iris Data: Univariate One-way ANOVA: Exploratory\n\n\nCode\n#visual checking\npar(mfrow=c(2,2))\n#box plot\nboxplot(y~iris.type, main=\"SepalL\")\n#alternatively, you may use: boxplot(iris3[,1,], \n#main=\"SepalL\")\n\n#qq plots\nqqnorm(iris3[,1,1], main=\"Q-Q Plot: Setosa\"); \nqqline(iris3[,1,1])\nqqnorm(iris3[,1,2], main=\"Q-Q Plot: Versicolor\"); \nqqline(iris3[,1,2])\nqqnorm(iris3[,1,3], main=\"Q-Q Plot: Virginica\"); \nqqline(iris3[,1,3])"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#iris-data-univariate-one-way-anova-exploratory-1",
-    "href": "lectures/Lecture09_Simulations.html#iris-data-univariate-one-way-anova-exploratory-1",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Iris Data: Univariate One-way ANOVA: Exploratory",
-    "text": "Iris Data: Univariate One-way ANOVA: Exploratory"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#iris-data-univariate-one-way-anova-analysis",
-    "href": "lectures/Lecture09_Simulations.html#iris-data-univariate-one-way-anova-analysis",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Iris Data: Univariate One-way ANOVA: Analysis",
-    "text": "Iris Data: Univariate One-way ANOVA: Analysis\n\n\nCode\nobj.aov=aov(y~iris.type)\nsummary(obj.aov)\n\n\n             Df Sum Sq Mean Sq F value Pr(&gt;F)    \niris.type     2  63.21  31.606   119.3 &lt;2e-16 ***\nResiduals   147  38.96   0.265                   \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#iris-data-manova-data-formatting",
-    "href": "lectures/Lecture09_Simulations.html#iris-data-manova-data-formatting",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Iris Data: MANOVA: Data Formatting",
-    "text": "Iris Data: MANOVA: Data Formatting\n\n\nCode\n#rearrange the data such as the response matrix is \n#an n-by-p matrix\nY=cbind(SepalL=c(iris3[,1,1],iris3[,1,2],iris3[,1,3]), \nSepalW=c(iris3[,2,1],iris3[,2,2],iris3[,2,3]), \nPetalL=c(iris3[,3,1],iris3[,3,2],iris3[,3,3]), \nPetalW=c(iris3[,4,1],iris3[,4,2],iris3[,4,3]))\n#for unknown reasons, data.frame won't work but cbind works\n#alternatively, we can use the following way to define y\n#Y=aperm(iris3,c(1,3,2));dim(y)=c(150,4)\n\n#define the covariate variable X, which is vector of labels\niris.type=rep(c(\"Setosa\",\"Versicolor\",\"Virginica\"),each=50)"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#iris-data-manova-exploratory",
-    "href": "lectures/Lecture09_Simulations.html#iris-data-manova-exploratory",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Iris Data: MANOVA: Exploratory",
-    "text": "Iris Data: MANOVA: Exploratory\n\n\nCode\n#visual investigation\npar(mfrow=c(2,2))\nboxplot(iris3[,1,],main=\"SepalL\")\nboxplot(iris3[,2,],main=\"SepalW\")\nboxplot(iris3[,3,],main=\"PetalL\")\nboxplot(iris3[,4,],main=\"PetalW\")"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#iris-data-manova-exploratory-1",
-    "href": "lectures/Lecture09_Simulations.html#iris-data-manova-exploratory-1",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Iris Data: MANOVA: Exploratory",
-    "text": "Iris Data: MANOVA: Exploratory"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#conducting-manova-manually",
-    "href": "lectures/Lecture09_Simulations.html#conducting-manova-manually",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Conducting MANOVA “Manually”",
-    "text": "Conducting MANOVA “Manually”\n\n\nCode\nT=(150-1)*cov(Y)\nW=(50-1)*cov(iris3[,,1]) +(50-1)*cov(iris3[,,2])+(50-1)*cov(iris3[,,3])\nB=T-W\nLambda=prod(1/(1+ eigen(B%*%solve(W))$values))\n(150-3-2)/3*(1-sqrt(Lambda))/sqrt(Lambda)\n\n\n[1] 267.3711\n\n\nCode\n# Using relationship between Wilk's lambda and F-distribution \n# (see wikipedia about \"Wilks's lambda distribution\")\n1-pf((150-3-2)/3*(1-sqrt(Lambda))/sqrt(Lambda), 2*3, 150-3-2)\n\n\n[1] 0"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#conducting-manova-using-manova-in-r",
-    "href": "lectures/Lecture09_Simulations.html#conducting-manova-using-manova-in-r",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Conducting MANOVA using “manova” in R",
-    "text": "Conducting MANOVA using “manova” in R\n\n\nCode\nobj=manova(Y~iris.type)\nobj\n\n\nCall:\n   manova(Y ~ iris.type)\n\nTerms:\n                iris.type Residuals\nSepalL            63.2121   38.9562\nSepalW            11.3449   16.9620\nPetalL           437.1028   27.2226\nPetalW            80.4133    6.1566\nDeg. of Freedom         2       147\n\nResidual standard errors: 0.5147894 0.3396877 0.4303345 0.20465\nEstimated effects may be unbalanced"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#conducting-manova-using-manova-in-r-1",
-    "href": "lectures/Lecture09_Simulations.html#conducting-manova-using-manova-in-r-1",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Conducting MANOVA using “manova” in R",
-    "text": "Conducting MANOVA using “manova” in R\n\n\nCode\nsummary(obj, test=\"Pillai\")\n\n\n           Df Pillai approx F num Df den Df    Pr(&gt;F)    \niris.type   2 1.1919   53.466      8    290 &lt; 2.2e-16 ***\nResiduals 147                                            \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nCode\nsummary(obj, test=\"Wilks\")\n\n\n           Df    Wilks approx F num Df den Df    Pr(&gt;F)    \niris.type   2 0.023439   199.15      8    288 &lt; 2.2e-16 ***\nResiduals 147                                              \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#conducting-manova-using-manova-in-r-2",
-    "href": "lectures/Lecture09_Simulations.html#conducting-manova-using-manova-in-r-2",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Conducting MANOVA using “manova” in R",
-    "text": "Conducting MANOVA using “manova” in R\n\n\nCode\nsummary(obj, test=\"Hotelling-Lawley\")\n\n\n           Df Hotelling-Lawley approx F num Df den Df    Pr(&gt;F)    \niris.type   2           32.477   580.53      8    286 &lt; 2.2e-16 ***\nResiduals 147                                                      \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1\n\n\nCode\nsummary(obj, test=\"Roy\")\n\n\n           Df    Roy approx F num Df den Df    Pr(&gt;F)    \niris.type   2 32.192     1167      4    145 &lt; 2.2e-16 ***\nResiduals 147                                            \n---\nSignif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1"
-  },
-  {
-    "objectID": "lectures/Lecture09_Simulations.html#too-many-choices",
-    "href": "lectures/Lecture09_Simulations.html#too-many-choices",
-    "title": "Lecture 9: Use Simulations to Evaluate Statistical Methods",
-    "section": "Too Many Choices?",
-    "text": "Too Many Choices?\n\nDue to the nature of multivariate analysis, we have seen many choices for conducting one-way MANOVA\nDo they work equally well?\nDoes their performance depend on the true distribution?\nYou will be asked to compare the methods in your midterm project"
+    "objectID": "lectures/Lecture09_SimulationStudies.html#conclusions-and-limitations",
+    "href": "lectures/Lecture09_SimulationStudies.html#conclusions-and-limitations",
+    "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
+    "section": "Conclusions and Limitations",
+    "text": "Conclusions and Limitations\n\nConclusions:\n\nAs has been reported by many others, t-test tends to be more powerful, especially for small sample sizes\nWe examined an outlier model. For this model we observed, the type I error rates of both tests are reasonable\n\nLimitations:\n\nOnly examined two distributions: normal and normal mixture\nThe effect of unequal Variances was not examined"
   },
   {
     "objectID": "lectures/Lecture07_Hotelling.html#definition-of-wishart-distribution",
@@ -312,7 +193,7 @@
     "href": "lectures/Lecture07_Hotelling.html#a-simulation-study-to-understand-the-wishart-distribution",
     "title": "Lecture 7: Hotelling’s T2",
     "section": "A Simulation Study to Understand the Wishart Distribution",
-    "text": "A Simulation Study to Understand the Wishart Distribution\n\nRecall that if \\(W\\sim Wishart_p(k, \\boldsymbol \\Sigma)\\), then \\(E[\\mathbf W]=k\\Sigma\\).\n\n\n\nCode\nlibrary(MASS)\np=2; n=5; B=1000; rho=0.7\nSigma=diag(1+rho, p, p) - matrix(rho, p, p)\nwmat.array=array(0, c(B, p, p)) #wishart-distributed\nfor(b in 1:B){\n  X=mvrnorm(n, rep(0,p), Sigma)\n  wmat.array[b,,]=(n-1)*cov(X)}\napply(wmat.array, c(2,3), mean)\n\n\n         [,1]      [,2]\n[1,]  4.02681 -2.954950\n[2,] -2.95495  4.278102\n\n\nCode\nSigma*(n-1)\n\n\n     [,1] [,2]\n[1,]  4.0 -2.8\n[2,] -2.8  4.0"
+    "text": "A Simulation Study to Understand the Wishart Distribution\n\nRecall that if \\(W\\sim Wishart_p(k, \\boldsymbol \\Sigma)\\), then \\(E[\\mathbf W]=k\\Sigma\\).\n\n\n\nCode\nlibrary(MASS)\np=2; n=5; B=1000; rho=0.7\nSigma=diag(1+rho, p, p) - matrix(rho, p, p)\nwmat.array=array(0, c(B, p, p)) #wishart-distributed\nfor(b in 1:B){\n  X=mvrnorm(n, rep(0,p), Sigma)\n  wmat.array[b,,]=(n-1)*cov(X)}\napply(wmat.array, c(2,3), mean)\n\n\n          [,1]      [,2]\n[1,]  4.043606 -2.815692\n[2,] -2.815692  3.986283\n\n\nCode\nSigma*(n-1)\n\n\n     [,1] [,2]\n[1,]  4.0 -2.8\n[2,] -2.8  4.0"
   },
   {
     "objectID": "lectures/Lecture07_Hotelling.html#definition-of-hotellings-t2",
@@ -711,7 +592,7 @@
     "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
     "section": "Spectral Decomposition of Sample Covariance Matrix",
-    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8513967  0.5245223\n[2,] -0.5245223 -0.8513967\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n          [,1]      [,2]\n[1,] 0.9676822 0.0000000\n[2,] 0.0000000 0.2694269"
+    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8630671  0.5050893\n[2,] -0.5050893 -0.8630671\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n         [,1]     [,2]\n[1,] 1.013804 0.000000\n[2,] 0.000000 0.236117"
   },
   {
     "objectID": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
@@ -746,7 +627,7 @@
     "href": "lectures/index.html",
     "title": "Lecture Notes",
     "section": "",
-    "text": "Lecture 01: Introduction\nLecture 02: Matrix Operations\nLecture 03: Random Vectors/Matrices\nLecture 04: A Random Sample from a Multivariate Normal\nLecture 05: Multivariate Normal Distribution\nLecture 06: The Sample Covariance Matrix and Wishart Distribution\nLecture 07: Inference of Mean Vectors: Hotelling’s T^2\nLecture 08: Multivariate Analysis of Variance"
+    "text": "Lecture 01: Introduction\nLecture 02: Matrix Operations\nLecture 03: Random Vectors/Matrices\nLecture 04: A Random Sample from a Multivariate Normal\nLecture 05: Multivariate Normal Distribution\nLecture 06: The Sample Covariance Matrix and Wishart Distribution\nLecture 07: Inference of Mean Vectors: Hotelling’s T^2\nLecture 08: Multivariate Analysis of Variance\nLecture 09: Use Simulations To Evaluate Statistical Methods"
   },
   {
     "objectID": "exams/stat240_midterm_project.html",
