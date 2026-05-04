@@ -4,56 +4,70 @@
     "href": "lectures/Lecture10_PCA.html#pca-an-overview",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "PCA: An Overview",
-    "text": "PCA: An Overview\n\nA component refers to a linear function of features/variables\nIn English, “principal” means first or highest in rank/importance\nThe first principal component refers to the linear function of the highest “rank/importance”\nThe second principal component refers to the linear function of the second highest “rank/importance”\nThe principal components in PCA are uncorrelated linear combinations/functions of features"
+    "text": "PCA: An Overview\n\nA component refers to a linear function of features/variables\nThe first principal component refers to the linear function of the highest “rank/importance”\nThe second principal component refers to the linear function of the second highest “rank/importance”\nThe principal components in PCA are uncorrelated linear combinations/functions of features"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#origins-of-pca",
     "href": "lectures/Lecture10_PCA.html#origins-of-pca",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Origins of PCA",
-    "text": "Origins of PCA\n\nPCA was first introduced by Karl Pearson in 1901 as a method to study the “lines and planes of closest fit” for high-dimensional data.\nPearson developed PCA as a geometrical technique to find the direction that maximizes the variance in multivariate data.\nIn 1933, Harold Hotelling extended PCA, establishing its statistical properties and mathematical foundation.\nHotelling showed that PCA is equivalent to finding the eigenvectors and eigenvalues of the covariance matrix, thus connecting PCA to spectral decomposition."
+    "text": "Origins of PCA\n\n1901: Karl Pearson (Geometric Foundation)\n\nFirst introduced PCA as a method to find the “lines and planes of closest fit” for high-dimensional data.\nDefined it as a geometrical technique to identify directions that maximize variance.\n\n1933: Harold Hotelling (Statistical Formalization)\n\nFirst used the term “Principal Components” (PC), established statistical and mathematical foundation.\nLinked PCA to spectral decomposition."
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#modern-pca",
     "href": "lectures/Lecture10_PCA.html#modern-pca",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Modern PCA",
-    "text": "Modern PCA\n\nOver time, PCA has become a widely used method in various disciplines, such as statistics, data science, finance, and engineering.\nPCA has had a significant impact on the field of multivariate analysis and dimensionality reduction.\nPCA has been extended and generalized, giving rise to many useful non-linear dimension reduction techniques like Kernel PCA, Sparse PCA, t-SNE, and UMAP."
+    "text": "Modern PCA\n\nPCA has had a significant impact on the field of multivariate analysis and dimensionality reduction.\nOver time, PCA has become a widely used method in various disciplines, such as statistics, data science, finance, and engineering.\nPCA has been extended and generalized, giving rise to many useful dimension reduction techniques like Kernel PCA, sparse PCA, t-SNE, and UMAP."
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#t-sne-vs-umap",
+    "href": "lectures/Lecture10_PCA.html#t-sne-vs-umap",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "t-SNE vs UMAP",
+    "text": "t-SNE vs UMAP\n\n\n\nt-SNE (Global All-Pairs)\n\nFocus: Strict local structure (clusters).\nSimilarity (\\(q_{ij}\\)): Uses all pairs for normalization (\\(O(N^2)\\)). \\[q_{ij} = \\frac{(1 + ||y_i - y_j||^2)^{-1}}{\\sum_{k \\neq l} (1 + ||y_k - y_l||^2)^{-1}}\\]\nComplexity: \\(O(N^2)\\) due to the large denominator sum over all data points.\nInsight: Excellent at cluster separation; ignores global distances.\n\n\nUMAP (Local Neighbors)\n\nFocus: Local + Global structure.\nSimilarity (\\(q_{ij}\\)): Approximated via nearest-neighbors. \\[q_{ij} \\approx (1 + a||y_i - y_j||^{2b})^{-1}\\]\nComplexity: \\(O(N \\log N)\\) using k-NN graphs and negative sampling. Insight:** BCE provides repulsive forces that preserve global structure.\n\n\n\n\\(y_{i}\\) and \\(y_{j}\\) represent the low-dimensional embeddings"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#a-visual-illustration-of-pca",
     "href": "lectures/Lecture10_PCA.html#a-visual-illustration-of-pca",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "A Visual Illustration of PCA",
-    "text": "A Visual Illustration of PCA\n\nThis animation shows how PCA works: the first PC is the direction of the largest variance.\nA link is here"
+    "text": "A Visual Illustration of PCA\n\n\nThis animation shows how PCA works: the first PC is the direction of the largest variance. Original website for the figure is here."
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#revisit-example-2-in-lecture-08",
-    "href": "lectures/Lecture10_PCA.html#revisit-example-2-in-lecture-08",
+    "objectID": "lectures/Lecture10_PCA.html#simulate-bivariate-data",
+    "href": "lectures/Lecture10_PCA.html#simulate-bivariate-data",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Revisit Example 2 in Lecture 08",
-    "text": "Revisit Example 2 in Lecture 08\n\n\nCode\nn=1000\nSigma1=diag(c(4,1), 2, 2) \nSigma2=diag(c(1,4), 2, 2) \ntheta=pi/6\nR1=matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), 2,2)\ntheta=pi/4+pi/2\nR2=matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), 2,2)\nSigma3=R1%*%Sigma1%*%t(R1)\nSigma4=R2%*%Sigma1%*%t(R2)\nset.seed(1)\nX1=data.frame(mvrnorm(n, rep(0,2), Sigma1)); names(X1)=c(\"x\",\"y\")\nX2=data.frame(mvrnorm(n, rep(0,2), Sigma2)); names(X2)=c(\"x\",\"y\")\nX3=data.frame(mvrnorm(n, rep(0,2), Sigma3)); names(X3)=c(\"x\",\"y\")\nX4=data.frame(mvrnorm(n, rep(0,2), Sigma4)); names(X4)=c(\"x\",\"y\")"
+    "section": "Simulate bivariate data",
+    "text": "Simulate bivariate data\n\nSimulate four data sets from four bivariate normal distributions with different covariance matrices.\nCheck the code to see how the covariance matrices.\n\n\n\nCode\nn=1000\nSigma1=diag(c(4,1), 2, 2) \nSigma2=diag(c(1,4), 2, 2) \ntheta=pi/6\nR1=matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), 2,2)\ntheta=pi/4+pi/2\nR2=matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), 2,2)\nSigma3=R1%*%Sigma1%*%t(R1)\nSigma4=R2%*%Sigma1%*%t(R2)\nset.seed(1)\nX1=data.frame(mvrnorm(n, rep(0,2), Sigma1)); names(X1)=c(\"x\",\"y\")\nX2=data.frame(mvrnorm(n, rep(0,2), Sigma2)); names(X2)=c(\"x\",\"y\")\nX3=data.frame(mvrnorm(n, rep(0,2), Sigma3)); names(X3)=c(\"x\",\"y\")\nX4=data.frame(mvrnorm(n, rep(0,2), Sigma4)); names(X4)=c(\"x\",\"y\")"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#covariance-matrices",
     "href": "lectures/Lecture10_PCA.html#covariance-matrices",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Covariance Matrices",
-    "text": "Covariance Matrices\n\n\nCode\nSigma1\nSigma3"
+    "text": "Covariance Matrices\n\nExample: \\(\\Sigma_1\\) and \\(\\Sigma_3\\).\n\n\n\nCode\nSigma1\n\n\n     [,1] [,2]\n[1,]    4    0\n[2,]    0    1\n\n\nCode\nSigma3\n\n\n         [,1]     [,2]\n[1,] 3.250000 1.299038\n[2,] 1.299038 1.750000"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#simulated-data",
-    "href": "lectures/Lecture10_PCA.html#simulated-data",
+    "objectID": "lectures/Lecture10_PCA.html#example-x_1-and-x_3",
+    "href": "lectures/Lecture10_PCA.html#example-x_1-and-x_3",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Simulated Data",
-    "text": "Simulated Data\n\n\nCode\npar(mfrow=c(1,2),pty=\"s\")\nplot(X1, xlim=c(-5,5), ylim=c(-5,5));\nabline(0,0, col=2); abline(v=0, col=2)\nlines(seq(-5,5,0.1), 10*dnorm(seq(-5,5,0.1), 0, 2), col=3, lwd=2)\nlines(10*dnorm(seq(-5,5,0.1), 0, 1), seq(-5,5,0.1), col=4, lwd=2)\nplot(X3, xlim=c(-5,5), ylim=c(-5,5));\nabline(0,1/2, col=2); abline(0, -2, col=2)"
+    "section": "Example: \\(X_1\\) and \\(X_3\\)",
+    "text": "Example: \\(X_1\\) and \\(X_3\\)\n\n\nCode\npar(mfrow=c(1,2),pty=\"s\")\nplot(X1, xlim=c(-5,5), ylim=c(-5,5), main=\"X1\");\nabline(0,0, col=2); abline(v=0, col=2)\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), main=\"X3\");\nabline(0,1/2, col=2); abline(0, -2, col=2)"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#outline-of-theoretical-derivation-of-pca",
+    "href": "lectures/Lecture10_PCA.html#outline-of-theoretical-derivation-of-pca",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Outline of Theoretical Derivation of PCA",
+    "text": "Outline of Theoretical Derivation of PCA\n\nTwo key mathematical concepts are needed for PCA:\n\nProjection\nSpectral Decomposition\n\nWe will also show how maximizing variance is linked to\n\nprojection and spectral decomposition\nminimizing the reconstruction error in PCA"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#projection-1",
     "href": "lectures/Lecture10_PCA.html#projection-1",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Projection",
-    "text": "Projection\n\nThe concept of projection is fundamental to PCA.\nProjection refers to the process of mapping high-dimensional data onto a lower-dimensional subspace.\nIn PCA, we seek to find the directions (principal components) that capture the most variance in the data.\nMathematically, projection is achieved by multiplying the original data matrix by the matrix of eigenvectors (principal components) to obtain the projected data in the lower-dimensional space."
+    "text": "Projection\n\nProjection refers to the process of mapping high-dimensional data onto a lower-dimensional subspace.\nIn PCA, we seek to find the directions (principal components) that capture the most variance in the data.\nMathematically, projection is achieved by multiplying the original data matrix by the matrix of eigenvectors (principal components) to obtain the projected data in the lower-dimensional space."
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#a-fun-example",
@@ -63,123 +77,207 @@
     "text": "A Fun Example\nHere is a fun example to illustrate the concept of projection:"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#mathematical-formulation-of-projection",
-    "href": "lectures/Lecture10_PCA.html#mathematical-formulation-of-projection",
+    "objectID": "lectures/Lecture10_PCA.html#mathematical-formulation",
+    "href": "lectures/Lecture10_PCA.html#mathematical-formulation",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Mathematical Formulation of Projection",
-    "text": "Mathematical Formulation of Projection\n\nLet \\(x\\) and \\(y\\) be two vectors of the same length. Say both \\(x\\) and \\(y\\) are in \\(\\mathbf R^k\\).\nThe direction of \\(proj_x(y)\\) is the same as that of \\(x\\).\nLet \\(\\theta\\) is the angle between \\(x\\) and \\(y\\). \\[\ncos(\\theta) = \\frac{x^Ty}{||x|| ||y||}\n\\]\nThe length of the projection is \\(||y|| cos(\\theta)\\).\nThe projection of \\(y\\) on \\(x\\) is \\[||y|| cos(\\theta) \\frac{x}{||x||}=\\frac{x^Ty}{||x||^2} x\\]"
+    "section": "Mathematical Formulation",
+    "text": "Mathematical Formulation\n\nLet \\(x\\) and \\(y\\) be two vectors in \\(\\mathbf R^k\\).\n\n\n\nCode\n# Define the vectors\ny &lt;- c(3, 3)\nx &lt;- c(6, 1.4)\n# Compute the projection of v1 onto v2\nproj &lt;- (sum(y * x) / sum(x * x)) * x\n# Create a plot\npar(pty=\"s\")\nplot(0, 0, xlim = c(-1, 7), ylim = c(-1, 7), type = \"n\", xlab = \" \", ylab = \" \")\nabline(h = 0, v = 0)\ntext(y[1], y[2], \"y\", pos = 3)\ntext(x[1], x[2], \"x\", pos = 3)\ntext(proj[1], proj[2]-0.2, expression(proj[x](y)), pos = 3)\nsegments(0, 0, y[1], y[2], lty = \"dotted\")\nsegments(0, 0, x[1], x[2], lty = \"dotted\")\nsegments(y[1], y[2], proj[1], proj[2], lty = \"dotted\", col = \"red\")\nsegments(0, 0, proj[1], proj[2], lty = \"dotted\", col = \"red\")"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#example-project-one-vector-on-another",
-    "href": "lectures/Lecture10_PCA.html#example-project-one-vector-on-another",
+    "objectID": "lectures/Lecture10_PCA.html#mathematical-formulation-1",
+    "href": "lectures/Lecture10_PCA.html#mathematical-formulation-1",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Example: Project One Vector on Another",
-    "text": "Example: Project One Vector on Another\n\n\nCode\n# Define the vectors\ny &lt;- c(3, 3)\nx &lt;- c(6, 1.4)\n# Compute the projection of v1 onto v2\nproj &lt;- sum(y * x) / sum(x * x) * x\n# Create a plot\npar(pty=\"s\")\nplot(0, 0, xlim = c(-1, 7), ylim = c(-1, 7), type = \"n\", xlab = \" \", ylab = \" \")\nabline(h = 0, v = 0)\ntext(y[1], y[2], \"y\", pos = 3)\ntext(x[1], x[2], \"x\", pos = 3)\ntext(proj[1], proj[2]-0.2, expression(proj[x](y)), pos = 3)\nsegments(0, 0, y[1], y[2], lty = \"dotted\")\nsegments(0, 0, x[1], x[2], lty = \"dotted\")\nsegments(y[1], y[2], proj[1], proj[2], lty = \"dotted\", col = \"red\")\nsegments(0, 0, proj[1], proj[2], lty = \"dotted\", col = \"red\")"
+    "section": "Mathematical Formulation",
+    "text": "Mathematical Formulation\n\nThe direction of \\(proj_x(y)\\) is the same as that of \\(x\\).\nLet \\(\\theta\\) is the angle between \\(x\\) and \\(y\\). \\[\ncos(\\theta) = \\frac{x^Ty}{||x|| ||y||}\n\\]\nThe length of the projection is \\(||y|| cos(\\theta)\\).\nThe projection of \\(y\\) on \\(x\\) is \\[||y|| cos(\\theta) \\frac{x}{||x||}=\\frac{x^Ty}{||x||^2} x\\]"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#example-project-one-vector-on-another-1",
-    "href": "lectures/Lecture10_PCA.html#example-project-one-vector-on-another-1",
+    "objectID": "lectures/Lecture10_PCA.html#spectral-decomposition-1",
+    "href": "lectures/Lecture10_PCA.html#spectral-decomposition-1",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Example: Project One Vector on Another",
-    "text": "Example: Project One Vector on Another"
+    "section": "Spectral Decomposition",
+    "text": "Spectral Decomposition\n\nSpectral decomposition, also known as eigendecomposition\nIt says that a symmetric matrix can be decomposed into a set of orthogonal eigenvectors and their corresponding eigenvalues.\nFor a symmetric matrix \\({A}_{p\\times p}\\), the spectral decomposition is given by: \\({A} = \\Gamma {\\Lambda} \\Gamma^T\\), where\n\n\\({\\Gamma}\\) is an orthogonal matrix\n\\({\\Lambda}\\) is a diagonal matrix"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#spectral-decomposition-of-a-symmetric-matrix-a",
-    "href": "lectures/Lecture10_PCA.html#spectral-decomposition-of-a-symmetric-matrix-a",
+    "objectID": "lectures/Lecture10_PCA.html#eigenvectors",
+    "href": "lectures/Lecture10_PCA.html#eigenvectors",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Spectral Decomposition of A Symmetric Matrix \\(A\\)",
-    "text": "Spectral Decomposition of A Symmetric Matrix \\(A\\)\n\nSpectral decomposition, also known as eigendecomposition, is a process by which a symmetric matrix is decomposed into a set of orthogonal eigenvectors and their corresponding eigenvalues.\nA symmetric matrix has real eigenvalues and orthogonal eigenvectors.\nFor a symmetric matrix \\({A}_{p\\times p}\\), the spectral decomposition is given by: \\({A} = \\Gamma {\\Lambda} \\Gamma^T\\), where\n\n\\({\\Gamma}\\) is an orthogonal matrix\n\\({\\Lambda}\\) is a diagonal matrix"
+    "section": "Eigenvectors",
+    "text": "Eigenvectors\n\n\\(\\Gamma\\) is an orthogonal matrix, i.e., \\(\\Gamma\\) s.t. \\(\\Gamma  \\Gamma^T= \\Gamma^T \\Gamma=\\mathbf I_p\\).\nThe columns of \\(\\Gamma\\) are the eigenvectors of \\({A}\\). Let \\(\\gamma_i\\) denote the \\(i\\)th column, then \\(\\Gamma=(\\gamma_1, \\cdots, \\gamma_p)\\) and each \\(\\gamma_i\\) is a \\(p\\times 1\\) vector; in other words, \\(\\gamma_i \\in \\mathbb R^p\\).\n\\(\\Gamma\\) is an orthogonal matrix. This implies that \\(\\mathbf I = \\Gamma\\Gamma^T=(\\gamma_1, \\cdots, \\gamma_p)(\\gamma_1, \\cdots, \\gamma_p)^T=\\sum_{i=1}^p \\gamma_i \\gamma_i^T\\) and\n\n\\[\\gamma_i^T\\gamma_j=\\left\\{\n\\begin{array}{ccc}\n1 & & \\mbox{ if } i=j\\\\\n0 & & \\mbox{ if } i\\ne j\n\\end{array}\n\\right.\n\\]"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#spectral-decomposition-of-a-symmetric-matrix-a-1",
-    "href": "lectures/Lecture10_PCA.html#spectral-decomposition-of-a-symmetric-matrix-a-1",
+    "objectID": "lectures/Lecture10_PCA.html#eigenvalues",
+    "href": "lectures/Lecture10_PCA.html#eigenvalues",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Spectral Decomposition of A Symmetric Matrix \\(A\\)",
-    "text": "Spectral Decomposition of A Symmetric Matrix \\(A\\)\n\n\\(\\Gamma\\) is an orthogonal matrix, i.e., \\(\\Gamma\\) s.t. \\[\\Gamma  \\Gamma^T= \\Gamma^T \\Gamma=\\mathbf I_p\\]\nThe columns of \\(\\Gamma\\) are the eigenvectors of \\({A}\\). Let \\(\\gamma_i\\) denote the \\(i\\)th column, then \\(\\Gamma=(\\gamma_1, \\cdots, \\gamma_p)\\) and each \\(\\gamma_i\\) is a \\(p\\times 1\\) vector; in other words, \\(\\gamma_i \\in \\mathbb R^p\\).\n\\(\\Gamma\\) is an orthogonal matrix. This implies that \\(\\mathbf I = \\Gamma\\Gamma^T=(\\gamma_1, \\cdots, \\gamma_p)(\\gamma_1, \\cdots, \\gamma_p)^T=\\sum_{i=1}^p \\gamma_i \\gamma_i^T\\) and\n\n\\[\\gamma_i^T\\gamma_j=\\left\\{\n\\begin{array}{ccc}\n1 & & \\mbox{ if } i=j\\\\\n0 & & \\mbox{ if } i\\ne j\n\\end{array}\n\\right.\n\\]"
+    "section": "Eigenvalues",
+    "text": "Eigenvalues\n\n\\({\\Lambda}\\) is a diagonal matrix containing the eigenvalues of \\(A\\):\n\n\\[{\\Lambda} = \\begin{pmatrix}\n\\lambda_1 & 0 & 0 \\cdots & 0\\\\\n0 & \\lambda_2 & 0\\cdots & 0\\\\\n\\cdots & \\cdots & \\cdots & \\cdots\\\\\n0 & 0 & 0 & \\lambda_p\n\\end{pmatrix}\\]\n\nWithout of loss of generality, we often rank the eigenvalues, \\[\\lambda_1\\ge \\lambda_2 \\ge \\cdots \\ge \\lambda_p\\]"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#the-diagonal-matrix-boldsymbol-lambda",
-    "href": "lectures/Lecture10_PCA.html#the-diagonal-matrix-boldsymbol-lambda",
+    "objectID": "lectures/Lecture10_PCA.html#understanding-spectral-decomposition",
+    "href": "lectures/Lecture10_PCA.html#understanding-spectral-decomposition",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "The Diagonal Matrix \\(\\boldsymbol \\Lambda\\)",
-    "text": "The Diagonal Matrix \\(\\boldsymbol \\Lambda\\)\n\n\\({\\Lambda}\\) is a diagonal matrix containing the eigenvalues of \\(A\\), with \\({\\Lambda}_{ii} = \\lambda_i\\):\n\n\\[{\\Lambda} = \\begin{pmatrix}\n\\lambda_1 & 0 & 0 \\cdots & 0\\\\\n0 & \\lambda_2 & 0\\cdots & 0\\\\\n\\cdots & \\cdots & \\cdots & \\cdots\\\\\n0 & 0 & 0 & \\lambda_p\n\\end{pmatrix}\\] - Without of loss of generality, we often rank the eigenvalues from the largest to the smallest, i.e., \\[\\lambda_1\\ge \\lambda_2 \\ge \\cdots \\ge \\lambda_p\\]"
+    "section": "Understanding Spectral Decomposition",
+    "text": "Understanding Spectral Decomposition\n\n\\(\\lambda_i\\) is the \\(i\\)th eigenvalue and \\(\\gamma_i\\) is the corresponding eigenvector, i.e., \\[A\\gamma_i = \\lambda_i \\gamma_i\\]\nThe spectral decomposition \\(A = \\Gamma \\Lambda \\Gamma^T\\) implies that \\[\\Gamma^T A \\Gamma = \\Lambda, \\quad A=\\sum_{i=1}^p \\lambda_i \\gamma_i \\gamma_i^T\\]"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#the-eigenvectors-and-eigenvalues-of-a-symmetric-matrix-a",
-    "href": "lectures/Lecture10_PCA.html#the-eigenvectors-and-eigenvalues-of-a-symmetric-matrix-a",
+    "objectID": "lectures/Lecture10_PCA.html#example-covariance-matrix",
+    "href": "lectures/Lecture10_PCA.html#example-covariance-matrix",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "The Eigenvectors and Eigenvalues of a Symmetric Matrix \\(A\\)",
-    "text": "The Eigenvectors and Eigenvalues of a Symmetric Matrix \\(A\\)\n\n\\(\\lambda_i\\) is the \\(i\\)th eigenvalue and \\(\\gamma_i\\) is the corresponding eigenvector, i.e., \\[A\\gamma_i = \\lambda_i \\gamma_i\\]\nThe spectral decomposition \\(A = \\Gamma \\Lambda \\Gamma^T\\) implies that \\[A=\\sum_{i=1}^p \\lambda_i \\gamma_i \\gamma_i^T\\]"
-  },
-  {
-    "objectID": "lectures/Lecture10_PCA.html#the-spectral-decomposition-of-a-covariance-matrix",
-    "href": "lectures/Lecture10_PCA.html#the-spectral-decomposition-of-a-covariance-matrix",
-    "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "The Spectral Decomposition of A Covariance Matrix",
-    "text": "The Spectral Decomposition of A Covariance Matrix\n\nLet \\(\\boldsymbol\\Sigma_{p\\times p}\\) be the covariance matrix of \\(\\mathbf X\\).\nA covariance matrix is positive definite or positive semi-definite, which means \\[\\Sigma = \\Gamma \\Lambda \\Gamma^T\\] where \\(\\Lambda\\) is diagonal matrix with non-negative diagonal elements: \\[\\lambda_1 \\ge \\lambda_2 \\ge \\cdots \\lambda_p\\ge 0\\]"
+    "section": "Example: Covariance Matrix",
+    "text": "Example: Covariance Matrix\n\nLet \\(\\boldsymbol\\Sigma_{p\\times p}\\) be the covariance matrix of \\(\\mathbf X\\).\nA covariance matrix is positive definite or positive semi-definite, which means \\[\\Sigma = \\Gamma \\Lambda \\Gamma^T\\] where \\(\\Lambda\\) is diagonal matrix with non-negative diagonal elements: \\[\\lambda_1 \\ge \\lambda_2 \\ge \\cdots \\lambda_p\\ge 0\\]"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#example-1-of-spectral-decomposition",
     "href": "lectures/Lecture10_PCA.html#example-1-of-spectral-decomposition",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Example 1 of Spectral Decomposition",
-    "text": "Example 1 of Spectral Decomposition\n\n\nCode\nn=1000\nSigma1=diag(c(4,1), 2, 2) \nSigma2=diag(c(1,4), 2, 2) \ntheta=pi/6\nR1=matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), 2,2)\ntheta=pi/4+pi/2\nR2=matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), 2,2)\nSigma3=R1%*%Sigma1%*%t(R1)\nSigma4=R2%*%Sigma1%*%t(R2)\nset.seed(1)\nX1=data.frame(mvrnorm(n, rep(0,2), Sigma1)); names(X1)=c(\"x\",\"y\")\nX2=data.frame(mvrnorm(n, rep(0,2), Sigma2)); names(X2)=c(\"x\",\"y\")\nX3=data.frame(mvrnorm(n, rep(0,2), Sigma3)); names(X3)=c(\"x\",\"y\")\nX4=data.frame(mvrnorm(n, rep(0,2), Sigma4)); names(X4)=c(\"x\",\"y\")\n\nSigma1\neigen(Sigma1)$value #\\lambda's\neigen(Sigma1)$vectors #\\Gamma"
-  },
-  {
-    "objectID": "lectures/Lecture10_PCA.html#example-1-of-spectral-decomposition-1",
-    "href": "lectures/Lecture10_PCA.html#example-1-of-spectral-decomposition-1",
-    "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Example 1 of Spectral Decomposition",
-    "text": "Example 1 of Spectral Decomposition\n\n\nCode\neigen(Sigma1)$vectors %*% t(eigen(Sigma1)$vectors)#\\Lambda* \\Lambda^T\nt(eigen(Sigma1)$vectors) %*% eigen(Sigma1)$vectors\n#\\Gamma \\Lambda \\Gamma^T\neigen(Sigma1)$vectors %*% diag(eigen(Sigma1)$values) %*% eigen(Sigma1)$vectors"
+    "text": "Example 1 of Spectral Decomposition\n\\(\\Sigma_1\\), eigenvalues, and eigenvectors.\n\n\nCode\nn=1000\nSigma1=diag(c(4,1), 2, 2) \nSigma2=diag(c(1,4), 2, 2) \ntheta=pi/6\nR1=matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), 2,2)\ntheta=pi/4+pi/2\nR2=matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), 2,2)\nSigma3=R1%*%Sigma1%*%t(R1)\nSigma4=R2%*%Sigma1%*%t(R2)\nset.seed(1)\nX1=data.frame(mvrnorm(n, rep(0,2), Sigma1)); names(X1)=c(\"x\",\"y\")\nX2=data.frame(mvrnorm(n, rep(0,2), Sigma2)); names(X2)=c(\"x\",\"y\")\nX3=data.frame(mvrnorm(n, rep(0,2), Sigma3)); names(X3)=c(\"x\",\"y\")\nX4=data.frame(mvrnorm(n, rep(0,2), Sigma4)); names(X4)=c(\"x\",\"y\")\n\nSigma1\n\n\n     [,1] [,2]\n[1,]    4    0\n[2,]    0    1\n\n\nCode\neigen(Sigma1)$value #\\lambda's\n\n\n[1] 4 1\n\n\nCode\neigen(Sigma1)$vectors #\\Gamma\n\n\n     [,1] [,2]\n[1,]   -1    0\n[2,]    0   -1"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#example-2-of-spectral-decomposition",
     "href": "lectures/Lecture10_PCA.html#example-2-of-spectral-decomposition",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Example 2 of Spectral Decomposition",
-    "text": "Example 2 of Spectral Decomposition\n\n\nCode\nSigma3\neigen(Sigma3)$value #\\lambda's\neigen(Sigma3)$vectors #\\Gamma"
-  },
-  {
-    "objectID": "lectures/Lecture10_PCA.html#example-2-of-spectral-decomposition-1",
-    "href": "lectures/Lecture10_PCA.html#example-2-of-spectral-decomposition-1",
-    "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Example 2 of Spectral Decomposition",
-    "text": "Example 2 of Spectral Decomposition\n\n\nCode\neigen(Sigma1)$vectors %*% t(eigen(Sigma1)$vectors) #\\Gamma* \\Gamma^T\nt(eigen(Sigma1)$vectors) %*% eigen(Sigma1)$vectors #\\Lambda^T* \\Lambda\n#\\Gamma \\Lambda \\Gamma^T\neigen(Sigma3)$vectors %*% diag(eigen(Sigma3)$values) %*% t(eigen(Sigma3)$vectors)"
+    "text": "Example 2 of Spectral Decomposition\n\\(\\Sigma_3\\), eigenvalues, and eigenvectors.\n\n\nCode\nSigma3\n\n\n         [,1]     [,2]\n[1,] 3.250000 1.299038\n[2,] 1.299038 1.750000\n\n\nCode\neigen(Sigma3)$value #\\lambda's\n\n\n[1] 4 1\n\n\nCode\neigen(Sigma3)$vectors #\\Gamma\n\n\n           [,1]       [,2]\n[1,] -0.8660254  0.5000000\n[2,] -0.5000000 -0.8660254"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm",
     "href": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "An Orthogonal Matrix preserves Norm",
-    "text": "An Orthogonal Matrix preserves Norm\n\nRecall that an orthogonal matrix \\(\\Gamma\\) satisfies the following properties:\n\n\\(\\Gamma^T \\Gamma = \\mathbf I\\), \\(\\Gamma \\Gamma^T = \\mathbf I\\)\n\nCompare \\(||\\Gamma x||\\) and \\(||x||\\) \\[||\\Gamma x|| = \\sqrt{(\\Gamma x)^T \\Gamma x} = x^T \\Gamma^T \\Gamma x= x^Tx=||x||\\]\nThus, the orthogonal matrix preserves the norm of a vector.\nFor a point \\(x=(a, b)^T\\), after the orthogonal transformation by \\(\\Gamma=(\\gamma_1, \\gamma_2)\\), the new coordinates are \\((\\gamma_1^T x, \\gamma_2^T x)=\\Gamma^T x\\).\nFor an \\(n\\times p\\) matrix \\(X\\), the orthogonal transformation is \\(X\\Gamma\\)."
+    "text": "An Orthogonal Matrix preserves Norm\n\nRecall that an orthogonal matrix \\(\\Gamma\\) satisfies the following properties: \\(\\Gamma^T \\Gamma = \\mathbf I\\), \\(\\Gamma \\Gamma^T = \\mathbf I\\).\nAn orthogonal matrix preserves the norm of a vector: \\[||\\Gamma x|| = \\sqrt{(\\Gamma x)^T \\Gamma x} = x^T \\Gamma^T \\Gamma x= x^Tx=||x||.\\]\nIt also preserves the distance between two vectors: \\[||\\Gamma x - \\Gamma y|| = ||\\Gamma (x-y)|| = ||x-y||.\\]"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#orthogonal-transformation-of-a-data-points-and-a-data-matrix",
+    "href": "lectures/Lecture10_PCA.html#orthogonal-transformation-of-a-data-points-and-a-data-matrix",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Orthogonal Transformation of A Data Points and A Data Matrix",
+    "text": "Orthogonal Transformation of A Data Points and A Data Matrix\n\nFor a point \\(x=(a, b)^T\\), after the orthogonal transformation by \\(\\Gamma_{2\\times 2}=(\\gamma_1, \\gamma_2)\\), the new coordinates are \\((\\gamma_1^T x, \\gamma_2^T x)=\\Gamma^T x\\).\nFor a \\(n\\times p\\) data matrix \\(X\\), the orthogonal transformation is \\(X\\Gamma_{p\\times p}\\)."
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm-example",
     "href": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm-example",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "An Orthogonal Matrix preserves Norm: Example",
-    "text": "An Orthogonal Matrix preserves Norm: Example"
+    "text": "An Orthogonal Matrix preserves Norm: Example\n\n\nCode\nGamma=eigen(Sigma3)$vectors\npar(mfrow=c(1,2))\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), main=\"X3\");\npoints(X3[1,], col=2, pch=17)\npoints(X3[10,], col=3, pch=15)\nabline(0,1/2, col=2); abline(0, -2, col=2)\nplot(t(as.matrix(X3)%*%Gamma), xlim=c(-5,5), ylim=c(-5,5), main=\"Gamma*X3\");\npoints(as.matrix(X3[1,])%*%Gamma, col=2, pch=17)\npoints(as.matrix(X3[10,])%*%Gamma, col=3, pch=15)\nabline(h=0, v=0, col=2)"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm-example-1",
     "href": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm-example-1",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "An Orthogonal Matrix preserves Norm: Example",
-    "text": "An Orthogonal Matrix preserves Norm: Example\n\n\nCode\nGamma=eigen(Sigma3)$vectors\npar(mfrow=c(1,2))\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), main=\"X3\");\npoints(X3[1,], col=2, pch=17)\npoints(X3[10,], col=3, pch=15)\nabline(0,1/2, col=2); abline(0, -2, col=2)\nplot(as.matrix(X3)%*%(Gamma), xlim=c(-5,5), ylim=c(-5,5), main=\"Gamma*X3\");\npoints(as.matrix(X3[1,])%*%(Gamma), col=2, pch=17)\npoints(as.matrix(X3[10,])%*%(Gamma), col=3, pch=15)\nabline(h=0, v=0, col=2)"
-  },
-  {
-    "objectID": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm-example-2",
-    "href": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm-example-2",
-    "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "An Orthogonal Matrix preserves Norm: Example",
     "text": "An Orthogonal Matrix preserves Norm: Example"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#to-be-continued",
-    "href": "lectures/Lecture10_PCA.html#to-be-continued",
+    "objectID": "lectures/Lecture10_PCA.html#alt-text",
+    "href": "lectures/Lecture10_PCA.html#alt-text",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "To Be COntinued",
-    "text": "To Be COntinued"
+    "section": "Alt text:",
+    "text": "Alt text:\n\nTwo side-by-side scatterplots comparing a dataset before and after an orthogonal transformation.\n\nLeft panel (\\(X^3\\)): A cloud of points centered near the origin, with two highlighted points (one in red triangle, one in green square). Two diagonal reference lines with slopes 1/2 and −2 indicate principal directions.\nRight panel (\\(X^3\\Gamma\\)): The same points after rotation by an orthogonal matrix. The overall shape and distances between points are unchanged, but the data are reoriented so that the principal directions align with the horizontal and vertical axes. The same two highlighted points appear in new positions consistent with the rotation.\n\nThe figure illustrates that an orthogonal transformation preserves distances and norms while rotating the coordinate system."
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#example-rotate-x_3",
+    "href": "lectures/Lecture10_PCA.html#example-rotate-x_3",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Example: Rotate \\(X_3\\)",
+    "text": "Example: Rotate \\(X_3\\)\n\nRecall that each row of \\(X_3\\) was generated from a bivariate normal distribution with covariance matrix \\(\\Sigma_3\\), where \\[\\Sigma_3=\n\\begin{pmatrix} 3.25 & 1.299038 \\\\\n1.299038 & 1.75\n\\end{pmatrix}= \\Gamma \\Lambda \\Gamma^T\\]\n\nThe last step is due to spectral decomposition.\n\nIf \\(x\\sim \\mathbf N(\\mathbf 0, \\Sigma_3)\\), how about \\(\\Gamma x\\)?"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#r-code-to-verify-the-distribution-of-gamma-x-and-x_3-gamma.",
+    "href": "lectures/Lecture10_PCA.html#r-code-to-verify-the-distribution-of-gamma-x-and-x_3-gamma.",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "R code to verify the distribution of \\(\\Gamma x\\) and \\(X_3 \\Gamma\\).",
+    "text": "R code to verify the distribution of \\(\\Gamma x\\) and \\(X_3 \\Gamma\\).\n\n\nCode\nGamma=eigen(Sigma3)$vectors\npar(mfrow=c(1,2),pty=\"s\")\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), main=\"X3\");\nabline(0,1/2, col=2); abline(0, -2, col=2)\nplot(as.matrix(X3)%*%(Gamma), xlim=c(-5,5), ylim=c(-5,5), main=\"Gamma*X3\");\nabline(h=0, v=0, col=2)"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#in-practice",
+    "href": "lectures/Lecture10_PCA.html#in-practice",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "In Practice",
+    "text": "In Practice\nWe don’t know the covariance matrix \\(\\Sigma\\) of the data, so we need to estimate it by the sample covariance matrix \\(S\\).\nExample, we first compute \\(S_3\\) as the sample covariance matrix of \\(X_3\\), then we perform spectral decomposition on \\(S_3\\) to get the eigenvalues and eigenvectors.\n\n\nCode\nS3=cov(X3)\nS3\n\n\n         x        y\nx 3.241303 1.242847\ny 1.242847 1.632435\n\n\nCode\neigen(S3)$value #\\lambda's\n\n\n[1] 3.9173363 0.9564019\n\n\nCode\neigen(S3)$vectors #\\Gamma\n\n\n           [,1]       [,2]\n[1,] -0.8784546  0.4778257\n[2,] -0.4778257 -0.8784546"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#x_3-vs-rotated-data-based-on-s_3",
+    "href": "lectures/Lecture10_PCA.html#x_3-vs-rotated-data-based-on-s_3",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "\\(X_3\\) vs Rotated Data based on \\(S_3\\)",
+    "text": "\\(X_3\\) vs Rotated Data based on \\(S_3\\)\n\n\nCode\nGamma=eigen(S3)$vectors\npar(mfrow=c(1,2),pty=\"s\")\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), main=\"X3\");\nabline(0,1/2, col=2); abline(0, -2, col=2)\nplot(as.matrix(X3)%*%(Gamma), xlim=c(-5,5), ylim=c(-5,5), main=\"X3*Gamma\");\nabline(h=0, v=0, col=2)"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#what-does-projection-do",
+    "href": "lectures/Lecture10_PCA.html#what-does-projection-do",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "What Does Projection Do?",
+    "text": "What Does Projection Do?\n\nLet \\(\\gamma_1\\) and \\(\\gamma_2\\) be the two columns of \\(\\Gamma\\).\nFocus on \\(X_2 \\gamma_1\\): how many values in this vector? What are they?\nThe first element is the projection of the first row of \\(X_2\\) onto \\(\\gamma_1\\).\nThe second element is the projection of the second row of \\(X_2\\) onto \\(\\gamma_1\\).\nIn general, the \\(i\\)th element of \\(X_2 \\gamma_1\\) is the projection of the \\(i\\)th row of \\(X_2\\) onto \\(\\gamma_1\\)."
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#obtain-the-first-pc-direction",
+    "href": "lectures/Lecture10_PCA.html#obtain-the-first-pc-direction",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Obtain the first PC Direction",
+    "text": "Obtain the first PC Direction\n\n\\(\\gamma_1\\) is a vector\nEach entry of \\(\\gamma_1\\) corresponds to one feature\nThose entries are the loadings\n\n\n\nCode\nS3=cov(X3)\ngamma1=eigen(S3)$vectors[,1]\ngamma1\n\n\n[1] -0.8784546 -0.4778257"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#example-project-an-observation-vector-to-1st-pc-to-get-the-pc-score",
+    "href": "lectures/Lecture10_PCA.html#example-project-an-observation-vector-to-1st-pc-to-get-the-pc-score",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Example: Project An Observation (vector) to 1st PC to get the PC score",
+    "text": "Example: Project An Observation (vector) to 1st PC to get the PC score\n\nLet \\(X\\) be an observation, which is a vector in \\(\\mathbb R^p\\)\nBy the definition of projection, the projection of \\(X\\) to \\(\\gamma_1\\) is \\[\\frac{\\gamma_1^T X}{||\\gamma_1||^2}\\gamma_1=(\\gamma_1 ^T X) \\gamma_1\\]\nAlong the direction of \\(\\gamma_1\\), what matters is \\(\\gamma_1^T X\\), which is called the PC score of the observation."
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#example-project-an-observation-to-1st-pc",
+    "href": "lectures/Lecture10_PCA.html#example-project-an-observation-to-1st-pc",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Example: Project An Observation to 1st PC",
+    "text": "Example: Project An Observation to 1st PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nobs=unlist(X3[1,])\nproj=c(matrix(gamma1,1,2)%*%matrix(obs,2,1)) *gamma1\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\npoints(x=0,y=0, col=\"red\")\npoints(x=obs[1], y=obs[2], col=\"blue\")\npoints(x=proj[1], y=proj[2], col=\"blue\")\narrows(x0=0, y0=0,x1=obs[1], y1=obs[2], col=\"blue\", lwd=2, angle=10)\narrows(x0=0, y0=0,x1=proj[1], y1=proj[2], col=\"orange\", lwd=2, angle=10)\nsegments(0,0, 10*gamma1[1], 10*gamma1[2], col=\"blue\", lty=2)\narrows(x0=0, y0=0,x1=gamma1[1], y1=gamma1[2], col=\"red\", lwd=2, angle=10)\nsegments(0,0, -10*gamma1[1], -10*gamma1[2], col=\"blue\", lty=2)\nsegments(obs[1], obs[2], proj[1], proj[2], lty = \"dotted\", col = \"blue\", lwd=2)\ntext(x=proj[1],y=proj[2], labels=\"|\", col=\"black\", srt=30, cex=1)\ntext(x=gamma1[1]+0.3, y=gamma1[2]-0.3, labels=expression(gamma[1]), col=\"red\", cex=1.5)\ntext(x=obs[1], y=obs[2]+0.2, labels=\"X\", col=\"blue\", cex=1.5)\ntext(x=proj[1]+0.5, y=proj[2]-0.5, labels=expression( (gamma[1]^T * X)*gamma[1]), col=\"orange\", cex=1.5)"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#example-project-all-observations-to-1st-pc",
+    "href": "lectures/Lecture10_PCA.html#example-project-all-observations-to-1st-pc",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Example: Project All Observations to 1st PC",
+    "text": "Example: Project All Observations to 1st PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\n#arrows(x0=0, y0=0,x1=-6*gamma1[1], y1=-6*gamma1[2], col=2, lwd=2, angle=10)\n#arrows(x0=0, y0=0,x1=6*gamma1[1], y1=6*gamma1[2], col=2, lwd=2, angle=10)\nabline(0,1/sqrt(3), col=\"red\"); abline(0, -sqrt(3), col=\"red\")\npoints(x=0,y=0, col=\"red\")\nfor(i in 1:1000){\n  proj=c(matrix(gamma1,1,2)%*% matrix(unlist(X3[i,]),2,1)) *gamma1\n  #points(x=proj[1],y=proj[2], col=2, pch=\"|\")\n  text(x=proj[1],y=proj[2], labels=\"|\", col=\"blue\", srt=30, cex=0.5)\n}"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#obtain-the-second-pc-direction",
+    "href": "lectures/Lecture10_PCA.html#obtain-the-second-pc-direction",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Obtain the second PC direction",
+    "text": "Obtain the second PC direction\n\n\\(\\gamma_2\\) is the second column of \\(\\Gamma\\).\n\n\n\nCode\ngamma2=eigen(S3)$vectors[,2]\ngamma2\n\n\n[1]  0.4778257 -0.8784546"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#example-project-an-observation-vector-to-2nd-pc-to-get-the-pc-score",
+    "href": "lectures/Lecture10_PCA.html#example-project-an-observation-vector-to-2nd-pc-to-get-the-pc-score",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Example: Project An Observation (vector) to 2nd PC to get the PC score",
+    "text": "Example: Project An Observation (vector) to 2nd PC to get the PC score\n\nLet \\(X\\) be an observation, which is a vector in \\(\\mathbb R^p\\)\nBy the definition of projection, the projection of \\(X\\) to \\(\\gamma_2\\) is \\[\\frac{\\gamma_2^T X}{||\\gamma_2||^2}\\gamma_2=(\\gamma_2 ^T X) \\gamma_2\\]\nAlong the direction of \\(\\gamma_2\\), what matters is \\(\\gamma_2^T X\\), which is called the PC score of the observation."
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#example-project-an-observation-to-2nd-pc",
+    "href": "lectures/Lecture10_PCA.html#example-project-an-observation-to-2nd-pc",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Example: Project An Observation to 2nd PC",
+    "text": "Example: Project An Observation to 2nd PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nobs=unlist(X3[1,])\nproj=c(matrix(gamma2,1,2)%*%matrix(obs,2,1)) *gamma2\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\npoints(x=0,y=0, col=\"red\")\npoints(x=obs[1], y=obs[2], col=\"blue\")\npoints(x=proj[1], y=proj[2], col=\"blue\")\narrows(x0=0, y0=0,x1=obs[1], y1=obs[2], col=\"blue\", lwd=2, angle=10)\narrows(x0=0, y0=0,x1=proj[1], y1=proj[2], col=\"orange\", lwd=2, angle=10)\nsegments(0,0, 10*gamma2[1], 10*gamma2[2], col=\"blue\", lty=2)\narrows(x0=0, y0=0,x1=gamma2[1], y1=gamma2[2], col=\"red\", lwd=2, angle=10)\nsegments(obs[1], obs[2], proj[1], proj[2], lty = \"dotted\", col = \"blue\", lwd=2)\ntext(x=proj[1],y=proj[2], labels=\"|\", col=\"black\", srt=30, cex=1)\ntext(x=gamma2[1]+0.3, y=gamma2[2]-0.3, labels=expression(gamma[2]), col=\"red\", cex=1.5)\ntext(x=obs[1], y=obs[2]+0.2, labels=\"X\", col=\"blue\", cex=1.5)\ntext(x=proj[1]+0.5, y=proj[2]-0.5, labels=expression( (gamma[2]^T * X)*gamma[2]), col=\"orange\", cex=1.5)"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#example-project-all-observations-to-2nd-pc",
+    "href": "lectures/Lecture10_PCA.html#example-project-all-observations-to-2nd-pc",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Example: Project All Observations to 2nd PC",
+    "text": "Example: Project All Observations to 2nd PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\nabline(0,1/sqrt(3), col=\"red\"); abline(0, -sqrt(3), col=\"red\")\npoints(x=0,y=0, col=\"red\")\nfor(i in 1:1000){\n  proj=c(matrix(gamma2,1,2)%*% matrix(unlist(X3[i,]),2,1)) *gamma2\n  text(x=proj[1],y=proj[2], labels=\"|\", col=\"blue\", srt=30, cex=0.5)\n}"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#first-vs-second-pc",
+    "href": "lectures/Lecture10_PCA.html#first-vs-second-pc",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "First vs Second PC",
+    "text": "First vs Second PC\nLet’s compare their variance based on simulated data \\(X_3\\)\n\n\nCode\nvar(as.matrix(X3)%*%gamma1) #variance of the first PC scores\n\n\n         [,1]\n[1,] 3.917336\n\n\nCode\nvar(as.matrix(X3)%*%gamma2) #variance of the second PC scores\n\n\n          [,1]\n[1,] 0.9564019"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#next-lecture",
+    "href": "lectures/Lecture10_PCA.html#next-lecture",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Next Lecture",
+    "text": "Next Lecture\nWe will show the following:\n\nThe first PC is the direction of the largest variance, and the second PC is the direction of the second largest variance.\nThe first PC is the direction that minimizes the reconstruction error, and the second PC is the direction that minimizes the reconstruction error among all directions that are orthogonal to the first PC.\nThe PCs are uncorrelated."
   },
   {
     "objectID": "lectures/Lecture08_MANOVA.html#introduction-to-manova",
@@ -921,7 +1019,7 @@
     "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
     "section": "Spectral Decomposition of Sample Covariance Matrix",
-    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8776366  0.4793266\n[2,] -0.4793266 -0.8776366\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n       [,1]      [,2]\n[1,] 1.0125 0.0000000\n[2,] 0.0000 0.2597041"
+    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8763303  0.4817106\n[2,] -0.4817106 -0.8763303\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n          [,1]      [,2]\n[1,] 0.9924972 0.0000000\n[2,] 0.0000000 0.2398384"
   },
   {
     "objectID": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
@@ -1117,7 +1215,7 @@
     "href": "lectures/Lecture07_Hotelling.html#a-simulation-study-to-understand-the-wishart-distribution",
     "title": "Lecture 7: Hotelling’s T2",
     "section": "A Simulation Study to Understand the Wishart Distribution",
-    "text": "A Simulation Study to Understand the Wishart Distribution\n\nRecall that if \\(W\\sim Wishart_p(k, \\boldsymbol \\Sigma)\\), then \\(E[\\mathbf W]=k\\Sigma\\).\n\n\n\nCode\nlibrary(MASS)\np=2; n=5; B=1000; rho=0.7\nSigma=diag(1+rho, p, p) - matrix(rho, p, p)\nwmat.array=array(0, c(B, p, p)) #wishart-distributed\nfor(b in 1:B){\n  X=mvrnorm(n, rep(0,p), Sigma)\n  wmat.array[b,,]=(n-1)*cov(X)}\napply(wmat.array, c(2,3), mean)\n\n\n          [,1]      [,2]\n[1,]  4.029805 -2.792575\n[2,] -2.792575  3.991493\n\n\nCode\nSigma*(n-1)\n\n\n     [,1] [,2]\n[1,]  4.0 -2.8\n[2,] -2.8  4.0"
+    "text": "A Simulation Study to Understand the Wishart Distribution\n\nRecall that if \\(W\\sim Wishart_p(k, \\boldsymbol \\Sigma)\\), then \\(E[\\mathbf W]=k\\Sigma\\).\n\n\n\nCode\nlibrary(MASS)\np=2; n=5; B=1000; rho=0.7\nSigma=diag(1+rho, p, p) - matrix(rho, p, p)\nwmat.array=array(0, c(B, p, p)) #wishart-distributed\nfor(b in 1:B){\n  X=mvrnorm(n, rep(0,p), Sigma)\n  wmat.array[b,,]=(n-1)*cov(X)}\napply(wmat.array, c(2,3), mean)\n\n\n          [,1]      [,2]\n[1,]  4.068128 -2.863264\n[2,] -2.863264  4.003323\n\n\nCode\nSigma*(n-1)\n\n\n     [,1] [,2]\n[1,]  4.0 -2.8\n[2,] -2.8  4.0"
   },
   {
     "objectID": "lectures/Lecture07_Hotelling.html#definition-of-hotellings-t2",
@@ -1323,169 +1421,169 @@
     "text": "Assignment 2"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#too-many-choices",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#too-many-choices",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#too-many-choices",
+    "href": "lectures/Lecture09_SimulationStudies.html#too-many-choices",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Too many choices?",
     "text": "Too many choices?\n\nDue to the nature of multivariate analysis, we have see many choices for conducting one-way MANOVA.\nDo they work equally well?\nDoes their performance depend on the true distribution?\nYou will be asked to compare the methods in your midterm project"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#midterm-project-1",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#midterm-project-1",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#midterm-project-1",
+    "href": "lectures/Lecture09_SimulationStudies.html#midterm-project-1",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Midterm Project",
     "text": "Midterm Project\n\nGoal: conduct a simulation study to compare four MANOVA tests"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#type-i-error-rate",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#type-i-error-rate",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate",
+    "href": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Type I Error Rate",
     "text": "Type I Error Rate\n\nThe type I error rate of a test is the probability of rejecting the null hypothesis when it is actually true.\nIn many research contexts, the acceptable type I error rate is set at 0.05, meaning that there is a 5% chance of falsely rejecting the null hypothesis.\nA simulation study can help assess whether a statistical test maintains the desired type I error rate under various conditions."
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#power",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#power",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#power",
+    "href": "lectures/Lecture09_SimulationStudies.html#power",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Power",
     "text": "Power\n\nThe power of a statistical test is the probability of correctly rejecting a null hypothesis when it is false.\nIn other words, power is the ability of a test to detect a true effect or relationship between variables.\nPower is affected by several factors, including sample size, effect size, and significance level.\nFor simple tests, analytical formulas for calculation power might exist. For complicated tests, simulations can be used to evaluate power"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#rationale-for-simulation-studies",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#rationale-for-simulation-studies",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#rationale-for-simulation-studies",
+    "href": "lectures/Lecture09_SimulationStudies.html#rationale-for-simulation-studies",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Rationale for Simulation Studies",
     "text": "Rationale for Simulation Studies\n\nSimulation studies allow researchers to evaluate and compare the performance of statistical tests under controlled conditions.\nThey can help determine which test is most appropriate for a specific situation.\nBy simulating data with known properties, researchers can assess the type I error rate, power, and other performance metrics of each test."
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#designing-a-simulation-study",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#designing-a-simulation-study",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#designing-a-simulation-study",
+    "href": "lectures/Lecture09_SimulationStudies.html#designing-a-simulation-study",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Designing a Simulation Study",
     "text": "Designing a Simulation Study\n\nChoose the statistical methods to compare. Select candidate methods you want to evaluate and ensure they are applicable to your research question. Examples\n\nStatistical tests for hypothesis testing.\nEstimation methods for parameter estimation.\nModel selection criteria for choosing between competing models.\nPredictive modeling methods for classification or regression tasks."
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#a-practical-guide-based-on-the-paper-by-morris-et-al.-2021",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#a-practical-guide-based-on-the-paper-by-morris-et-al.-2021",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#a-practical-guide-based-on-the-paper-by-morris-et-al.-2021",
+    "href": "lectures/Lecture09_SimulationStudies.html#a-practical-guide-based-on-the-paper-by-morris-et-al.-2021",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "A Practical Guide Based on the Paper by Morris et al. (2021)",
     "text": "A Practical Guide Based on the Paper by Morris et al. (2021)\n\nPaper reference: Morris, T. P., White, I. R., & Crowther, M. J. (2021). Using simulation studies to evaluate statistical methods. Statistics in Medicine, 40(8), 2073-2102."
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#objectives-of-simulation-studies",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#objectives-of-simulation-studies",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#objectives-of-simulation-studies",
+    "href": "lectures/Lecture09_SimulationStudies.html#objectives-of-simulation-studies",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Objectives of Simulation Studies",
     "text": "Objectives of Simulation Studies\n\nEvaluate performance of statistical methods\nCompare competing methods\nAssess sensitivity of methods to different data structures\nInvestigate robustness of methods to model assumptions"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#key-components-of-a-simulation-study",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#key-components-of-a-simulation-study",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#key-components-of-a-simulation-study",
+    "href": "lectures/Lecture09_SimulationStudies.html#key-components-of-a-simulation-study",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Key Components of a Simulation Study",
     "text": "Key Components of a Simulation Study\n\nData Generating Process (DGP)\nMethod Implementation\nPerformance Measures\nSimulation Parameters\nAnalysis and Interpretation"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#data-generating-process-dgp",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#data-generating-process-dgp",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#data-generating-process-dgp",
+    "href": "lectures/Lecture09_SimulationStudies.html#data-generating-process-dgp",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Data Generating Process (DGP)",
     "text": "Data Generating Process (DGP)\n\nDefine the true model and relationships\nConsider the distribution of the data\nIncorporate relevant covariates and confounders\nGenerate data samples based on the defined model"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#method-implementation-and-performance-measures",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#method-implementation-and-performance-measures",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#method-implementation-and-performance-measures",
+    "href": "lectures/Lecture09_SimulationStudies.html#method-implementation-and-performance-measures",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Method Implementation and Performance Measures",
     "text": "Method Implementation and Performance Measures\n\nImplement the statistical method(s) being evaluated\nApply the method(s) to the generated data samples\nRecord results and performance metrics for each simulation run\nSelect appropriate performance measures to evaluate the method(s)\nExamples: bias, mean squared error (MSE), coverage, power, type I error rate, etc."
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#simulation-parameters",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#simulation-parameters",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#simulation-parameters",
+    "href": "lectures/Lecture09_SimulationStudies.html#simulation-parameters",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Simulation Parameters",
     "text": "Simulation Parameters\n\nDetermine sample size(s) and number of simulation runs\nConsider variations in the DGP or model assumptions\nEnsure adequate coverage of the parameter space\n“Trial and Error” method to choose parameters/effect sizes to obtain reasonable power\n\nwhen the effect size / treatment effect is too small, all methods have low power\nwhen the effect size / treatment effect is large, all methods have power close to 100%"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#analysis-and-interpretation",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#analysis-and-interpretation",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#analysis-and-interpretation",
+    "href": "lectures/Lecture09_SimulationStudies.html#analysis-and-interpretation",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Analysis and Interpretation",
     "text": "Analysis and Interpretation\n\nSummarize results across simulation runs\nUse graphical and numerical summaries\nCompare methods and assess performance\nDraw conclusions and provide recommendations"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#reporting-simulation-studies",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#reporting-simulation-studies",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#reporting-simulation-studies",
+    "href": "lectures/Lecture09_SimulationStudies.html#reporting-simulation-studies",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Reporting Simulation Studies",
     "text": "Reporting Simulation Studies\n\nClearly describe the DGP, method implementation, and performance measures\nPresent results in a transparent and reproducible manner\nDiscuss limitations and potential biases\nProvide guidance for future research and applications"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#analyzing-and-interpreting-the-results",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#analyzing-and-interpreting-the-results",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#analyzing-and-interpreting-the-results",
+    "href": "lectures/Lecture09_SimulationStudies.html#analyzing-and-interpreting-the-results",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Analyzing and Interpreting the Results",
     "text": "Analyzing and Interpreting the Results\n\nCompare the type I error rates and power of the tests.\nDetermine which test performs best for your specific situation.\nConsider other factors such as assumptions, sample size, and computational efficiency.\nUse the results to inform your choice of statistical test in your research."
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#compare-two-sample-t-test-and-mann-whitney-wilcoxon-test-in-the-presence-of-outliers",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#compare-two-sample-t-test-and-mann-whitney-wilcoxon-test-in-the-presence-of-outliers",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#compare-two-sample-t-test-and-mann-whitney-wilcoxon-test-in-the-presence-of-outliers",
+    "href": "lectures/Lecture09_SimulationStudies.html#compare-two-sample-t-test-and-mann-whitney-wilcoxon-test-in-the-presence-of-outliers",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Compare two-sample t-test and Mann-Whitney-Wilcoxon test in the presence of outliers",
     "text": "Compare two-sample t-test and Mann-Whitney-Wilcoxon test in the presence of outliers\n\nThe two-sample t-test is a widely used test\nMann-Whitney-Wilcoxon is often used as a nonparametric alternative when distributional assumptions are suspected\nIt has been frequently reported that the two-sample t-test is still a good choice as long as the sample size is large enough, even for data from a skewed distribution\nThe purpose of this simulation study is to compare their performances in the presence of outliers"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#design-of-simulation-study",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#design-of-simulation-study",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#design-of-simulation-study",
+    "href": "lectures/Lecture09_SimulationStudies.html#design-of-simulation-study",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Design of Simulation Study",
     "text": "Design of Simulation Study\n\nVerify that indeed that t-test is more powerful when normality assumptions are met\n\nEqual variance: \\(t_E\\)\nUnequal variance: \\(t\\)\n\nCompare the performance of the two-tests when there are outliers"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#functions-1",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#functions-1",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#functions-1",
+    "href": "lectures/Lecture09_SimulationStudies.html#functions-1",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Functions 1",
     "text": "Functions 1\n\n\n\nCode\ngenerate_data &lt;- function(n, mu, sd) {\n  rnorm(n, mean = mu, sd = sd)}\n\ngenerate_data_out &lt;- function(n, mu, sd, sd_out, p) {\n  n1=round(n*(1-p)); n2=n-n1\n  c(rnorm(n1, mean = mu, sd = sd), rnorm(n2, mean=mu, sd=sd_out))\n  }\n\nrun_tests &lt;- function(data1, data2) {\n  t_test &lt;- t.test(data1, data2)$p.value\n  t_e_test &lt;- t.test(data1, data2, var.equal=TRUE)$p.value\n  wilcox_test &lt;- wilcox.test(data1, data2)$p.value\n  c(t = t_test, t_e_test=t_e_test, wilcox_test = wilcox_test)}"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#functions-2",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#functions-2",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#functions-2",
+    "href": "lectures/Lecture09_SimulationStudies.html#functions-2",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Functions 2",
     "text": "Functions 2\n\n\n\nCode\n#without outliers\npvalues &lt;- function(n, mu1, mu2,sd, n_rep=1000){\n  results=matrix(0, n_rep, 3)\n  for(b in 1:n_rep){\n    data1 &lt;- generate_data(n, mu1, sd)\n    data2 &lt;- generate_data(n, mu2, sd)\n    results[b, ]=run_tests(data1, data2) \n  }\n  return(colMeans(results&lt;0.05))}\n\n#with outliers\npvalues_out &lt;- function(n, mu1, mu2, sd, sd_out, p, n_rep=1000){\n  results=matrix(0, n_rep, 3)\n  for(b in 1:n_rep){\n    data1 &lt;- generate_data_out(n, mu1, sd, sd_out, p)\n    data2 &lt;- generate_data_out(n, mu2, sd, sd_out, p)\n    results[b, ]=run_tests(data1, data2) \n  }\n  return(colMeans(results&lt;0.05))}"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#power-no-outlier",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#power-no-outlier",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#power-no-outlier",
+    "href": "lectures/Lecture09_SimulationStudies.html#power-no-outlier",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Power: No Outlier",
     "text": "Power: No Outlier\n\n\n\nCode\npower_n5=rbind(pvalues(n=5, mu1=0, mu2=0.2, sd=1, n_rep=1000),\n  pvalues(n=5, mu1=0, mu2=0.5, sd=1,n_rep=1000),\n  pvalues(n=5, mu1=0, mu2=1, sd=1, n_rep=1000))\n\npower_n10=rbind(pvalues(n=10, mu1=0, mu2=0.2, sd=1, n_rep=1000),\n  pvalues(n=10, mu1=0, mu2=0.5, sd=1, n_rep=1000),\n  pvalues(n=10, mu1=0, mu2=1, sd=1, n_rep=1000))\n\npower_n50=rbind(pvalues(n=50, mu1=0, mu2=0.2, sd=1, n_rep=1000),\n  pvalues(n=50, mu1=0, mu2=0.5, sd=1, n_rep=1000),\n  pvalues(n=50, mu1=0, mu2=1, sd=1, n_rep=1000))\n\ncolnames(power_n5)=c(\"t\", \"t_e\", \"r\")\ncolnames(power_n10)=c(\"t\", \"t_e\", \"r\")\ncolnames(power_n50)=c(\"t\", \"t_e\", \"r\")\npower_normal_wide=data.frame(cbind(rbind(power_n5, power_n10, power_n50), \n                                   diff=rep(c(0.2, 0.5, 1.0),3), \n                                   n=rep(c(5, 10, 50), each=3)))\npower_normal=gather(power_normal_wide, test, power, 1:3, factor_key=TRUE)\n\nggplot(power_normal, aes(x=diff, y=power, \n                         group=interaction(test, n), color=factor(n), shape=test)) +\n  geom_point(size=3) +geom_line() +  ggtitle(\"Power: no outlier\")"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#type-i-error-rate-no-outlier",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#type-i-error-rate-no-outlier",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-no-outlier",
+    "href": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-no-outlier",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Type I Error Rate: No Outlier",
     "text": "Type I Error Rate: No Outlier\n\n\n\nCode\ntype1=rbind(\n  pvalues(n=5, mu1=0, mu2=0, sd=1, n_rep=1000),\n  pvalues(n=10, mu1=0, mu2=0, sd=1, n_rep=1000),\n  pvalues(n=50, mu1=0, mu2=0, sd=1, n_rep=1000))\ncolnames(type1)=c(\"t\", \"t_e\", \"r\")\ntype1_wide=data.frame(type1, n=c(5,10,50))\ntype1=gather(type1_wide, test, power, 1:3, factor_key=TRUE)\nggplot(type1, aes(x=n, y=power, group=test, shape=test, color=test))+\n  geom_point(size=3) + geom_line()+\n  geom_hline(yintercept=0.05, linetype=\"dashed\", color = \"red\") +\n  ggtitle(\"Type I Error: no outlier\")"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#type-i-error-rate-1-outliers",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#type-i-error-rate-1-outliers",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-1-outliers",
+    "href": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-1-outliers",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Type I Error Rate: \\(1\\%\\) Outliers",
     "text": "Type I Error Rate: \\(1\\%\\) Outliers\n\n\n\nCode\n#1% outliers\ntype1_out_mat=rbind(\n  pvalues_out(n=5, mu1=0, mu2=0, sd=1, sd_out=5, p=0.01, n_rep=1000),\n  pvalues_out(n=10, mu1=0, mu2=0, sd=1, sd_out=5, p=0.01, n_rep=1000),\n  pvalues_out(n=20, mu1=0, mu2=0, sd=1, sd_out=5, p=0.01, n_rep=1000),\n  pvalues_out(n=50, mu1=0, mu2=0, sd=1, sd_out=5, p=0.01, n_rep=1000))\ncolnames(type1_out_mat)=c(\"t\", \"t_e\", \"r\")\ntype1_wide_out=data.frame(type1_out_mat, n=c(5,10,20,50))\ntype1_out=gather(type1_wide_out, test, power, 1:3, factor_key=TRUE)\nggplot(type1_out, aes(x=n, y=power, group=test, shape=test, color=test))+\n  geom_point(size=3) +\n  geom_line()+\n  geom_hline(yintercept=0.05, linetype=\"dashed\", color = \"red\")+\n  ggtitle(\"Type I Error: 1% outliers\")"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#type-i-error-rate-5-outliers",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#type-i-error-rate-5-outliers",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-5-outliers",
+    "href": "lectures/Lecture09_SimulationStudies.html#type-i-error-rate-5-outliers",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Type I error rate: \\(5\\%\\) Outliers",
     "text": "Type I error rate: \\(5\\%\\) Outliers\n\n\n\nCode\n#5% outliers\ntype1_out_mat=rbind(\n  pvalues_out(n=5, mu1=0, mu2=0, sd=1, sd_out=5, p=0.05, n_rep=1000),\n  pvalues_out(n=10, mu1=0, mu2=0, sd=1, sd_out=5, p=0.05, n_rep=1000),\n  pvalues_out(n=20, mu1=0, mu2=0, sd=1, sd_out=5, p=0.05, n_rep=1000),\n  pvalues_out(n=50, mu1=0, mu2=0, sd=1, sd_out=5, p=0.05, n_rep=1000))\ncolnames(type1_out_mat)=c(\"t\", \"t_e\", \"r\")\ntype1_wide_out=data.frame(type1_out_mat, n=c(5,10,20,50))\ntype1_out=gather(type1_wide_out, test, power, 1:3, factor_key=TRUE)\nggplot(type1_out, aes(x=n, y=power, group=test, shape=test, color=test))+\n  geom_point(size=3) +\n  geom_line()+\n  geom_hline(yintercept=0.05, linetype=\"dashed\", color = \"red\")+\n  ggtitle(\"Type I Error: 5% outliers\")"
   },
   {
-    "objectID": "lectures/Lecture09_SimulationStudies - Copy.html#conclusions-and-limitations",
-    "href": "lectures/Lecture09_SimulationStudies - Copy.html#conclusions-and-limitations",
+    "objectID": "lectures/Lecture09_SimulationStudies.html#conclusions-and-limitations",
+    "href": "lectures/Lecture09_SimulationStudies.html#conclusions-and-limitations",
     "title": "Lecture 9: Use Simulations to Assess Statistical Methods",
     "section": "Conclusions and Limitations",
     "text": "Conclusions and Limitations\n\nConclusions:\n\nAs has been reported by many others, t-test tends to be more powerful, especially for small sample sizes\nWe examined an outlier model. For this model we observed, the type I error rates of both tests are reasonable\n\nLimitations:\n\nOnly examined two distributions: normal and normal mixture\nThe effect of unequal Variances was not examined"
