@@ -350,6 +350,34 @@
     "text": "Identify the 3rd PC and Beyond\n\nFor the rest of the PCs, i.e, 3rd, …, \\(p\\)th, we can use the same idea to identify them one by one."
   },
   {
+    "objectID": "lectures/Lecture10_PCA.html#dimensionality-reduction-using-pca",
+    "href": "lectures/Lecture10_PCA.html#dimensionality-reduction-using-pca",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Dimensionality Reduction Using PCA",
+    "text": "Dimensionality Reduction Using PCA\n\nPCA aims to reduce the dimensionality of a dataset while preserving as much variance as possible.\nDimensionality reduction using PCA can\n\nease visualization and analysis\nhelp identify underlying patterns or structure in the data.\nimprove the performance of machine learning algorithms by reducing noise and collinearity.\n\nPCA is most effective when the majority of the variance can be captured by a small number of principal components."
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#total-variance",
+    "href": "lectures/Lecture10_PCA.html#total-variance",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Total Variance",
+    "text": "Total Variance\n\nThere are at least two justifications to use \\(\\sum_{i=1}^p \\lambda_i\\) as the total variance:\n\nOne way to quantify the total variance in \\(\\mathbf X\\) is the trace of the covariance matrix \\(\\boldsymbol \\Sigma\\)\n\n\nRecall that \\(tr(\\boldsymbol \\Sigma)= \\sum_{i=1}^n \\lambda_i\\)\n\n\nThe variance of \\(i\\)th PC is \\(Var(Y_i)=Var(\\gamma_i^T\\mathbf X)=\\lambda_i\\). Thus, the total variance of PCs is \\[\\sum_{i=1}^p Var(Y_i)=\\sum_{i=1}^p \\lambda_i\\]"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#variance-explained",
+    "href": "lectures/Lecture10_PCA.html#variance-explained",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Variance Explained",
+    "text": "Variance Explained\n\nThe proportion of the variance explained by \\(i\\)th PC explains is \\[\\lambda_i/\\sum_{i=1}^p \\lambda_i\\]\nCumulative Explained Variance is the proportion of the total variance explained by the first \\(k\\) PCs is \\[\\frac{\\sum_{i=1}^k \\lambda_i}{\\sum_{i=1}^p \\lambda_i}\\]"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#variance-explained-example",
+    "href": "lectures/Lecture10_PCA.html#variance-explained-example",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Variance Explained: Example",
+    "text": "Variance Explained: Example\n\n\nCode\nlambda=eigen(S3)$values\n# Prop of Variance explained by 1st PC\nlambda[1]/sum(lambda)\n\n\n[1] 0.8037642\n\n\nCode\n# Prop of Cumulative Variance explained by two PCs\nsum(lambda[1:2])/sum(lambda)\n\n\n[1] 1\n\n\n\nIn this example, 1st PC explains about \\(80\\%\\) of variance, 2nd PC explains about \\(20\\%\\) of variance."
+  },
+  {
     "objectID": "lectures/Lecture08_MANOVA.html#introduction-to-manova",
     "href": "lectures/Lecture08_MANOVA.html#introduction-to-manova",
     "title": "Lecture 8: Multivariate Analysis of Variance (MANOVA)",
@@ -1089,7 +1117,7 @@
     "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
     "section": "Spectral Decomposition of Sample Covariance Matrix",
-    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8759687  0.4823680\n[2,] -0.4823680 -0.8759687\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n        [,1]      [,2]\n[1,] 1.00432 0.0000000\n[2,] 0.00000 0.2481638"
+    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8599699  0.5103447\n[2,] -0.5103447 -0.8599699\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n          [,1]      [,2]\n[1,] 0.9762366 0.0000000\n[2,] 0.0000000 0.2276474"
   },
   {
     "objectID": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
@@ -1285,7 +1313,7 @@
     "href": "lectures/Lecture07_Hotelling.html#a-simulation-study-to-understand-the-wishart-distribution",
     "title": "Lecture 7: Hotelling’s T2",
     "section": "A Simulation Study to Understand the Wishart Distribution",
-    "text": "A Simulation Study to Understand the Wishart Distribution\n\nRecall that if \\(W\\sim Wishart_p(k, \\boldsymbol \\Sigma)\\), then \\(E[\\mathbf W]=k\\Sigma\\).\n\n\n\nCode\nlibrary(MASS)\np=2; n=5; B=1000; rho=0.7\nSigma=diag(1+rho, p, p) - matrix(rho, p, p)\nwmat.array=array(0, c(B, p, p)) #wishart-distributed\nfor(b in 1:B){\n  X=mvrnorm(n, rep(0,p), Sigma)\n  wmat.array[b,,]=(n-1)*cov(X)}\napply(wmat.array, c(2,3), mean)\n\n\n          [,1]      [,2]\n[1,]  3.862553 -2.637826\n[2,] -2.637826  3.829579\n\n\nCode\nSigma*(n-1)\n\n\n     [,1] [,2]\n[1,]  4.0 -2.8\n[2,] -2.8  4.0"
+    "text": "A Simulation Study to Understand the Wishart Distribution\n\nRecall that if \\(W\\sim Wishart_p(k, \\boldsymbol \\Sigma)\\), then \\(E[\\mathbf W]=k\\Sigma\\).\n\n\n\nCode\nlibrary(MASS)\np=2; n=5; B=1000; rho=0.7\nSigma=diag(1+rho, p, p) - matrix(rho, p, p)\nwmat.array=array(0, c(B, p, p)) #wishart-distributed\nfor(b in 1:B){\n  X=mvrnorm(n, rep(0,p), Sigma)\n  wmat.array[b,,]=(n-1)*cov(X)}\napply(wmat.array, c(2,3), mean)\n\n\n          [,1]      [,2]\n[1,]  3.812450 -2.668425\n[2,] -2.668425  3.942957\n\n\nCode\nSigma*(n-1)\n\n\n     [,1] [,2]\n[1,]  4.0 -2.8\n[2,] -2.8  4.0"
   },
   {
     "objectID": "lectures/Lecture07_Hotelling.html#definition-of-hotellings-t2",
