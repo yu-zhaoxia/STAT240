@@ -60,7 +60,7 @@
     "href": "lectures/Lecture10_PCA.html#outline-of-theoretical-derivation-of-pca",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Outline of Theoretical Derivation of PCA",
-    "text": "Outline of Theoretical Derivation of PCA\n\nTwo key mathematical concepts are needed for PCA:\n\nProjection\nSpectral Decomposition\n\nWe will also show how maximizing variance is linked to\n\nprojection and spectral decomposition\nminimizing the reconstruction error in PCA"
+    "text": "Outline of Theoretical Derivation of PCA\n\nTwo key mathematical concepts are needed for PCA:\n\nProjection\nSpectral Decomposition\n\nWe will also show how maximizing variance is linked to projection and spectral decomposition"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#projection-1",
@@ -95,7 +95,7 @@
     "href": "lectures/Lecture10_PCA.html#spectral-decomposition-1",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Spectral Decomposition",
-    "text": "Spectral Decomposition\n\nSpectral decomposition, also known as eigendecomposition\nIt says that a symmetric matrix can be decomposed into a set of orthogonal eigenvectors and their corresponding eigenvalues.\nFor a symmetric matrix \\({A}_{p\\times p}\\), the spectral decomposition is given by: \\({A} = \\Gamma {\\Lambda} \\Gamma^T\\), where\n\n\\({\\Gamma}\\) is an orthogonal matrix\n\\({\\Lambda}\\) is a diagonal matrix"
+    "text": "Spectral Decomposition\n\nSpectral decomposition, also known as eigendecomposition\nIt says that a symmetric matrix can be decomposed into a set of orthogonal eigenvectors and their corresponding eigenvalues.\nFor a symmetric matrix \\(A_{p\\times p}\\), the spectral decomposition is given by: \\(A = \\Gamma {\\Lambda} \\Gamma^T\\), where\n\n\\(\\Gamma\\) is an orthogonal matrix\n\\(\\Lambda\\) is a diagonal matrix"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#eigenvectors",
@@ -130,7 +130,7 @@
     "href": "lectures/Lecture10_PCA.html#example-1-of-spectral-decomposition",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Example 1 of Spectral Decomposition",
-    "text": "Example 1 of Spectral Decomposition\n\\(\\Sigma_1\\), eigenvalues, and eigenvectors.\n\n\nCode\nn=1000\nSigma1=diag(c(4,1), 2, 2) \nSigma2=diag(c(1,4), 2, 2) \ntheta=pi/6\nR1=matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), 2,2)\ntheta=pi/4+pi/2\nR2=matrix(c(cos(theta), sin(theta), -sin(theta), cos(theta)), 2,2)\nSigma3=R1%*%Sigma1%*%t(R1)\nSigma4=R2%*%Sigma1%*%t(R2)\nset.seed(1)\nX1=data.frame(mvrnorm(n, rep(0,2), Sigma1)); names(X1)=c(\"x\",\"y\")\nX2=data.frame(mvrnorm(n, rep(0,2), Sigma2)); names(X2)=c(\"x\",\"y\")\nX3=data.frame(mvrnorm(n, rep(0,2), Sigma3)); names(X3)=c(\"x\",\"y\")\nX4=data.frame(mvrnorm(n, rep(0,2), Sigma4)); names(X4)=c(\"x\",\"y\")\n\nSigma1\n\n\n     [,1] [,2]\n[1,]    4    0\n[2,]    0    1\n\n\nCode\neigen(Sigma1)$value #\\lambda's\n\n\n[1] 4 1\n\n\nCode\neigen(Sigma1)$vectors #\\Gamma\n\n\n     [,1] [,2]\n[1,]   -1    0\n[2,]    0   -1"
+    "text": "Example 1 of Spectral Decomposition\n\\(\\Sigma_1\\), eigenvalues, and eigenvectors.\n\n\nCode\nSigma1\n\n\n     [,1] [,2]\n[1,]    4    0\n[2,]    0    1\n\n\nCode\neigen(Sigma1)$value #\\lambda's\n\n\n[1] 4 1\n\n\nCode\neigen(Sigma1)$vectors #\\Gamma\n\n\n     [,1] [,2]\n[1,]   -1    0\n[2,]    0   -1"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#example-2-of-spectral-decomposition",
@@ -144,21 +144,21 @@
     "href": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "An Orthogonal Matrix preserves Norm",
-    "text": "An Orthogonal Matrix preserves Norm\n\nRecall that an orthogonal matrix \\(\\Gamma\\) satisfies the following properties: \\(\\Gamma^T \\Gamma = \\mathbf I\\), \\(\\Gamma \\Gamma^T = \\mathbf I\\).\nAn orthogonal matrix preserves the norm of a vector: \\[||\\Gamma x|| = \\sqrt{(\\Gamma x)^T \\Gamma x} = x^T \\Gamma^T \\Gamma x= x^Tx=||x||.\\]\nIt also preserves the distance between two vectors: \\[||\\Gamma x - \\Gamma y|| = ||\\Gamma (x-y)|| = ||x-y||.\\]"
+    "text": "An Orthogonal Matrix preserves Norm\n\nRecall that an orthogonal matrix \\(\\Gamma\\) satisfies the following properties: \\(\\Gamma^T \\Gamma = \\mathbf I\\), \\(\\Gamma \\Gamma^T = \\mathbf I\\).\nAn orthogonal matrix preserves the norm of a vector: \\[||\\Gamma x|| = \\sqrt{(\\Gamma x)^T \\Gamma x} = \\sqrt{x^T \\Gamma^T \\Gamma x}= \\sqrt{x^Tx}=||x||.\\]\nIt also preserves the distance between two vectors: \\[||\\Gamma x - \\Gamma y|| = ||\\Gamma (x-y)|| = ||x-y||.\\]"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#orthogonal-transformation-of-a-data-points-and-a-data-matrix",
     "href": "lectures/Lecture10_PCA.html#orthogonal-transformation-of-a-data-points-and-a-data-matrix",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Orthogonal Transformation of A Data Points and A Data Matrix",
-    "text": "Orthogonal Transformation of A Data Points and A Data Matrix\n\nFor a point \\(x=(a, b)^T\\), after the orthogonal transformation by \\(\\Gamma_{2\\times 2}=(\\gamma_1, \\gamma_2)\\), the new coordinates are \\((\\gamma_1^T x, \\gamma_2^T x)=\\Gamma^T x\\).\nFor a \\(n\\times p\\) data matrix \\(X\\), the orthogonal transformation is \\(X\\Gamma_{p\\times p}\\)."
+    "text": "Orthogonal Transformation of A Data Points and A Data Matrix\n\nConsider a data point \\(x=\\begin{pmatrix}a\\\\ b \\end{pmatrix}\\).\nConsider an orthogonal transformation. The new coordinates are \\[\\Gamma^T x=\n\\begin{pmatrix}\n\\gamma_1^T \\\\ \\gamma_2^T\n\\end{pmatrix} x =\n\\begin{pmatrix}\n\\gamma_1^T x \\\\ \\gamma_2^T x\n\\end{pmatrix}\n\\]\nFor a \\(n\\times p\\) data matrix \\(X\\), the orthogonal transformation is \\(X\\Gamma_{p\\times p}\\), which has \\(n\\) rows and \\(p\\) columns."
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm-example",
     "href": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm-example",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "An Orthogonal Matrix preserves Norm: Example",
-    "text": "An Orthogonal Matrix preserves Norm: Example\n\n\nCode\nGamma=eigen(Sigma3)$vectors\npar(mfrow=c(1,2))\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), main=\"X3\");\npoints(X3[1,], col=2, pch=17)\npoints(X3[10,], col=3, pch=15)\nabline(0,1/2, col=2); abline(0, -2, col=2)\nplot(t(as.matrix(X3)%*%Gamma), xlim=c(-5,5), ylim=c(-5,5), main=\"Gamma*X3\");\npoints(as.matrix(X3[1,])%*%Gamma, col=2, pch=17)\npoints(as.matrix(X3[10,])%*%Gamma, col=3, pch=15)\nabline(h=0, v=0, col=2)"
+    "text": "An Orthogonal Matrix preserves Norm: Example\n\nR code:\n\n\n\nCode\nGamma=eigen(Sigma3)$vectors\npar(mfrow=c(1,2))\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), main=\"X3\");\npoints(X3[1,], col=2, pch=17)\npoints(X3[10,], col=3, pch=15)\nabline(0,1/2, col=2); abline(0, -2, col=2)\nplot(as.matrix(X3)%*%Gamma, xlim=c(-5,5), ylim=c(-5,5), main=\"Gamma*X3\");\npoints(as.matrix(X3[1,])%*%Gamma, col=2, pch=17)\npoints(as.matrix(X3[10,])%*%Gamma, col=3, pch=15)\nabline(h=0, v=0, col=2)"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#an-orthogonal-matrix-preserves-norm-example-1",
@@ -179,14 +179,14 @@
     "href": "lectures/Lecture10_PCA.html#example-rotate-x_3",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Example: Rotate \\(X_3\\)",
-    "text": "Example: Rotate \\(X_3\\)\n\nRecall that each row of \\(X_3\\) was generated from a bivariate normal distribution with covariance matrix \\(\\Sigma_3\\), where \\[\\Sigma_3=\n\\begin{pmatrix} 3.25 & 1.299038 \\\\\n1.299038 & 1.75\n\\end{pmatrix}= \\Gamma \\Lambda \\Gamma^T\\]\n\nThe last step is due to spectral decomposition.\n\nIf \\(x\\sim \\mathbf N(\\mathbf 0, \\Sigma_3)\\), how about \\(\\Gamma x\\)?"
+    "text": "Example: Rotate \\(X_3\\)\n\nRecall that each row of \\(X_3\\) was generated from a bivariate normal distribution with covariance matrix \\(\\Sigma_3\\), where \\[\\Sigma_3=\n\\begin{pmatrix} 3.25 & 1.299038 \\\\\n1.299038 & 1.75\n\\end{pmatrix}= \\Gamma \\Lambda \\Gamma^T\\]\n\nThe last step is due to spectral decomposition.\n\nIf \\(x\\sim \\mathbf N(\\mathbf 0, \\Sigma_3)\\), how about \\(\\Gamma^T x\\)?"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#r-code-to-verify-the-distribution-of-gamma-x-and-x_3-gamma.",
-    "href": "lectures/Lecture10_PCA.html#r-code-to-verify-the-distribution-of-gamma-x-and-x_3-gamma.",
+    "objectID": "lectures/Lecture10_PCA.html#x_3-and-x_3-gamma.",
+    "href": "lectures/Lecture10_PCA.html#x_3-and-x_3-gamma.",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "R code to verify the distribution of \\(\\Gamma x\\) and \\(X_3 \\Gamma\\).",
-    "text": "R code to verify the distribution of \\(\\Gamma x\\) and \\(X_3 \\Gamma\\).\n\n\nCode\nGamma=eigen(Sigma3)$vectors\npar(mfrow=c(1,2),pty=\"s\")\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), main=\"X3\");\nabline(0,1/2, col=2); abline(0, -2, col=2)\nplot(as.matrix(X3)%*%(Gamma), xlim=c(-5,5), ylim=c(-5,5), main=\"Gamma*X3\");\nabline(h=0, v=0, col=2)"
+    "section": "\\(X_3\\) and \\(X_3 \\Gamma\\).",
+    "text": "\\(X_3\\) and \\(X_3 \\Gamma\\).\n\n\nCode\nGamma=eigen(Sigma3)$vectors\npar(mfrow=c(1,2),pty=\"s\")\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), main=\"X3\");\nabline(0,1/2, col=2); abline(0, -2, col=2)\nplot(as.matrix(X3)%*%(Gamma), xlim=c(-5,5), ylim=c(-5,5), main=\"X3*Gamma\");\nabline(h=0, v=0, col=2)"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#in-practice",
@@ -207,77 +207,147 @@
     "href": "lectures/Lecture10_PCA.html#what-does-projection-do",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "What Does Projection Do?",
-    "text": "What Does Projection Do?\n\nLet \\(\\gamma_1\\) and \\(\\gamma_2\\) be the two columns of \\(\\Gamma\\).\nFocus on \\(X_2 \\gamma_1\\): how many values in this vector? What are they?\nThe first element is the projection of the first row of \\(X_2\\) onto \\(\\gamma_1\\).\nThe second element is the projection of the second row of \\(X_2\\) onto \\(\\gamma_1\\).\nIn general, the \\(i\\)th element of \\(X_2 \\gamma_1\\) is the projection of the \\(i\\)th row of \\(X_2\\) onto \\(\\gamma_1\\)."
+    "text": "What Does Projection Do?\n\nLet \\(\\gamma_1\\) and \\(\\gamma_2\\) be the two columns of \\(\\Gamma\\).\nFocus on \\(X_3 \\gamma_1\\): how many values in this vector? What are they?\nThe first element is the projection of the first row of \\(X_3\\) onto \\(\\gamma_1\\).\nThe second element is the projection of the second row of \\(X_3\\) onto \\(\\gamma_1\\).\nIn general, the \\(i\\)th element of \\(X_3 \\gamma_1\\) is the projection of the \\(i\\)th row of \\(X_3\\) onto \\(\\gamma_1\\)."
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#obtain-the-first-pc-direction",
     "href": "lectures/Lecture10_PCA.html#obtain-the-first-pc-direction",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Obtain the first PC Direction",
-    "text": "Obtain the first PC Direction\n\n\\(\\gamma_1\\) is a vector\nEach entry of \\(\\gamma_1\\) corresponds to one feature\nThose entries are the loadings\n\n\n\nCode\nS3=cov(X3)\ngamma1=eigen(S3)$vectors[,1]\ngamma1\n\n\n[1] -0.8784546 -0.4778257"
+    "text": "Obtain the first PC Direction\n\n\\(\\gamma_1\\) is a vector\nEach entry of \\(\\gamma_1\\) corresponds to one feature\nThose entries are the loadings\n\n\n\nCode\nS3=cov(X3)\ngamma1=eigen(S3)$vectors[,1]\ngamma1\n\n\n[1] -0.8784546 -0.4778257\n\n\n\nThe two values, one for each feature, are the weights/loadings that will be used to obtain the first PC scores."
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#example-project-an-observation-vector-to-1st-pc-to-get-the-pc-score",
-    "href": "lectures/Lecture10_PCA.html#example-project-an-observation-vector-to-1st-pc-to-get-the-pc-score",
+    "objectID": "lectures/Lecture10_PCA.html#project-an-observation-vector-to-1st-pc-to-get-the-pc-score",
+    "href": "lectures/Lecture10_PCA.html#project-an-observation-vector-to-1st-pc-to-get-the-pc-score",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Example: Project An Observation (vector) to 1st PC to get the PC score",
-    "text": "Example: Project An Observation (vector) to 1st PC to get the PC score\n\nLet \\(X\\) be an observation, which is a vector in \\(\\mathbb R^p\\)\nBy the definition of projection, the projection of \\(X\\) to \\(\\gamma_1\\) is \\[\\frac{\\gamma_1^T X}{||\\gamma_1||^2}\\gamma_1=(\\gamma_1 ^T X) \\gamma_1\\]\nAlong the direction of \\(\\gamma_1\\), what matters is \\(\\gamma_1^T X\\), which is called the PC score of the observation."
+    "section": "Project An Observation (vector) to 1st PC to get the PC score",
+    "text": "Project An Observation (vector) to 1st PC to get the PC score\n\nLet \\(X\\) be an observation, which is a vector in \\(\\mathbb R^p\\)\nBy the definition of projection, the projection of \\(X\\) to \\(\\gamma_1\\) is \\[\\frac{\\gamma_1^T X}{||\\gamma_1||^2}\\gamma_1=(\\gamma_1 ^T X) \\gamma_1\\]\nAlong the direction of \\(\\gamma_1\\), what matters is \\(\\gamma_1^T X\\), which is called the PC score of the observation."
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#example-project-an-observation-to-1st-pc",
-    "href": "lectures/Lecture10_PCA.html#example-project-an-observation-to-1st-pc",
+    "objectID": "lectures/Lecture10_PCA.html#project-an-observation-to-1st-pc",
+    "href": "lectures/Lecture10_PCA.html#project-an-observation-to-1st-pc",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Example: Project An Observation to 1st PC",
-    "text": "Example: Project An Observation to 1st PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nobs=unlist(X3[1,])\nproj=c(matrix(gamma1,1,2)%*%matrix(obs,2,1)) *gamma1\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\npoints(x=0,y=0, col=\"red\")\npoints(x=obs[1], y=obs[2], col=\"blue\")\npoints(x=proj[1], y=proj[2], col=\"blue\")\narrows(x0=0, y0=0,x1=obs[1], y1=obs[2], col=\"blue\", lwd=2, angle=10)\narrows(x0=0, y0=0,x1=proj[1], y1=proj[2], col=\"orange\", lwd=2, angle=10)\nsegments(0,0, 10*gamma1[1], 10*gamma1[2], col=\"blue\", lty=2)\narrows(x0=0, y0=0,x1=gamma1[1], y1=gamma1[2], col=\"red\", lwd=2, angle=10)\nsegments(0,0, -10*gamma1[1], -10*gamma1[2], col=\"blue\", lty=2)\nsegments(obs[1], obs[2], proj[1], proj[2], lty = \"dotted\", col = \"blue\", lwd=2)\ntext(x=proj[1],y=proj[2], labels=\"|\", col=\"black\", srt=30, cex=1)\ntext(x=gamma1[1]+0.3, y=gamma1[2]-0.3, labels=expression(gamma[1]), col=\"red\", cex=1.5)\ntext(x=obs[1], y=obs[2]+0.2, labels=\"X\", col=\"blue\", cex=1.5)\ntext(x=proj[1]+0.5, y=proj[2]-0.5, labels=expression( (gamma[1]^T * X)*gamma[1]), col=\"orange\", cex=1.5)"
+    "section": "Project An Observation to 1st PC",
+    "text": "Project An Observation to 1st PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nobs=unlist(X3[1,])\nproj=c(matrix(gamma1,1,2)%*%matrix(obs,2,1)) *gamma1\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\npoints(x=0,y=0, col=\"red\")\npoints(x=obs[1], y=obs[2], col=\"blue\")\npoints(x=proj[1], y=proj[2], col=\"blue\")\narrows(x0=0, y0=0,x1=obs[1], y1=obs[2], col=\"blue\", lwd=1, angle=10)\narrows(x0=0, y0=0,x1=proj[1], y1=proj[2], col=\"orange\", lwd=1, angle=10)\nsegments(0,0, 10*gamma1[1], 10*gamma1[2], col=\"blue\", lty=2)\narrows(x0=0, y0=0,x1=gamma1[1], y1=gamma1[2], col=\"red\", lwd=1, angle=10)\nsegments(0,0, -10*gamma1[1], -10*gamma1[2], col=\"blue\", lty=2)\nsegments(obs[1], obs[2], proj[1], proj[2], lty = \"dotted\", col = \"blue\", lwd=2)\ntext(x=proj[1],y=proj[2], labels=\"|\", col=\"black\", srt=30, cex=1)\ntext(x=gamma1[1]+0.3, y=gamma1[2]-0.3, labels=expression(gamma[1]), col=\"red\", cex=1.5)\ntext(x=obs[1], y=obs[2]+0.2, labels=\"X\", col=\"blue\", cex=1.5)\ntext(x=proj[1]+0.5, y=proj[2]-0.5, labels=expression( (gamma[1]^T * X)*gamma[1]), col=\"orange\", cex=1.5)"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#example-project-all-observations-to-1st-pc",
-    "href": "lectures/Lecture10_PCA.html#example-project-all-observations-to-1st-pc",
+    "objectID": "lectures/Lecture10_PCA.html#project-all-observations-to-1st-pc",
+    "href": "lectures/Lecture10_PCA.html#project-all-observations-to-1st-pc",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Example: Project All Observations to 1st PC",
-    "text": "Example: Project All Observations to 1st PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\n#arrows(x0=0, y0=0,x1=-6*gamma1[1], y1=-6*gamma1[2], col=2, lwd=2, angle=10)\n#arrows(x0=0, y0=0,x1=6*gamma1[1], y1=6*gamma1[2], col=2, lwd=2, angle=10)\nabline(0,1/sqrt(3), col=\"red\"); abline(0, -sqrt(3), col=\"red\")\npoints(x=0,y=0, col=\"red\")\nfor(i in 1:1000){\n  proj=c(matrix(gamma1,1,2)%*% matrix(unlist(X3[i,]),2,1)) *gamma1\n  #points(x=proj[1],y=proj[2], col=2, pch=\"|\")\n  text(x=proj[1],y=proj[2], labels=\"|\", col=\"blue\", srt=30, cex=0.5)\n}"
+    "section": "Project All Observations to 1st PC",
+    "text": "Project All Observations to 1st PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\n#arrows(x0=0, y0=0,x1=-6*gamma1[1], y1=-6*gamma1[2], col=2, lwd=2, angle=10)\n#arrows(x0=0, y0=0,x1=6*gamma1[1], y1=6*gamma1[2], col=2, lwd=2, angle=10)\nabline(0,1/sqrt(3), col=\"red\"); abline(0, -sqrt(3), col=\"red\")\npoints(x=0,y=0, col=\"red\")\nfor(i in 1:1000){\n  proj=c(matrix(gamma1,1,2)%*% matrix(unlist(X3[i,]),2,1)) *gamma1\n  #points(x=proj[1],y=proj[2], col=2, pch=\"|\")\n  text(x=proj[1],y=proj[2], labels=\"|\", col=\"blue\", srt=30, cex=0.5)\n}"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#obtain-the-second-pc-direction",
     "href": "lectures/Lecture10_PCA.html#obtain-the-second-pc-direction",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "Obtain the second PC direction",
-    "text": "Obtain the second PC direction\n\n\\(\\gamma_2\\) is the second column of \\(\\Gamma\\).\n\n\n\nCode\ngamma2=eigen(S3)$vectors[,2]\ngamma2\n\n\n[1]  0.4778257 -0.8784546"
+    "text": "Obtain the second PC direction\n\n\\(\\gamma_2\\) is the second column of \\(\\Gamma\\).\n\n\n\nCode\ngamma2=eigen(S3)$vectors[,2]\ngamma2\n\n\n[1]  0.4778257 -0.8784546\n\n\n\nThe two values, one for each feature, are the weights/loadings that will be used to obtain the second PC scores."
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#example-project-an-observation-vector-to-2nd-pc-to-get-the-pc-score",
-    "href": "lectures/Lecture10_PCA.html#example-project-an-observation-vector-to-2nd-pc-to-get-the-pc-score",
+    "objectID": "lectures/Lecture10_PCA.html#project-an-observation-vector-to-2nd-pc-to-get-the-pc-score",
+    "href": "lectures/Lecture10_PCA.html#project-an-observation-vector-to-2nd-pc-to-get-the-pc-score",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Example: Project An Observation (vector) to 2nd PC to get the PC score",
-    "text": "Example: Project An Observation (vector) to 2nd PC to get the PC score\n\nLet \\(X\\) be an observation, which is a vector in \\(\\mathbb R^p\\)\nBy the definition of projection, the projection of \\(X\\) to \\(\\gamma_2\\) is \\[\\frac{\\gamma_2^T X}{||\\gamma_2||^2}\\gamma_2=(\\gamma_2 ^T X) \\gamma_2\\]\nAlong the direction of \\(\\gamma_2\\), what matters is \\(\\gamma_2^T X\\), which is called the PC score of the observation."
+    "section": "Project An Observation (vector) to 2nd PC to get the PC score",
+    "text": "Project An Observation (vector) to 2nd PC to get the PC score\n\nLet \\(X\\) be an observation, which is a vector in \\(\\mathbb R^p\\)\nBy the definition of projection, the projection of \\(X\\) to \\(\\gamma_2\\) is \\[\\frac{\\gamma_2^T X}{||\\gamma_2||^2}\\gamma_2=(\\gamma_2 ^T X) \\gamma_2\\]\nAlong the direction of \\(\\gamma_2\\), what matters is \\(\\gamma_2^T X\\), which is called the PC score of the observation."
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#example-project-an-observation-to-2nd-pc",
-    "href": "lectures/Lecture10_PCA.html#example-project-an-observation-to-2nd-pc",
+    "objectID": "lectures/Lecture10_PCA.html#project-an-observation-to-2nd-pc",
+    "href": "lectures/Lecture10_PCA.html#project-an-observation-to-2nd-pc",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Example: Project An Observation to 2nd PC",
-    "text": "Example: Project An Observation to 2nd PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nobs=unlist(X3[1,])\nproj=c(matrix(gamma2,1,2)%*%matrix(obs,2,1)) *gamma2\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\npoints(x=0,y=0, col=\"red\")\npoints(x=obs[1], y=obs[2], col=\"blue\")\npoints(x=proj[1], y=proj[2], col=\"blue\")\narrows(x0=0, y0=0,x1=obs[1], y1=obs[2], col=\"blue\", lwd=2, angle=10)\narrows(x0=0, y0=0,x1=proj[1], y1=proj[2], col=\"orange\", lwd=2, angle=10)\nsegments(0,0, 10*gamma2[1], 10*gamma2[2], col=\"blue\", lty=2)\narrows(x0=0, y0=0,x1=gamma2[1], y1=gamma2[2], col=\"red\", lwd=2, angle=10)\nsegments(obs[1], obs[2], proj[1], proj[2], lty = \"dotted\", col = \"blue\", lwd=2)\ntext(x=proj[1],y=proj[2], labels=\"|\", col=\"black\", srt=30, cex=1)\ntext(x=gamma2[1]+0.3, y=gamma2[2]-0.3, labels=expression(gamma[2]), col=\"red\", cex=1.5)\ntext(x=obs[1], y=obs[2]+0.2, labels=\"X\", col=\"blue\", cex=1.5)\ntext(x=proj[1]+0.5, y=proj[2]-0.5, labels=expression( (gamma[2]^T * X)*gamma[2]), col=\"orange\", cex=1.5)"
+    "section": "Project An Observation to 2nd PC",
+    "text": "Project An Observation to 2nd PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nobs=unlist(X3[1,])\nproj=c(matrix(gamma2,1,2)%*%matrix(obs,2,1)) *gamma2\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\npoints(x=0,y=0, col=\"red\")\npoints(x=obs[1], y=obs[2], col=\"blue\")\npoints(x=proj[1], y=proj[2], col=\"blue\")\narrows(x0=0, y0=0,x1=obs[1], y1=obs[2], col=\"blue\", lwd=1, angle=10)\narrows(x0=0, y0=0,x1=proj[1], y1=proj[2], col=\"orange\", lwd=1, angle=10)\nsegments(0,0, 10*gamma2[1], 10*gamma2[2], col=\"blue\", lty=1)\narrows(x0=0, y0=0,x1=gamma2[1], y1=gamma2[2], col=\"red\", lwd=1, angle=10)\nsegments(obs[1], obs[2], proj[1], proj[2], lty = \"dotted\", col = \"blue\", lwd=2)\ntext(x=proj[1],y=proj[2], labels=\"|\", col=\"black\", srt=30, cex=1)\ntext(x=gamma2[1]+0.3, y=gamma2[2]-0.3, labels=expression(gamma[2]), col=\"red\", cex=1.5)\ntext(x=obs[1], y=obs[2]+0.2, labels=\"X\", col=\"blue\", cex=1.5)\ntext(x=proj[1]+0.5, y=proj[2]-0.5, labels=expression( (gamma[2]^T * X)*gamma[2]), col=\"orange\", cex=1.5)"
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#example-project-all-observations-to-2nd-pc",
-    "href": "lectures/Lecture10_PCA.html#example-project-all-observations-to-2nd-pc",
+    "objectID": "lectures/Lecture10_PCA.html#project-all-observations-to-2nd-pc",
+    "href": "lectures/Lecture10_PCA.html#project-all-observations-to-2nd-pc",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Example: Project All Observations to 2nd PC",
-    "text": "Example: Project All Observations to 2nd PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\nabline(0,1/sqrt(3), col=\"red\"); abline(0, -sqrt(3), col=\"red\")\npoints(x=0,y=0, col=\"red\")\nfor(i in 1:1000){\n  proj=c(matrix(gamma2,1,2)%*% matrix(unlist(X3[i,]),2,1)) *gamma2\n  text(x=proj[1],y=proj[2], labels=\"|\", col=\"blue\", srt=30, cex=0.5)\n}"
+    "section": "Project All Observations to 2nd PC",
+    "text": "Project All Observations to 2nd PC\n\n\nCode\npar(mfrow=c(1,1),pty=\"s\")\nplot(X3, xlim=c(-5,5), ylim=c(-5,5), col=8, pch=\".\");\n#arrows(x0=0, y0=0,x1=-6*gamma2[1], y1=-6*gamma2[2], col=2, lwd=2, angle=10)\n#arrows(x0=0, y0=0,x1=6*gamma2[1], y1=6*gamma2[2], col=2, lwd=2, angle=10)\nabline(0,1/sqrt(3), col=\"red\"); abline(0, -sqrt(3), col=\"red\")\npoints(x=0,y=0, col=\"red\")\nfor(i in 1:1000){\n  proj=c(matrix(gamma2,1,2)%*% matrix(unlist(X3[i,]),2,1)) *gamma2\n  #points(x=proj[1],y=proj[2], col=2, pch=\"|\")\n  text(x=proj[1],y=proj[2], labels=\"|\", col=\"blue\", srt=120, cex=0.5)\n}"
   },
   {
     "objectID": "lectures/Lecture10_PCA.html#first-vs-second-pc",
     "href": "lectures/Lecture10_PCA.html#first-vs-second-pc",
     "title": "Lecture 10: PCA - Principle Component Analysis",
     "section": "First vs Second PC",
-    "text": "First vs Second PC\nLet’s compare their variance based on simulated data \\(X_3\\)\n\n\nCode\nvar(as.matrix(X3)%*%gamma1) #variance of the first PC scores\n\n\n         [,1]\n[1,] 3.917336\n\n\nCode\nvar(as.matrix(X3)%*%gamma2) #variance of the second PC scores\n\n\n          [,1]\n[1,] 0.9564019"
+    "text": "First vs Second PC\nLet’s compare their variance based on simulated data \\(X_3\\). Recall that the data matrix \\(X_3\\) has 1000 rows and 2 columns, and \\(\\Gamma\\) is a 2-by-2 matrix with the first column \\(\\gamma_1\\) and the second column \\(\\gamma_2\\).\n\nFirst component \\(X_3 \\gamma_1\\): 1000-by-1 vector of the first PC scores, where the \\(i\\)th element is the projection of the \\(i\\)th row of \\(X_3\\) onto \\(\\gamma_1\\);\nsecond component \\(X_3 \\gamma_2\\): 1000-by-1 vector of the second PC scores, where the \\(i\\)th element is the projection of the \\(i\\)th row of \\(X_3\\) onto \\(\\gamma_2\\)."
   },
   {
-    "objectID": "lectures/Lecture10_PCA.html#next-lecture",
-    "href": "lectures/Lecture10_PCA.html#next-lecture",
+    "objectID": "lectures/Lecture10_PCA.html#empirical-results",
+    "href": "lectures/Lecture10_PCA.html#empirical-results",
     "title": "Lecture 10: PCA - Principle Component Analysis",
-    "section": "Next Lecture",
-    "text": "Next Lecture\nWe will show the following:\n\nThe first PC is the direction of the largest variance, and the second PC is the direction of the second largest variance.\nThe first PC is the direction that minimizes the reconstruction error, and the second PC is the direction that minimizes the reconstruction error among all directions that are orthogonal to the first PC.\nThe PCs are uncorrelated."
+    "section": "Empirical Results",
+    "text": "Empirical Results\n\nvariance of the first PC scores\n\n\n\nCode\nvar(as.matrix(X3)%*%gamma1) \n\n\n         [,1]\n[1,] 3.917336\n\n\n\nvariance of the second PC scores\n\n\n\nCode\nvar(as.matrix(X3)%*%gamma2) \n\n\n          [,1]\n[1,] 0.9564019\n\n\n\nNeed to show mathematical derivation"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#identify-the-1st-pc",
+    "href": "lectures/Lecture10_PCA.html#identify-the-1st-pc",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Identify the 1st PC",
+    "text": "Identify the 1st PC\n\n\nLet \\(Y_1=a^T \\mathbf X\\) denote the linear combination reaches the maximum variance subject to \\(||a||=1\\): \\[a=\\underset{a^T a=1} {\\mbox{arg max }} a^T \\boldsymbol \\Sigma a\\]\nThe variance of \\(Y_1\\) in terms of \\(\\Gamma\\) and \\(\\Lambda\\) \\[\n\\begin{aligned}\nVar(Y_1) &= a^T\\Sigma a= a^T \\Gamma \\Lambda \\Gamma^T a = a^T (\\sum_{i=1}^p \\lambda_i \\gamma_i\\gamma_i^T) a \\\\\n&= \\sum_{i=1}^p \\lambda_i a^T \\gamma_i \\gamma_i^T a = \\sum_{i=1}^p \\lambda_i z_i^2\n\\end{aligned},\n\\] where \\(z_i=a^T\\gamma_i=\\gamma_i^T a=&lt;a, \\gamma_i&gt;=&lt;\\gamma_i, a&gt;\\)."
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#identify-the-1st-pc-1",
+    "href": "lectures/Lecture10_PCA.html#identify-the-1st-pc-1",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Identify the 1st PC",
+    "text": "Identify the 1st PC\n\nAlso, \\[\\begin{aligned}\n\\sum_{i=1}^p z_i^2 &=\\sum_{i=1}^p a^T \\gamma_i \\gamma_i^T a=a^T \\left(\\sum_{i=1}^p  \\gamma_i \\gamma_i^T\\right) a\\\\\n&=a^T \\Gamma \\Gamma^T a\\overset{1}=a^T\\mathbf I a \\\\\n&= a^Ta \\overset{2}=1\n\\end{aligned}\n\\]\n\nstep 1: this is because \\(\\Gamma\\) is an orthogonal matrix, which means \\(\\Gamma\\Gamma^T=\\Gamma^T\\Gamma=\\mathbf I\\).\nstep 2: this is due to the constraint that \\(a^Ta=1\\)."
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#identify-the-1st-pc-2",
+    "href": "lectures/Lecture10_PCA.html#identify-the-1st-pc-2",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Identify the 1st PC",
+    "text": "Identify the 1st PC\nSo far we have the following results\n\n\\(Var(a^TX)=\\sum_{i=1}^p \\lambda_i z_i^2\\), where \\[\\lambda_1\\ge \\cdots \\lambda_p\\ge0 \\]\n\\(\\sum_{i=1}^p z_i^2=1.\\)\nThese facts can be used to maximize \\[Var(Y_1) = Var(a^T X).\\]"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#identify-the-1st-pc-3",
+    "href": "lectures/Lecture10_PCA.html#identify-the-1st-pc-3",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Identify the 1st PC",
+    "text": "Identify the 1st PC\n\nBut how to find \\(a\\)?\nWhich \\(z=(z_1, \\cdots, z_p)^T\\) makes the \\(=\\) hold?\nThis happens when \\(z_1=1, z_2=0, \\cdots z_p=0\\)\nRecall that \\(z_i=a^T \\gamma_i\\)\nThus, the following \\(a\\) satisfies all required conditions \\[a=\\gamma_1\\]"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#conclusion-for-the-first-pc",
+    "href": "lectures/Lecture10_PCA.html#conclusion-for-the-first-pc",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Conclusion for the first PC",
+    "text": "Conclusion for the first PC\n\nThus, we can conclude that among all the linear combinations of \\(\\mathbf X\\) with the norm of the linear coefficients being 1,\nthe one with the largest variance is \\(\\gamma_1^T \\mathbf X\\), and\nthe maximum variance is \\(\\lambda_1\\).\nFor notional clarity, let’s denote the first PC by \\(Y_1=\\gamma_1^T \\mathbf X\\)"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#maximization-2nd-pc",
+    "href": "lectures/Lecture10_PCA.html#maximization-2nd-pc",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Maximization: 2nd PC",
+    "text": "Maximization: 2nd PC\n\nLet \\(Y_2=a^T \\mathbf X\\) denote the second PC. It is defined as a linear combination of \\(\\mathbf X\\) such that\n\nIt is uncorrelated to \\(Y_1=\\gamma_1^T \\mathbf X\\), i.e., \\[0=cov(a^T \\mathbf X, \\gamma_1^T \\mathbf X)=a^T \\boldsymbol \\Sigma \\gamma_1\\]\nThe linear coefficients \\(a\\) has norm 1, i.e., \\[1=||a||=||a||^2=a^Ta\\]\nIt reaches the maximum variance among all the linear combinations satisfying the first two conditions"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#identify-the-2nd-pc",
+    "href": "lectures/Lecture10_PCA.html#identify-the-2nd-pc",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Identify the 2nd PC",
+    "text": "Identify the 2nd PC\n\nThe first constraint of \\(a\\) is \\(a^T\\boldsymbol\\Sigma \\gamma_1=0\\).\nRecall that \\(\\gamma_1\\) is an eigenvector of \\(\\boldsymbol \\Sigma\\) with the corresponding eigenvalue \\(\\lambda_1\\), we have \\[\\boldsymbol \\Sigma \\gamma_1=\\lambda_1\\gamma_1\\] Thus the constraint \\(a^T\\boldsymbol\\Sigma \\gamma_1=0\\) implies that \\(a^T\\gamma_1=0\\), which further implies that \\(z_1=0\\). As a result, we have\n\\[Var(a^T \\mathbf X)=\\sum_{i=2}^p \\lambda_i z_i^2\\]"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#identify-the-2nd-pc-1",
+    "href": "lectures/Lecture10_PCA.html#identify-the-2nd-pc-1",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Identify the 2nd PC",
+    "text": "Identify the 2nd PC\n\nThe second constraint of \\(a\\) is \\(a^T a=1\\).\nWith this constraint, we have\n\\[\\begin{aligned}\n1&=a^Ta = a^T\\mathbf I a= a^T\\Gamma \\Gamma^T a\\\\\n&= (z_1, \\cdots, z_p)(z_1, \\cdots, z_p)^T\\\\\n&=\\sum_{i=1}^p  z_i^2=\\sum_{i=2}^p  z_i^2\n\\end{aligned}\n\\]"
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#identify-the-2nd-pc-2",
+    "href": "lectures/Lecture10_PCA.html#identify-the-2nd-pc-2",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Identify the 2nd PC",
+    "text": "Identify the 2nd PC\n\nFrom the previous slide \\[\\begin{aligned}\nVar(a^T \\mathbf X)\n&= \\sum_{i=2}^p \\lambda_i z_i^2\\\\\n&\\le \\sum_{i=2}^p \\lambda_2 z_i^2\\\\\n&= \\lambda_2\n\\end{aligned}\\]\nIt can also be verified that \\(a=\\gamma_2\\) leads to this maximum.\nTherefore, the second PC is \\(Y_2 = \\gamma_2^T \\mathbf X\\)."
+  },
+  {
+    "objectID": "lectures/Lecture10_PCA.html#identify-the-3rd-pc-and-beyond",
+    "href": "lectures/Lecture10_PCA.html#identify-the-3rd-pc-and-beyond",
+    "title": "Lecture 10: PCA - Principle Component Analysis",
+    "section": "Identify the 3rd PC and Beyond",
+    "text": "Identify the 3rd PC and Beyond\n\nFor the rest of the PCs, i.e, 3rd, …, \\(p\\)th, we can use the same idea to identify them one by one."
   },
   {
     "objectID": "lectures/Lecture08_MANOVA.html#introduction-to-manova",
@@ -1019,7 +1089,7 @@
     "href": "lectures/Lecture02_MatrixOperations.html#spectral-decomposition-of-sample-covariance-matrix",
     "title": "Multivariate Analysis Lecture 02: Matrix Operations",
     "section": "Spectral Decomposition of Sample Covariance Matrix",
-    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8763303  0.4817106\n[2,] -0.4817106 -0.8763303\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n          [,1]      [,2]\n[1,] 0.9924972 0.0000000\n[2,] 0.0000000 0.2398384"
+    "text": "Spectral Decomposition of Sample Covariance Matrix\n\nConduct spectral decomposition of \\(cov(X)\\).\n\n\n\nR.obs=eigen(cov(X))$vectors\nprint(R.obs)\n\n           [,1]       [,2]\n[1,] -0.8630037  0.5051976\n[2,] -0.5051976 -0.8630037\n\nLambda.obs=diag(eigen(cov(X))$values)\nprint(Lambda.obs)\n\n         [,1]      [,2]\n[1,] 1.010792 0.0000000\n[2,] 0.000000 0.2379928"
   },
   {
     "objectID": "lectures/Lecture02_MatrixOperations.html#singular-value-decomposition-svd",
@@ -1215,7 +1285,7 @@
     "href": "lectures/Lecture07_Hotelling.html#a-simulation-study-to-understand-the-wishart-distribution",
     "title": "Lecture 7: Hotelling’s T2",
     "section": "A Simulation Study to Understand the Wishart Distribution",
-    "text": "A Simulation Study to Understand the Wishart Distribution\n\nRecall that if \\(W\\sim Wishart_p(k, \\boldsymbol \\Sigma)\\), then \\(E[\\mathbf W]=k\\Sigma\\).\n\n\n\nCode\nlibrary(MASS)\np=2; n=5; B=1000; rho=0.7\nSigma=diag(1+rho, p, p) - matrix(rho, p, p)\nwmat.array=array(0, c(B, p, p)) #wishart-distributed\nfor(b in 1:B){\n  X=mvrnorm(n, rep(0,p), Sigma)\n  wmat.array[b,,]=(n-1)*cov(X)}\napply(wmat.array, c(2,3), mean)\n\n\n          [,1]      [,2]\n[1,]  4.068128 -2.863264\n[2,] -2.863264  4.003323\n\n\nCode\nSigma*(n-1)\n\n\n     [,1] [,2]\n[1,]  4.0 -2.8\n[2,] -2.8  4.0"
+    "text": "A Simulation Study to Understand the Wishart Distribution\n\nRecall that if \\(W\\sim Wishart_p(k, \\boldsymbol \\Sigma)\\), then \\(E[\\mathbf W]=k\\Sigma\\).\n\n\n\nCode\nlibrary(MASS)\np=2; n=5; B=1000; rho=0.7\nSigma=diag(1+rho, p, p) - matrix(rho, p, p)\nwmat.array=array(0, c(B, p, p)) #wishart-distributed\nfor(b in 1:B){\n  X=mvrnorm(n, rep(0,p), Sigma)\n  wmat.array[b,,]=(n-1)*cov(X)}\napply(wmat.array, c(2,3), mean)\n\n\n          [,1]      [,2]\n[1,]  4.033954 -2.728085\n[2,] -2.728085  3.825383\n\n\nCode\nSigma*(n-1)\n\n\n     [,1] [,2]\n[1,]  4.0 -2.8\n[2,] -2.8  4.0"
   },
   {
     "objectID": "lectures/Lecture07_Hotelling.html#definition-of-hotellings-t2",
