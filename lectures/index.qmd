@@ -13,4 +13,4 @@ title: "Lecture Notes"
 - [Lecture 09: Use Simulations To Evaluate Statistical Methods](Lecture09_SimulationStudies.qmd){target="_blank"}
 - [Lecture 10: Principal Component Analysis](Lecture10_PCA.qmd){target="_blank"}
 - [Lecture 11: PCA - Applications](Lecture11_PCA_Applications.qmd){target="_blank"}
-
+- [Lecture 12: Fisher's Linear Discriminant Analysis](Lecture12_FLDA.qmd){target="_blank"}
