@@ -15,3 +15,4 @@ title: "Lecture Notes"
 - [Lecture 11: PCA - Applications](Lecture11_PCA_Applications.qmd){target="_blank"}
 - [Lecture 12: Fisher's Linear Discriminant Analysis](Lecture12_FLDA.qmd){target="_blank"}
 - [Lecture 13: Linear Discriminant Analysis](Lecture13_LDA.qmd){target="_blank"}
+- [Lecture 14: Quadratic Discriminant Analysis and Decision Theory](Lecture14_QDAAndDecision.qmd){target="_blank"}
