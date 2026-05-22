@@ -2,4 +2,6 @@
 title: "Exams"
 ---
 
-- [Midterm Project, Due on Maonday, May 11th](stat240_midterm_project.qmd){target="_blank"}
+- [Midterm Project, Due on Monday, May 11th](stat240_midterm_project.qmd){target="_blank"}
+
+- [Final Project, Wednesday, June 3rd](stat240_final_project.qmd){target="_blank"}
