@@ -17,3 +17,4 @@ title: "Lecture Notes"
 - [Lecture 13: Linear Discriminant Analysis](Lecture13_LDA.qmd){target="_blank"}
 - [Lecture 14: Quadratic Discriminant Analysis and Decision Theory](Lecture14_QDAAndDecision.qmd){target="_blank"}
 - [Lecture 15:Model-Free Cluster Analysis](Lecture15_ModelFreeCluster.qmd){target="_blank"}
+- [Lecture 16: Model-Based Cluster Analysis](Lecture16_ModelBasedCluster.qmd){target="_blank"}
